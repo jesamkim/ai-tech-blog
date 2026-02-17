@@ -1,122 +1,101 @@
 {
-  "post": "content/posts/2026-02-17-팔란티어-온톨로지에서-graphrag까지-엔터프라이즈-지식-그래프와-llm의-결합.md",
-  "timestamp": "2026-02-17T19:40:27.227352",
+  "post": "content/posts/2026-02-17-iot-generative-ai-시계열-foundation-model과-aws-iotbedrock-통합-설비.md",
+  "timestamp": "2026-02-17T21:24:40.120877",
   "total_claims": 2,
-  "verified_claims": 2,
-  "flagged_claims": 0,
-  "dead_links": 0,
-  "dead_links_fixed": 0,
+  "verified_claims": 1,
+  "flagged_claims": 1,
+  "dead_links": 1,
+  "dead_links_fixed": 1,
   "dead_links_unfixed": 0,
-  "link_fixes": [],
+  "link_fixes": [
+    {
+      "dead": "https://aws.amazon.com/blogs/machine-learning/how-swann-uses-amazon-bedrock-to-enhance-their-iot-platform/",
+      "replacement": "https://aws.amazon.com/blogs/machine-learning/swann-provides-generative-ai-to-millions-of-iot-devices-using-amazon-bedrock/",
+      "status": "fixed"
+    }
+  ],
   "claims": [
     {
-      "claim": "com/OpenSPG/KAG)\n\n7. Microsoft GraphRAG — 공식 오픈소스 구현.",
-      "verified": true,
-      "source": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
-      "confidence": 0.6666666666666666,
+      "claim": "논문에 따르면 약 1,000억 개의 실제 시계열 데이터포인트와 합성 데이터를 혼합하여 사전학습했고, Monash Forecasting Archive 등 여러 벤치마크에서 zero-shot 상태로도 supervised 모델에 준하는 성능을 기록했습니다.",
+      "verified": false,
+      "source": null,
+      "confidence": 0.0,
       "type": "numeric",
-      "flagged": false
+      "flagged": true
     },
     {
-      "claim": "이 간극이 바로 2024~2025년에 걸쳐 등장한 일련의 연구들, Microsoft의 GraphRAG, OG-RAG, KAG 등의 출발점입니다.",
+      "claim": "모델 크기가 큰 TimesFM-200M 급은 배치 방식이 비용 효율적입니다.",
       "verified": true,
-      "source": "https://arxiv.org/abs/2511.05991",
+      "source": "https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html",
       "confidence": 0.5,
-      "type": "date",
+      "type": "numeric",
       "flagged": false
     }
   ],
-  "search_results": [],
+  "search_results": [
+    {
+      "claim": "논문에 따르면 약 1,000억 개의 실제 시계열 데이터포인트와 합성 데이터를 혼합하여 사전학습했고, Monash Forecasting Archi",
+      "verified": false,
+      "reason": "Search results confirm zero-shot performance comparable to supervised models on Monash Forecasting Archive and other benchmarks in LLMTime paper, but no mention of pretraining on ~100 billion real+synthetic time series data points.",
+      "confidence": 0.9,
+      "method": "search"
+    }
+  ],
   "urls": [
     {
-      "url": "https://arxiv.org/abs/2511.05991",
+      "url": "https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/2511.05991",
+      "final_url": "https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html",
       "redirected_to_generic": false
     },
     {
-      "url": "https://www.palantir.com/docs/foundry/ontology/overview/",
+      "url": "https://arxiv.org/abs/2406.16964",
       "accessible": true,
       "status": 200,
-      "final_url": "https://www.palantir.com/docs/foundry/ontology/overview",
+      "final_url": "https://arxiv.org/abs/2406.16964",
       "redirected_to_generic": false
     },
     {
-      "url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+      "url": "https://arxiv.org/abs/2403.07815",
       "accessible": true,
       "status": 200,
-      "final_url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+      "final_url": "https://arxiv.org/abs/2403.07815",
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/2306.08302",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/2306.08302",
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/2404.16130",
+      "url": "https://arxiv.org/abs/2310.10688",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/2404.16130",
+      "final_url": "https://arxiv.org/abs/2310.10688",
       "redirected_to_generic": false
     },
     {
-      "url": "https://github.com/microsoft/graphrag",
+      "url": "https://docs.aws.amazon.com/iot-sitewise/latest/userguide/what-is-sitewise.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://github.com/microsoft/graphrag",
+      "final_url": "https://docs.aws.amazon.com/iot-sitewise/latest/userguide/what-is-sitewise.html",
       "redirected_to_generic": false
     },
     {
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "url": "https://github.com/amazon-science/chronos-forecasting",
       "accessible": true,
       "status": 200,
-      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "final_url": "https://github.com/amazon-science/chronos-forecasting",
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/2408.08921",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/2408.08921",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://github.com/OpenSPG/KAG",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://github.com/OpenSPG/KAG",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/2410.05779",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/2410.05779",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/2602.01276",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/2602.01276",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/2409.13731",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/2409.13731",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/2412.15235",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/2412.15235",
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-swann-uses-amazon-bedrock-to-enhance-their-iot-platform/",
+      "accessible": false,
+      "status": 404,
+      "final_url": "https://aws.amazon.com/blogs/machine-learning/how-swann-uses-amazon-bedrock-to-enhance-their-iot-platform/",
       "redirected_to_generic": false
     }
   ]

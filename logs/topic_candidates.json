@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-02-17T21:15:37.602345",
+  "published_count": 8,
+  "trending_count": 20,
+  "candidates": [
+    {
+      "title": "Amazon Bedrock AgentCore와 MCP로 건설 현장 AI 에이전트 구축하기 — BIM 데이터 연동부터 안전 이상 탐지까지",
+      "category": "AWS AI/ML",
+      "reason": "최근 AWS가 Bedrock AgentCore와 MCP(Model Context Protocol) 서버 지원을 본격화하면서 에이전트 아키텍처가 급부상하고 있습니다. 건설 현장의 BIM 데이터, IoT 센서, 안전 카메라 등 다양한 도구를 MCP 서버로 연결하는 실용적 아키텍처를 다루면, Jay의 핵심 고객(삼성물산 건설)과 관심 분야(MCP, 에이전트)가 정확히 교차합니다. 최근 카테고리 분포에서 AWS AI/ML이 2회이지만, 논문 리뷰·심층분석 대비 로테이션이 필요한 MLOps/Physical AI와 함께 균형을 맞출 수 있습니다.",
+      "keywords": [
+        "Bedrock AgentCore",
+        "MCP",
+        "Strands Agents",
+        "건설 AI",
+        "BIM"
+      ],
+      "references": [
+        "https://aws.amazon.com/blogs/machine-learning/build-long-running-mcp-servers-on-amazon-bedrock-agentcore-with-strands-agents-integration/",
+        "https://aws.amazon.com/blogs/machine-learning/customize-ai-agent-browsing-with-proxies-profiles-and-extensions-in-amazon-bedrock-agentcore-browser/",
+        "https://spec.modelcontextprotocol.io/"
+      ]
+    },
+    {
+      "title": "NVIDIA Nemotron NaNo MoE부터 On-Device LLM까지 — 엣지 AI 모델 경량화의 최전선과 AWS 배포 전략",
+      "category": "AI/ML 기술 심층분석",
+      "reason": "지난 프루닝 포스트의 자연스러운 시리즈 후속편으로, MoE(Mixture of Experts) 아키텍처와 양자화·증류를 결합한 최신 경량화 트렌드를 다룹니다. NVIDIA Nemotron 3 Nano 30B MoE가 SageMaker JumpStart에 출시된 시점과 맞물려 시의성이 높고, 건설 현장 엣지 디바이스나 에버랜드 설비 모니터링 등 온프레미스/엣지 추론이 필요한 삼성물산 시나리오에 직접 연결됩니다.",
+      "keywords": [
+        "MoE",
+        "모델 경량화",
+        "양자화",
+        "엣지 AI",
+        "SageMaker JumpStart"
+      ],
+      "references": [
+        "https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-30b-moe-model-is-now-available-in-amazon-sagemaker-jumpstart/",
+        "https://arxiv.org/abs/2401.04088",
+        "https://arxiv.org/abs/2306.11644"
+      ]
+    },
+    {
+      "title": "IoT × Generative AI: 설비 예방정비를 위한 시계열 Foundation Model과 AWS IoT + Bedrock 통합 아키텍처",
+      "category": "Physical AI",
+      "reason": "Physical AI 카테고리가 최근 5개 포스트에 포함되지 않아 로테이션 우선순위가 높습니다. Swann의 IoT+Bedrock 사례와 Amazon의 신규 풀필먼트 센터 자동화 사례가 동시에 나온 시점에서, 에버랜드 어트랙션 설비 예방정비(Predictive Maintenance)와 건설 현장 중장비 모니터링에 직접 적용 가능한 시계열 Foundation Model(TimesFM, Chronos 등)과 AWS IoT SiteWise/Greengrass → Bedrock 에이전트 파이프라인을 실용적으로 다룰 수 있습니다.",
+      "keywords": [
+        "Predictive Maintenance",
+        "시계열 Foundation Model",
+        "AWS IoT",
+        "Chronos",
+        "디지털 트윈"
+      ],
+      "references": [
+        "https://aws.amazon.com/blogs/machine-learning/swann-provides-generative-ai-to-millions-of-iot-devices-using-amazon-bedrock/",
+        "https://aws.amazon.com/blogs/machine-learning/how-amazon-uses-amazon-nova-models-to-automate-operational-readiness-testing-for-new-fulfillment-centers/",
+        "https://arxiv.org/abs/2310.10688",
+        "https://arxiv.org/abs/2403.07815"
+      ]
+    }
+  ]
+}
