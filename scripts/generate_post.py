@@ -266,11 +266,11 @@ def generate_post(topic: str, sources: list = None, config: dict = None) -> Path
                 prev_summary += lines[0] + "\n" + (lines[1] if len(lines) > 1 else "") + "\n\n"
 
         sec_prompt = prompt_section(topic, sec["title"], sec["points"], prev_summary, config)
-        sec_text = call_bedrock(sec_prompt, config, max_tokens=1500)
+        sec_text = call_bedrock(sec_prompt, config, max_tokens=2500)
         # 잘림 감지 → 재생성
         if check_truncation(sec_text, sections[i]):
             logger.warning("섹션 잘림 → 재생성")
-            sec_text = call_bedrock(prompt_section(topic, sections[i], outline), config, max_tokens=2000)
+            sec_text = call_bedrock(prompt_section(topic, sections[i], outline), config, max_tokens=3000)
         generated_sections.append(sec_text)
         logger.info("  → %d자 생성", len(sec_text))
 
