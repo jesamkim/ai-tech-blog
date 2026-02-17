@@ -185,4 +185,5 @@ def call_claude_vision(b64_image, model_id="anthropic.claude-sonnet-4-5-20250514
 10. **Nougat: Neural Optical Understanding for Academic Documents (Meta AI, 2023)** — 학술 PDF 문서를 Markdown으로 직접 변환하는 Vision Transformer 기반 end-to-end 모델. 비정형 문서의 구조적 마크다운 변환 접근법의 핵심 선행 연구.
     https://arxiv.org/abs/2308.13418
 
-11. **LayoutLMv3: Pre-training for Document AI
+11. **LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking (Microsoft, 2022)** — 문서의 텍스트, 레이아웃, 이미지를 통합 학습하는 사전훈련 모델. 문서 AI 분야의 멀티모달 표현 학습 기반 연구.
+    https://arxiv.org/abs/2204.08387
