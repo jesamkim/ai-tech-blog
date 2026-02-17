@@ -179,6 +179,26 @@ def prompt_references(topic: str, sources: list) -> str:
 - 실제로 존재하는 URL만 사용. 추측으로 URL을 만들지 말 것"""
 
 
+# ── 잘림 감지 ────────────────────────────────────────────────
+
+def check_truncation(text: str, section_name: str) -> bool:
+    """텍스트가 중간에 잘렸는지 감지"""
+    stripped = text.rstrip()
+    # 불완전한 마크다운 링크, 괄호, 문장
+    truncation_signs = [
+        stripped.endswith("("),
+        stripped.endswith("["),
+        stripped.endswith("]("),
+        stripped.count("(") > stripped.count(")"),
+        stripped.count("[") > stripped.count("]"),
+        not stripped.endswith((".",")","]","!","?","```","-",">")),
+    ]
+    if any(truncation_signs[:5]):  # 확실한 잘림 징후
+        logger.warning("⚠️ %s 잘림 감지! 마지막: ...%s", section_name, stripped[-50:])
+        return True
+    return False
+
+
 # ── 아웃라인 파싱 ────────────────────────────────────────────
 
 def parse_outline(outline_text: str) -> tuple:
@@ -247,12 +267,23 @@ def generate_post(topic: str, sources: list = None, config: dict = None) -> Path
 
         sec_prompt = prompt_section(topic, sec["title"], sec["points"], prev_summary, config)
         sec_text = call_bedrock(sec_prompt, config, max_tokens=1500)
+        # 잘림 감지 → 재생성
+        if check_truncation(sec_text, sections[i]):
+            logger.warning("섹션 잘림 → 재생성")
+            sec_text = call_bedrock(prompt_section(topic, sections[i], outline), config, max_tokens=2000)
         generated_sections.append(sec_text)
         logger.info("  → %d자 생성", len(sec_text))
 
     # Step 3: References
     logger.info("Step %d/%d: References", len(sections) + 2, len(sections) + 2)
-    ref_text = call_bedrock(prompt_references(topic, sources), config, max_tokens=512)
+    ref_text = call_bedrock(prompt_references(topic, sources), config, max_tokens=1024)
+    # 잘림 감지 → 재생성 (최대 2회)
+    for retry in range(2):
+        if check_truncation(ref_text, "References"):
+            logger.warning("References 잘림 → 재생성 (retry %d)", retry + 1)
+            ref_text = call_bedrock(prompt_references(topic, sources), config, max_tokens=1500)
+        else:
+            break
 
     # Step 4: Humanize (섹션별 교정)
     humanized_sections = []
