@@ -15,7 +15,7 @@ from xml.etree import ElementTree as ET
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SCRIPTS_DIR = BASE_DIR / "scripts"
-HUGO_DIR = BASE_DIR / "hugo-site"
+HUGO_DIR = BASE_DIR
 
 logging.basicConfig(
     level=logging.INFO,
