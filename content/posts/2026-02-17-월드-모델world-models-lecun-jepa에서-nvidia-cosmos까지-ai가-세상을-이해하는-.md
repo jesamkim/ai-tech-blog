@@ -28,26 +28,9 @@ TocOpen: true
 월드 모델(World Model)이란 환경의 내부 표상(Internal Representation)을 학습해서, 주어진 행동(action)에 대한 미래 상태(future state)를 예측하고 시뮬레이션하는 모델이다. 핵심 아이디어는 단순하다. AI가 머릿속에 "세상의 축소판"을 만들고, 그 안에서 미리 시뮬레이션한 뒤 행동을 결정하는 것이다.
 
 ![다이어그램 1](/ai-tech-blog/images/posts/2026-02-17/diagram-1.png)
-
-<details><summary>Mermaid 소스</summary>
-
-```mermaid
-graph LR
-    A["현재 상태<br/>(State sₜ)"] --> B["월드 모델<br/>(World Model)"]
-    C["행동<br/>(Action aₜ)"] --> B
-    B --> D["예측된 미래 상태<br/>(Predicted State ŝₜ₊₁)"]
-    B --> E["예측된 보상<br/>(Predicted Reward r̂ₜ)"]
-    
-    style B fill:#4A90D9,stroke:#2C5F8A,color:#fff,stroke-width:2px
-    style D fill:#7BC47F,stroke:#4A8B4F,color:#fff
-    style E fill:#7BC47F,stroke:#4A8B4F,color:#fff
-```
-
-</details>
-
 ### LLM과의 결정적 차이
 
-LLM(Large Language Model)은 본질적으로 언어 세계의 모델이다. 토큰 시퀀스의 통계적 패턴을 학습한다. 반면 월드 모델은 물리 세계의 **인과 관계(causality)**와 **역학(dynamics)**을 모델링한다.
+LLM(Large Language Model)은 본질적으로 언어 세계의 모델이다. 토큰 시퀀스의 통계적 패턴을 학습한다. 반면 월드 모델은 물리 세계의 인과 관계(causality)와 역학(dynamics)을 모델링한다.
 
 | 구분 | LLM | 월드 모델(World Model) |
 |------|-----|----------------------|
@@ -90,26 +73,7 @@ Yann LeCun이 "AI의 다음 도약"이라 부르고, NVIDIA가 Cosmos라는 플�
 JEPA는 이 직관을 그대로 구현합니다. 입력을 인코더(Encoder)로 추상 표현 공간(Latent Space)에 매핑한 뒤, 그 표현 공간 안에서 예측을 수행합니다.
 
 ![다이어그램 2](/ai-tech-blog/images/posts/2026-02-17/diagram-2.png)
-
-<details><summary>Mermaid 소스</summary>
-
-```mermaid
-graph LR
-    X["입력 x<br/>(관찰된 영역)"] --> EX["x-Encoder"]
-    Y["타겟 y<br/>(예측할 영역)"] --> EY["y-Encoder"]
-    EX --> SX["표현 s_x"]
-    EY --> SY["표현 s_y"]
-    SX --> P["Predictor"]
-    P --> SY_HAT["예측 표현 ŝ_y"]
-    SY_HAT -. "손실: 표현 간 거리 최소화" .-> SY
-
-    style P fill:#ff9,stroke:#333
-    style SY_HAT fill:#ff9,stroke:#333
-```
-
-</details>
-
-여기서 결정적인 차이는 **디코더가 없다**는 점입니다. 픽셀로 되돌릴 필요 없이, 표현 간의 일관성(consistency)만 학습합니다. 덕분에 모델은 "무엇이 의미적으로 중요한가"를 스스로 판별하게 됩니다.
+여기서 결정적인 차이는 디코더가 없다는 점입니다. 픽셀로 되돌릴 필요 없이, 표현 간의 일관성(consistency)만 학습합니다. 덕분에 모델은 "무엇이 의미적으로 중요한가"를 스스로 판별하게 됩니다.
 
 ### 생성 모델과의 결정적 차이
 
@@ -150,24 +114,6 @@ for video_batch in dataloader:
 Sora만이 아니다. Google DeepMind의 Genie는 단일 이미지로부터 인터랙티브하게 조작 가능한 2D 환경을 생성한다. 액션 레이블 없이도 잠재 액션 공간(Latent Action Space)을 스스로 학습한다는 점이 흥미롭다. UniSim은 여기서 한 걸음 더 나아간다. 텍스트, 액션, 카메라 움직임 등 다양한 입력을 받아 시뮬레이션 결과를 생성하는 범용 시뮬레이터(Universal Simulator)를 목표로 한다.
 
 ![다이어그램 3](/ai-tech-blog/images/posts/2026-02-17/diagram-3.png)
-
-<details><summary>Mermaid 소스</summary>
-
-```mermaid
-graph LR
-    A["텍스트 / 이미지 / 액션"] --> B["비디오 생성 모델"]
-    B --> C["Sora: 텍스트→영상 생성"]
-    B --> D["Genie: 이미지→인터랙티브 환경"]
-    B --> E["UniSim: 멀티모달→시뮬레이션"]
-
-    style B fill:#1e3a5f,stroke:#4a90d9,color:#fff
-    style C fill:#2d2d2d,stroke:#4a90d9,color:#fff
-    style D fill:#2d2d2d,stroke:#4a90d9,color:#fff
-    style E fill:#2d2d2d,stroke:#4a90d9,color:#fff
-```
-
-</details>
-
 ### 진정한 월드 모델과의 간극
 
 비판은 명확하다. 이 모델들은 픽셀 수준의 통계적 패턴을 학습할 뿐, 내부에 물리 법칙의 명시적 표현(Explicit Representation)을 갖고 있지 않다.
@@ -190,32 +136,11 @@ graph LR
 Cosmos는 크게 세 계층으로 구성됩니다.
 
 ![다이어그램 4](/ai-tech-blog/images/posts/2026-02-17/diagram-4.png)
-
-<details><summary>Mermaid 소스</summary>
-
-```mermaid
-graph TD
-    A["🎥 비디오/센서 입력"] --> B["Cosmos Tokenizer<br/>(연속·이산 토큰화)"]
-    B --> C{"월드 생성 모델"}
-    C -->|경로 1| D["Diffusion 기반 모델<br/>(Cosmos-Diffusion)"]
-    C -->|경로 2| E["Autoregressive 기반 모델<br/>(Cosmos-Autoregressive)"]
-    D --> F["Cosmos Guardrail<br/>(안전성 필터링)"]
-    E --> F
-    F --> G["🌍 물리 기반 시뮬레이션 출력"]
-
-    style B fill:#76b947,color:#fff
-    style D fill:#4a90d9,color:#fff
-    style E fill:#d94a7a,color:#fff
-    style F fill:#e8a838,color:#fff
-```
-
-</details>
-
-**Cosmos Tokenizer**는 비디오를 시공간(spatial-temporal) 토큰으로 압축합니다. 연속(continuous) 토큰과 이산(discrete) 토큰을 모두 지원하기 때문에, 후속 모델이 Diffusion이든 Autoregressive든 유연하게 연결할 수 있습니다. NVIDIA에 따르면 기존 대비 8배 이상의 압축률을 달성하면서도 재구성 품질을 유지한다고 합니다.
+Cosmos Tokenizer는 비디오를 시공간(spatial-temporal) 토큰으로 압축합니다. 연속(continuous) 토큰과 이산(discrete) 토큰을 모두 지원하기 때문에, 후속 모델이 Diffusion이든 Autoregressive든 유연하게 연결할 수 있습니다. NVIDIA에 따르면 기존 대비 8배 이상의 압축률을 달성하면서도 재구성 품질을 유지한다고 합니다.
 
 월드 생성 모델은 두 가지 패러다임을 병렬로 제공합니다.
-- **Cosmos-Diffusion**: 연속 토큰 위에서 노이즈 제거 과정을 거쳐 미래 프레임을 생성합니다. 물리적으로 그럴듯한(physically plausible) 장면을 만들어내는 데 강점이 있습니다.
-- **Cosmos-Autoregressive**: 이산 토큰을 순차적으로 예측하는 GPT 스타일 접근입니다. 긴 시퀀스에서 일관성을 유지하는 데 유리합니다.
+- Cosmos-Diffusion: 연속 토큰 위에서 노이즈 제거 과정을 거쳐 미래 프레임을 생성합니다. 물리적으로 그럴듯한(physically plausible) 장면을 만들어내는 데 강점이 있습니다.
+- Cosmos-Autoregressive: 이산 토큰을 순차적으로 예측하는 GPT 스타일 접근입니다. 긴 시퀀스에서 일관성을 유지하는 데 유리합니다.
 
 Cosmos Guardrail은 생성된 시뮬레이션이 안전 기준을 충족하는지 사전·사후로 필터링합니다. 산업 환경에서 실제 배포를 염두에 둔 설계입니다.
 
