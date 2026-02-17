@@ -1,148 +1,108 @@
 {
-  "post": "/Workshop/yan/260217-ai-tech-blog/hugo-site/content/posts/2026-02-17-amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-콜드스.md",
-  "timestamp": "2026-02-17T15:47:16.222781",
-  "total_claims": 5,
-  "verified_claims": 3,
-  "flagged_claims": 2,
-  "dead_links": 0,
-  "dead_links_fixed": 0,
+  "post": "content/posts/2026-02-17-amazon-bedrock-기반-비정형-문서-파싱-pdf-텍스트-추출-bedrock-data-automati.md",
+  "timestamp": "2026-02-17T18:35:01.967696",
+  "total_claims": 1,
+  "verified_claims": 1,
+  "flagged_claims": 0,
+  "dead_links": 1,
+  "dead_links_fixed": 1,
   "dead_links_unfixed": 0,
-  "link_fixes": [],
+  "link_fixes": [
+    {
+      "dead": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-data-automation-now-available-in-preview/",
+      "replacement": "https://aws.amazon.com/bedrock/bda/",
+      "status": "fixed"
+    }
+  ],
   "claims": [
     {
-      "claim": "[DIAGRAM: Personalize(행동 기반) + OpenSearch(콘텐츠 기반) 후보를 LLM이 융합·재랭킹하여 최종 추천과 설명을 생성하는 파이프라인 개요]\n\n실제로 이 세 축이 맞물리면 단일 모델 대비 콜드스타트 구간 CTR이 30~40% 이상 개선되는 사례를 어렵지 않게 확인할 수 있습니다.",
+      "claim": "dumps({\n        \"anthropic_version\": \"bedrock-2023-05-31\",\n        \"max_tokens\": 4096,\n        \"messages\": [{\"role\": \"user\", \"content\": [\n            {\"type\": \"image\", \"source\": {\"type\": \"base64\", \"media_type\": \"image/png\", \"data\": b64_image}},\n            {\"type\": \"text\", \"text\": prompt}\n        ]}]\n    })\n    resp = client.",
       "verified": true,
-      "source": "https://docs.aws.amazon.com/personalize/latest/dg/what-is-personalize.html",
-      "confidence": 0.5,
-      "type": "numeric",
-      "flagged": false
-    },
-    {
-      "claim": "#          비슷한 취향의 사용자 85%가 높은 만족도를 보인 작품이기도 합니다.",
-      "verified": false,
       "source": null,
-      "confidence": 0.0,
-      "type": "numeric",
-      "ai_verdict": "uncertain",
-      "ai_issue": "구체적인 출처나 데이터셋 없이 '85%'라는 수치를 제시하고 있어 검증 불가. 추천 시스템 설명의 예시 문구로 보이며, 특정 연구나 서비스에 근거한 수치인지 확인할 수 없음.",
-      "flagged": true
-    },
-    {
-      "claim": "실제로 써보면 캐시 적중률이 60~70% 정도 나오는데, 비용 절감 효과가 꽤 큽니다.",
-      "verified": false,
-      "source": null,
-      "confidence": 0.0,
-      "type": "numeric",
-      "ai_verdict": "uncertain",
-      "ai_issue": "시맨틱 캐싱 등 LLM 캐시의 적중률은 사용 패턴, 쿼리 다양성, 캐시 전략에 따라 크게 달라짐. 60~70%는 특정 조건(반복 쿼리가 많은 환경)에서는 가능하나, 일반적 수치로 단정하기 어려움. 출처가 명시되지 않아 검증 불가.",
-      "flagged": true
-    },
-    {
-      "claim": "AWS Blog — \"NVIDIA Nemotron 3 Nano 30B MoE model is now available in Amazon SageMaker JumpStart\"\n   [https://aws.",
-      "verified": true,
-      "source": "https://aws.amazon.com/blogs/machine-learning/build-long-running-mcp-servers-on-amazon-bedrock-agentcore-with-strands-agents-integration/",
       "confidence": 1.0,
-      "type": "numeric",
-      "verification_method": "web_search",
-      "flagged": false
-    },
-    {
-      "claim": "dumps({\n            \"anthropic_version\": \"bedrock-2023-05-31\",\n            \"max_tokens\": 200,\n            \"messages\": [{\"role\": \"user\", \"content\": prompt}]\n        })\n    )\n    result = json.",
-      "verified": true,
-      "source": null,
-      "confidence": 0.7,
       "type": "date",
-      "ai_verdict": "correct",
-      "ai_issue": null,
-      "verification_method": "ai_judge",
+      "verification_method": "web_search",
       "flagged": false
     }
   ],
   "search_results": [
     {
-      "claim": "#          비슷한 취향의 사용자 85%가 높은 만족도를 보인 작품이기도 합니다.",
-      "verified": false,
-      "reason": "The search results do not contain any specific statistic stating that 85% of users with similar tastes showed high satisfaction with a particular work. While the search results discuss recommendation systems, user satisfaction, and collaborative filtering techniques extensively, they do not provide this exact quantitative claim or support it with evidence.",
-      "confidence": 0.95,
-      "method": "search"
-    },
-    {
-      "claim": "실제로 써보면 캐시 적중률이 60~70% 정도 나오는데, 비용 절감 효과가 꽤 큽니다.",
-      "verified": null,
-      "reason": "The search results do not contain specific empirical data about actual cache hit rates being 60-70% in practice or quantified cost savings at those rates. While the sources discuss cache hit ratios theoretically and mention that hit rates vary by system design and conditions, they do not provide evidence to support or refute this specific claim about real-world performance and cost benefits.",
-      "confidence": 0.3,
-      "method": "search"
-    },
-    {
-      "claim": "AWS Blog — \"NVIDIA Nemotron 3 Nano 30B MoE model is now available in Amazon Sage",
+      "claim": "dumps({\n        \"anthropic_version\": \"bedrock-2023-05-31\",\n        \"max_tokens\":",
       "verified": true,
-      "reason": "Multiple AWS official blog posts dated 11 FEB 2026 confirm the NVIDIA Nemotron 3 Nano 30B MoE model is now available in Amazon SageMaker JumpStart, matching the claim exactly.[1][2][3][4]",
+      "reason": "The JSON structure matches the Anthropic Claude Messages API format for Amazon Bedrock, including anthropic_version, max_tokens, messages array with user role, and content blocks for base64 image (png) and text, as shown in AWS Bedrock documentation[2].",
       "confidence": 1.0,
-      "method": "search"
-    },
-    {
-      "claim": "dumps({\n            \"anthropic_version\": \"bedrock-2023-05-31\",\n            \"max_",
-      "verified": null,
-      "reason": "The query appears to be an incomplete code snippet rather than a verifiable factual claim. It shows partial Python code for constructing a JSON payload for AWS Bedrock's Anthropic API, but lacks context about what specific assertion to verify. The visible portion (anthropic_version, max_tokens, messages structure) is consistent with Bedrock's Anthropic Claude Messages API documentation[1][2], but without a complete, coherent claim statement, verification is not possible.",
-      "confidence": 0.0,
       "method": "search"
     }
   ],
   "urls": [
     {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-long-running-mcp-servers-on-amazon-bedrock-agentcore-with-strands-agents-integration/",
+      "url": "https://docs.aws.amazon.com/textract/",
       "accessible": true,
       "status": 200,
-      "final_url": "https://aws.amazon.com/blogs/machine-learning/build-long-running-mcp-servers-on-amazon-bedrock-agentcore-with-strands-agents-integration/",
+      "final_url": "https://docs.aws.amazon.com/textract/",
       "redirected_to_generic": false
     },
     {
-      "url": "https://docs.aws.amazon.com/personalize/latest/dg/what-is-personalize.html",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://docs.aws.amazon.com/personalize/latest/dg/what-is-personalize.html",
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html",
       "redirected_to_generic": false
     },
     {
-      "url": "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html",
+      "url": "https://pymupdf.readthedocs.io/en/latest/",
       "accessible": true,
       "status": 200,
-      "final_url": "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html",
+      "final_url": "https://pymupdf.readthedocs.io/en/latest/",
       "redirected_to_generic": false
     },
     {
-      "url": "https://aws.amazon.com/blogs/machine-learning/ai-meets-hr-transforming-talent-acquisition-with-amazon-bedrock/",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/vision",
       "accessible": true,
       "status": 200,
-      "final_url": "https://aws.amazon.com/blogs/machine-learning/ai-meets-hr-transforming-talent-acquisition-with-amazon-bedrock/",
+      "final_url": "https://platform.claude.com/docs/en/build-with-claude/vision",
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/1808.09781",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/1808.09781",
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html",
       "redirected_to_generic": false
     },
     {
-      "url": "https://aws.amazon.com/blogs/machine-learning/mastering-amazon-bedrock-throttling-and-service-availability-a-comprehensive-guide/",
+      "url": "https://arxiv.org/abs/2308.13418",
       "accessible": true,
       "status": 200,
-      "final_url": "https://aws.amazon.com/blogs/machine-learning/mastering-amazon-bedrock-throttling-and-service-availability-a-comprehensive-guide/",
+      "final_url": "https://arxiv.org/abs/2308.13418",
       "redirected_to_generic": false
     },
     {
-      "url": "https://aws.amazon.com/blogs/machine-learning/customize-ai-agent-browsing-with-proxies-profiles-and-extensions-in-amazon-bedrock-agentcore-browser/",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://aws.amazon.com/blogs/machine-learning/customize-ai-agent-browsing-with-proxies-profiles-and-extensions-in-amazon-bedrock-agentcore-browser/",
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html",
       "redirected_to_generic": false
     },
     {
-      "url": "https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-30b-is-now-available-in-amazon-sagemaker-jumpstart/",
+      "url": "https://github.com/jsvine/pdfplumber",
       "accessible": true,
       "status": 200,
-      "final_url": "https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-30b-is-now-available-in-amazon-sagemaker-jumpstart/",
+      "final_url": "https://github.com/jsvine/pdfplumber",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-data-automation-now-available-in-preview/",
+      "accessible": false,
+      "status": 404,
+      "final_url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-data-automation-now-available-in-preview/",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock/",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock/",
       "redirected_to_generic": false
     }
   ]
