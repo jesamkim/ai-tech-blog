@@ -174,7 +174,7 @@ def call_claude_vision(b64_image, model_id="anthropic.claude-sonnet-4-5-20250514
    https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html
 
 7. **AWS Blog — Amazon Bedrock Data Automation 소개** — BDA를 활용한 비정형 문서(PDF, 이미지, 오디오, 비디오) 처리 자동화의 아키텍처 및 실전 적용 사례.
-   https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-data-automation-now-available-in-preview/
+   https://aws.amazon.com/bedrock/bda/
 
 8. **PyMuPDF(fitz) 공식 문서** — Python 기반 PDF 파싱 라이브러리로, 텍스트 블록 좌표 추출, 페이지 렌더링(이미지 변환) 및 메타데이터 접근 API 레퍼런스.
    https://pymupdf.readthedocs.io/en/latest/
