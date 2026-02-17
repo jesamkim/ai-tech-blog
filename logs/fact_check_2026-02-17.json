@@ -1,117 +1,122 @@
 {
-  "post": "content/posts/2026-02-17-건설-도메인에서의-강화학습-활용-빌딩-hvac-에너지-최적화를-중심으로-5편-논문-리뷰.md",
-  "timestamp": "2026-02-17T19:10:02.166356",
-  "total_claims": 1,
-  "verified_claims": 0,
-  "flagged_claims": 1,
-  "dead_links": 4,
-  "dead_links_fixed": 1,
-  "dead_links_unfixed": 3,
-  "link_fixes": [
-    {
-      "dead": "https://dl.acm.org/doi/10.1145/3671127.3698178",
-      "replacement": null,
-      "status": "unfixed"
-    },
-    {
-      "dead": "https://www.sciencedirect.com/science/article/pii/S0378778819313313",
-      "replacement": "https://doi.org/10.1016/j.enbuild.2019.07.029",
-      "status": "fixed"
-    },
-    {
-      "dead": "https://www.sciencedirect.com/science/article/pii/S0378778825001300",
-      "replacement": null,
-      "status": "unfixed"
-    },
-    {
-      "dead": "https://www.sciencedirect.com/science/article/pii/S2352710224000822",
-      "replacement": null,
-      "status": "unfixed"
-    }
-  ],
+  "post": "content/posts/2026-02-17-팔란티어-온톨로지에서-graphrag까지-엔터프라이즈-지식-그래프와-llm의-결합.md",
+  "timestamp": "2026-02-17T19:40:27.227352",
+  "total_claims": 2,
+  "verified_claims": 2,
+  "flagged_claims": 0,
+  "dead_links": 0,
+  "dead_links_fixed": 0,
+  "dead_links_unfixed": 0,
+  "link_fixes": [],
   "claims": [
     {
-      "claim": "개인적으로 이 논문에서 가장 인상적이었던 부분은, 시뮬레이션 성능만으로 RL의 우위를 판단하는 것이 얼마나 위험한지를 실제 필드 데이터로 보여줬다는 점입니다.",
-      "verified": false,
-      "source": null,
-      "confidence": 0.0,
-      "type": "research_claim",
-      "ai_verdict": "uncertain",
-      "ai_issue": "특정 논문이 명시되지 않아 사실 여부를 검증할 수 없음. 다만 시뮬레이션 성능과 실제 필드 성능 간의 괴리(sim-to-real gap)가 RL 연구에서 잘 알려진 문제이며, 이를 실제 필드 데이터로 보여준 논문들이 존재하므로 기술적 맥락 자체는 타당하나, 구체적 논문을 특정할 수 없어 정확성 판단 불가",
-      "flagged": true
-    }
-  ],
-  "search_results": [
+      "claim": "com/OpenSPG/KAG)\n\n7. Microsoft GraphRAG — 공식 오픈소스 구현.",
+      "verified": true,
+      "source": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+      "confidence": 0.6666666666666666,
+      "type": "numeric",
+      "flagged": false
+    },
     {
-      "claim": "개인적으로 이 논문에서 가장 인상적이었던 부분은, 시뮬레이션 성능만으로 RL의 우위를 판단하는 것이 얼마나 위험한지를 실제 필드 데이터로 보여줬",
-      "verified": null,
-      "reason": "The search results do not contain the specific paper or claim referenced. While the results extensively discuss simulation vs. real-world performance gaps in reinforcement learning (Sim2Real problems, simulation environment limitations, and the dangers of relying solely on simulation metrics), they do not include the particular paper or its findings that this claim references. Without access to the actual paper being cited, the claim cannot be verified against its contents.",
-      "confidence": 0.1,
-      "method": "search"
+      "claim": "이 간극이 바로 2024~2025년에 걸쳐 등장한 일련의 연구들, Microsoft의 GraphRAG, OG-RAG, KAG 등의 출발점입니다.",
+      "verified": true,
+      "source": "https://arxiv.org/abs/2511.05991",
+      "confidence": 0.5,
+      "type": "date",
+      "flagged": false
     }
   ],
+  "search_results": [],
   "urls": [
     {
-      "url": "https://arxiv.org/abs/2503.05022",
+      "url": "https://arxiv.org/abs/2511.05991",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/2503.05022",
+      "final_url": "https://arxiv.org/abs/2511.05991",
       "redirected_to_generic": false
     },
     {
-      "url": "https://dl.acm.org/doi/10.1145/3671127.3698178",
-      "accessible": false,
-      "status": 403,
-      "final_url": "https://dl.acm.org/doi/10.1145/3671127.3698178",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://www.sciencedirect.com/science/article/pii/S0378778819313313",
-      "accessible": false,
-      "status": 403,
-      "final_url": "https://www.sciencedirect.com/science/article/pii/S0378778819313313",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/reinforcement-learning.html",
+      "url": "https://www.palantir.com/docs/foundry/ontology/overview/",
       "accessible": true,
       "status": 200,
-      "final_url": "https://docs.aws.amazon.com/sagemaker/latest/dg/reinforcement-learning.html",
+      "final_url": "https://www.palantir.com/docs/foundry/ontology/overview",
       "redirected_to_generic": false
     },
     {
-      "url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
       "accessible": true,
       "status": 200,
-      "final_url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "final_url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
       "redirected_to_generic": false
     },
     {
-      "url": "https://www.sciencedirect.com/science/article/pii/S0378778825001300",
-      "accessible": false,
-      "status": 403,
-      "final_url": "https://www.sciencedirect.com/science/article/pii/S0378778825001300",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/2407.12195",
+      "url": "https://arxiv.org/abs/2306.08302",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/2407.12195",
+      "final_url": "https://arxiv.org/abs/2306.08302",
       "redirected_to_generic": false
     },
     {
-      "url": "https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html",
+      "url": "https://arxiv.org/abs/2404.16130",
       "accessible": true,
       "status": 200,
-      "final_url": "https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html",
+      "final_url": "https://arxiv.org/abs/2404.16130",
       "redirected_to_generic": false
     },
     {
-      "url": "https://www.sciencedirect.com/science/article/pii/S2352710224000822",
-      "accessible": false,
-      "status": 403,
-      "final_url": "https://www.sciencedirect.com/science/article/pii/S2352710224000822",
+      "url": "https://github.com/microsoft/graphrag",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://github.com/microsoft/graphrag",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.08921",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2408.08921",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://github.com/OpenSPG/KAG",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://github.com/OpenSPG/KAG",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.05779",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2410.05779",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.01276",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2602.01276",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.13731",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2409.13731",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.15235",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2412.15235",
       "redirected_to_generic": false
     }
   ]
