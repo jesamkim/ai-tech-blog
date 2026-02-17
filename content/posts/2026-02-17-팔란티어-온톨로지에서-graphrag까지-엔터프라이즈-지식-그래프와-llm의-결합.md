@@ -3,7 +3,7 @@ title: "팔란티어 온톨로지에서 GraphRAG까지: 엔터프라이즈 지�
 date: 2026-02-17T19:34:32+09:00
 draft: false
 author: "Jesam Kim"
-description: "Palantir Ontology의 핵심 개념을 출발점으로, GraphRAG·OG-RAG·KAG 등 최신 논문 5편을 비교 분석하며 엔터프라이즈 지식 그래프와 LLM 결합의 현재와 구현 방향을 정리한다."
+description: "Palantir Ontology의 핵심 개념을 출발점으로, GraphRAG·OG-RAG·KAG 등 최신 논문 5편을 비교 분석하며 엔터프라이즈 지식 그래프와 LLM 결합의 현재와 구현 방향을 정리합니다."
 categories:
   - "논문 리뷰"
 tags:
