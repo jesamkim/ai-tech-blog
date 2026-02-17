@@ -166,7 +166,17 @@ def prompt_references(topic: str, sources: list) -> str:
 - 번호 매기기
 - URL 포함
 - 추가로 관련된 중요 논문/자료가 있으면 2~3개 추가
-- 한국어로 작성"""
+- 한국어로 작성
+
+## URL 규칙 (반드시 준수)
+- AWS 서비스 링크는 docs.aws.amazon.com 공식 문서를 우선 사용 (영문판 고정, 로케일 리다이렉트 방지)
+- aws.amazon.com/서비스명/ 형태는 서비스 종료 시 리다이렉트될 수 있으므로 피할 것
+- 레퍼런스 설명과 실제 URL 종류가 일치해야 함 (예: "공식 문서"라고 쓰면서 블로그 링크를 달지 말 것)
+  - docs.aws.amazon.com → "공식 문서"
+  - aws.amazon.com/blogs/ → "AWS Blog"
+  - arxiv.org → "논문"
+  - github.com → "GitHub"
+- 실제로 존재하는 URL만 사용. 추측으로 URL을 만들지 말 것"""
 
 
 # ── 아웃라인 파싱 ────────────────────────────────────────────
