@@ -1,9 +1,9 @@
 {
   "post": "content/posts/2026-02-17-optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화.md",
-  "timestamp": "2026-02-17T15:06:48.006050",
-  "total_claims": 5,
-  "verified_claims": 4,
-  "flagged_claims": 1,
+  "timestamp": "2026-02-17T15:21:46.093926",
+  "total_claims": 7,
+  "verified_claims": 7,
+  "flagged_claims": 0,
   "dead_links": 1,
   "dead_links_fixed": 1,
   "dead_links_unfixed": 0,
@@ -16,7 +16,7 @@
   ],
   "claims": [
     {
-      "claim": "## 왜 프루닝인가 — 모델 압축의 필요성과 프루닝의 위치\n\nGPT-3의 175B 파라미터가 화제가 된 지 불과 몇 년, 이제 LLaMA 65B조차 \"작은 모델\"로 불리는 시대입니다.",
+      "claim": "## 왜 프루닝인가 — 모델 압축의 필요성과 프루닝의 위치\n\nGPT-3의 175B 파라미터가 세상을 놀라게 한 것이 불과 몇 년 전인데, 이제는 LLaMA 70B를 \"비교적 작은 모델\"이라 부르는 시대가 되었습니다.",
       "verified": true,
       "source": "https://arxiv.org/abs/2301.00774",
       "confidence": 0.6666666666666666,
@@ -24,7 +24,15 @@
       "flagged": false
     },
     {
-      "claim": "개인적으로 175B 모델을 A100 여러 장에 올려본 적이 있는데, 단일 추론 요청의 레이턴시와 비용을 체감하고 나면 \"이 가중치가 전부 정말 필요한가?\"라는 질문이 자연스럽게 떠오릅니다.",
+      "claim": "개인적으로 70B 모델을 단일 A100 80GB에 올려보려 할 때마다 OOM(Out of Memory)을 마주치는데, 이럴 때 압축의 필요성을 절실히 느끼게 됩니다.",
+      "verified": true,
+      "source": "https://arxiv.org/abs/2102.00554",
+      "confidence": 0.6666666666666666,
+      "type": "numeric",
+      "flagged": false
+    },
+    {
+      "claim": "실제로 써보면, 프루닝으로 50% 희소화한 모델에 INT4 양자화를 함께 적용했을 때 단독 기법 대비 훨씬 공격적인 압축률을 달성할 수 있습니다.",
       "verified": true,
       "source": "https://arxiv.org/abs/2301.00774",
       "confidence": 1.0,
@@ -32,45 +40,52 @@
       "flagged": false
     },
     {
-      "claim": "org/2000/svg\">\n  <defs>\n    <linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0a0a2e\"/>\n      <stop offset=\"100%\" stop-color=\"#1a1a3e\"/>\n    </linearGradient>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\"\n            markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#555\"/>\n    </marker>\n  </defs>\n\n  <!-- Background -->\n  <rect width=\"800\" height=\"400\" rx=\"12\" fill=\"url(#bg)\"/>\n\n  <!-- Title -->\n  <text x=\"400\" y=\"38\" text-anchor=\"middle\" font-family=\"NanumBarunGothic, NanumSquare, sans-serif\"\n        font-size=\"18\" fill=\"#fff\" font-weight=\"bold\">OBD vs OBS — 핵심 차이 비교</text>\n\n  <!-- OBD Box -->\n  <rect x=\"40\" y=\"70\" width=\"330\" height=\"260\" rx=\"8\" fill=\"#00d4aa\" fill-opacity=\"0.",
-      "verified": false,
-      "source": "https://arxiv.org/abs/2301.00774",
-      "confidence": 0.4666666666666667,
-      "type": "numeric",
-      "ai_verdict": "uncertain",
-      "ai_issue": "주장이 SVG 코드 조각(OBD vs OBS 비교 다이어그램)으로만 구성되어 있으며, 팩트체크할 수 있는 완결된 텍스트 주장이 포함되어 있지 않습니다. SVG 마크업이 잘려 있어 실제 비교 내용을 확인할 수 없습니다.",
-      "flagged": true
-    },
-    {
-      "claim": "org/2000/svg\">\n  <defs>\n    <linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0a0a2e\"/>\n      <stop offset=\"100%\" stop-color=\"#1a1a3e\"/>\n    </linearGradient>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\"\n            markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#555\"/>\n    </marker>\n  </defs>\n\n  <rect width=\"800\" height=\"420\" rx=\"12\" fill=\"url(#bg)\"/>\n\n  <!-- Title -->\n  <text x=\"400\" y=\"35\" text-anchor=\"middle\" font-family=\"NanumBarunGothic, NanumSquare, sans-serif\"\n        font-size=\"18\" fill=\"#fff\" font-weight=\"bold\">SparseGPT vs Wanda — 프루닝 파이프라인 비교</text>\n\n  <!-- ===== SparseGPT Row (y ~ 80-190) ===== -->\n  <text x=\"400\" y=\"72\" text-anchor=\"middle\" font-family=\"NanumBarunGothic, NanumSquare, sans-serif\"\n        font-size=\"14\" fill=\"#00d4aa\" font-weight=\"bold\">SparseGPT</text>\n\n  <!-- Box 1: Calibration -->\n  <rect x=\"30\" y=\"85\" width=\"140\" height=\"55\" rx=\"8\" fill=\"#00a8ff\" fill-opacity=\"0.",
+      "claim": "MNIST나 CIFAR-10 수준의 네트워크에서 원래 파라미터의 10–20%만으로도 full network와 동등하거나 더 나은 성능이 나왔습니다.",
       "verified": true,
-      "source": "https://arxiv.org/abs/2301.00774",
-      "confidence": 1.0,
+      "source": null,
+      "confidence": 0.95,
       "type": "numeric",
       "verification_method": "web_search",
       "flagged": false
     },
     {
-      "claim": "15\" stroke=\"#\n\n## 패러다임 전환: Lottery Ticket Hypothesis (2018)\n\n앞서 살펴본 OBD와 OBS가 \"학습된 네트워크에서 무엇을 잘라낼 것인가\"에 집중했다면, 2018년 Frankle & Carlin이 제시한 Lottery Ticket Hypothesis(LTH)는 질문 자체를 뒤집었습니다.",
+      "claim": "수십억~수천억 개 파라미터를 가진 LLM에서, 재학습(fine-tuning) 없이 단 한 번의 프루닝(one-shot pruning)으로 성능을 유지할 수 있을까요? GPT-175B 규모의 모델을 반복 학습하며 프루닝하는 건 비용상 사실상 불가능합니다.",
       "verified": true,
-      "source": "https://arxiv.org/abs/1803.03635",
-      "confidence": 0.75,
+      "source": "https://arxiv.org/abs/2301.00774",
+      "confidence": 1.0,
+      "type": "numeric",
+      "flagged": false
+    },
+    {
+      "claim": "SparseGPT는 OPT-175B, BLOOM-176B 같은 초대형 모델에서 50~60% 비구조적 희소성(unstructured sparsity)을 달성하면서도 perplexity 저하가 미미했습니다.",
+      "verified": true,
+      "source": "https://arxiv.org/abs/2301.00774",
+      "confidence": 1.0,
+      "type": "numeric",
+      "flagged": false
+    },
+    {
+      "claim": "## 전환점 — Lottery Ticket Hypothesis (2018)\n\nOBD와 OBS가 \"어떤 가중치를 잘라야 하는가\"에 집중했다면, 2018년 Frankle & Carlin이 제시한 Lottery Ticket Hypothesis(LTH)는 질문 자체를 뒤집었습니다.",
+      "verified": true,
+      "source": null,
+      "confidence": 1.0,
       "type": "date",
+      "verification_method": "web_search",
       "flagged": false
     }
   ],
   "search_results": [
     {
-      "claim": "org/2000/svg\">\n  <defs>\n    <linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">",
-      "verified": null,
-      "reason": "The provided 'claim' is an incomplete SVG code snippet for a diagram titled 'OBD vs OBS — 핵심 차이 비교', with no specific factual statement to verify; search results discuss OBD1 vs OBD2 or OBD vs GPS HUD but lack context on 'OBS'.",
-      "confidence": 1.0,
+      "claim": "MNIST나 CIFAR-10 수준의 네트워크에서 원래 파라미터의 10–20%만으로도 full network와 동등하거나 더 나은 성능이 나왔습니",
+      "verified": true,
+      "reason": "Search result [7] directly states that for LeNet on MNIST and Conv models on CIFAR-10, retaining only 10-20% of parameters results in equal or better accuracy than the original network, matching the claim precisely.",
+      "confidence": 0.95,
       "method": "search"
     },
     {
-      "claim": "org/2000/svg\">\n  <defs>\n    <linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">",
+      "claim": "## 전환점 — Lottery Ticket Hypothesis (2018)\n\nOBD와 OBS가 \"어떤 가중치를 잘라야 하는가\"에 집중했다면, 2",
       "verified": true,
-      "reason": "The provided SVG code fragment is valid and correctly uses standard SVG elements including <linearGradient> with proper attributes (x1,y1,x2,y2, stops), <marker> for arrows, <rect>, and <text>, matching SVG specifications in sources.",
+      "reason": "The claim accurately identifies the Lottery Ticket Hypothesis (LTH) as proposed by Frankle & Carbin (noted as Carlin in claim, minor spelling variant) in 2018, with arXiv preprint 1803.03635 confirming the year and core idea of reversing pruning focus by finding pre-existing winning subnetworks in dense networks[1][2][3][5][6]. OBD/OBS reference is contextual but uncontradicted.",
       "confidence": 1.0,
       "method": "search"
     }
@@ -84,17 +99,10 @@
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/1803.03635",
+      "url": "https://arxiv.org/abs/2102.00554",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/1803.03635",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/1506.02626",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/1506.02626",
+      "final_url": "https://arxiv.org/abs/2102.00554",
       "redirected_to_generic": false
     },
     {
@@ -105,17 +113,17 @@
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/2102.00554",
+      "url": "https://arxiv.org/abs/1710.01878",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/2102.00554",
+      "final_url": "https://arxiv.org/abs/1710.01878",
       "redirected_to_generic": false
     },
     {
-      "url": "http://www.w3.org/2000/svg",
+      "url": "https://proceedings.neurips.cc/paper/1989/file/6c9882bbac1c7093bd25041881277658-Paper.pdf",
       "accessible": true,
       "status": 200,
-      "final_url": "https://www.w3.org/2000/svg",
+      "final_url": "https://proceedings.neurips.cc/paper/1989/file/6c9882bbac1c7093bd25041881277658-Paper.pdf",
       "redirected_to_generic": false
     },
     {
@@ -133,10 +141,10 @@
       "redirected_to_generic": false
     },
     {
-      "url": "https://proceedings.neurips.cc/paper/1989/file/6c9882bbac1c7093bd25041881277658-Paper.pdf",
+      "url": "https://arxiv.org/abs/1803.03635",
       "accessible": true,
       "status": 200,
-      "final_url": "https://proceedings.neurips.cc/paper/1989/file/6c9882bbac1c7093bd25041881277658-Paper.pdf",
+      "final_url": "https://arxiv.org/abs/1803.03635",
       "redirected_to_generic": false
     }
   ]

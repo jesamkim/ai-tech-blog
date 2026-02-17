@@ -132,17 +132,8 @@ def prompt_section(topic: str, section_title: str, section_points: str, prev_sec
 - 한국어로 작성, 기술 용어는 영어 병기
 - 코드 예시 포함 가능 (Python)
 - 400~800자 분량
-- 다이어그램이 유용하면 ```svg 블록으로 SVG 코드 포함 (Mermaid 사용 금지!)
-- SVG 규칙:
-  * viewBox="0 0 800 400" (기본, 내용에 맞게 조정)
-  * 다크 배경: linearGradient #0a0a2e → #1a1a3e, rx="12"
-  * 색상: Green #00d4aa, Blue #00a8ff, Orange #ff9900, Purple #aa88ff, Red #ff4444
-  * 폰트: font-family="NanumBarunGothic, NanumSquare, sans-serif" (monospace/serif 금지), 제목 18+, 라벨 10-13, 박스 내 8-10
-  * 텍스트: text-anchor="middle", 흰색(#fff) 또는 accent color
-  * 박스: rx=8, stroke 1px, fill-opacity 0.15, 최소 40px 간격
-  * 화살표: stroke="#555", marker-end로 화살촉 표현
-  * 텍스트 겹침 절대 금지! 각 요소의 x,y 좌표를 명확히 계산
-  * SVG 외부에 텍스트 배치 금지, viewBox 안에 모든 요소 포함
+- 다이어그램은 포함하지 마세요 (별도 단계에서 생성됩니다)
+- 다이어그램이 필요한 위치에 [DIAGRAM: 설명] 형태의 플레이스홀더만 남겨주세요
 - 섹션 제목(## 헤더)부터 시작
 - 이 섹션의 내용만 작성 (다른 섹션 내용 쓰지 마세요)
 
