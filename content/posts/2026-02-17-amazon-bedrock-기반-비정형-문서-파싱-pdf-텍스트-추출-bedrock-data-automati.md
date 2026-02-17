@@ -1,5 +1,5 @@
 ---
-title: "Amazon Bedrock 기반 비정형 문서 파싱 — PDF 텍스트 추출, Bedrock Data Automation, Claude Vision 앙상블로 DOM 트리 구조의 Markdown 변환 파이프라인 구축하기"
+title: "Amazon Bedrock로 비정형 문서를 Markdown으로 변환하기"
 date: 2026-02-17T18:16:59+09:00
 draft: false
 author: "Jesam Kim"
