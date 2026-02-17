@@ -31,7 +31,7 @@ GPT-3의 175B 파라미터가 세상을 놀라게 한 것이 불과 몇 년 전�
 - 양자화(Quantization): FP16 → INT8 → INT4처럼 가중치의 비트 수를 줄여 메모리와 연산량을 절감합니다.
 - 지식 증류(Knowledge Distillation): 큰 교사 모델(teacher)의 지식을 작은 학생 모델(student)로 전이합니다.
 
-[DIAGRAM: 프루닝·양자화·지식 증류 세 기법의 입력/출력 관계와 상호 보완 구조를 보여주는 지형도]
+![모델 압축 전략 비교](/ai-tech-blog/images/posts/2026-02-17/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-1.png)
 
 이 세 기법은 경쟁 관계가 아니라 상호 보완적입니다. 실제로 써보면, 프루닝으로 50% 희소화한 모델에 INT4 양자화를 함께 적용했을 때 단독 기법 대비 훨씬 공격적인 압축률을 달성할 수 있습니다. SparseGPT + GPTQ 조합이 대표적인 사례입니다.
 
@@ -74,7 +74,7 @@ def structured_prune(weight: torch.Tensor, prune_ratio: float):
 
 LeCun 등이 1989년에 제안한 OBD는 놀라울 정도로 직관적인 아이디어에서 출발합니다. 손실 함수 L을 가중치 w_i 주변에서 2차 테일러 전개하면, 특정 가중치 하나를 0으로 만들었을 때 손실이 얼마나 변하는지를 추정할 수 있습니다.
 
-δ L approx 12 h_1 , w_i^2, quad h_1 = ∂^2 L∂ w_i^2
+δL ≈ ½ · h_ii · w_i², h_ii = ∂²L/∂w_i²
 
 여기서 핵심 가정은 Hessian의 비대각 항을 무시(대각 근사)하는 것입니다. 이 근사 덕분에 각 가중치의 중요도(saliency)를 독립적으로, 저렴하게 계산할 수 있게 됩니다. saliency가 작은 가중치부터 순서대로 제거하면 손실 증가를 최소화하면서 네트워크를 압축할 수 있다는 것이 OBD의 골자입니다.
 
@@ -89,13 +89,12 @@ def obd_saliency(weight: torch.Tensor, hessian_diag: torch.Tensor):
 
 ### OBS — 잘라낸 뒤 "나머지를 보정"하다
 
-Hasselmo & Stork(1993)가 제안한 OBS는 OBD의 대각 근사가 지나치게 거칠다는 점을 지적하며 한 걸음 더 나아갑니다. Full Hessian의 역행렬 mathbfH^-1을 활용해, 가중치 w_q를 제거한 뒤 나머지 가중치를 다음과 같이 보정합니다.
+Hasselmo & Stork(1993)가 제안한 OBS는 OBD의 대각 근사가 지나치게 거칠다는 점을 지적하며 한 걸음 더 나아갑니다. Full Hessian의 역행렬 H⁻¹을 활용해, 가중치 w_q를 제거한 뒤 나머지 가중치를 다음과 같이 보정합니다.
 
-δ mathbfw = -w_q[mathbfH^1]_1 , mathbfH^1 mathbfe_q
+δ w = -w_q[H⁻¹]_1 , H⁻¹ e_q
 
-이 보정(weight update) 덕분에 OBD보다 훨씬 적은 정확도 손실로 가중치를 제거할 수 있습니다. 다만 mathbfH^-1을 구하는 데 O(n^3) 연산이 필요하다는 치명적인 비용 문제가 있었습니다. 당시 수백~수천 파라미터 규모의 네트워크에서도 부담스러운 수준이었습니다.
+이 보정(weight update) 덕분에 OBD보다 훨씬 적은 정확도 손실로 가중치를 제거할 수 있습니다. 다만 H⁻¹을 구하는 데 O(n^3) 연산이 필요하다는 치명적인 비용 문제가 있었습니다. 당시 수백~수천 파라미터 규모의 네트워크에서도 부담스러운 수준이었습니다.
 
-[DIAGRAM: OBD vs OBS 비교 — OBD는 대각 Hessian만으로 saliency 계산 후 제거, OBS는 Full Hessian inverse로 saliency 계산 + 나머지 가중치 보정까지 수행하는 흐름]
 
 ### 두 논문이 남긴 유산
 
@@ -141,7 +140,7 @@ for round in range(num_rounds):
 
 실험 결과는 꽤 놀라웠습니다. MNIST나 CIFAR-10 수준의 네트워크에서 원래 파라미터의 10–20%만으로도 full network와 동등하거나 더 나은 성능이 나왔습니다. 단, 반드시 초기 가중치로 되감아야만 이 현상이 재현되었습니다.
 
-[DIAGRAM: IMP 과정 — (1) 초기화 → (2) 학습 → (3) 프루닝 → (4) 초기 가중치로 되감기 → (2)로 반복하는 순환 구조]
+![Lottery Ticket Hypothesis](/ai-tech-blog/images/posts/2026-02-17/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-2.png)
 
 ### 왜 전환점인가
 
@@ -151,7 +150,6 @@ for round in range(num_rounds):
 
 실제로 써보면 IMP는 반복 학습 비용이 막대해서 대규모 모델에 직접 적용하기는 어렵습니다. 그러나 "올바른 구조를 찾는 것이 올바른 가중치를 찾는 것만큼 중요하다"는 통찰은, 이후 구조화 프루닝과 LLM 시대의 효율적 프루닝 기법들에 결정적인 영감을 주게 됩니다.
 
-![Lottery Ticket Hypothesis](/ai-tech-blog/images/posts/2026-02-17/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-2.png)
 
 ## LLM 시대의 프루닝: SparseGPT (2023)
 
@@ -159,9 +157,8 @@ Lottery Ticket Hypothesis가 "좋은 서브네트워크는 존재한다"는 희�
 
 Frantar & Alistarh (2023)가 제안한 SparseGPT는 이 문제에 꽤 실용적인 답을 내놓았습니다. 핵심 아이디어는 OBS(Optimal Brain Surgeon)의 Hessian 기반 가중치 보정을 대규모로 확장하는 데 있습니다. 전체 모델의 Hessian을 한꺼번에 다루는 대신 레이어별(row-wise)로 분리하고, 각 레이어의 가중치 행렬을 column 단위로 순차 처리하면서 Hessian inverse를 점진적으로 업데이트하는 방식입니다.
 
-[DIAGRAM: SparseGPT의 column-wise 프루닝 과정 — 가중치 행렬 W의 각 열을 순서대로 처리하며, 프루닝된 가중치의 오차를 나머지 열에 보정(update)하는 흐름]
 
-구체적으로 보면, 각 열 j에서 프루닝할 가중치를 선택한 뒤 OBS 공식에 따라 남아 있는 가중치들을 보정하여 레이어 출력 오차를 최소화합니다. Hessian inverse의 업데이트가 column 제거 시 닫힌 형태(closed-form)로 계산되기 때문에, 별도의 역행렬 재계산 없이 O(d_col cdot d_row cdot d_col) 수준의 비용으로 처리할 수 있습니다.
+구체적으로 보면, 각 열 j에서 프루닝할 가중치를 선택한 뒤 OBS 공식에 따라 남아 있는 가중치들을 보정하여 레이어 출력 오차를 최소화합니다. Hessian inverse의 업데이트가 column 제거 시 닫힌 형태(closed-form)로 계산되기 때문에, 별도의 역행렬 재계산 없이 O(d_col · d_row · d_col) 수준의 비용으로 처리할 수 있습니다.
 
 ```python
 # SparseGPT 핵심 루프 (간소화된 의사 코드)
@@ -181,7 +178,6 @@ for j in range(n_columns):
 
 ![프루닝 35년 진화](/ai-tech-blog/images/posts/2026-02-17/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-3.png)
 
-![프루닝 35년 진화 타임라인](/ai-tech-blog/images/posts/2026-02-17/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-3.png)
 
 ## References
 
