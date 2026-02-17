@@ -21,6 +21,53 @@ logging.basicConfig(
 )
 logger = logging.getLogger("generate_diagram")
 
+WATERMARK_TEXT = "https://jesamkim.github.io/ai-tech-blog"
+
+
+def add_watermark(png_path: str):
+    """PNG 이미지에 워터마크 추가 (좌측 하단, 반투명)"""
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+
+        img = Image.open(png_path).convert("RGBA")
+        w, h = img.size
+
+        # 워터마크 레이어
+        overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        draw = ImageDraw.Draw(overlay)
+
+        # 폰트 크기: 이미지 너비의 ~2.5% (최소 10, 최대 16)
+        font_size = max(10, min(16, int(w * 0.025)))
+        try:
+            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", font_size)
+        except (OSError, IOError):
+            try:
+                font = ImageFont.truetype("/usr/share/fonts/dejavu-sans-fonts/DejaVuSans.ttf", font_size)
+            except (OSError, IOError):
+                font = ImageFont.load_default()
+
+        # 텍스트 크기 계산
+        bbox = draw.textbbox((0, 0), WATERMARK_TEXT, font=font)
+        tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+
+        # 좌측 하단, 약간의 패딩
+        x = 8
+        y = h - th - 8
+
+        # 반투명 배경 + 텍스트
+        padding = 4
+        draw.rectangle([x - padding, y - padding, x + tw + padding, y + th + padding],
+                       fill=(255, 255, 255, 160))
+        draw.text((x, y), WATERMARK_TEXT, fill=(80, 80, 80, 200), font=font)
+
+        # 합성 후 저장
+        result = Image.alpha_composite(img, overlay)
+        result = result.convert("RGB")
+        result.save(png_path, "PNG")
+        logger.info("워터마크 추가: %s", png_path)
+    except Exception as e:
+        logger.warning("워터마크 실패 (무시): %s", e)
+
 
 def load_config() -> dict:
     with open(SCRIPTS_DIR / "config.yaml") as f:
@@ -63,6 +110,7 @@ def generate_diagram(
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
             if result.returncode == 0 and output_png.exists():
                 logger.info("mmdc로 다이어그램 생성: %s", output_png)
+                add_watermark(str(output_png))
                 return md_path
             logger.warning("mmdc 실패: %s", result.stderr)
 
@@ -75,6 +123,7 @@ def generate_diagram(
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
             if result.returncode == 0 and output_png.exists():
                 logger.info("npx mmdc로 다이어그램 생성: %s", output_png)
+                add_watermark(str(output_png))
                 return md_path
             logger.warning("npx mmdc 실패: %s", result.stderr)
 
@@ -92,6 +141,7 @@ def generate_diagram(
                 import cairosvg
                 cairosvg.svg2png(bytestring=svg_content, write_to=str(output_png))
                 logger.info("cairosvg로 다이어그램 생성: %s", output_png)
+                add_watermark(str(output_png))
                 return md_path
             except ImportError:
                 # SVG로 저장
