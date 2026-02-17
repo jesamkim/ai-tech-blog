@@ -278,13 +278,13 @@ class SensorFusion:
    [https://aws.amazon.com/blogs/aws/preview-aws-iot-roborunner-for-building-robot-fleet-management-applications/](https://aws.amazon.com/blogs/aws/preview-aws-iot-roborunner-for-building-robot-fleet-management-applications/)
 
 3. AWS IoT Greengrass 공식 문서 — 엣지 디바이스에서의 로컬 컴퓨팅, 메시징, ML 추론 지원.
-   [https://aws.amazon.com/greengrass/](https://aws.amazon.com/greengrass/)
+   [https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html)
 
 4. AWS IoT TwinMaker 공식 문서 — 물리 시설 및 로봇 환경의 디지털 트윈 구축 서비스.
-   [https://aws.amazon.com/iot-twinmaker/](https://aws.amazon.com/iot-twinmaker/)
+   [https://docs.aws.amazon.com/iot-twinmaker/latest/guide/what-is-twinmaker.html](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/what-is-twinmaker.html)
 
 5. Amazon CodeWhisperer / Amazon Q Developer — AI 기반 코드 생성 도구로 ROS 2 로봇 개발 지원.
-   [https://aws.amazon.com/q/developer/](https://aws.amazon.com/q/developer/)
+   [https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html)
 
 6. Amazon Astro — Amazon의 가정용 자율 로봇 플랫폼.
    [https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center](https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center)
