@@ -74,14 +74,59 @@ def load_config() -> dict:
         return yaml.safe_load(f)
 
 
+def _svg_to_png(svg_text: str, output_name: str, date_str: str, config: dict, slug: str) -> str:
+    """SVG 텍스트 → PNG 변환"""
+    if config is None:
+        config = load_config()
+    if date_str is None:
+        date_str = datetime.now().strftime("%Y-%m-%d")
+
+    sub_dir = f"{date_str}/{slug}" if slug else date_str
+    img_dir = HUGO_DIR / "static" / "images" / "posts" / sub_dir
+    img_dir.mkdir(parents=True, exist_ok=True)
+    output_png = img_dir / f"{output_name}.png"
+    md_path = f"/ai-tech-blog/images/posts/{sub_dir}/{output_name}.png"
+
+    # SVG 정리: XML 파싱 에러 방지
+    import re as _re
+    # & → &amp; (이미 &amp; 등인 경우 제외)
+    svg_text = _re.sub(r"&(?!amp;|lt;|gt;|quot;|apos;|#)", "&amp;", svg_text)
+
+    try:
+        import cairosvg
+        cairosvg.svg2png(
+            bytestring=svg_text.encode("utf-8"),
+            write_to=str(output_png),
+            output_width=800,
+        )
+        logger.info("SVG→PNG 변환: %s", output_png)
+        add_watermark(str(output_png))
+        return md_path
+    except Exception as e:
+        logger.error("SVG→PNG 실패: %s", e)
+        # Fallback: SVG 파일로 저장
+        svg_path = img_dir / f"{output_name}.svg"
+        with open(svg_path, "w") as f:
+            f.write(svg_text)
+        logger.info("SVG 파일로 저장: %s", svg_path)
+        return f"/ai-tech-blog/images/posts/{sub_dir}/{output_name}.svg"
+
+
 def generate_diagram(
-    mermaid_text: str,
+    diagram_text: str,
     output_name: str = "diagram",
     date_str: str = None,
     config: dict = None,
     slug: str = None,
 ) -> str:
-    """Mermaid 텍스트 → PNG 이미지 생성, 마크다운 경로 반환"""
+    """다이어그램 텍스트(SVG 또는 Mermaid) → PNG 이미지 생성, 마크다운 경로 반환"""
+    # SVG 직접 변환 (우선)
+    is_svg = diagram_text.strip().startswith("<svg") or diagram_text.strip().startswith("<?xml")
+    if is_svg:
+        return _svg_to_png(diagram_text, output_name, date_str, config, slug)
+
+    # Mermaid fallback
+    mermaid_text = diagram_text
     if config is None:
         config = load_config()
     if date_str is None:
