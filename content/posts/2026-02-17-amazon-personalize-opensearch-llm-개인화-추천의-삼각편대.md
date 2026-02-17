@@ -43,7 +43,7 @@ LLM은 자연어 이해와 생성 능력이 압도적입니다. 그런데 모델
         → LLM: 최종 추천 사유를 자연어로 생성
 ```
 
-[DIAGRAM: 사용자 쿼리 → LLM(의도 파싱) → OpenSearch(후보 검색) → Personalize(개인화 리랭킹) → LLM(응답 생성) 흐름도]
+![삼각편대 파이프라인](/ai-tech-blog/images/posts/2026-02-17/amazon-personalize-opensearch-llm-개인화-추천의-삼각편대/diagram-1.png)
 
 Python으로 간략히 표현하면 다음과 같습니다.
 
@@ -77,7 +77,6 @@ explanation = llm.generate_reason(              # 추천 사유 생성
 | 학습 방식 | HRNN 계열 / 밴딧(Bandit) 탐색 | 아이템 간 협업 필터링 + 콘텐츠 유사도 | 입력된 후보 리스트를 사용자 맥락에 맞게 재정렬 |
 | 출력 형태 | 사용자별 Top-N 아이템 | 특정 아이템과 유사한 Top-N | 재정렬된 아이템 리스트 + 점수 |
 
-[DIAGRAM: 세 레시피의 입력→학습→출력 흐름을 비교하는 테이블 형태 다이어그램]
 
 ### LLM 기반 아이템 임베딩 — 콜드스타트의 새로운 해법
 
@@ -115,7 +114,7 @@ personalize_events.put_events(
 
 Amazon Personalize Search Ranking 플러그인은 OpenSearch의 Search Pipeline 단계에서 동작합니다. 사용자가 키워드 쿼리를 날리면 OpenSearch가 1차 검색 결과를 반환하고, 이 결과 리스트가 Personalize의 `PERSONALIZED_RANKING` 캠페인 엔드포인트로 전달됩니다. 캠페인은 해당 사용자의 상호작용 이력을 기반으로 아이템 순서를 재정렬(Re-Rank)한 뒤, 최종 결과를 클라이언트에 돌려줍니다.
 
-[DIAGRAM: 사용자 쿼리 → OpenSearch BM25/k-NN 1차 검색 → Personalize PERSONALIZED_RANKING 캠페인 Re-Rank → 최종 결과 반환 흐름]
+![Personalize x OpenSearch](/ai-tech-blog/images/posts/2026-02-17/amazon-personalize-opensearch-llm-개인화-추천의-삼각편대/diagram-2.png)
 
 ### 플러그인 설정과 Weight 튜닝
 
@@ -198,7 +197,6 @@ hybrid_pipeline = {
 }
 ```
 
-[DIAGRAM: Stage 1 BM25 + Stage 2 k-NN → normalization-processor 점수 병합 → Stage 3 Personalize Re-Ranking → 최종 개인화 검색 결과]
 
 이 구조의 장점은 각 단계의 책임이 깔끔하게 분리된다는 점입니다. 검색 관련성 튜닝은 Stage 1-2에서 처리하고, 개인화 강도는 Stage 3의 weight 하나로 제어할 수 있어 운영이 단순해집니다. 콜드 스타트 사용자(상호작용 이력이 없는 신규 유저)의 경우 Personalize가 기본 인기도 기반으로 폴백(fallback)하기 때문에, weight를 낮게 잡아 두면 검색 품질이 크게 떨어지지 않습니다. 실제로 운영 환경에서 테스트해 보니 신규 유저 비율이 높은 서비스에서도 0.2 정도면 무난했습니다.
 
@@ -212,7 +210,7 @@ hybrid_pipeline = {
 
 일반적인 RAG(Retrieval-Augmented Generation) 파이프라인은 사용자 질의(query)만으로 문서를 검색한 뒤 LLM에 전달합니다. 여기에 Personalize 추천 결과를 추가 컨텍스트로 주입하면, 동일한 질문이라도 사용자마다 다른 톤·상품·카테고리를 반영한 응답을 생성할 수 있습니다.
 
-[DIAGRAM: 사용자 질의 → (1) Bedrock Knowledge Base에서 관련 문서 검색 + (2) Personalize GetRecommendations로 개인화 아이템 조회 → 두 결과를 합쳐 프롬프트 구성 → Bedrock LLM 응답 생성]
+![Personalized RAG](/ai-tech-blog/images/posts/2026-02-17/amazon-personalize-opensearch-llm-개인화-추천의-삼각편대/diagram-3.png)
 
 ### 구현 흐름
 
