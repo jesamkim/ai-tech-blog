@@ -286,7 +286,7 @@ class SensorFusion:
 5. Amazon CodeWhisperer / Amazon Q Developer — AI 기반 코드 생성 도구로 ROS 2 로봇 개발 지원.
    [https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html)
 
-6. Amazon Astro — Amazon의 가정용 자율 로봇 플랫폼.
+6. Amazon Robotics 소개 — Amazon 물류 센터의 로봇들 (Sparrow, Proteus, Robin 등).
    [https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center](https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center)
 
 7. Amazon Robotics — Amazon 물류 센터의 로봇 자동화 시스템 (Sparrow, Proteus, Sequoia 등 100만+ 로봇 배치).
