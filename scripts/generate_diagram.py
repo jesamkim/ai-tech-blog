@@ -91,6 +91,7 @@ def _svg_to_png(svg_text: str, output_name: str, date_str: str, config: dict, sl
     import re as _re
     # & → &amp; (이미 &amp; 등인 경우 제외)
     svg_text = _re.sub(r"&(?!amp;|lt;|gt;|quot;|apos;|#)", "&amp;", svg_text)
+    svg_text = svg_text.replace("auto-start-auto", "auto")  # cairosvg 호환
 
     try:
         import cairosvg
