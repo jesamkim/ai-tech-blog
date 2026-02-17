@@ -272,7 +272,7 @@ class SensorFusion:
 ## References
 
 1. AWS RoboMaker 공식 문서 — 클라우드 로봇 개발, 시뮬레이션 및 플릿 관리 서비스 개요.
-   [https://aws.amazon.com/robomaker/](https://aws.amazon.com/robomaker/)
+   [https://aws.amazon.com/documentation-overview/robomaker/](https://aws.amazon.com/documentation-overview/robomaker/)
 
 2. AWS IoT RoboRunner 공식 문서 — 다종 로봇 플릿의 통합 오케스트레이션 및 관리 서비스.
    [https://aws.amazon.com/blogs/aws/preview-aws-iot-roborunner-for-building-robot-fleet-management-applications/](https://aws.amazon.com/blogs/aws/preview-aws-iot-roborunner-for-building-robot-fleet-management-applications/)
