@@ -372,6 +372,24 @@ def fact_check_post(post_path: str, config: dict = None, auto_fix: bool = True) 
     if dead_links:
         logger.warning("⚠️ Dead links: %d건", len(dead_links))
 
+    # 2.3 Reference 라벨↔URL 종류 불일치 검사
+    ref_mismatches = []
+    ref_pattern = re.findall(r'(\S+(?:공식 문서|Blog|논문|GitHub)[^
+]*)(https?://[^\s\)\]]+)', body)
+    for label_line, url in ref_pattern:
+        is_docs = "docs.aws" in url or "documentation" in url
+        is_blog = "/blogs/" in url or "/blog/" in url
+        is_arxiv = "arxiv.org" in url
+        is_github = "github.com" in url
+        mismatch = None
+        if "공식 문서" in label_line and not is_docs:
+            mismatch = f"'공식 문서' label but URL is not docs: {url}"
+        if "Blog" in label_line and not is_blog:
+            mismatch = f"'Blog' label but URL is not a blog: {url}"
+        if mismatch:
+            ref_mismatches.append(mismatch)
+            logger.warning("⚠️ 라벨 불일치: %s", mismatch)
+
     # 2.5 Dead Link 자동 수정
     link_fixes = []
     if dead_links and auto_fix:
