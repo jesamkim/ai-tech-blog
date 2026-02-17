@@ -1,6 +1,6 @@
 ---
 title: "Optimal Brain Damage에서 SparseGPT까지 — 모델 프루닝 35년의 진화"
-date: 2026-02-17T15:17:33+09:00
+date: 2026-02-07T15:17:33+09:00
 draft: false
 author: "Jesam Kim"
 description: "1989년 LeCun의 Optimal Brain Damage부터 2023년 SparseGPT·Wanda까지, 모델 프루닝 기법 35년의 핵심 아이디어와 진화 과정을 체계적으로 정리합니다."
@@ -31,7 +31,7 @@ GPT-3의 175B 파라미터가 세상을 놀라게 한 것이 불과 몇 년 전�
 - 양자화(Quantization): FP16 → INT8 → INT4처럼 가중치의 비트 수를 줄여 메모리와 연산량을 절감합니다.
 - 지식 증류(Knowledge Distillation): 큰 교사 모델(teacher)의 지식을 작은 학생 모델(student)로 전이합니다.
 
-![모델 압축 전략 비교](/ai-tech-blog/images/posts/2026-02-17/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-1.png)
+![모델 압축 전략 비교](/ai-tech-blog/images/posts/2026-02-07/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-1.png)
 
 이 세 기법은 경쟁 관계가 아니라 상호 보완적입니다. 실제로 써보면, 프루닝으로 50% 희소화한 모델에 INT4 양자화를 함께 적용했을 때 단독 기법 대비 훨씬 공격적인 압축률을 달성할 수 있습니다. SparseGPT + GPTQ 조합이 대표적인 사례입니다.
 
@@ -140,7 +140,7 @@ for round in range(num_rounds):
 
 실험 결과는 꽤 놀라웠습니다. MNIST나 CIFAR-10 수준의 네트워크에서 원래 파라미터의 10–20%만으로도 full network와 동등하거나 더 나은 성능이 나왔습니다. 단, 반드시 초기 가중치로 되감아야만 이 현상이 재현되었습니다.
 
-![Lottery Ticket Hypothesis](/ai-tech-blog/images/posts/2026-02-17/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-2.png)
+![Lottery Ticket Hypothesis](/ai-tech-blog/images/posts/2026-02-07/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-2.png)
 
 ### 왜 전환점인가
 
@@ -176,7 +176,7 @@ for j in range(n_columns):
 
 개인적으로 가장 의미 있다고 느끼는 지점은, 1993년 OBS에서 제안된 Hessian inverse 기반 보정이라는 아이디어가 **30년 만에 프로덕션 규모의 LLM에 적용 가능해졌다**는 사실입니다. 이론적 우아함이 엔지니어링적 스케일링을 만나 비로소 실용성을 갖추게 된 셈입니다.
 
-![프루닝 35년 진화](/ai-tech-blog/images/posts/2026-02-17/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-3.png)
+![프루닝 35년 진화](/ai-tech-blog/images/posts/2026-02-07/optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화/diagram-3.png)
 
 
 ## References
