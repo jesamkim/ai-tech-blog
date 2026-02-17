@@ -52,24 +52,11 @@ enableEmoji = false
     iconHeight = 35
 
   [params.profileMode]
-    enabled = true
-    title = "AI Tech Blog"
-    subtitle = "AI/ML deep dives, paper reviews, and AWS service analysis by Jesam Kim"
-    imageUrl = "/ai-tech-blog/apple-touch-icon.png"
-    imageWidth = 80
-    imageHeight = 80
-    imageTitle = "Jesam Kim"
-    [[params.profileMode.buttons]]
-      name = "Posts"
-      url = "/ai-tech-blog/posts/"
-    [[params.profileMode.buttons]]
-      name = "Categories"
-      url = "/ai-tech-blog/categories/"
-    [[params.profileMode.buttons]]
-      name = "Search"
-      url = "/ai-tech-blog/search/" 
+    enabled = false
 
-  # [params.homeInfoParams] - disabled, using profileMode instead
+  [params.homeInfoParams]
+    Title = "AI Tech Blog"
+    Content = "AI/ML deep dives, paper reviews, and AWS service analysis by Jesam Kim" 
 
   [[params.socialIcons]]
     name = "github"
