@@ -67,7 +67,17 @@ def check_url_accessible(url: str) -> dict:
         if resp.status_code >= 400:
             resp = requests.get(url, timeout=10, allow_redirects=True,
                                 headers={"User-Agent": "Mozilla/5.0"}, stream=True)
-        return {"url": url, "accessible": resp.status_code < 400, "status": resp.status_code}
+        final_url = str(resp.url)
+        # Detect suspicious redirects (service page → generic product/home page)
+        redirected_to_generic = False
+        if resp.status_code < 400 and final_url != url:
+            generic_pages = ["/products/", "/products", "/index.html", "aws.amazon.com/?nc"]
+            redirected_to_generic = any(g in final_url for g in generic_pages)
+            if redirected_to_generic:
+                logger.warning("🔀 Suspicious redirect: %s → %s", url, final_url)
+        accessible = resp.status_code < 400 and not redirected_to_generic
+        return {"url": url, "accessible": accessible, "status": resp.status_code,
+                "final_url": final_url, "redirected_to_generic": redirected_to_generic}
     except Exception as e:
         return {"url": url, "accessible": False, "error": str(e)}
 
