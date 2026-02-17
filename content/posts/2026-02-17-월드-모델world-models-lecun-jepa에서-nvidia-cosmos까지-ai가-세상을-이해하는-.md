@@ -26,7 +26,7 @@ TocOpen: true
 
 월드 모델(World Model)이란 환경의 내부 표상(Internal Representation)을 학습해서, 주어진 행동(action)에 대한 미래 상태(future state)를 예측하고 시뮬레이션하는 모델입니다. 핵심 아이디어는 단순합니다. AI가 머릿속에 "세상의 축소판"을 만들고, 그 안에서 미리 시뮬레이션한 뒤 행동을 결정하는 것입니다.
 
-![다이어그램 1](/ai-tech-blog/images/posts/2026-02-17/diagram-1.png)
+![다이어그램 1](/ai-tech-blog/images/posts/2026-02-17/월드-모델world-models-lecun-jepa에서-nvidia-cosmos까지-ai가-세상을-이해하는-/diagram-1.png)
 ### LLM과의 결정적 차이
 
 LLM(Large Language Model)은 본질적으로 언어 세계의 모델입니다. 토큰 시퀀스의 통계적 패턴을 학습합니다. 반면 월드 모델은 물리 세계의 인과 관계(causality)와 역학(dynamics)을 모델링합니다.
@@ -70,7 +70,7 @@ Yann LeCun이 "AI의 다음 도약"이라 부르고, NVIDIA가 Cosmos라는 플�
 
 JEPA는 이 직관을 그대로 구현합니다. 입력을 인코더(Encoder)로 추상 표현 공간(Latent Space)에 매핑한 뒤, 그 표현 공간 안에서 예측을 수행합니다.
 
-![다이어그램 2](/ai-tech-blog/images/posts/2026-02-17/diagram-2.png)
+![다이어그램 2](/ai-tech-blog/images/posts/2026-02-17/월드-모델world-models-lecun-jepa에서-nvidia-cosmos까지-ai가-세상을-이해하는-/diagram-2.png)
 여기서 결정적인 차이는 디코더가 없다는 점입니다. 픽셀로 되돌릴 필요 없이, 표현 간의 일관성(consistency)만 학습합니다. 덕분에 모델은 "무엇이 의미적으로 중요한가"를 스스로 판별하게 됩니다.
 
 ### 생성 모델과의 결정적 차이
@@ -130,7 +130,7 @@ for video_batch in dataloader:
 
 Sora만이 아닙니다. Google DeepMind의 Genie는 단일 이미지로부터 인터랙티브하게 조작 가능한 2D 환경을 생성합니다. 액션 레이블 없이도 잠재 액션 공간(Latent Action Space)을 스스로 학습한다는 점이 흥미롭습니다. UniSim은 여기서 한 걸음 더 나아갑니다. 텍스트, 액션, 카메라 움직임 등 다양한 입력을 받아 시뮬레이션 결과를 생성하는 범용 시뮬레이터(Universal Simulator)를 목표로 합니다.
 
-![다이어그램 3](/ai-tech-blog/images/posts/2026-02-17/diagram-3.png)
+![다이어그램 3](/ai-tech-blog/images/posts/2026-02-17/월드-모델world-models-lecun-jepa에서-nvidia-cosmos까지-ai가-세상을-이해하는-/diagram-3.png)
 ### 진정한 월드 모델과의 간극
 
 비판은 명확합니다. 이 모델들은 픽셀 수준의 통계적 패턴을 학습할 뿐, 내부에 물리 법칙의 명시적 표현(Explicit Representation)을 갖고 있지 않습니다.
@@ -151,7 +151,7 @@ Sora만이 아닙니다. Google DeepMind의 Genie는 단일 이미지로부터 �
 
 Cosmos는 크게 세 계층으로 구성됩니다.
 
-![다이어그램 4](/ai-tech-blog/images/posts/2026-02-17/diagram-4.png)
+![다이어그램 4](/ai-tech-blog/images/posts/2026-02-17/월드-모델world-models-lecun-jepa에서-nvidia-cosmos까지-ai가-세상을-이해하는-/diagram-4.png)
 Cosmos Tokenizer는 비디오를 시공간(spatial-temporal) 토큰으로 압축합니다. 연속(continuous) 토큰과 이산(discrete) 토큰을 모두 지원하기 때문에, 후속 모델이 Diffusion이든 Autoregressive든 유연하게 연결할 수 있습니다. NVIDIA에 따르면 기존 대비 8배 이상의 압축률을 달성하면서도 재구성 품질을 유지한다고 합니다.
 
 월드 생성 모델은 두 가지 패러다임을 병렬로 제공합니다.
