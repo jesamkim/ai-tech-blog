@@ -1,0 +1,45 @@
+2026-02-17 15:31:06,896 [INFO] publish: 🚀 AI Tech Blog 파이프라인 시작 (2026-02-17)
+2026-02-17 15:31:06,896 [INFO] publish: ==================================================
+2026-02-17 15:31:06,896 [INFO] publish: 2단계: 포스트 생성
+2026-02-17 15:31:07,034 [INFO] generate_post: Step 1/N: 아웃라인 생성
+2026-02-17 15:31:07,044 [INFO] botocore.credentials: Found credentials in shared credentials file: ~/.aws/credentials
+2026-02-17 15:31:24,608 [INFO] generate_post: 아웃라인 완료 (1470자)
+2026-02-17 15:31:24,608 [INFO] generate_post: 섹션 4개: ["## 왜 '삼각편대'인가 — 검색·추천·생성의 한계와 ", '## Amazon Personalize 핵심 레시피 정', '## Personalize × OpenSearch — ', '## LLM(Bedrock) × Personalize ']
+2026-02-17 15:31:24,609 [INFO] generate_post: Step 2/6: ## 왜 '삼각편대'인가 — 검색·추천·생성의 한계와 통합의 필요성
+2026-02-17 15:31:49,115 [INFO] generate_post:   → 1657자 생성
+2026-02-17 15:31:49,115 [INFO] generate_post: Step 3/6: ## Amazon Personalize 핵심 레시피 정리 — USER_P
+2026-02-17 15:32:10,044 [INFO] generate_post:   → 1606자 생성
+2026-02-17 15:32:10,044 [INFO] generate_post: Step 4/6: ## Personalize × OpenSearch — 검색 결과 개인화 
+2026-02-17 15:32:45,086 [INFO] generate_post:   → 3685자 생성
+2026-02-17 15:32:45,087 [INFO] generate_post: Step 5/6: ## LLM(Bedrock) × Personalize — 개인화된 RAG
+2026-02-17 15:33:06,961 [INFO] generate_post:   → 2015자 생성
+2026-02-17 15:33:06,962 [INFO] generate_post: Step 6/6: References
+2026-02-17 15:33:20,409 [INFO] generate_post: Humanize 1/4
+2026-02-17 15:33:30,606 [INFO] generate_post:   → 1657자 → 1602자
+2026-02-17 15:33:30,606 [INFO] generate_post: Humanize 2/4
+2026-02-17 15:33:40,590 [INFO] generate_post:   → 1606자 → 1578자
+2026-02-17 15:33:40,590 [INFO] generate_post: Humanize 3/4
+2026-02-17 15:33:58,662 [INFO] generate_post:   → 3685자 → 3678자
+2026-02-17 15:33:58,662 [INFO] generate_post: Humanize 4/4
+2026-02-17 15:34:09,816 [INFO] generate_post:   → 2015자 → 1992자
+2026-02-17 15:34:09,817 [INFO] generate_post: ✅ 포스트 저장: /Workshop/yan/260217-ai-tech-blog/hugo-site/hugo-site/content/posts/2026-02-17-amazon-personalize-opensearch-llm-개인화-추천의-삼각편대.md (11639자, 4섹션)
+2026-02-17 15:34:09,817 [INFO] publish: 포스트 생성: /Workshop/yan/260217-ai-tech-blog/hugo-site/hugo-site/content/posts/2026-02-17-amazon-personalize-opensearch-llm-개인화-추천의-삼각편대.md
+2026-02-17 15:34:09,817 [INFO] publish: ==================================================
+2026-02-17 15:34:09,817 [INFO] publish: 3단계: 이미지 QA
+2026-02-17 15:34:09,830 [INFO] qa_images: 이미지 디렉토리 없음: /Workshop/yan/260217-ai-tech-blog/hugo-site/hugo-site/static/images/posts/2026-02-17
+2026-02-17 15:34:09,830 [INFO] publish: 이미지 QA 통과: 0건
+2026-02-17 15:34:09,830 [INFO] publish: ==================================================
+2026-02-17 15:34:09,830 [INFO] publish: 4단계: 팩트체크
+2026-02-17 15:34:09,938 [INFO] fact_check: 팩트체크 대상: 1건
+2026-02-17 15:34:09,938 [INFO] fact_check: 참조 URL: 7건
+2026-02-17 15:34:11,133 [WARNING] fact_check: ⚠️ Dead links: 1건
+2026-02-17 15:34:11,138 [INFO] fact_check: 🔗 Dead link 대체 시도: https://aws.amazon.com/blogs/machine-learning/amazon-personalize-can-now-unlock-intrinsic-signals-in-your-catalog-to-recommend-the-best-items-for-your-users/
+2026-02-17 15:34:12,906 [INFO] fact_check:   ✅ 대체 완료: https://aws.amazon.com/blogs/machine-learning/amazon-personalize-can-now-unlock-intrinsic-signals-in-your-catalog-to-recommend-the-best-items-for-your-users/ → https://aws.amazon.com/blogs/machine-learning/amazon-personalize-can-now-unlock-intrinsic-signals-in-your-catalog-to-recommend-similar-items/
+2026-02-17 15:34:12,906 [INFO] fact_check: 📝 포스트 파일 업데이트 완료 (dead link 1건 수정)
+2026-02-17 15:34:14,467 [INFO] fact_check: 웹 검색 검증: 1건 시도
+2026-02-17 15:34:14,468 [INFO] fact_check: 팩트체크 결과: 1/1 확인, 0건 플래그, 1 dead links (1 fixed, 0 unfixed)
+2026-02-17 15:34:14,468 [INFO] publish: 🔗 Dead link 1건 자동 수정 완료
+2026-02-17 15:34:14,468 [INFO] publish: ==================================================
+2026-02-17 15:34:14,468 [INFO] publish: 5단계: Hugo 빌드
+2026-02-17 15:34:14,507 [ERROR] publish: Hugo 빌드 실패: 
+2026-02-17 15:34:14,507 [ERROR] publish: ❌ Hugo 빌드 실패, 중단

@@ -165,6 +165,7 @@ def main():
     parser.add_argument("--skip-build", action="store_true", help="Hugo 빌드 스킵")
     parser.add_argument("--skip-push", action="store_true", help="Git push 스킵")
     parser.add_argument("--dry-run", action="store_true", help="실제 생성 없이 테스트")
+    parser.add_argument("--sources-file", help="소스 JSON 파일 경로")
     args = parser.parse_args()
 
     config = load_config()
@@ -182,7 +183,12 @@ def main():
     elif not topic:
         logger.error("--topic 또는 --auto 필요")
         sys.exit(1)
-    topic, relevant_sources = step_select_topic(sources, topic)
+    if args.sources_file:
+        import json as _json
+        with open(args.sources_file) as _sf:
+            relevant_sources = _json.load(_sf)
+    else:
+        topic, relevant_sources = step_select_topic(sources, topic)
 
     if args.dry_run:
         logger.info("🏁 드라이런 완료. 주제: %s, 소스: %d건", topic, len(relevant_sources))

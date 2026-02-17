@@ -1,71 +1,22 @@
 {
-  "post": "content/posts/2026-02-17-optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화.md",
-  "timestamp": "2026-02-17T15:21:46.093926",
-  "total_claims": 7,
-  "verified_claims": 7,
+  "post": "/Workshop/yan/260217-ai-tech-blog/hugo-site/hugo-site/content/posts/2026-02-17-amazon-personalize-opensearch-llm-개인화-추천의-삼각편대.md",
+  "timestamp": "2026-02-17T15:34:14.467990",
+  "total_claims": 1,
+  "verified_claims": 1,
   "flagged_claims": 0,
   "dead_links": 1,
   "dead_links_fixed": 1,
   "dead_links_unfixed": 0,
   "link_fixes": [
     {
-      "dead": "https://ieeexplore.ieee.org/document/298572",
-      "replacement": "https://proceedings.neurips.cc/paper/1992/file/303ed4c69846ab36c2904d3ba8573050-Paper.pdf",
+      "dead": "https://aws.amazon.com/blogs/machine-learning/amazon-personalize-can-now-unlock-intrinsic-signals-in-your-catalog-to-recommend-the-best-items-for-your-users/",
+      "replacement": "https://aws.amazon.com/blogs/machine-learning/amazon-personalize-can-now-unlock-intrinsic-signals-in-your-catalog-to-recommend-similar-items/",
       "status": "fixed"
     }
   ],
   "claims": [
     {
-      "claim": "## 왜 프루닝인가 — 모델 압축의 필요성과 프루닝의 위치\n\nGPT-3의 175B 파라미터가 세상을 놀라게 한 것이 불과 몇 년 전인데, 이제는 LLaMA 70B를 \"비교적 작은 모델\"이라 부르는 시대가 되었습니다.",
-      "verified": true,
-      "source": "https://arxiv.org/abs/2301.00774",
-      "confidence": 0.6666666666666666,
-      "type": "numeric",
-      "flagged": false
-    },
-    {
-      "claim": "개인적으로 70B 모델을 단일 A100 80GB에 올려보려 할 때마다 OOM(Out of Memory)을 마주치는데, 이럴 때 압축의 필요성을 절실히 느끼게 됩니다.",
-      "verified": true,
-      "source": "https://arxiv.org/abs/2102.00554",
-      "confidence": 0.6666666666666666,
-      "type": "numeric",
-      "flagged": false
-    },
-    {
-      "claim": "실제로 써보면, 프루닝으로 50% 희소화한 모델에 INT4 양자화를 함께 적용했을 때 단독 기법 대비 훨씬 공격적인 압축률을 달성할 수 있습니다.",
-      "verified": true,
-      "source": "https://arxiv.org/abs/2301.00774",
-      "confidence": 1.0,
-      "type": "numeric",
-      "flagged": false
-    },
-    {
-      "claim": "MNIST나 CIFAR-10 수준의 네트워크에서 원래 파라미터의 10–20%만으로도 full network와 동등하거나 더 나은 성능이 나왔습니다.",
-      "verified": true,
-      "source": null,
-      "confidence": 0.95,
-      "type": "numeric",
-      "verification_method": "web_search",
-      "flagged": false
-    },
-    {
-      "claim": "수십억~수천억 개 파라미터를 가진 LLM에서, 재학습(fine-tuning) 없이 단 한 번의 프루닝(one-shot pruning)으로 성능을 유지할 수 있을까요? GPT-175B 규모의 모델을 반복 학습하며 프루닝하는 건 비용상 사실상 불가능합니다.",
-      "verified": true,
-      "source": "https://arxiv.org/abs/2301.00774",
-      "confidence": 1.0,
-      "type": "numeric",
-      "flagged": false
-    },
-    {
-      "claim": "SparseGPT는 OPT-175B, BLOOM-176B 같은 초대형 모델에서 50~60% 비구조적 희소성(unstructured sparsity)을 달성하면서도 perplexity 저하가 미미했습니다.",
-      "verified": true,
-      "source": "https://arxiv.org/abs/2301.00774",
-      "confidence": 1.0,
-      "type": "numeric",
-      "flagged": false
-    },
-    {
-      "claim": "## 전환점 — Lottery Ticket Hypothesis (2018)\n\nOBD와 OBS가 \"어떤 가중치를 잘라야 하는가\"에 집중했다면, 2018년 Frankle & Carlin이 제시한 Lottery Ticket Hypothesis(LTH)는 질문 자체를 뒤집었습니다.",
+      "claim": "dumps({\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 512,\n    \"messages\": [{\"role\": \"user\", \"content\": prompt}],\n})\n\nllm_resp = bedrock_rt.",
       "verified": true,
       "source": null,
       "confidence": 1.0,
@@ -76,75 +27,61 @@
   ],
   "search_results": [
     {
-      "claim": "MNIST나 CIFAR-10 수준의 네트워크에서 원래 파라미터의 10–20%만으로도 full network와 동등하거나 더 나은 성능이 나왔습니",
+      "claim": "dumps({\n    \"anthropic_version\": \"bedrock-2023-05-31\",\n    \"max_tokens\": 512,\n  ",
       "verified": true,
-      "reason": "Search result [7] directly states that for LeNet on MNIST and Conv models on CIFAR-10, retaining only 10-20% of parameters results in equal or better accuracy than the original network, matching the claim precisely.",
-      "confidence": 0.95,
-      "method": "search"
-    },
-    {
-      "claim": "## 전환점 — Lottery Ticket Hypothesis (2018)\n\nOBD와 OBS가 \"어떤 가중치를 잘라야 하는가\"에 집중했다면, 2",
-      "verified": true,
-      "reason": "The claim accurately identifies the Lottery Ticket Hypothesis (LTH) as proposed by Frankle & Carbin (noted as Carlin in claim, minor spelling variant) in 2018, with arXiv preprint 1803.03635 confirming the year and core idea of reversing pruning focus by finding pre-existing winning subnetworks in dense networks[1][2][3][5][6]. OBD/OBS reference is contextual but uncontradicted.",
+      "reason": "The code snippet matches the standard parameters for Anthropic Claude Messages API on AWS Bedrock, as documented in official AWS sources using 'anthropic_version', 'max_tokens', and 'messages' array[3]. LiteLLM and other libraries also support similar invocation patterns[1].",
       "confidence": 1.0,
       "method": "search"
     }
   ],
   "urls": [
     {
-      "url": "https://arxiv.org/abs/2301.00774",
+      "url": "https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/2301.00774",
+      "final_url": "https://docs.aws.amazon.com/personalize/latest/dg/",
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/2102.00554",
+      "url": "https://docs.aws.amazon.com/personalize/latest/dg/personalize-opensearch.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/2102.00554",
+      "final_url": "https://docs.aws.amazon.com/personalize/latest/dg/personalize-opensearch.html",
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/2306.11695",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/2306.11695",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/1710.01878",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/1710.01878",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://proceedings.neurips.cc/paper/1989/file/6c9882bbac1c7093bd25041881277658-Paper.pdf",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://proceedings.neurips.cc/paper/1989/file/6c9882bbac1c7093bd25041881277658-Paper.pdf",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/2210.17323",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/2210.17323",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://ieeexplore.ieee.org/document/298572",
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-personalize-can-now-unlock-intrinsic-signals-in-your-catalog-to-recommend-the-best-items-for-your-users/",
       "accessible": false,
-      "status": 418,
-      "final_url": "https://ieeexplore.ieee.org/document/298572",
+      "status": 404,
+      "final_url": "https://aws.amazon.com/blogs/machine-learning/amazon-personalize-can-now-unlock-intrinsic-signals-in-your-catalog-to-recommend-the-best-items-for-your-users/",
       "redirected_to_generic": false
     },
     {
-      "url": "https://arxiv.org/abs/1803.03635",
+      "url": "https://arxiv.org/abs/2005.11401",
       "accessible": true,
       "status": 200,
-      "final_url": "https://arxiv.org/abs/1803.03635",
+      "final_url": "https://arxiv.org/abs/2005.11401",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/elevate-rag-for-numerical-analysis-using-amazon-bedrock-knowledge-bases/",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://aws.amazon.com/blogs/machine-learning/elevate-rag-for-numerical-analysis-using-amazon-bedrock-knowledge-bases/",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://docs.aws.amazon.com/personalize/latest/dg/what-is-personalize.html",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/personalize/latest/dg/what-is-personalize.html",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html",
       "redirected_to_generic": false
     }
   ]

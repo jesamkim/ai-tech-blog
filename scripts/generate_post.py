@@ -15,7 +15,7 @@ from botocore.config import Config as BotoConfig
 BASE_DIR = Path(__file__).resolve().parent.parent
 SCRIPTS_DIR = BASE_DIR / "scripts"
 TEMPLATES_DIR = BASE_DIR / "templates"
-HUGO_DIR = BASE_DIR / "hugo-site"
+HUGO_DIR = BASE_DIR  # hugo-site IS the base dir
 
 logging.basicConfig(
     level=logging.INFO,
