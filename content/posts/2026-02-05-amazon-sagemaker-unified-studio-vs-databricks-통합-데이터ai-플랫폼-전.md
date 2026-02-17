@@ -1,6 +1,6 @@
 ---
 title: "Amazon SageMaker Unified Studio vs Databricks: 통합 데이터·AI 플랫폼 전략 비교"
-date: 2026-02-17T13:57:25+09:00
+date: 2026-02-05T13:57:25+09:00
 draft: false
 author: "Jesam Kim"
 description: "AWS SageMaker Unified Studio와 Databricks의 통합 데이터·AI 플랫폼 전략을 아키텍처, 거버넌스, AI/ML 워크플로, 가격 모델 등 핵심 축으로 비교 분석합니다."
@@ -24,7 +24,7 @@ TocOpen: true
 
 개인적으로 여러 엔터프라이즈 프로젝트를 지켜보면, ETL에서 분석, ML 모델링, GenAI 서빙까지 이어지는 파이프라인에서 컨텍스트 스위칭(context switching) 비용이 전체 생산성의 상당 부분 이상을 잡아먹는 경우가 흔합니다. 바로 이 지점을 두 거인이 동시에 노리고 있습니다.
 
-![다이어그램 1](/ai-tech-blog/images/posts/2026-02-17/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-1.png)
+![다이어그램 1](/ai-tech-blog/images/posts/2026-02-05/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-1.png)
 
 AWS re:Invent 2024에서 발표된 SageMaker Unified Studio는 단순한 제품 업데이트가 아니었습니다. 기존에 각각 독립적으로 운영되던 SageMaker, Glue, Athena, Redshift를 **단일 프로젝트 공간(single project space)** 안에 통합하겠다는 전략적 선언이었습니다. 실제로 써보면, 하나의 노트북에서 Glue 카탈로그를 탐색하고 Redshift 쿼리를 날린 뒤 바로 SageMaker 학습 잡(training job)을 트리거할 수 있다는 점이 가장 체감되는 변화입니다.
 
@@ -44,7 +44,7 @@ SageMaker Unified Studio는 기존에 흩어져 있던 AWS 네이티브 서비�
 
 반면 Databricks는 Lakehouse Architecture 위에 **Unity Catalog**를 중심으로 데이터, 모델, 피처, 권한을 하나의 거버넌스 레이어로 통합합니다. AWS, Azure, GCP 어디에서든 동일한 경험을 제공하는 것이 핵심 전략입니다.
 
-![다이어그램 2](/ai-tech-blog/images/posts/2026-02-17/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-2.png)
+![다이어그램 2](/ai-tech-blog/images/posts/2026-02-05/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-2.png)
 
 ### 핵심 차이: 통합의 축이 다릅니다
 
@@ -72,7 +72,7 @@ SageMaker Unified Studio는 Amazon DataZone을 거버넌스 레이어로 활용�
 
 Databricks는 Unity Catalog를 통해 테이블, ML 모델, 피처(Feature), 볼륨(파일)까지 `catalog.schema.asset` 형태의 3-레벨 네임스페이스 하나로 관리합니다. 실제로 써보면, 데이터 엔지니어가 만든 테이블과 ML 엔지니어가 등록한 모델이 동일한 권한 체계 안에서 검색·제어된다는 점이 상당히 편리합니다.
 
-![다이어그램 3](/ai-tech-blog/images/posts/2026-02-17/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-3.png)
+![다이어그램 3](/ai-tech-blog/images/posts/2026-02-05/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-3.png)
 
 ### 오픈 포맷 전쟁: Delta Lake vs Iceberg
 
@@ -145,7 +145,7 @@ print(response.json())
 
 ### GenAI 전략의 핵심 분기점
 
-![다이어그램 4](/ai-tech-blog/images/posts/2026-02-17/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-4.png)
+![다이어그램 4](/ai-tech-blog/images/posts/2026-02-05/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-4.png)
 
 개인적으로 가장 큰 차이라고 느끼는 부분은 **모델 소싱(Model Sourcing) 철학**입니다.
 
@@ -186,7 +186,7 @@ Databricks는 노트북(Notebook)을 협업의 중심축으로 삼습니다. 실
 
 ### 협업 모델 비교
 
-![다이어그램 5](/ai-tech-blog/images/posts/2026-02-17/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-5.png)
+![다이어그램 5](/ai-tech-blog/images/posts/2026-02-05/amazon-sagemaker-unified-studio-vs-databricks-통합-데이터ai-플랫폼-전/diagram-5.png)
 
 두 플랫폼의 접근 방식은 꽤 다릅니다. SageMaker Unified Studio는 역할(페르소나)별로 최적화된 도구를 하나의 프로젝트에 묶어주는 방식이고, Databricks는 노트북이라는 단일 인터페이스의 유연성을 높이는 방식입니다. 조직 내 역할 분담이 명확하고 비개발 직군까지 포함해야 한다면 SageMaker Unified Studio가 유리합니다. 반면 소규모 팀에서 빠른 반복 실험과 프로토타이핑에 집중한다면 Databricks의 노트북 중심 모델이 더 직관적일 수 있습니다.
 
