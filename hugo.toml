@@ -62,6 +62,10 @@ enableEmoji = false
     name = "github"
     url = "https://github.com/jesamkim"
 
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/jesamkim"
+
   [params.cover]
     hidden = false
     hiddenInList = false
