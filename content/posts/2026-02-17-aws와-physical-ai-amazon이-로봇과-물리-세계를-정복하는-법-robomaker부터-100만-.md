@@ -275,7 +275,7 @@ class SensorFusion:
    [https://aws.amazon.com/robomaker/](https://aws.amazon.com/robomaker/)
 
 2. AWS IoT RoboRunner 공식 문서 — 다종 로봇 플릿의 통합 오케스트레이션 및 관리 서비스.
-   [https://aws.amazon.com/iot-roborunner/](https://aws.amazon.com/iot-roborunner/)
+   [https://aws.amazon.com/blogs/aws/preview-aws-iot-roborunner-for-building-robot-fleet-management-applications/](https://aws.amazon.com/blogs/aws/preview-aws-iot-roborunner-for-building-robot-fleet-management-applications/)
 
 3. AWS IoT Greengrass 공식 문서 — 엣지 디바이스에서의 로컬 컴퓨팅, 메시징, ML 추론 지원.
    [https://aws.amazon.com/greengrass/](https://aws.amazon.com/greengrass/)
@@ -287,6 +287,6 @@ class SensorFusion:
    [https://aws.amazon.com/q/developer/](https://aws.amazon.com/q/developer/)
 
 6. Amazon Astro — Amazon의 가정용 자율 로봇 플랫폼.
-   [https://www.aboutamazon.com/news/devices/meet-astro](https://www.aboutamazon.com/news/devices/meet-astro)
+   [https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center](https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center)
 
 7. Amazon Robotics — Amazon 물류 센터의 로봇 자동화 시스템 (
