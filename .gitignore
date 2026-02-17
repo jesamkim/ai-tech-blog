@@ -3,3 +3,4 @@ resources/
 public/
 resources/
 .hugo_build.lock
+.github/workflows/generate-posts.yml

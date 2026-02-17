@@ -20,7 +20,7 @@ TocOpen: true
 
 월드 모델(World Model)은 AI가 현실 세계의 물리적 법칙과 인과관계를 학습하여 미래 상태를 예측하는 시스템입니다. 기존 언어 모델이 텍스트의 통계적 패턴을 학습한다면, 월드 모델은 시각적 정보를 기반으로 "만약 이 행동을 하면 어떤 일이 일어날까?"를 시뮬레이션합니다.
 
-![다이어그램 1](/images/posts/2026-02-17/diagram-1.png)
+![다이어그램 1](/ai-tech-blog/images/posts/2026-02-17/diagram-1.png)
 
 <details><summary>Mermaid 소스</summary>
 
@@ -51,7 +51,7 @@ class WorldModel:
 
 Yann LeCun이 제안한 JEPA(Joint Embedding Predictive Architecture)는 월드 모델 구축을 위한 혁신적인 접근법입니다. JEPA의 핵심 아이디어는 **표현 공간(representation space)**에서 예측을 수행하여 픽셀 단위의 생성 없이도 세상의 구조를 학습하는 것입니다.
 
-![다이어그램 2](/images/posts/2026-02-17/diagram-2.png)
+![다이어그램 2](/ai-tech-blog/images/posts/2026-02-17/diagram-2.png)
 
 <details><summary>Mermaid 소스</summary>
 
@@ -97,7 +97,7 @@ JEPA의 장점은 **계산 효율성**과 **의미론적 추상화**입니다. �
 
 NVIDIA가 2024년 말 공개한 Cosmos-1.0은 물리 법칙을 이해하는 비디오 생성 월드 모델입니다. 14B 파라미터를 가진 이 모델은 단순한 비디오 생성을 넘어 현실 세계의 물리적 상호작용을 학습합니다.
 
-![다이어그램 3](/images/posts/2026-02-17/diagram-3.png)
+![다이어그램 3](/ai-tech-blog/images/posts/2026-02-17/diagram-3.png)
 
 <details><summary>Mermaid 소스</summary>
 
@@ -134,7 +134,7 @@ def tokenize_video(video_frames):
 
 가장 큰 도전은 **오차 누적(Error Accumulation)** 문제입니다. 시간이 지날수록 예측 오차가 기하급수적으로 증가하여 장기 계획 수립이 어려워집니다.
 
-![다이어그램 4](/images/posts/2026-02-17/diagram-4.png)
+![다이어그램 4](/ai-tech-blog/images/posts/2026-02-17/diagram-4.png)
 
 <details><summary>Mermaid 소스</summary>
 
