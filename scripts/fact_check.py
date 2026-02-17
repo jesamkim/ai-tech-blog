@@ -374,8 +374,7 @@ def fact_check_post(post_path: str, config: dict = None, auto_fix: bool = True) 
 
     # 2.3 Reference 라벨↔URL 종류 불일치 검사
     ref_mismatches = []
-    ref_pattern = re.findall(r'(\S+(?:공식 문서|Blog|논문|GitHub)[^
-]*)(https?://[^\s\)\]]+)', body)
+    ref_pattern = re.findall(r"(\S+(?:공식 문서|Blog|논문|GitHub).*?)(https?://[^\s\)\]]+)", body)
     for label_line, url in ref_pattern:
         is_docs = "docs.aws" in url or "documentation" in url
         is_blog = "/blogs/" in url or "/blog/" in url
