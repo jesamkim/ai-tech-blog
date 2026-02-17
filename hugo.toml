@@ -57,7 +57,6 @@ enableEmoji = false
     Title = "AI Tech Blog"
     Content = """
 AI/ML 최신 기술 트렌드, 논문 리뷰, AWS 서비스 분석을 다루는 기술 블로그입니다.
-매주 자동으로 큐레이션된 고품질 기술 콘텐츠를 제공합니다.
 """
 
   [[params.socialIcons]]
