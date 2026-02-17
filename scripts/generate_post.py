@@ -137,7 +137,7 @@ def prompt_section(topic: str, section_title: str, section_points: str, prev_sec
   * viewBox="0 0 800 400" (기본, 내용에 맞게 조정)
   * 다크 배경: linearGradient #0a0a2e → #1a1a3e, rx="12"
   * 색상: Green #00d4aa, Blue #00a8ff, Orange #ff9900, Purple #aa88ff, Red #ff4444
-  * 폰트: font-family="monospace" (serif 금지), 제목 18+, 라벨 10-13, 박스 내 8-10
+  * 폰트: font-family="NanumBarunGothic, NanumSquare, sans-serif" (monospace/serif 금지), 제목 18+, 라벨 10-13, 박스 내 8-10
   * 텍스트: text-anchor="middle", 흰색(#fff) 또는 accent color
   * 박스: rx=8, stroke 1px, fill-opacity 0.15, 최소 40px 간격
   * 화살표: stroke="#555", marker-end로 화살촉 표현
