@@ -210,6 +210,45 @@ def main():
             logger.error("❌ Hugo 빌드 실패, 중단")
             sys.exit(1)
 
+    # 6.5 최종 검수 (Final QA)
+    logger.info("=" * 50)
+    logger.info("6.5단계: 최종 검수")
+    import re as _re
+    with open(post_path, encoding="utf-8") as _f:
+        _content = _f.read()
+    _body = _re.sub(r"^---.*?---", "", _content, count=1, flags=_re.DOTALL)
+    _sections = _body.split("\n## ")
+    qa_issues = []
+    
+    # 문체 통일 검사
+    for i, sec in enumerate(_sections[1:], 1):
+        title = sec.split("\n")[0][:30]
+        if "References" in title:
+            continue
+        casual = len(_re.findall(r"(?:이다|한다|된다|있다|없다|않다|왔다|간다)[.]", sec))
+        if casual > 2:
+            qa_issues.append(f"문체 불일치: 섹션 '{title}' 반말 {casual}건")
+    
+    # 잘림 검사
+    code_blocks = _content.split("```")
+    if len(code_blocks) % 2 == 0:
+        qa_issues.append("미닫힌 코드 블록")
+    if _content.rstrip().endswith(("(", "[", "](")):
+        qa_issues.append("마지막 줄 잘림")
+    
+    # 이미지 경로 검사
+    for img in _re.findall(r'!\[.*?\]\((.*?)\)', _content):
+        if not img.startswith("/ai-tech-blog/"):
+            qa_issues.append(f"이미지 prefix 누락: {img}")
+    
+    if qa_issues:
+        for iss in qa_issues:
+            logger.error("🚨 최종 검수 실패: %s", iss)
+        logger.error("❌ 최종 검수 미통과 — 발행 중단!")
+        sys.exit(3)
+    else:
+        logger.info("✅ 최종 검수 통과")
+
     # 7. Git push
     if not args.skip_push:
         step_git_push(config)
