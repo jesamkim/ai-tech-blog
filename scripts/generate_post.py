@@ -75,6 +75,15 @@ def prompt_outline(topic: str, sources: list, config: dict) -> str:
 ## 참고 소스
 {source_text}
 
+## 기존 카테고리 목록 (우선 재사용할 것!)
+기존 블로그에 사용 중인 카테고리:
+- "AI/ML 기술 심층분석" — AI/ML 핵심 기술, 알고리즘, 모델 아키텍처 분석
+- "MLOps & Platform" — ML 플랫폼, 파이프라인, 인프라, 서비스 비교
+- "Physical AI" — 로보틱스, 자율주행, 물리 세계 AI
+- "논문 리뷰" — 주요 논문 리뷰 및 분석
+- "AWS AI/ML" — AWS AI/ML 서비스 분석
+유사한 주제는 반드시 기존 카테고리에 매핑하세요. 정말 기존 카테고리에 안 맞을 때만 새로 만드세요.
+
 ## 출력
 1. Hugo front matter (YAML)
 2. 섹션 제목 목록 (## 헤더) — 보통 4~6개 섹션
@@ -88,7 +97,7 @@ draft: false
 author: "{gen_cfg.get("author", "Jesam Kim")}"
 description: "한 줄 설명"
 categories:
-  - "카테고리"
+  - "카테고리 (아래 기존 카테고리 중 적합한 것이 있으면 반드시 재사용. 없을 때만 새로 생성)"
 tags:
   - "태그1"
   - "태그2"
