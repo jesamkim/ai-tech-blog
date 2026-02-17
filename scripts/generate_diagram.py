@@ -79,6 +79,7 @@ def generate_diagram(
     output_name: str = "diagram",
     date_str: str = None,
     config: dict = None,
+    slug: str = None,
 ) -> str:
     """Mermaid 텍스트 → PNG 이미지 생성, 마크다운 경로 반환"""
     if config is None:
@@ -87,10 +88,12 @@ def generate_diagram(
         date_str = datetime.now().strftime("%Y-%m-%d")
 
     diag_cfg = config.get("diagrams", {})
-    img_dir = HUGO_DIR / "static" / "images" / "posts" / date_str
+    sub_dir = f"{date_str}/{slug}" if slug else date_str
+    img_dir = HUGO_DIR / "static" / "images" / "posts" / sub_dir
     img_dir.mkdir(parents=True, exist_ok=True)
     output_png = img_dir / f"{output_name}.png"
-    md_path = f"/ai-tech-blog/images/posts/{date_str}/{output_name}.png"
+    sub_dir_str = f"{date_str}/{slug}" if slug else date_str
+    md_path = f"/ai-tech-blog/images/posts/{sub_dir_str}/{output_name}.png"
 
     # .mmd 파일 생성
     with tempfile.NamedTemporaryFile(mode="w", suffix=".mmd", delete=False) as f:

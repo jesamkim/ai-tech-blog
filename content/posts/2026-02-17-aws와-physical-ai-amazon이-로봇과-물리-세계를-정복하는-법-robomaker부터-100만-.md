@@ -23,7 +23,7 @@ ChatGPT가 텍스트를 생성하고, Midjourney가 이미지를 만들어도 AI
 
 ### 소프트웨어 AI vs Physical AI
 
-![다이어그램 1](/ai-tech-blog/images/posts/2026-02-17/diagram-1.png)
+![다이어그램 1](/ai-tech-blog/images/posts/2026-02-17/aws와-physical-ai-amazon이-로봇과-물리-세계를-정복하는-법-robomaker부터-100만-/diagram-1.png)
 
 핵심 차이는 피드백 루프(Feedback Loop)에 있습니다. 소프트웨어 AI는 틀려도 텍스트를 다시 생성하면 그만입니다. 반면 Physical AI가 로봇 팔의 각도를 1도만 잘못 계산하면 물건이 깨지고, 사람이 다칩니다. 현실은 Undo가 없습니다.
 
@@ -118,7 +118,7 @@ response = client.create_simulation_job(
 
 AWS 로보틱스 전략에서 눈여겨볼 부분은 개별 서비스보다 엔드투엔드 파이프라인입니다.
 
-![다이어그램 2](/ai-tech-blog/images/posts/2026-02-17/diagram-2.png)
+![다이어그램 2](/ai-tech-blog/images/posts/2026-02-17/aws와-physical-ai-amazon이-로봇과-물리-세계를-정복하는-법-robomaker부터-100만-/diagram-2.png)
 
 SageMaker에서 강화학습(Reinforcement Learning)으로 로봇 제어 정책을 훈련합니다. 이후 RoboMaker에서 수백 가지 시뮬레이션 시나리오로 안전성을 검증하고, IoT Greengrass를 통해 엣지 디바이스인 실제 로봇에 모델을 배포합니다. 현장에서 수집된 운영 데이터는 다시 SageMaker로 피드백되어 모델을 개선하는 순환 구조를 이룹니다. 각 서비스가 따로 노는 게 아니라 하나의 루프로 연결된다는 점이, 실제 운영 환경에서 꽤 큰 차이를 만듭니다.
 
@@ -141,7 +141,7 @@ SageMaker에서 강화학습(Reinforcement Learning)으로 로봇 제어 정책�
 
 주목할 점은 이 로봇들이 따로 노는 게 아니라는 겁니다. Sequoia 시스템이 대표적인 사례인데, 여러 로봇 유형이 하나의 워크플로우 안에서 체인처럼 연결되어 돌아갑니다.
 
-![다이어그램 3](/ai-tech-blog/images/posts/2026-02-17/diagram-3.png)
+![다이어그램 3](/ai-tech-blog/images/posts/2026-02-17/aws와-physical-ai-amazon이-로봇과-물리-세계를-정복하는-법-robomaker부터-100만-/diagram-3.png)
 
 ### 100만 대 운용의 아키텍처
 
@@ -222,7 +222,7 @@ Amazon은 물류 창고 전체를 가상으로 복제(Digital Twin)합니다. �
 
 AWS에서는 RoboMaker 시뮬레이션 환경과 Gazebo를 쓸 수 있고, 최근에는 NVIDIA Isaac Sim과 연동해 이 파이프라인을 구축하는 사례도 늘고 있습니다.
 
-![다이어그램 4](/ai-tech-blog/images/posts/2026-02-17/diagram-4.png)
+![다이어그램 4](/ai-tech-blog/images/posts/2026-02-17/aws와-physical-ai-amazon이-로봇과-물리-세계를-정복하는-법-robomaker부터-100만-/diagram-4.png)
 
 ### Sim-to-Real Transfer: 현실과의 간극을 좁히는 법
 
@@ -271,7 +271,7 @@ Amazon의 Physical AI 야망은 물류 창고에서 멈추지 않습니다. 2020
 
 대부분의 자율주행 기업이 L4(특정 구역 내 자율주행)에 집중하는 동안, Zoox는 처음부터 L5(Level 5) 완전 자율주행을 설계 목표로 잡았습니다. 핸들도 페달도 없는 양방향 대칭 차량(bidirectional vehicle)을 자체 설계했는데, 이 지점에서 Waymo나 Cruise와 접근 방식이 근본적으로 갈립니다.
 
-![다이어그램 5](/ai-tech-blog/images/posts/2026-02-17/diagram-5.png)
+![다이어그램 5](/ai-tech-blog/images/posts/2026-02-17/aws와-physical-ai-amazon이-로봇과-물리-세계를-정복하는-법-robomaker부터-100만-/diagram-5.png)
 
 여기서 눈여겨볼 부분은 AWS 인프라와의 시너지입니다. Zoox는 실도로 주행 데이터를 AWS 클라우드로 전송하고, 수십억 마일 규모의 시뮬레이션을 AWS GPU 클러스터에서 돌립니다. 이 시뮬레이션-투-리얼(Sim-to-Real) 파이프라인은 앞서 살펴본 RoboMaker의 확장판이라 할 수 있습니다.
 
