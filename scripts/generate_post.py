@@ -257,7 +257,7 @@ def parse_outline(outline_text: str) -> tuple:
 # ── 메인 ─────────────────────────────────────────────────────
 
 def extract_diagram_blocks(content: str) -> list:
-    pattern = r"```mermaid\n(.*?)```"
+    pattern = r"```(?:mermaid|svg)\n(.*?)```"
     return re.findall(pattern, content, re.DOTALL)
 
 
@@ -324,7 +324,7 @@ def generate_post(topic: str, sources: list = None, config: dict = None) -> Path
     content = front_matter + "\n\n" + "\n\n".join(humanized_sections) + "\n\n" + ref_text
 
     # slug 생성 (다이어그램 경로에 사용)
-    title_match = re.search(r'"'^title:\s*"(.+?)"'"', content, re.MULTILINE)
+    title_match = re.search(r'^title:\s*"(.+?)"', content, re.MULTILINE)
     title = title_match.group(1) if title_match else topic
     slug = slugify(title)
 
@@ -335,7 +335,7 @@ def generate_post(topic: str, sources: list = None, config: dict = None) -> Path
             from generate_diagram import generate_diagram
             today = datetime.now().strftime("%Y-%m-%d")
             for i, block in enumerate(diagram_blocks):
-                img_path = generate_diagram(block, output_name=f"diagram-{i+1}", date_str=today)
+                img_path = generate_diagram(block, output_name=f"diagram-{i+1}", date_str=today, slug=slug)
                 if img_path:
                     old_mermaid = f"```mermaid\n{block}```"
                     old_svg = f"```svg\n{block}```"

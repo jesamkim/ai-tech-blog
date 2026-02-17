@@ -9,6 +9,7 @@ import tempfile
 from datetime import datetime
 from pathlib import Path
 
+import re
 import yaml
 from xml.etree import ElementTree as ET
 
