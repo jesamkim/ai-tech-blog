@@ -1,108 +1,117 @@
 {
-  "post": "content/posts/2026-02-17-amazon-bedrock-기반-비정형-문서-파싱-pdf-텍스트-추출-bedrock-data-automati.md",
-  "timestamp": "2026-02-17T18:35:01.967696",
+  "post": "content/posts/2026-02-17-건설-도메인에서의-강화학습-활용-빌딩-hvac-에너지-최적화를-중심으로-5편-논문-리뷰.md",
+  "timestamp": "2026-02-17T19:10:02.166356",
   "total_claims": 1,
-  "verified_claims": 1,
-  "flagged_claims": 0,
-  "dead_links": 1,
+  "verified_claims": 0,
+  "flagged_claims": 1,
+  "dead_links": 4,
   "dead_links_fixed": 1,
-  "dead_links_unfixed": 0,
+  "dead_links_unfixed": 3,
   "link_fixes": [
     {
-      "dead": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-data-automation-now-available-in-preview/",
-      "replacement": "https://aws.amazon.com/bedrock/bda/",
+      "dead": "https://dl.acm.org/doi/10.1145/3671127.3698178",
+      "replacement": null,
+      "status": "unfixed"
+    },
+    {
+      "dead": "https://www.sciencedirect.com/science/article/pii/S0378778819313313",
+      "replacement": "https://doi.org/10.1016/j.enbuild.2019.07.029",
       "status": "fixed"
+    },
+    {
+      "dead": "https://www.sciencedirect.com/science/article/pii/S0378778825001300",
+      "replacement": null,
+      "status": "unfixed"
+    },
+    {
+      "dead": "https://www.sciencedirect.com/science/article/pii/S2352710224000822",
+      "replacement": null,
+      "status": "unfixed"
     }
   ],
   "claims": [
     {
-      "claim": "dumps({\n        \"anthropic_version\": \"bedrock-2023-05-31\",\n        \"max_tokens\": 4096,\n        \"messages\": [{\"role\": \"user\", \"content\": [\n            {\"type\": \"image\", \"source\": {\"type\": \"base64\", \"media_type\": \"image/png\", \"data\": b64_image}},\n            {\"type\": \"text\", \"text\": prompt}\n        ]}]\n    })\n    resp = client.",
-      "verified": true,
+      "claim": "개인적으로 이 논문에서 가장 인상적이었던 부분은, 시뮬레이션 성능만으로 RL의 우위를 판단하는 것이 얼마나 위험한지를 실제 필드 데이터로 보여줬다는 점입니다.",
+      "verified": false,
       "source": null,
-      "confidence": 1.0,
-      "type": "date",
-      "verification_method": "web_search",
-      "flagged": false
+      "confidence": 0.0,
+      "type": "research_claim",
+      "ai_verdict": "uncertain",
+      "ai_issue": "특정 논문이 명시되지 않아 사실 여부를 검증할 수 없음. 다만 시뮬레이션 성능과 실제 필드 성능 간의 괴리(sim-to-real gap)가 RL 연구에서 잘 알려진 문제이며, 이를 실제 필드 데이터로 보여준 논문들이 존재하므로 기술적 맥락 자체는 타당하나, 구체적 논문을 특정할 수 없어 정확성 판단 불가",
+      "flagged": true
     }
   ],
   "search_results": [
     {
-      "claim": "dumps({\n        \"anthropic_version\": \"bedrock-2023-05-31\",\n        \"max_tokens\":",
-      "verified": true,
-      "reason": "The JSON structure matches the Anthropic Claude Messages API format for Amazon Bedrock, including anthropic_version, max_tokens, messages array with user role, and content blocks for base64 image (png) and text, as shown in AWS Bedrock documentation[2].",
-      "confidence": 1.0,
+      "claim": "개인적으로 이 논문에서 가장 인상적이었던 부분은, 시뮬레이션 성능만으로 RL의 우위를 판단하는 것이 얼마나 위험한지를 실제 필드 데이터로 보여줬",
+      "verified": null,
+      "reason": "The search results do not contain the specific paper or claim referenced. While the results extensively discuss simulation vs. real-world performance gaps in reinforcement learning (Sim2Real problems, simulation environment limitations, and the dangers of relying solely on simulation metrics), they do not include the particular paper or its findings that this claim references. Without access to the actual paper being cited, the claim cannot be verified against its contents.",
+      "confidence": 0.1,
       "method": "search"
     }
   ],
   "urls": [
     {
-      "url": "https://docs.aws.amazon.com/textract/",
+      "url": "https://arxiv.org/abs/2503.05022",
       "accessible": true,
       "status": 200,
-      "final_url": "https://docs.aws.amazon.com/textract/",
+      "final_url": "https://arxiv.org/abs/2503.05022",
       "redirected_to_generic": false
     },
     {
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://pymupdf.readthedocs.io/en/latest/",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://pymupdf.readthedocs.io/en/latest/",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://docs.anthropic.com/en/docs/build-with-claude/vision",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://platform.claude.com/docs/en/build-with-claude/vision",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://arxiv.org/abs/2308.13418",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://arxiv.org/abs/2308.13418",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages.html",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://github.com/jsvine/pdfplumber",
-      "accessible": true,
-      "status": 200,
-      "final_url": "https://github.com/jsvine/pdfplumber",
-      "redirected_to_generic": false
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-data-automation-now-available-in-preview/",
+      "url": "https://dl.acm.org/doi/10.1145/3671127.3698178",
       "accessible": false,
-      "status": 404,
-      "final_url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-data-automation-now-available-in-preview/",
+      "status": 403,
+      "final_url": "https://dl.acm.org/doi/10.1145/3671127.3698178",
       "redirected_to_generic": false
     },
     {
-      "url": "https://docs.aws.amazon.com/bedrock/",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0378778819313313",
+      "accessible": false,
+      "status": 403,
+      "final_url": "https://www.sciencedirect.com/science/article/pii/S0378778819313313",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/reinforcement-learning.html",
       "accessible": true,
       "status": 200,
-      "final_url": "https://docs.aws.amazon.com/bedrock/",
+      "final_url": "https://docs.aws.amazon.com/sagemaker/latest/dg/reinforcement-learning.html",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "accessible": true,
+      "status": 200,
+      "final_url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0378778825001300",
+      "accessible": false,
+      "status": 403,
+      "final_url": "https://www.sciencedirect.com/science/article/pii/S0378778825001300",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.12195",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2407.12195",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S2352710224000822",
+      "accessible": false,
+      "status": 403,
+      "final_url": "https://www.sciencedirect.com/science/article/pii/S2352710224000822",
       "redirected_to_generic": false
     }
   ]
