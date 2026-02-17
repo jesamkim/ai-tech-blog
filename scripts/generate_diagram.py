@@ -10,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 
 import yaml
+from xml.etree import ElementTree as ET
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SCRIPTS_DIR = BASE_DIR / "scripts"
@@ -74,6 +75,53 @@ def load_config() -> dict:
         return yaml.safe_load(f)
 
 
+
+
+def validate_svg(svg_text: str) -> list:
+    """SVG 품질 검증. 이슈 리스트 반환."""
+    issues = []
+    try:
+        root = ET.fromstring(svg_text.encode("utf-8"))
+    except ET.ParseError as e:
+        return [f"XML parse error: {e}"]
+
+    vb = root.get("viewBox", "0 0 800 400")
+    parts = vb.split()
+    vb_w, vb_h = float(parts[2]), float(parts[3])
+
+    # 텍스트 크기 검사 (최소 11px)
+    for text_el in root.iter("{http://www.w3.org/2000/svg}text"):
+        fs_str = text_el.get("font-size", "")
+        style = text_el.get("style", "")
+        fs = 0
+        if fs_str:
+            m = re.search(r"[\d.]+", fs_str)
+            if m: fs = float(m.group())
+        if not fs and "font-size" in style:
+            m = re.search(r"font-size:\s*([\d.]+)", style)
+            if m: fs = float(m.group(1))
+        if fs and fs < 11:
+            inner = (text_el.text or "")[:30]
+            issues.append(f"SMALL_TEXT: font-size={fs}")
+
+    # 요소 경계 검사
+    for rect_el in root.iter("{http://www.w3.org/2000/svg}rect"):
+        x = float(rect_el.get("x", "0"))
+        y = float(rect_el.get("y", "0"))
+        w = float(rect_el.get("width", "0"))
+        h = float(rect_el.get("height", "0"))
+        if x + w > vb_w + 10 or y + h > vb_h + 10 or x < -10 or y < -10:
+            issues.append(f"OUT_OF_BOUNDS: rect at ({x},{y})")
+
+    for text_el in root.iter("{http://www.w3.org/2000/svg}text"):
+        x = float(text_el.get("x", "0"))
+        y = float(text_el.get("y", "0"))
+        if x > vb_w + 20 or y > vb_h + 20 or x < -20 or y < -20:
+            inner = (text_el.text or "")[:30]
+            issues.append(f"OUT_OF_BOUNDS: text at ({x},{y})")
+
+    return issues
+
 def _svg_to_png(svg_text: str, output_name: str, date_str: str, config: dict, slug: str) -> str:
     """SVG 텍스트 → PNG 변환"""
     if config is None:
@@ -92,6 +140,11 @@ def _svg_to_png(svg_text: str, output_name: str, date_str: str, config: dict, sl
     # & → &amp; (이미 &amp; 등인 경우 제외)
     svg_text = _re.sub(r"&(?!amp;|lt;|gt;|quot;|apos;|#)", "&amp;", svg_text)
     svg_text = svg_text.replace("auto-start-auto", "auto")  # cairosvg 호환
+
+    # SVG 품질 검증
+    svg_issues = validate_svg(svg_text)
+    if svg_issues:
+        logger.warning("SVG 검증 이슈: %s", svg_issues)
 
     try:
         import cairosvg
