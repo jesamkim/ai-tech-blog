@@ -1,0 +1,143 @@
+{
+  "post": "content/posts/2026-02-17-optimal-brain-damage에서-sparsegpt까지-모델-프루닝-35년의-진화.md",
+  "timestamp": "2026-02-17T15:06:48.006050",
+  "total_claims": 5,
+  "verified_claims": 4,
+  "flagged_claims": 1,
+  "dead_links": 1,
+  "dead_links_fixed": 1,
+  "dead_links_unfixed": 0,
+  "link_fixes": [
+    {
+      "dead": "https://ieeexplore.ieee.org/document/298572",
+      "replacement": "https://proceedings.neurips.cc/paper/1992/file/303ed4c69846ab36c2904d3ba8573050-Paper.pdf",
+      "status": "fixed"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "## 왜 프루닝인가 — 모델 압축의 필요성과 프루닝의 위치\n\nGPT-3의 175B 파라미터가 화제가 된 지 불과 몇 년, 이제 LLaMA 65B조차 \"작은 모델\"로 불리는 시대입니다.",
+      "verified": true,
+      "source": "https://arxiv.org/abs/2301.00774",
+      "confidence": 0.6666666666666666,
+      "type": "numeric",
+      "flagged": false
+    },
+    {
+      "claim": "개인적으로 175B 모델을 A100 여러 장에 올려본 적이 있는데, 단일 추론 요청의 레이턴시와 비용을 체감하고 나면 \"이 가중치가 전부 정말 필요한가?\"라는 질문이 자연스럽게 떠오릅니다.",
+      "verified": true,
+      "source": "https://arxiv.org/abs/2301.00774",
+      "confidence": 1.0,
+      "type": "numeric",
+      "flagged": false
+    },
+    {
+      "claim": "org/2000/svg\">\n  <defs>\n    <linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0a0a2e\"/>\n      <stop offset=\"100%\" stop-color=\"#1a1a3e\"/>\n    </linearGradient>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\"\n            markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#555\"/>\n    </marker>\n  </defs>\n\n  <!-- Background -->\n  <rect width=\"800\" height=\"400\" rx=\"12\" fill=\"url(#bg)\"/>\n\n  <!-- Title -->\n  <text x=\"400\" y=\"38\" text-anchor=\"middle\" font-family=\"NanumBarunGothic, NanumSquare, sans-serif\"\n        font-size=\"18\" fill=\"#fff\" font-weight=\"bold\">OBD vs OBS — 핵심 차이 비교</text>\n\n  <!-- OBD Box -->\n  <rect x=\"40\" y=\"70\" width=\"330\" height=\"260\" rx=\"8\" fill=\"#00d4aa\" fill-opacity=\"0.",
+      "verified": false,
+      "source": "https://arxiv.org/abs/2301.00774",
+      "confidence": 0.4666666666666667,
+      "type": "numeric",
+      "ai_verdict": "uncertain",
+      "ai_issue": "주장이 SVG 코드 조각(OBD vs OBS 비교 다이어그램)으로만 구성되어 있으며, 팩트체크할 수 있는 완결된 텍스트 주장이 포함되어 있지 않습니다. SVG 마크업이 잘려 있어 실제 비교 내용을 확인할 수 없습니다.",
+      "flagged": true
+    },
+    {
+      "claim": "org/2000/svg\">\n  <defs>\n    <linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0a0a2e\"/>\n      <stop offset=\"100%\" stop-color=\"#1a1a3e\"/>\n    </linearGradient>\n    <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\"\n            markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n      <path d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"#555\"/>\n    </marker>\n  </defs>\n\n  <rect width=\"800\" height=\"420\" rx=\"12\" fill=\"url(#bg)\"/>\n\n  <!-- Title -->\n  <text x=\"400\" y=\"35\" text-anchor=\"middle\" font-family=\"NanumBarunGothic, NanumSquare, sans-serif\"\n        font-size=\"18\" fill=\"#fff\" font-weight=\"bold\">SparseGPT vs Wanda — 프루닝 파이프라인 비교</text>\n\n  <!-- ===== SparseGPT Row (y ~ 80-190) ===== -->\n  <text x=\"400\" y=\"72\" text-anchor=\"middle\" font-family=\"NanumBarunGothic, NanumSquare, sans-serif\"\n        font-size=\"14\" fill=\"#00d4aa\" font-weight=\"bold\">SparseGPT</text>\n\n  <!-- Box 1: Calibration -->\n  <rect x=\"30\" y=\"85\" width=\"140\" height=\"55\" rx=\"8\" fill=\"#00a8ff\" fill-opacity=\"0.",
+      "verified": true,
+      "source": "https://arxiv.org/abs/2301.00774",
+      "confidence": 1.0,
+      "type": "numeric",
+      "verification_method": "web_search",
+      "flagged": false
+    },
+    {
+      "claim": "15\" stroke=\"#\n\n## 패러다임 전환: Lottery Ticket Hypothesis (2018)\n\n앞서 살펴본 OBD와 OBS가 \"학습된 네트워크에서 무엇을 잘라낼 것인가\"에 집중했다면, 2018년 Frankle & Carlin이 제시한 Lottery Ticket Hypothesis(LTH)는 질문 자체를 뒤집었습니다.",
+      "verified": true,
+      "source": "https://arxiv.org/abs/1803.03635",
+      "confidence": 0.75,
+      "type": "date",
+      "flagged": false
+    }
+  ],
+  "search_results": [
+    {
+      "claim": "org/2000/svg\">\n  <defs>\n    <linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">",
+      "verified": null,
+      "reason": "The provided 'claim' is an incomplete SVG code snippet for a diagram titled 'OBD vs OBS — 핵심 차이 비교', with no specific factual statement to verify; search results discuss OBD1 vs OBD2 or OBD vs GPS HUD but lack context on 'OBS'.",
+      "confidence": 1.0,
+      "method": "search"
+    },
+    {
+      "claim": "org/2000/svg\">\n  <defs>\n    <linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">",
+      "verified": true,
+      "reason": "The provided SVG code fragment is valid and correctly uses standard SVG elements including <linearGradient> with proper attributes (x1,y1,x2,y2, stops), <marker> for arrows, <rect>, and <text>, matching SVG specifications in sources.",
+      "confidence": 1.0,
+      "method": "search"
+    }
+  ],
+  "urls": [
+    {
+      "url": "https://arxiv.org/abs/2301.00774",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2301.00774",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1803.03635",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/1803.03635",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1506.02626",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/1506.02626",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.11695",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2306.11695",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2102.00554",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2102.00554",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "http://www.w3.org/2000/svg",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://www.w3.org/2000/svg",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2210.17323",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2210.17323",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/document/298572",
+      "accessible": false,
+      "status": 418,
+      "final_url": "https://ieeexplore.ieee.org/document/298572",
+      "redirected_to_generic": false
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper/1989/file/6c9882bbac1c7093bd25041881277658-Paper.pdf",
+      "accessible": true,
+      "status": 200,
+      "final_url": "https://proceedings.neurips.cc/paper/1989/file/6c9882bbac1c7093bd25041881277658-Paper.pdf",
+      "redirected_to_generic": false
+    }
+  ]
+}
