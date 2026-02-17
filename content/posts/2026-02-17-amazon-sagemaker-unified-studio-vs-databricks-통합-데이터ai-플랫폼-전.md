@@ -28,7 +28,7 @@ TocOpen: true
 
 AWS re:Invent 2024에서 발표된 SageMaker Unified Studio는 단순한 제품 업데이트가 아니었습니다. 기존에 각각 독립적으로 운영되던 SageMaker, Glue, Athena, Redshift를 **단일 프로젝트 공간(single project space)** 안에 통합하겠다는 전략적 선언이었습니다. 실제로 써보면, 하나의 노트북에서 Glue 카탈로그를 탐색하고 Redshift 쿼리를 날린 뒤 바로 SageMaker 학습 잡(training job)을 트리거할 수 있다는 점이 가장 체감되는 변화입니다.
 
-반대편에서 Databricks는 이미 Data Intelligence Platform 비전 아래 Unity Catalog를 중심으로 데이터 거버넌스·분석·ML·GenAI를 하나의 레이크하우스(Lakehouse)에서 처리하는 구조를 수년간 다져왔습니다. Mosaic AI 인수 이후에는 LLM 파인튜닝(fine-tuning)과 서빙까지 플랫폼 안으로 끌어들인 상태이기도 합니다.
+반대편에서 Databricks(데이터브릭스)는 이미 Data Intelligence Platform 비전 아래 Unity Catalog를 중심으로 데이터 거버넌스·분석·ML·GenAI를 하나의 레이크하우스(Lakehouse)에서 처리하는 구조를 수년간 다져왔습니다. Mosaic AI 인수 이후에는 LLM 파인튜닝(fine-tuning)과 서빙까지 플랫폼 안으로 끌어들인 상태이기도 합니다.
 
 결국 양쪽 모두 "데이터가 있는 곳에서 바로 AI를 만든다"는 동일한 명제를 향해 달려가고 있습니다. 이것이 2025년 현재 가장 뜨거운 플랫폼 전쟁의 본질입니다. 다음 섹션에서는 이 두 플랫폼의 아키텍처를 구체적으로 뜯어보겠습니다.
 
