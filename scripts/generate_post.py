@@ -141,7 +141,9 @@ def prompt_section(topic: str, section_title: str, section_points: str, prev_sec
 - 전체 포스트에서 존댓말(합니다/입니다체)로 통일
 - 반말(~이다, ~한다, ~없다) 절대 사용 금지
 - 이전 섹션과 자연스럽게 연결되는 첫 문장 작성 (갑자기 주제 전환 금지)
-- 필자의 의견은 "개인적으로", "실제로 써보면" 같은 표현으로 자연스럽게 삽입"""
+- 필자의 의견은 "개인적으로", "실제로 써보면" 같은 표현으로 자연스럽게 삽입
+- 출처가 명확하지 않은 구체적 수치(XX%, N배, N시간 등)는 사용 금지. 대신 정성적 표현(크게 개선, 상당한 효과, 눈에 띄게 향상 등)을 쓰세요
+- 수치를 쓸 경우 반드시 출처(논문, 공식 문서, 벤치마크)를 명시하세요"""
 
 
 def prompt_humanize(section_text: str) -> str:
@@ -154,6 +156,7 @@ def prompt_humanize(section_text: str) -> str:
 4. 볼드(**) 남발 줄이기 — 정말 중요한 곳만
 5. 이모지 제거 (코드 블록 내부 제외)
 6. "~의 태피스트리", "~의 랜드스케이프" 같은 AI 은유 제거
+7. 근거 없는 구체적 수치(XX%, N배 향상 등)가 있으면 정성적 표현으로 교체
 7. 3개씩 나열하는 패턴 줄이기 (rule of three)
 8. em dash(—) 과다 사용 줄이기
 9. 문장 길이와 구조 다양하게 — 짧은 문장, 긴 문장 섞기
@@ -252,6 +255,72 @@ def extract_diagram_blocks(content: str) -> list:
     return re.findall(pattern, content, re.DOTALL)
 
 
+
+def _svg_prompt(description: str) -> str:
+    """Build English prompt for Bedrock to generate SVG from a description."""
+    return f"""Generate a professional SVG diagram for this concept:
+{description}
+
+STRICT RULES:
+- Output ONLY <svg>...</svg> — no markdown, no explanation
+- viewBox="0 0 800 400"
+- Dark theme: background rect fill="#0d1117"
+- Text fill="white" or "#e6edf3", font-family="NanumBarunGothic, sans-serif"
+- Minimum font-size: 13px for labels, 16px for titles
+- Colored category boxes: use fill-opacity="0.15" with 1px stroke borders
+- Colors: #58a6ff (blue), #3fb950 (green), #d29922 (yellow), #f85149 (red), #bc8cff (purple)
+- Arrows: stroke="#8b949e" stroke-width="2" marker-end with arrowhead
+- NO overlapping elements — space items at least 20px apart
+- Keep all elements within viewBox bounds
+- Korean text is OK for labels"""
+
+
+def process_diagram_placeholders(content: str, slug: str, date_str: str, config: dict) -> str:
+    """Find [DIAGRAM: desc] placeholders, generate SVG via Bedrock, convert to PNG."""
+    pattern = r"\[DIAGRAM:\s*([^\]]+)\]"
+    matches = list(re.finditer(pattern, content))
+    if not matches:
+        return content
+
+    logger.info("다이어그램 플레이스홀더 %d개 발견", len(matches))
+
+    try:
+        from generate_diagram import generate_diagram
+    except ImportError:
+        logger.error("generate_diagram 모듈 import 실패")
+        return content
+
+    for i, m in enumerate(matches, 1):
+        desc = m.group(1).strip()
+        logger.info("다이어그램 %d/%d 생성: %s", i, len(matches), desc[:50])
+
+        # Call Bedrock to generate SVG
+        svg_prompt = _svg_prompt(desc)
+        try:
+            svg_text = call_bedrock(svg_prompt, config, max_tokens=4000)
+            # Extract just the <svg>...</svg> part
+            svg_match = re.search(r"<svg[\s\S]*?</svg>", svg_text)
+            if not svg_match:
+                logger.warning("SVG 태그를 찾을 수 없음 (diagram %d)", i)
+                continue
+            svg_code = svg_match.group(0)
+
+            img_path = generate_diagram(
+                svg_code,
+                output_name=f"diagram-{i}",
+                date_str=date_str,
+                slug=slug,
+            )
+            if img_path:
+                content = content.replace(m.group(0), f"![{desc}]({img_path})", 1)
+                logger.info("✅ diagram-%d → %s", i, img_path)
+            else:
+                logger.warning("❌ diagram-%d PNG 변환 실패", i)
+        except Exception as e:
+            logger.error("다이어그램 %d 생성 실패: %s", i, e)
+
+    return content
+
 def generate_post(topic: str, sources: list = None, config: dict = None) -> Path:
     """섹션별 분할 생성"""
     if config is None:
@@ -319,14 +388,17 @@ def generate_post(topic: str, sources: list = None, config: dict = None) -> Path
     title = title_match.group(1) if title_match else topic
     slug = slugify(title)
 
-    # 다이어그램 처리
+    # 다이어그램 처리: [DIAGRAM: ...] 플레이스홀더 → Bedrock SVG → PNG
+    today = datetime.now().strftime("%Y-%m-%d")
+    content = process_diagram_placeholders(content, slug, today, config)
+
+    # Fallback: ```mermaid/svg 코드 블록 처리
     diagram_blocks = extract_diagram_blocks(content)
     if diagram_blocks:
         try:
-            from generate_diagram import generate_diagram
-            today = datetime.now().strftime("%Y-%m-%d")
+            from generate_diagram import generate_diagram as _gen_diag
             for i, block in enumerate(diagram_blocks):
-                img_path = generate_diagram(block, output_name=f"diagram-{i+1}", date_str=today, slug=slug)
+                img_path = _gen_diag(block, output_name=f"diagram-{i+1}", date_str=today, slug=slug)
                 if img_path:
                     old_mermaid = f"```mermaid\n{block}```"
                     old_svg = f"```svg\n{block}```"

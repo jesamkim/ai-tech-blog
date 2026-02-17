@@ -1,0 +1,832 @@
+[
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "Customize AI agent browsing with proxies, profiles, and extensions in Amazon Bedrock AgentCore Browser",
+    "link": "https://aws.amazon.com/blogs/machine-learning/customize-ai-agent-browsing-with-proxies-profiles-and-extensions-in-amazon-bedrock-agentcore-browser/",
+    "summary": "Today, we are announcing three new capabilities that address these requirements: proxy configuration, browser profiles, and browser extensions. Together, these features give you fine-grained control over how your AI agents interact with the web. This post will walk through each capability with configuration examples and practical use cases to help you get started.",
+    "published": "2026-02-13T22:57:34+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "AI meets HR: Transforming talent acquisition with Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/machine-learning/ai-meets-hr-transforming-talent-acquisition-with-amazon-bedrock/",
+    "summary": "In this post, we show how to create an AI-powered recruitment system using Amazon Bedrock, Amazon Bedrock Knowledge Bases, AWS Lambda, and other AWS services to enhance job description creation, candidate communication, and interview preparation while maintaining human oversight.",
+    "published": "2026-02-12T20:18:58+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "Build long-running MCP servers on Amazon Bedrock AgentCore with Strands Agents integration",
+    "link": "https://aws.amazon.com/blogs/machine-learning/build-long-running-mcp-servers-on-amazon-bedrock-agentcore-with-strands-agents-integration/",
+    "summary": "In this post, we provide you with a comprehensive approach to achieve this. First, we introduce a context message strategy that maintains continuous communication between servers and clients during extended operations. Next, we develop an asynchronous task management framework that allows your AI agents to initiate long-running processes without blocking other operations. Finally, we demonstrate how to bring these strategies together with Amazon Bedrock AgentCore and Strands Agents to build prod",
+    "published": "2026-02-12T20:16:20+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "NVIDIA Nemotron 3 Nano 30B MoE model is now available in Amazon SageMaker JumpStart",
+    "link": "https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-30b-is-now-available-in-amazon-sagemaker-jumpstart/",
+    "summary": "Today we’re excited to announce that the NVIDIA Nemotron 3 Nano 30B model with &nbsp;3B active parameters is now generally available in the Amazon SageMaker JumpStart model catalog. You can accelerate innovation and deliver tangible business value with Nemotron 3 Nano on Amazon Web Services (AWS) without having to manage model deployment complexities. You can power your generative AI applications with Nemotron capabilities using the managed deployment capabilities offered by SageMaker JumpStart.",
+    "published": "2026-02-11T19:38:47+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "Mastering Amazon Bedrock throttling and service availability: A comprehensive guide",
+    "link": "https://aws.amazon.com/blogs/machine-learning/mastering-amazon-bedrock-throttling-and-service-availability-a-comprehensive-guide/",
+    "summary": "This post shows you how to implement robust error handling strategies that can help improve application reliability and user experience when using Amazon Bedrock. We'll dive deep into strategies for optimizing performances for the application with these errors. Whether this is for a fairly new application or matured AI application, in this post you will be able to find the practical guidelines to operate with on these errors.",
+    "published": "2026-02-11T15:52:54+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "Swann provides Generative AI to millions of IoT Devices using Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/machine-learning/swann-provides-generative-ai-to-millions-of-iot-devices-using-amazon-bedrock/",
+    "summary": "This post shows you how to implement intelligent notification filtering using Amazon Bedrock and its gen-AI capabilities. You'll learn model selection strategies, cost optimization techniques, and architectural patterns for deploying gen-AI at IoT scale, based on Swann Communications deployment across millions of devices.",
+    "published": "2026-02-11T15:48:15+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "How LinqAlpha assesses investment theses using Devil’s Advocate on Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/machine-learning/how-linqalpha-assesses-investment-theses-using-devils-advocate-on-amazon-bedrock/",
+    "summary": "LinqAlpha is a Boston-based multi-agent AI system built specifically for institutional investors. The system supports and streamlines agentic workflows across company screening, primer generation, stock price catalyst mapping, and now, pressure-testing investment ideas through a new AI agent called Devil’s Advocate. In this post, we share how LinqAlpha uses Amazon Bedrock to build and scale Devil’s Advocate.",
+    "published": "2026-02-11T15:45:30+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "How Amazon uses Amazon Nova models to automate operational readiness testing for new fulfillment centers",
+    "link": "https://aws.amazon.com/blogs/machine-learning/how-amazon-uses-amazon-nova-models-to-automate-operational-readiness-testing-for-new-fulfillment-centers/",
+    "summary": "In this post, we discuss how&nbsp;Amazon Nova&nbsp;in&nbsp;Amazon Bedrock&nbsp;can be used to implement an AI-powered image recognition solution that automates the detection and validation of module components, significantly reducing manual verification efforts and improving accuracy.",
+    "published": "2026-02-10T18:34:09+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "Iberdrola enhances IT operations using Amazon Bedrock AgentCore",
+    "link": "https://aws.amazon.com/blogs/machine-learning/iberdrola-enhances-it-operations-using-amazon-bedrock-agentcore/",
+    "summary": "Iberdrola, one of the world’s largest utility companies, has embraced cutting-edge AI technology to revolutionize its IT operations in ServiceNow. Through its partnership with AWS, Iberdrola implemented different agentic architectures using Amazon Bedrock AgentCore, targeting three key areas: optimizing change request validation in the draft phase, enriching incident management with contextual intelligence, and simplifying change model selection using conversational AI. These innovations reduce ",
+    "published": "2026-02-10T18:31:57+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Machine Learning Blog",
+    "category": "aws-ml",
+    "title": "Building real-time voice assistants with Amazon Nova Sonic compared to cascading architectures",
+    "link": "https://aws.amazon.com/blogs/machine-learning/building-real-time-voice-assistants-with-amazon-nova-sonic-compared-to-cascading-architectures/",
+    "summary": "Amazon Nova Sonic&nbsp;delivers real-time, human-like voice conversations through the bidirectional streaming interface. In this post, you learn how Amazon Nova Sonic can solve some of the challenges faced by cascaded approaches, simplify building voice AI agents, and provide natural conversational capabilities. We also provide guidance on when to choose each approach to help you make informed decisions for your voice AI projects.",
+    "published": "2026-02-10T18:29:05+00:00",
+    "weight": 1.5,
+    "score": 1.5
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Big Data Blog",
+    "category": "aws-bigdata",
+    "title": "Verisk cuts processing time and storage costs with Amazon Redshift and lakehouse",
+    "link": "https://aws.amazon.com/blogs/big-data/verisk-cuts-processing-time-and-storage-costs-with-amazon-redshift-and-lakehouse/",
+    "summary": "Verisk, a catastrophe modeling SaaS provider serving insurance and reinsurance companies worldwide, cut processing time from hours to minutes-level aggregations while reducing storage costs by implementing a lakehouse architecture with Amazon Redshift and Apache Iceberg. If you’re managing billions of catastrophe modeling records across hurricanes, earthquakes, and wildfires, this approach eliminates the traditional compute-versus-cost trade-off by separating storage from processing power. In th",
+    "published": "2026-02-16T18:10:44+00:00",
+    "weight": 1.2,
+    "score": 1.2
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Big Data Blog",
+    "category": "aws-bigdata",
+    "title": "Amazon OpenSearch Service 101: T-shirt size your domain for e-commerce search",
+    "link": "https://aws.amazon.com/blogs/big-data/amazon-opensearch-service-101-t-shirt-size-your-domain-for-e-commerce-search/",
+    "summary": "While general sizing guidelines for OpenSearch Service domains are covered in detail in OpenSearch Service documentation, in this post we specifically focus on T-shirt-sizing OpenSearch Service domains for e-commerce search workloads. T-shirt sizing simplifies complex capacity planning by categorizing workloads into sizes like XS, S, M, L, XL based on key workload parameters such as data volume and query concurrency.",
+    "published": "2026-02-16T18:09:35+00:00",
+    "weight": 1.2,
+    "score": 1.2
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Big Data Blog",
+    "category": "aws-bigdata",
+    "title": "Common streaming data enrichment patterns in Amazon Managed Service for Apache Flink",
+    "link": "https://aws.amazon.com/blogs/big-data/common-streaming-data-enrichment-patterns-in-amazon-managed-service-for-apache-flink/",
+    "summary": "Stream data processing allows you to act on data in real time. Real-time data analytics can help you have on-time and optimized responses while improving overall customer experience. Apache Flink&nbsp;is a distributed computation framework that allows for stateful real-time data processing. It provides a single set of APIs for building batch and streaming jobs, making […]",
+    "published": "2026-02-13T19:46:16+00:00",
+    "weight": 1.2,
+    "score": 1.2
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Big Data Blog",
+    "category": "aws-bigdata",
+    "title": "Matching your Ingestion Strategy with your OpenSearch Query Patterns",
+    "link": "https://aws.amazon.com/blogs/big-data/matching-your-ingestion-strategy-with-your-opensearch-query-patterns/",
+    "summary": "In this post, we demonstrate how you can create a custom index analyzer in OpenSearch to implement autocomplete functionality efficiently by using the Edge n-gram tokenizer to match prefix queries without using wildcards.",
+    "published": "2026-02-12T18:13:12+00:00",
+    "weight": 1.2,
+    "score": 1.2
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Big Data Blog",
+    "category": "aws-bigdata",
+    "title": "Amazon Athena adds 1-minute reservations and new capacity control features",
+    "link": "https://aws.amazon.com/blogs/big-data/amazon-athena-adds-1-minute-reservations-and-new-capacity-control-features/",
+    "summary": "Amazon Athena is a serverless interactive query service that makes it easy to analyze data using SQL. With Athena, there’s no infrastructure to manage, you simply submit queries and get results. Capacity Reservations is a feature of Athena that addresses the need to run critical workloads by providing dedicated serverless capacity for workloads you specify. In this post, we highlight three new capabilities that make Capacity Reservations more flexible and easier to manage: reduced minimums for f",
+    "published": "2026-02-11T22:16:01+00:00",
+    "weight": 1.2,
+    "score": 1.2
+  },
+  {
+    "source": "rss",
+    "feed": "AWS Big Data Blog",
+    "category": "aws-bigdata",
+    "title": "How Zalando innovates their Fast-Serving layer by migrating to Amazon Redshift",
+    "link": "https://aws.amazon.com/blogs/big-data/how-zalando-innovates-their-fast-serving-layer-by-migrating-to-amazon-redshift/",
+    "summary": "In this post, we show how Zalando migrated their fast-serving layer data warehouse to Amazon Redshift to achieve better price-performance and scalability.",
+    "published": "2026-02-10T23:37:35+00:00",
+    "weight": 1.2,
+    "score": 1.2
+  },
+  {
+    "source": "arxiv",
+    "title": "EditCtrl: Disentangled Local and Global Control for Real-Time Generative Video Editing",
+    "link": "http://arxiv.org/abs/2602.15031v1",
+    "summary": "High-fidelity generative video editing has seen significant quality improvements by leveraging pre-trained video foundation models. However, their computational cost is a major bottleneck, as they are often designed to inefficiently process the full video context regardless of the inpainting mask's size, even for sparse, localized edits. In this paper, we introduce EditCtrl, an efficient video inpainting control framework that focuses computation only where it is needed. Our approach features a ",
+    "published": "2026-02-16T18:59:58+00:00",
+    "categories": [
+      "cs.CV"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Image Generation with a Sphere Encoder",
+    "link": "http://arxiv.org/abs/2602.15030v1",
+    "summary": "We introduce the Sphere Encoder, an efficient generative framework capable of producing images in a single forward pass and competing with many-step diffusion models using fewer than five steps. Our approach works by learning an encoder that maps natural images uniformly onto a spherical latent space, and a decoder that maps random latent vectors back to the image space. Trained solely through image reconstruction losses, the model generates an image by simply decoding a random point on the sphe",
+    "published": "2026-02-16T18:59:57+00:00",
+    "categories": [
+      "cs.CV"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Symmetry in language statistics shapes the geometry of model representations",
+    "link": "http://arxiv.org/abs/2602.15029v1",
+    "summary": "Although learned representations underlie neural networks' success, their fundamental properties remain poorly understood. A striking example is the emergence of simple geometric structures in LLM representations: for example, calendar months organize into a circle, years form a smooth one-dimensional manifold, and cities' latitudes and longitudes can be decoded by a linear probe. We show that the statistics of language exhibit a translation symmetry -- e.g., the co-occurrence probability of two",
+    "published": "2026-02-16T18:59:55+00:00",
+    "categories": [
+      "cs.LG",
+      "cond-mat.dis-nn",
+      "cs.CL"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Long Context, Less Focus: A Scaling Gap in LLMs Revealed through Privacy and Personalization",
+    "link": "http://arxiv.org/abs/2602.15028v1",
+    "summary": "Large language models (LLMs) are increasingly deployed in privacy-critical and personalization-oriented scenarios, yet the role of context length in shaping privacy leakage and personalization effectiveness remains largely unexplored. We introduce a large-scale benchmark, PAPerBench, to systematically study how increasing context length influences both personalization quality and privacy protection in LLMs. The benchmark comprises approximately 29,000 instances with context lengths ranging from ",
+    "published": "2026-02-16T18:59:42+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Rethinking Diffusion Models with Symmetries through Canonicalization with Applications to Molecular Graph Generation",
+    "link": "http://arxiv.org/abs/2602.15022v1",
+    "summary": "Many generative tasks in chemistry and science involve distributions invariant to group symmetries (e.g., permutation and rotation). A common strategy enforces invariance and equivariance through architectural constraints such as equivariant denoisers and invariant priors. In this paper, we challenge this tradition through the alternative canonicalization perspective: first map each sample to an orbit representative with a canonical pose or order, train an unconstrained (non-equivariant) diffusi",
+    "published": "2026-02-16T18:58:55+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "math.GR",
+      "q-bio.BM"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Generalization from Low- to Moderate-Resolution Spectra with Neural Networks for Stellar Parameter Estimation: A Case Study with DESI",
+    "link": "http://arxiv.org/abs/2602.15021v1",
+    "summary": "Cross-survey generalization is a critical challenge in stellar spectral analysis, particularly in cases such as transferring from low- to moderate-resolution surveys. We investigate this problem using pre-trained models, focusing on simple neural networks such as multilayer perceptrons (MLPs), with a case study transferring from LAMOST low-resolution spectra (LRS) to DESI medium-resolution spectra (MRS). Specifically, we pre-train MLPs on either LRS or their embeddings and fine-tune them for app",
+    "published": "2026-02-16T18:58:47+00:00",
+    "categories": [
+      "astro-ph.SR",
+      "astro-ph.GA",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Hunt Globally: Deep Research AI Agents for Drug Asset Scouting in Investing, Business Development, and Search & Evaluation",
+    "link": "http://arxiv.org/abs/2602.15019v1",
+    "summary": "Bio-pharmaceutical innovation has shifted: many new drug assets now originate outside the United States and are disclosed primarily via regional, non-English channels. Recent data suggests >85% of patent filings originate outside the U.S., with China accounting for nearly half of the global total; a growing share of scholarly output is also non-U.S. Industry estimates put China at ~30% of global drug development, spanning 1,200+ novel candidates. In this high-stakes environment, failing to surfa",
+    "published": "2026-02-16T18:57:49+00:00",
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Neurosim: A Fast Simulator for Neuromorphic Robot Perception",
+    "link": "http://arxiv.org/abs/2602.15018v1",
+    "summary": "Neurosim is a fast, real-time, high-performance library for simulating sensors such as dynamic vision sensors, RGB cameras, depth sensors, and inertial sensors. It can also simulate agile dynamics of multi-rotor vehicles in complex and dynamic environments. Neurosim can achieve frame rates as high as ~2700 FPS on a desktop GPU. Neurosim integrates with a ZeroMQ-based communication library called Cortex to facilitate seamless integration with machine learning and robotics workflows. Cortex provid",
+    "published": "2026-02-16T18:57:04+00:00",
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Scaling Beyond Masked Diffusion Language Models",
+    "link": "http://arxiv.org/abs/2602.15014v1",
+    "summary": "Diffusion language models are a promising alternative to autoregressive models due to their potential for faster generation. Among discrete diffusion approaches, Masked diffusion currently dominates, largely driven by strong perplexity on language modeling benchmarks. In this work, we present the first scaling law study of uniform-state and interpolating discrete diffusion methods. We also show that Masked diffusion models can be made approximately 12% more FLOPs-efficient when trained with a si",
+    "published": "2026-02-16T18:54:47+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Text Style Transfer with Parameter-efficient LLM Finetuning and Round-trip Translation",
+    "link": "http://arxiv.org/abs/2602.15013v1",
+    "summary": "This paper proposes a novel method for Text Style Transfer (TST) based on parameter-efficient fine-tuning of Large Language Models (LLMs). Addressing the scarcity of parallel corpora that map between styles, the study employs roundtrip translation to synthesize such parallel datasets from monolingual corpora. This approach creates 'neutralized' text devoid of stylistic attributes, essentially creating a shared input style at training-time and inference-time. Experimental results demonstrate cons",
+    "published": "2026-02-16T18:52:43+00:00",
+    "categories": [
+      "cs.CL"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Cold-Start Personalization via Training-Free Priors from Structured World Models",
+    "link": "http://arxiv.org/abs/2602.15012v1",
+    "summary": "Cold-start personalization requires inferring user preferences through interaction when no user-specific historical data is available. The core challenge is a routing problem: each task admits dozens of preference dimensions, yet individual users care about only a few, and which ones matter depends on who is asking. With a limited question budget, asking without structure will miss the dimensions that matter. Reinforcement learning is the natural formulation, but in multi-turn settings its termi",
+    "published": "2026-02-16T18:52:13+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "BPP: Long-Context Robot Imitation Learning by Focusing on Key History Frames",
+    "link": "http://arxiv.org/abs/2602.15010v1",
+    "summary": "Many robot tasks require attending to the history of past observations. For example, finding an item in a room requires remembering which places have already been searched. However, the best-performing robot policies typically condition only on the current observation, limiting their applicability to such tasks. Naively conditioning on past observations often fails due to spurious correlations: policies latch onto incidental features of training histories that do not generalize to out-of-distrib",
+    "published": "2026-02-16T18:49:56+00:00",
+    "categories": [
+      "cs.RO",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Efficient Sampling with Discrete Diffusion Models: Sharp and Adaptive Guarantees",
+    "link": "http://arxiv.org/abs/2602.15008v1",
+    "summary": "Diffusion models over discrete spaces have recently shown striking empirical success, yet their theoretical foundations remain incomplete. In this paper, we study the sampling efficiency of score-based discrete diffusion models under a continuous-time Markov chain (CTMC) formulation, with a focus on $τ$-leaping-based samplers. We establish sharp convergence guarantees for attaining $\\varepsilon$ accuracy in Kullback-Leibler (KL) divergence for both uniform and masking noising processes. For unif",
+    "published": "2026-02-16T18:48:17+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.IT",
+      "math.ST",
+      "stat.ML"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Distributed Quantum Gaussian Processes for Multi-Agent Systems",
+    "link": "http://arxiv.org/abs/2602.15006v1",
+    "summary": "Gaussian Processes (GPs) are a powerful tool for probabilistic modeling, but their performance is often constrained in complex, largescale real-world domains due to the limited expressivity of classical kernels. Quantum computing offers the potential to overcome this limitation by embedding data into exponentially large Hilbert spaces, capturing complex correlations that remain inaccessible to classical computing approaches. In this paper, we propose a Distributed Quantum Gaussian Process (DQGP)",
+    "published": "2026-02-16T18:46:23+00:00",
+    "categories": [
+      "cs.MA",
+      "cs.LG",
+      "math.DG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Learning User Interests via Reasoning and Distillation for Cross-Domain News Recommendation",
+    "link": "http://arxiv.org/abs/2602.15005v1",
+    "summary": "News recommendation plays a critical role in online news platforms by helping users discover relevant content. Cross-domain news recommendation further requires inferring user's underlying information needs from heterogeneous signals that often extend beyond direct news consumption. A key challenge lies in moving beyond surface-level behaviors to capture deeper, reusable user interests while maintaining scalability in large-scale production systems. In this paper, we present a reinforcement lear",
+    "published": "2026-02-16T18:45:40+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "PDE foundation models are skillful AI weather emulators for the Martian atmosphere",
+    "link": "http://arxiv.org/abs/2602.15004v1",
+    "summary": "We show that AI foundation models that are pretrained on numerical solutions to a diverse corpus of partial differential equations can be adapted and fine-tuned to obtain skillful predictive weather emulators for the Martian atmosphere. We base our work on the Poseidon PDE foundation model for two-dimensional systems. We develop a method to extend Poseidon from two to three dimensions while keeping the pretraining information. Moreover, we investigate the performance of the model in the presence",
+    "published": "2026-02-16T18:44:46+00:00",
+    "categories": [
+      "cs.LG",
+      "physics.ao-ph"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Boundary Point Jailbreaking of Black-Box LLMs",
+    "link": "http://arxiv.org/abs/2602.15001v1",
+    "summary": "Frontier LLMs are safeguarded against attempts to extract harmful information via adversarial prompts known as \"jailbreaks\". Recently, defenders have developed classifier-based systems that have survived thousands of hours of human red teaming. We introduce Boundary Point Jailbreaking (BPJ), a new class of automated jailbreak attacks that evade the strongest industry-deployed safeguards. Unlike previous attacks that rely on white/grey-box assumptions (such as classifier scores or gradients) or l",
+    "published": "2026-02-16T18:29:09+00:00",
+    "categories": [
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Spectral Convolution on Orbifolds for Geometric Deep Learning",
+    "link": "http://arxiv.org/abs/2602.14997v1",
+    "summary": "Geometric deep learning (GDL) deals with supervised learning on data domains that go beyond Euclidean structure, such as data with graph or manifold structure. Due to the demand that arises from application-related data, there is a need to identify further topological and geometric structures with which these use cases can be made accessible to machine learning. There are various techniques, such as spectral convolution, that form the basic building blocks for some convolutional neural network-l",
+    "published": "2026-02-16T18:28:38+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "On the Semantics of Primary Cause in Hybrid Dynamic Domains",
+    "link": "http://arxiv.org/abs/2602.14994v1",
+    "summary": "Reasoning about actual causes of observed effects is fundamental to the study of rationality. This important problem has been studied since the time of Aristotle, with formal mathematical accounts emerging recently. We live in a world where change due to actions can be both discrete and continuous, that is, hybrid. Yet, despite extensive research on actual causation, only few recent studies looked into causation with continuous change. Building on recent progress, in this paper we propose two de",
+    "published": "2026-02-16T18:25:08+00:00",
+    "categories": [
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "ThermEval: A Structured Benchmark for Evaluation of Vision-Language Models on Thermal Imagery",
+    "link": "http://arxiv.org/abs/2602.14989v1",
+    "summary": "Vision language models (VLMs) achieve strong performance on RGB imagery, but they do not generalize to thermal images. Thermal sensing plays a critical role in settings where visible light fails, including nighttime surveillance, search and rescue, autonomous driving, and medical screening. Unlike RGB imagery, thermal images encode physical temperature rather than color or texture, requiring perceptual and reasoning capabilities that existing RGB-centric benchmarks do not evaluate. We introduce ",
+    "published": "2026-02-16T18:16:19+00:00",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Orthogonalized Multimodal Contrastive Learning with Asymmetric Masking for Structured Representations",
+    "link": "http://arxiv.org/abs/2602.14983v1",
+    "summary": "Multimodal learning seeks to integrate information from heterogeneous sources, where signals may be shared across modalities, specific to individual modalities, or emerge only through their interaction. While self-supervised multimodal contrastive learning has achieved remarkable progress, most existing methods predominantly capture redundant cross-modal signals, often neglecting modality-specific (unique) and interaction-driven (synergistic) information. Recent extensions broaden this perspecti",
+    "published": "2026-02-16T18:06:53+00:00",
+    "categories": [
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "MacroGuide: Topological Guidance for Macrocycle Generation",
+    "link": "http://arxiv.org/abs/2602.14977v1",
+    "summary": "Macrocycles are ring-shaped molecules that offer a promising alternative to small-molecule drugs due to their enhanced selectivity and binding affinity against difficult targets. Despite their chemical value, they remain underexplored in generative modeling, likely owing to their scarcity in public datasets and the challenges of enforcing topological constraints in standard deep generative models. We introduce MacroGuide: Topological Guidance for Macrocycle Generation, a diffusion guidance mecha",
+    "published": "2026-02-16T18:00:53+00:00",
+    "categories": [
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Faster Molecular Dynamics with Neural Network Potentials via Distilled Multiple Time-Stepping and Non-Conservative Forces",
+    "link": "http://arxiv.org/abs/2602.14975v1",
+    "summary": "Following our previous work (J. Phys. Chem. Lett., 2026, 17, 5, 1288-1295), we propose the DMTS-NC approach, a distilled multi-time-step (DMTS) strategy using non conservative (NC) forces to further accelerate atomistic molecular dynamics simulations using foundation neural network models. There, a dual-level reversible reference system propagator algorithm (RESPA) formalism couples a target accurate conservative potential to a simplified distilled representation optimized for the production of ",
+    "published": "2026-02-16T17:59:44+00:00",
+    "categories": [
+      "physics.chem-ph",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Use What You Know: Causal Foundation Models with Partial Graphs",
+    "link": "http://arxiv.org/abs/2602.14972v1",
+    "summary": "Estimating causal quantities traditionally relies on bespoke estimators tailored to specific assumptions. Recently proposed Causal Foundation Models (CFMs) promise a more unified approach by amortising causal discovery and inference in a single step. However, in their current state, they do not allow for the incorporation of any domain knowledge, which can lead to suboptimal predictions. We bridge this gap by introducing methods to condition CFMs on causal information, such as the causal graph o",
+    "published": "2026-02-16T17:56:37+00:00",
+    "categories": [
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Counterfactual Fairness Evaluation of LLM-Based Contact Center Agent Quality Assurance System",
+    "link": "http://arxiv.org/abs/2602.14970v1",
+    "summary": "Large Language Models (LLMs) are increasingly deployed in contact-center Quality Assurance (QA) to automate agent performance evaluation and coaching feedback. While LLMs offer unprecedented scalability and speed, their reliance on web-scale training data raises concerns regarding demographic and behavioral biases that may distort workforce assessment. We present a counterfactual fairness evaluation of LLM-based QA systems across 13 dimensions spanning three categories: Identity, Context, and Be",
+    "published": "2026-02-16T17:56:18+00:00",
+    "categories": [
+      "cs.CL"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "PhyScensis: Physics-Augmented LLM Agents for Complex Physical Scene Arrangement",
+    "link": "http://arxiv.org/abs/2602.14968v1",
+    "summary": "Automatically generating interactive 3D environments is crucial for scaling up robotic data collection in simulation. While prior work has primarily focused on 3D asset placement, it often overlooks the physical relationships between objects (e.g., contact, support, balance, and containment), which are essential for creating complex and realistic manipulation scenarios such as tabletop arrangements, shelf organization, or box packing. Compared to classical 3D layout generation, producing complex",
+    "published": "2026-02-16T17:55:25+00:00",
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "PAct: Part-Decomposed Single-View Articulated Object Generation",
+    "link": "http://arxiv.org/abs/2602.14965v1",
+    "summary": "Articulated objects are central to interactive 3D applications, including embodied AI, robotics, and VR/AR, where functional part decomposition and kinematic motion are essential. Yet producing high-fidelity articulated assets remains difficult to scale because it requires reliable part decomposition and kinematic rigging. Existing approaches largely fall into two paradigms: optimization-based reconstruction or distillation, which can be accurate but often takes tens of minutes to hours per inst",
+    "published": "2026-02-16T17:45:44+00:00",
+    "categories": [
+      "cs.CV",
+      "cs.RO"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Tool-Aware Planning in Contact Center AI: Evaluating LLMs through Lineage-Guided Query Decomposition",
+    "link": "http://arxiv.org/abs/2602.14955v1",
+    "summary": "We present a domain-grounded framework and benchmark for tool-aware plan generation in contact centers, where answering a query for business insights, our target use case, requires decomposing it into executable steps over structured tools (Text2SQL (T2S)/Snowflake) and unstructured tools (RAG/transcripts) with explicit depends_on for parallelism. Our contributions are threefold: (i) a reference-based plan evaluation framework operating in two modes - a metric-wise evaluator spanning seven dimen",
+    "published": "2026-02-16T17:36:05+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.SE"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Locally Adaptive Multi-Objective Learning",
+    "link": "http://arxiv.org/abs/2602.14952v1",
+    "summary": "We consider the general problem of learning a predictor that satisfies multiple objectives of interest simultaneously, a broad framework that captures a range of specific learning goals including calibration, regret, and multiaccuracy. We work in an online setting where the data distribution can change arbitrarily over time. Existing approaches to this problem aim to minimize the set of objectives over the entire time horizon in a worst-case sense, and in practice they do not necessarily adapt t",
+    "published": "2026-02-16T17:31:48+00:00",
+    "categories": [
+      "cs.LG",
+      "math.OC",
+      "stat.ME",
+      "stat.ML"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Gradient Networks for Universal Magnetic Modeling of Synchronous Machines",
+    "link": "http://arxiv.org/abs/2602.14947v1",
+    "summary": "This paper presents a physics-informed neural network approach for dynamic modeling of saturable synchronous machines, including cases with spatial harmonics. We introduce an architecture that incorporates gradient networks directly into the fundamental machine equations, enabling accurate modeling of the nonlinear and coupled electromagnetic constitutive relationship. By learning the gradient of the magnetic field energy, the model inherently satisfies energy balance (reciprocity conditions). T",
+    "published": "2026-02-16T17:28:42+00:00",
+    "categories": [
+      "eess.SY",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "AnchorWeave: World-Consistent Video Generation with Retrieved Local Spatial Memories",
+    "link": "http://arxiv.org/abs/2602.14941v1",
+    "summary": "Maintaining spatial world consistency over long horizons remains a central challenge for camera-controllable video generation. Existing memory-based approaches often condition generation on globally reconstructed 3D scenes by rendering anchor videos from the reconstructed geometry in the history. However, reconstructing a global 3D scene from multiple views inevitably introduces cross-view misalignment, as pose and depth estimation errors cause the same surfaces to be reconstructed at slightly d",
+    "published": "2026-02-16T17:23:08+00:00",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Fault Detection in Electrical Distribution System using Autoencoders",
+    "link": "http://arxiv.org/abs/2602.14939v1",
+    "summary": "In recent times, there has been considerable interest in fault detection within electrical power systems, garnering attention from both academic researchers and industry professionals. Despite the development of numerous fault detection methods and their adaptations over the past decade, their practical application remains highly challenging. Given the probabilistic nature of fault occurrences and parameters, certain decision-making tasks could be approached from a probabilistic standpoint. Prot",
+    "published": "2026-02-16T17:21:35+00:00",
+    "categories": [
+      "eess.SY",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Variance-Reduced $(\\varepsilon,δ)-$Unlearning using Forget Set Gradients",
+    "link": "http://arxiv.org/abs/2602.14938v1",
+    "summary": "In machine unlearning, $(\\varepsilon,δ)-$unlearning is a popular framework that provides formal guarantees on the effectiveness of the removal of a subset of training data, the forget set, from a trained model. For strongly convex objectives, existing first-order methods achieve $(\\varepsilon,δ)-$unlearning, but they only use the forget set to calibrate injected noise, never as a direct optimization signal. In contrast, efficient empirical heuristics often exploit the forget samples (e.g., via g",
+    "published": "2026-02-16T17:20:14+00:00",
+    "categories": [
+      "cs.LG",
+      "math.OC"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Activation-Space Uncertainty Quantification for Pretrained Networks",
+    "link": "http://arxiv.org/abs/2602.14934v1",
+    "summary": "Reliable uncertainty estimates are crucial for deploying pretrained models; yet, many strong methods for quantifying uncertainty require retraining, Monte Carlo sampling, or expensive second-order computations and may alter a frozen backbone's predictions. To address this, we introduce Gaussian Process Activations (GAPA), a post-hoc method that shifts Bayesian modeling from weights to activations. GAPA replaces standard nonlinearities with Gaussian-process activations whose posterior mean exactl",
+    "published": "2026-02-16T17:17:08+00:00",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Wrivinder: Towards Spatial Intelligence for Geo-locating Ground Images onto Satellite Imagery",
+    "link": "http://arxiv.org/abs/2602.14929v1",
+    "summary": "Aligning ground-level imagery with geo-registered satellite maps is crucial for mapping, navigation, and situational awareness, yet remains challenging under large viewpoint gaps or when GPS is unreliable. We introduce Wrivinder, a zero-shot, geometry-driven framework that aggregates multiple ground photographs to reconstruct a consistent 3D scene and align it with overhead satellite imagery. Wrivinder combines SfM reconstruction, 3D Gaussian Splatting, semantic grounding, and monocular depth--b",
+    "published": "2026-02-16T17:06:54+00:00",
+    "categories": [
+      "cs.CV"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "From Classical to Quantum: Extending Prometheus for Unsupervised Discovery of Phase Transitions in Three Dimensions and Quantum Systems",
+    "link": "http://arxiv.org/abs/2602.14928v1",
+    "summary": "We extend the Prometheus framework for unsupervised phase transition discovery from 2D classical systems to 3D classical and quantum many-body systems, addressing scalability in higher dimensions and generalization to quantum fluctuations. For the 3D Ising model ($L \\leq 32$), the framework detects the critical temperature within 0.01\\% of literature values ($T_c/J = 4.511 \\pm 0.005$) and extracts critical exponents with $\\geq 70\\%$ accuracy ($β= 0.328 \\pm 0.015$, $γ= 1.24 \\pm 0.06$, $ν= 0.632 \\",
+    "published": "2026-02-16T17:06:20+00:00",
+    "categories": [
+      "cond-mat.dis-nn",
+      "cond-mat.stat-mech",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "MAC-AMP: A Closed-Loop Multi-Agent Collaboration System for Multi-Objective Antimicrobial Peptide Design",
+    "link": "http://arxiv.org/abs/2602.14926v1",
+    "summary": "To address the global health threat of antimicrobial resistance, antimicrobial peptides (AMP) are being explored for their potent and promising ability to fight resistant pathogens. While artificial intelligence (AI) is being employed to advance AMP discovery and design, most AMP design models struggle to balance key goals like activity, toxicity, and novelty, using rigid or unclear scoring methods that make results hard to interpret and optimize. As the capabilities of Large Language Models (LL",
+    "published": "2026-02-16T17:01:47+00:00",
+    "categories": [
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "ReusStdFlow: A Standardized Reusability Framework for Dynamic Workflow Construction in Agentic AI",
+    "link": "http://arxiv.org/abs/2602.14922v1",
+    "summary": "To address the ``reusability dilemma'' and structural hallucinations in enterprise Agentic AI,this paper proposes ReusStdFlow, a framework centered on a novel ``Extraction-Storage-Construction'' paradigm. The framework deconstructs heterogeneous, platform-specific Domain Specific Languages (DSLs) into standardized, modular workflow segments. It employs a dual knowledge architecture-integrating graph and vector databases-to facilitate synergistic retrieval of both topological structures and funct",
+    "published": "2026-02-16T16:56:53+00:00",
+    "categories": [
+      "cs.AI",
+      "cs.SE"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "BHyGNN+: Unsupervised Representation Learning for Heterophilic Hypergraphs",
+    "link": "http://arxiv.org/abs/2602.14919v1",
+    "summary": "Hypergraph Neural Networks (HyGNNs) have demonstrated remarkable success in modeling higher-order relationships among entities. However, their performance often degrades on heterophilic hypergraphs, where nodes connected by the same hyperedge tend to have dissimilar semantic representations or belong to different classes. While several HyGNNs, including our prior work BHyGNN, have been proposed to address heterophily, their reliance on labeled data significantly limits their applicability in rea",
+    "published": "2026-02-16T16:55:37+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "BFS-PO: Best-First Search for Large Reasoning Models",
+    "link": "http://arxiv.org/abs/2602.14917v1",
+    "summary": "Large Reasoning Models (LRMs) such as OpenAI o1 and DeepSeek-R1 have shown excellent performance in reasoning tasks using long reasoning chains. However, this has also led to a significant increase of computational costs and the generation of verbose output, a phenomenon known as overthinking. The tendency to overthinking is often exacerbated by Reinforcement Learning (RL) algorithms such as GRPO/DAPO. In this paper, we propose BFS-PO, an RL algorithm which alleviates this problem using a Best-F",
+    "published": "2026-02-16T16:53:41+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Additive Control Variates Dominate Self-Normalisation in Off-Policy Evaluation",
+    "link": "http://arxiv.org/abs/2602.14914v1",
+    "summary": "Off-policy evaluation (OPE) is essential for assessing ranking and recommendation systems without costly online interventions. Self-Normalised Inverse Propensity Scoring (SNIPS) is a standard tool for variance reduction in OPE, leveraging a multiplicative control variate. Recent advances in off-policy learning suggest that additive control variates (baseline corrections) may offer superior performance, yet theoretical guarantees for evaluation are lacking. This paper provides a definitive answer",
+    "published": "2026-02-16T16:49:23+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Coverage Guarantees for Pseudo-Calibrated Conformal Prediction under Distribution Shift",
+    "link": "http://arxiv.org/abs/2602.14913v1",
+    "summary": "Conformal prediction (CP) offers distribution-free marginal coverage guarantees under an exchangeability assumption, but these guarantees can fail if the data distribution shifts. We analyze the use of pseudo-calibration as a tool to counter this performance loss under a bounded label-conditional covariate shift model. Using tools from domain adaptation, we derive a lower bound on target coverage in terms of the source-domain loss of the classifier and a Wasserstein measure of the shift. Using t",
+    "published": "2026-02-16T16:48:39+00:00",
+    "categories": [
+      "cs.LG",
+      "eess.IV"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Position: Introspective Experience from Conversational Environments as a Path to Better Learning",
+    "link": "http://arxiv.org/abs/2602.14910v1",
+    "summary": "Current approaches to AI training treat reasoning as an emergent property of scale. We argue instead that robust reasoning emerges from linguistic self-reflection, itself internalized from high-quality social interaction. Drawing on Vygotskian developmental psychology, we advance three core positions centered on Introspection. First, we argue for the Social Genesis of the Private Mind: learning from conversational environments rises to prominence as a new way to make sense of the world; the fric",
+    "published": "2026-02-16T16:45:43+00:00",
+    "categories": [
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Adjoint-based Shape Optimization, Machine Learning based Surrogate Models, Conditional Variational Autoencoder (CVAE), Voith Schneider propulsion (VSP), Self-propelled Ship, Propulsion Model, Hull Optimization",
+    "link": "http://arxiv.org/abs/2602.14907v1",
+    "summary": "Adjoint-based shape optimization of ship hulls is a powerful tool for addressing high-dimensional design problems in naval architecture, particularly in minimizing the ship resistance. However, its application to vessels that employ complex propulsion systems introduces significant challenges. They arise from the need for transient simulations extending over long periods of time with small time steps and from the reverse temporal propagation of the primal and adjoint solutions. These challenges ",
+    "published": "2026-02-16T16:43:47+00:00",
+    "categories": [
+      "physics.flu-dyn",
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "The Potential of CoT for Reasoning: A Closer Look at Trace Dynamics",
+    "link": "http://arxiv.org/abs/2602.14903v1",
+    "summary": "Chain-of-thought (CoT) prompting is a de-facto standard technique to elicit reasoning-like responses from large language models (LLMs), allowing them to spell out individual steps before giving a final answer. While the resemblance to human-like reasoning is undeniable, the driving forces underpinning the success of CoT reasoning still remain largely unclear. In this work, we perform an in-depth analysis of CoT traces originating from competition-level mathematics questions, with the aim of bett",
+    "published": "2026-02-16T16:38:47+00:00",
+    "categories": [
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Picking the Right Specialist: Attentive Neural Process-based Selection of Task-Specialized Models as Tools for Agentic Healthcare Systems",
+    "link": "http://arxiv.org/abs/2602.14901v1",
+    "summary": "Task-specialized models form the backbone of agentic healthcare systems, enabling the agents to answer clinical queries across tasks such as disease diagnosis, localization, and report generation. Yet, for a given task, a single \"best\" model rarely exists. In practice, each task is better served by multiple competing specialist models where different models excel on different data samples. As a result, for any given query, agents must reliably select the right specialist model from a heterogeneo",
+    "published": "2026-02-16T16:36:32+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV",
+      "cs.MA"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Algorithmic Simplification of Neural Networks with Mosaic-of-Motifs",
+    "link": "http://arxiv.org/abs/2602.14896v1",
+    "summary": "Large-scale deep learning models are well-suited for compression. Methods like pruning, quantization, and knowledge distillation have been used to achieve massive reductions in the number of model parameters, with marginal performance drops across a variety of architectures and tasks. This raises the central question: \\emph{Why are deep neural networks suited for compression?} In this work, we take up the perspective of algorithmic complexity to explain this behavior. We hypothesize that the par",
+    "published": "2026-02-16T16:30:38+00:00",
+    "categories": [
+      "cs.LG"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Lifted Relational Probabilistic Inference via Implicit Learning",
+    "link": "http://arxiv.org/abs/2602.14890v1",
+    "summary": "Reconciling the tension between inductive learning and deductive reasoning in first-order relational domains is a longstanding challenge in AI. We study the problem of answering queries in a first-order relational probabilistic logic through a joint effort of learning and reasoning, without ever constructing an explicit model. Traditional lifted inference assumes access to a complete model and exploits symmetry to evaluate probabilistic queries; however, learning such models from partial, noisy ",
+    "published": "2026-02-16T16:24:13+00:00",
+    "categories": [
+      "cs.AI"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Web-Scale Multimodal Summarization using CLIP-Based Semantic Alignment",
+    "link": "http://arxiv.org/abs/2602.14889v1",
+    "summary": "We introduce Web-Scale Multimodal Summarization, a lightweight framework for generating summaries by combining retrieved text and image data from web sources. Given a user-defined topic, the system performs parallel web, news, and image searches. Retrieved images are ranked using a fine-tuned CLIP model to measure semantic alignment with topic and text. Optional BLIP captioning enables image-only summaries for stronger multimodal coherence.The pipeline supports features such as adjustable fetch ",
+    "published": "2026-02-16T16:20:37+00:00",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "cs.ET",
+      "cs.HC",
+      "cs.NE"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  },
+  {
+    "source": "arxiv",
+    "title": "Drift-Diffusion Matching: Embedding dynamics in latent manifolds of asymmetric neural networks",
+    "link": "http://arxiv.org/abs/2602.14885v1",
+    "summary": "Recurrent neural networks (RNNs) provide a theoretical framework for understanding computation in biological neural circuits, yet classical results, such as Hopfield's model of associative memory, rely on symmetric connectivity that restricts network dynamics to gradient-like flows. In contrast, biological networks support rich time-dependent behaviour facilitated by their asymmetry. Here we introduce a general framework, which we term drift-diffusion matching, for training continuous-time RNNs ",
+    "published": "2026-02-16T16:15:59+00:00",
+    "categories": [
+      "cond-mat.dis-nn",
+      "cond-mat.stat-mech",
+      "cs.LG",
+      "q-bio.NC"
+    ],
+    "weight": 1.0,
+    "score": 1.0
+  }
+]
