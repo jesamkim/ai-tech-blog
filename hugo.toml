@@ -1,4 +1,5 @@
 baseURL = "https://jesamkim.github.io/ai-tech-blog/"
+googleAnalytics = "G-TNHGK34QTQ"
 languageCode = "ko"
 defaultContentLanguage = "ko"
 title = "AI Tech Blog"
