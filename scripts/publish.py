@@ -253,6 +253,42 @@ def main():
     if not args.skip_push:
         step_git_push(config)
 
+    # 8. 배포 후 QA 검수
+    if not args.skip_push:
+        logger.info("⏳ GitHub Actions 배포 대기 (90초)...")
+        import time
+        time.sleep(90)
+
+        # 포스트 URL 생성
+        with open(post_path, encoding="utf-8") as _f:
+            _post_content = _f.read()
+        _title_m = _re.search(r'^title:\s*"(.+?)"', _post_content, _re.MULTILINE)
+        if _title_m:
+            from generate_post import slugify
+            _slug = slugify(_title_m.group(1))
+            _date_m = _re.search(r'^date:\s*(\d{4}-\d{2}-\d{2})', _post_content, _re.MULTILINE)
+            _date = _date_m.group(1) if _date_m else ""
+            _post_url = f"https://jesamkim.github.io/ai-tech-blog/posts/{_date}-{_slug}/"
+
+            logger.info("🔍 배포 후 QA 검수: %s", _post_url)
+            try:
+                import subprocess
+                qa_cmd = [
+                    sys.executable, "scripts/qa_published.py",
+                    "--url", _post_url,
+                    "--post", str(post_path),
+                ]
+                qa_result = subprocess.run(qa_cmd, capture_output=True, text=True, timeout=120)
+                print(qa_result.stdout)
+                if qa_result.returncode != 0:
+                    logger.warning("⚠️ 배포 후 QA에서 이슈 발견 (수동 확인 필요)")
+                    if qa_result.stderr:
+                        logger.warning(qa_result.stderr[-500:])
+                else:
+                    logger.info("✅ 배포 후 QA 통과")
+            except Exception as e:
+                logger.warning("⚠️ QA 검수 실행 실패: %s", e)
+
     logger.info("✅ 파이프라인 완료: %s", post_path)
 
 
