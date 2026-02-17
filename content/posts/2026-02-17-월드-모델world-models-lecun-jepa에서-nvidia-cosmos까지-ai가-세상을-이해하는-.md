@@ -102,7 +102,27 @@ predictor = LatentPredictor()         # 표현 공간 예측기
 
 for video_batch in dataloader:
     # 1) 시공간 마스킹 전략
-    context_blocks, target_blocks = stochastic_mas
+    context_blocks, target_blocks = stochastic_masking(video_batch)
+
+    # 2) Context 인코딩 (학습 대상)
+    context_repr = x_encoder(context_blocks)
+
+    # 3) Target 인코딩 (EMA, gradient 차단)
+    with torch.no_grad():
+        target_repr = y_encoder(target_blocks)
+
+    # 4) 표현 공간에서 예측
+    predicted_repr = predictor(context_repr)
+
+    # 5) 손실 계산 — 픽셀이 아닌 표현 간 거리
+    loss = F.smooth_l1_loss(predicted_repr, target_repr)
+
+    # 6) x_encoder + predictor 업데이트
+    loss.backward()
+    optimizer.step()
+
+    # 7) y_encoder는 EMA로만 업데이트 (붕괴 방지)
+    ema_update(y_encoder, x_encoder, momentum=0.996)
 ```
 
 ## 비디오 생성 모델은 월드 시뮬레이터인가 — Sora, Genie, UniSim의 등장
@@ -173,7 +193,7 @@ simulation = world_model.generate(
 validated = world_model.guardrail.check(simulation)  # 안전성 필터링
 ```
 
-JEPA가 표현 학습의 관점에서, Sora가 생성 모델의 관점에서 월드 모델을 탐색했다면, Cosmos는 이를 산업용 인프라로 끌어올린
+JEPA가 표현 학습의 관점에서, Sora가 생성 모델의 관점에서 월드 모델을 탐색했다면, Cosmos는 이를 산업용 인프라로 끌어올린 셈입니다. 토크나이저, 생성 모델, 가드레일을 하나의 파이프라인으로 묶어 자율주행과 로보틱스 기업이 바로 가져다 쓸 수 있는 플랫폼을 만들었다는 점에서, Physical AI 시대의 본격적인 인프라 경쟁이 시작되었다고 볼 수 있습니다.
 
 ## References
 

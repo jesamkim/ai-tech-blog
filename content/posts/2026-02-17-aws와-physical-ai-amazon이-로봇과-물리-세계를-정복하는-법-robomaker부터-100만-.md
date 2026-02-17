@@ -181,7 +181,35 @@ def time_space_astar(grid_size: tuple, start: tuple, goal: tuple,
     rows, cols = grid_size
     directions = [(0, 0), (0, 1), (0, -1), (1, 0), (-1, 0)]  # 대기 포함
 
-    def heuristic(pos
+    def heuristic(pos, goal):
+        return abs(pos[0] - goal[0]) + abs(pos[1] - goal[1])
+
+    open_set = [State(f_cost=heuristic(start, goal), position=start, time_step=0, path=[start])]
+    visited = set()
+
+    while open_set:
+        current = heapq.heappop(open_set)
+        if current.position == goal:
+            return current.path
+
+        state_key = (current.position, current.time_step)
+        if state_key in visited:
+            continue
+        visited.add(state_key)
+
+        for dr, dc in directions:
+            nr, nc = current.position[0] + dr, current.position[1] + dc
+            nt = current.time_step + 1
+            if 0 <= nr < rows and 0 <= nc < cols:
+                next_pos = (nr, nc)
+                # 시간 t+1에 다른 로봇이 점유한 셀 회피
+                if next_pos not in dynamic_obstacles.get(nt, set()):
+                    new_f = nt + heuristic(next_pos, goal)
+                    heapq.heappush(open_set, State(
+                        f_cost=new_f, position=next_pos,
+                        time_step=nt, path=current.path + [next_pos]
+                    ))
+    return []  # 경로 없음
 ```
 
 ## 시뮬레이션-투-리얼: AWS 기반 Physical AI 개발 파이프라인
@@ -292,11 +320,8 @@ class SensorFusion:
 5. Amazon CodeWhisperer / Amazon Q Developer — AI 기반 코드 생성 도구로 ROS 2 로봇 개발 지원.
    [https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html)
 
-6. Amazon Robotics 소개 — Amazon 물류 센터의 로봇들 (Sparrow, Proteus, Robin 등).
+6. Amazon Robotics 소개 — Amazon 물류 센터의 로봇들 (Sparrow, Proteus, Sequoia 등 100만+ 배치).
    [https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center](https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center)
 
-7. Amazon Robotics — Amazon 물류 센터의 로봇 자동화 시스템 (Sparrow, Proteus, Sequoia 등 100만+ 로봇 배치).
-   [https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center](https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center)
-
-8. MassRobotics Physical AI Fellowship — AWS와 NVIDIA 공동 로보틱스 스타트업 액셀러레이터 프로그램.
+7. MassRobotics Physical AI Fellowship — AWS와 NVIDIA 공동 로보틱스 스타트업 액셀러레이터 프로그램.
    [https://www.therobotreport.com/massrobotics-expands-physical-ai-fellowship-with-aws-and-nvidia/](https://www.therobotreport.com/massrobotics-expands-physical-ai-fellowship-with-aws-and-nvidia/)
