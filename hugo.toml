@@ -1,0 +1,128 @@
+baseURL = "https://jesamkim.github.io/ai-tech-blog/"
+languageCode = "ko"
+defaultContentLanguage = "ko"
+title = "AI Tech Blog"
+theme = "PaperMod"
+[pagination]
+pagerSize = 10
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmoji = false
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[params]
+  env = "production"
+  title = "AI Tech Blog"
+  description = "AI/ML 기술 트렌드, 논문 리뷰, AWS 서비스 분석"
+  keywords = ["AI", "ML", "Deep Learning", "AWS", "논문 리뷰"]
+  author = "Jesam Kim"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = true
+  math = true
+
+  [params.assets]
+    favicon = "/favicon.ico"
+    disableHLJS = true
+
+  [params.label]
+    text = "AI Tech Blog"
+    icon = "/apple-touch-icon.png"
+    iconHeight = 35
+
+  [params.profileMode]
+    enabled = false
+
+  [params.homeInfoParams]
+    Title = "AI Tech Blog"
+    Content = """
+AI/ML 최신 기술 트렌드, 논문 리뷰, AWS 서비스 분석을 다루는 기술 블로그입니다.
+매주 자동으로 큐레이션된 고품질 기술 콘텐츠를 제공합니다.
+"""
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/jesamkim"
+
+  [params.cover]
+    hidden = false
+    hiddenInList = false
+    hiddenInSingle = false
+
+  [params.editPost]
+    URL = "https://github.com/jesamkim/ai-tech-blog/tree/main/hugo-site/content"
+    Text = "Suggest Changes"
+    appendFilePath = true
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "categories"
+  name = "Categories"
+  url = "/categories/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "tags"
+  name = "Tags"
+  url = "/tags/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "search"
+  name = "Search"
+  url = "/search/"
+  weight = 40
+
+[[menu.main]]
+  identifier = "archives"
+  name = "Archives"
+  url = "/archives/"
+  weight = 50
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
