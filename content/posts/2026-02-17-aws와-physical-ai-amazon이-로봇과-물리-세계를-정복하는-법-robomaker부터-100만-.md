@@ -289,4 +289,8 @@ class SensorFusion:
 6. Amazon Astro — Amazon의 가정용 자율 로봇 플랫폼.
    [https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center](https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center)
 
-7. Amazon Robotics — Amazon 물류 센터의 로봇 자동화 시스템 (
+7. Amazon Robotics — Amazon 물류 센터의 로봇 자동화 시스템 (Sparrow, Proteus, Sequoia 등 100만+ 로봇 배치).
+   [https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center](https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center)
+
+8. MassRobotics Physical AI Fellowship — AWS와 NVIDIA 공동 로보틱스 스타트업 액셀러레이터 프로그램.
+   [https://www.therobotreport.com/massrobotics-expands-physical-ai-fellowship-with-aws-and-nvidia/](https://www.therobotreport.com/massrobotics-expands-physical-ai-fellowship-with-aws-and-nvidia/)
