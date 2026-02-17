@@ -191,4 +191,4 @@ JEPA가 표현 학습의 관점에서, Sora가 생성 모델의 관점에서 월
 
 7. Hu, A. et al. (2023). "GAIA-1: A Generative World Model for Autonomous Driving." Wayve Technologies. [https://arxiv.org/abs/2309.17080](https://arxiv.org/abs/2309.17080)
 
-8. Bruce, J. et al.
+8. Bruce, J. et al. (2024). "Genie: Generative Interactive Environments." Google DeepMind. [https://arxiv.org/abs/2402.15391](https://arxiv.org/abs/2402.15391)
