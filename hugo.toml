@@ -52,13 +52,24 @@ enableEmoji = false
     iconHeight = 35
 
   [params.profileMode]
-    enabled = false
+    enabled = true
+    title = "AI Tech Blog"
+    subtitle = "AI/ML deep dives, paper reviews, and AWS service analysis by Jesam Kim"
+    imageUrl = "/ai-tech-blog/apple-touch-icon.png"
+    imageWidth = 80
+    imageHeight = 80
+    imageTitle = "Jesam Kim"
+    [[params.profileMode.buttons]]
+      name = "Posts"
+      url = "/ai-tech-blog/posts/"
+    [[params.profileMode.buttons]]
+      name = "Categories"
+      url = "/ai-tech-blog/categories/"
+    [[params.profileMode.buttons]]
+      name = "Search"
+      url = "/ai-tech-blog/search/" 
 
-  [params.homeInfoParams]
-    Title = "AI Tech Blog"
-    Content = """
-AI/ML 최신 기술 트렌드, 논문 리뷰, AWS 서비스 분석을 다루는 기술 블로그입니다.
-"""
+  # [params.homeInfoParams] - disabled, using profileMode instead
 
   [[params.socialIcons]]
     name = "github"
