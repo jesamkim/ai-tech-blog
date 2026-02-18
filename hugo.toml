@@ -87,6 +87,11 @@ enableEmoji = false
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.cjk]
+        enable = true
+        eastAsianLineBreaks = false
+        escapedSpace = false
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
