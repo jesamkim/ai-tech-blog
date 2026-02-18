@@ -263,4 +263,4 @@ prompt = build_style_transfer_prompt(
 
 8. **Mudgal, S. et al. (2024). "Controlled Decoding from Language Models."** ICML 2024.
    https://arxiv.org/abs/2310.17022
-   보상 모델이나 가치 함수를 디코딩 단계에 통합하여 LLM 출력의 속성(안전성, 스타일, 품질 등)을 제어하는 Controlled Decoding 프레임워크를 제안한 논문으로, Content Optimization과 Reverse Neutralization 패턴의 학
+   보상 모델이나 가치 함수를 디코딩 단계에 통합하여 LLM 출력의 속성(안전성, 스타일, 품질 등)을 제어하는 Controlled Decoding 프레임워크를 제안한 논문으로, Content Optimization과 Reverse Neutralization 패턴의 학술적 근거를 제공한다.
