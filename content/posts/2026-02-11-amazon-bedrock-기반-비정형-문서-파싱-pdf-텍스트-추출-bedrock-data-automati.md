@@ -1,6 +1,6 @@
 ---
 title: "Amazon Bedrock로 비정형 문서를 Markdown으로 변환하기"
-date: 2026-02-12T18:16:59+09:00
+date: 2026-02-11T18:16:59+09:00
 draft: false
 author: "Jesam Kim"
 description: "PDF 텍스트 추출의 한계를 넘어, Bedrock Data Automation과 Claude Sonnet 4.5/Opus 4.6 Vision을 앙상블로 결합해 DOM 트리 구조의 고품질 Markdown 변환 파이프라인을 구축하는 실전 아키텍처를 소개합니다."
@@ -46,7 +46,7 @@ with pdfplumber.open("complex_report.pdf") as pdf:
 
 Amazon Textract이나 Tesseract 같은 OCR 엔진은 스캔 PDF 문제를 해결해 주지만, 레이아웃 읽기 순서(reading order) 보존과 표 구조 복원에서는 여전히 아쉬운 점이 많습니다. 셀 병합이 포함된 복잡한 표는 행·열 경계를 잘못 인식하고, 수식이나 특수문자(`≥`, `∑`, `→` 등)는 오인식률이 눈에 띄게 높습니다. 후처리 없이 다운스트림 LLM에 그대로 넘기기엔 품질이 부족한 경우가 대부분입니다.
 
-![전통적 텍스트 추출(PyPDF/pdfplumber) → OCR 기반 추출(Textract/Tesseract) → 구조 보존 파싱(Bedrock + Vision LLM)으로 이어지는 접근법 발전 단계와 각 단계에서 손실되는 정보 유형 비교](/ai-tech-blog/images/posts/2026-02-12/amazon-bedrock-기반-비정형-문서-파싱-pdf-텍스트-추출-bedrock-data-automati/diagram-1.png)
+![전통적 텍스트 추출(PyPDF/pdfplumber) → OCR 기반 추출(Textract/Tesseract) → 구조 보존 파싱(Bedrock + Vision LLM)으로 이어지는 접근법 발전 단계와 각 단계에서 손실되는 정보 유형 비교](/ai-tech-blog/images/posts/2026-02-11/amazon-bedrock-기반-비정형-문서-파싱-pdf-텍스트-추출-bedrock-data-automati/diagram-1.png)
 
 ### 왜 "구조 보존 Markdown 변환"이 중요한가
 
@@ -60,7 +60,7 @@ Markdown은 이런 시맨틱 구조를 LLM이 잘 이해할 수 있는 경량 �
 
 이런 기존 접근법의 한계를 해결하기 위해 AWS가 내놓은 서비스가 Amazon Bedrock Data Automation(BDA)입니다. BDA는 S3에 업로드된 비정형 문서를 입력받아, Blueprint 기반으로 자동 분류·추출을 수행한 뒤 구조화된 JSON 또는 Markdown 형태로 출력하는 완전 서버리스(Serverless) 파이프라인입니다.
 
-![S3 입력 → BDA 자동 분류(Document/Image/Audio/Video) → Blueprint 매칭 → 레이아웃 분석·표 추출·읽기 순서 결정 → 구조화된 출력(JSON/Markdown)으로 이어지는 파이프라인 흐름](/ai-tech-blog/images/posts/2026-02-12/amazon-bedrock-기반-비정형-문서-파싱-pdf-텍스트-추출-bedrock-data-automati/diagram-2.png)
+![S3 입력 → BDA 자동 분류(Document/Image/Audio/Video) → Blueprint 매칭 → 레이아웃 분석·표 추출·읽기 순서 결정 → 구조화된 출력(JSON/Markdown)으로 이어지는 파이프라인 흐름](/ai-tech-blog/images/posts/2026-02-11/amazon-bedrock-기반-비정형-문서-파싱-pdf-텍스트-추출-bedrock-data-automati/diagram-2.png)
 
 ### Standard Output vs Custom Output(Blueprint)
 
@@ -145,7 +145,7 @@ def call_claude_vision(b64_image, model_id="anthropic.claude-sonnet-4-5-20250514
     return json.loads(resp["body"].read())["content"][0]["text"]
 ```
 
-![PDF → 페이지별 PNG 변환 → Claude Vision API 호출 → DOM 구조 Markdown 출력 흐름](/ai-tech-blog/images/posts/2026-02-12/amazon-bedrock-기반-비정형-문서-파싱-pdf-텍스트-추출-bedrock-data-automati/diagram-3.png)
+![PDF → 페이지별 PNG 변환 → Claude Vision API 호출 → DOM 구조 Markdown 출력 흐름](/ai-tech-blog/images/posts/2026-02-11/amazon-bedrock-기반-비정형-문서-파싱-pdf-텍스트-추출-bedrock-data-automati/diagram-3.png)
 
 ### 단독 Vision 접근의 강점과 한계
 

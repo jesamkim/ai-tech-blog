@@ -1,6 +1,6 @@
 ---
 title: "IoT × Generative AI: 시계열 Foundation Model과 AWS IoT+Bedrock 통합 설비 예방정비 아키텍처"
-date: 2026-02-17T21:16:28+09:00
+date: 2026-02-16T21:16:28+09:00
 draft: false
 author: "Jesam Kim"
 description: "TimesFM, Chronos 등 시계열 Foundation Model의 zero-shot 성능을 활용하고, AWS IoT SiteWise + Bedrock 파이프라인으로 설비 예방정비를 구현하는 통합 아키텍처를 분석합니다."
