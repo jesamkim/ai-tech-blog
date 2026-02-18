@@ -204,4 +204,4 @@ print("Activation values:", top_features.values)
 
 7. **Conmy, A. et al., "Towards Automated Circuit Discovery for Mechanistic Interpretability" (2023)** — 신경망 내부의 회로(circuit)를 자동으로 발견하는 방법론을 제시하여 Mechanistic Interpretability 연구의 체계적 접근을 가능하게 한 논문. [http://arxiv.org/abs/2304.14997](http://arxiv.org/abs/2304.14997)
 
-8. **MIT Technology Review, "10 Breakthrough Technologies 2026"** — MIT 테크놀로지 리뷰가 선정한 2026년 10대 혁신 기술 목록으로, AI 모델 해석 가능성(Mechanistic Interpretability)이 포함되어 해당
+8. **MIT Technology Review, "10 Breakthrough Technologies 2026"** — MIT 테크놀로지 리뷰가 선정한 2026년 10대 혁신 기술 목록으로, AI 모델 해석 가능성(Mechanistic Interpretability)이 포함되어 해당 분야의 산업적 중요성을 보여주는 자료이다.

@@ -228,3 +228,4 @@ def rerank_with_llm(user_profile: dict, candidates: list[dict]) -> list[dict]:
 
 11. **AWS Well-Architected Framework — Machine Learning Lens** — ML 워크로드의 아키텍처 모범 사례 공식 문서
     https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html
+   AWS Well-Architected Framework의 머신러닝 렌즈로, 하이브리드 추천 시스템 아키텍처 설계 시 참고할 수 있는 모범 사례를 제공한다.
