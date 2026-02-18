@@ -229,7 +229,7 @@ prompt = build_style_transfer_prompt(
 
 개인적으로 가장 효과적이었던 방법은 <strong>스타일 검증 레이어(Style Validation Layer)</strong>를 후처리에 추가하는 것이었습니다. 출력 텍스트의 격식 수준을 분류 모델(Classifier)로 판정하고, 기준에 미달하면 재생성을 트리거하는 방식입니다. 구조는 단순하지만 멀티턴 대화에서 스타일 일관성을 유지하는 데 꽤 효과가 있었습니다.
 
-다음 패턴에서는 이렇게 제어된 스타일을 의도적으로 역전시키는 Reverse Neutralization 패턴을 살펴보겠습니다.
+이어지는 2편에서는 Style Transfer의 역방향 활용인 Reverse Neutralization과, 생성 품질 전반을 끌어올리는 Content Optimization 패턴을 다룹니다.
 
 ## References
 
