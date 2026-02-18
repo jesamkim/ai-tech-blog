@@ -48,6 +48,12 @@ TOPIC_CRITERIA = """
 - 건설/제조/에너지 + AI 교차점
 - MCP(Model Context Protocol), 에이전트, RAG 등 Jay 관심 분야
 
+### 5-1. Anthropic 관련 주제 (Jay = Anthropic 팬)
+- Anthropic 연구: Mechanistic Interpretability, Constitutional AI, RLHF, Scaling Laws
+- Claude 모델 아키텍처/성능 분석, 프롬프트 엔지니어링 베스트 프랙티스
+- Anthropic 논문 리뷰 (Circuits, Superposition, Sparse Autoencoders 등)
+- Claude + Bedrock 실전 활용 패턴
+
 ### 6. 기존 포스트와 차별화
 - 이미 다룬 주제 반복하지 않기
 - 시리즈물 가능 (e.g., 프루닝 → 양자화, GraphRAG → 에이전트 RAG)
