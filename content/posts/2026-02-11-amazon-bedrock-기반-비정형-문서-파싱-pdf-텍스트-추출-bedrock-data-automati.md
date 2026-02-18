@@ -187,3 +187,4 @@ def call_claude_vision(b64_image, model_id="anthropic.claude-sonnet-4-5-20250514
 
 11. **LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking (Microsoft, 2022)** — 문서의 텍스트, 레이아웃, 이미지를 통합 학습하는 사전훈련 모델. 문서 AI 분야의 멀티모달 표현 학습 기반 연구.
     https://arxiv.org/abs/2204.08387
+   사전 학습된 이미지 트랜스포머(DiT)를 활용한 문서 이해 모델로, 비정형 문서의 레이아웃 인식 및 정보 추출에 활용되는 핵심 논문이다.

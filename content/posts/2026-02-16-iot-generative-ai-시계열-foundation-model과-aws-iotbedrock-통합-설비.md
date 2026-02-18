@@ -232,4 +232,4 @@ response = bedrock_agent.invoke_agent(
 
 7. Swann Communications의 Amazon Bedrock 활용 사례. AWS Machine Learning Blog. https://aws.amazon.com/blogs/machine-learning/swann-provides-generative-ai-to-millions-of-iot-devices-using-amazon-bedrock/ — Swann이 IoT 보안 카메라 플랫폼에 Bedrock LLM을 통합하여 이벤트 요약 및 자연어 알림을 구현한 아키텍처 사례.
 
-8. Lai, S., Zha, D., Wang, G., Xu, J., Zhao, L., Kumar, V., Ding, C., Liao, W., & Hu, X. (2024). "Are Language Models Actually Useful for Time Series Forecasting?" *arXiv preprint*. https://arxiv.org/abs/2406.16964 — LLM/Foundation Model의 시계열 예측 유효성을 비판적으로 분석한 연구. 시계열 FM 도입 시 기대 효과와 한계를 균형 있게 이해하는 
+8. Lai, S., Zha, D., Wang, G., Xu, J., Zhao, L., Kumar, V., Ding, C., Liao, W., & Hu, X. (2024). "Are Language Models Actually Useful for Time Series Forecasting?" *arXiv preprint*. https://arxiv.org/abs/2406.16964 — LLM/Foundation Model의 시계열 예측 유효성을 비판적으로 분석한 연구. 시계열 FM 도입 시 기대 효과와 한계를 균형 있게 이해하는 데 필수적인 참고 자료이다. 
