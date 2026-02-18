@@ -1,6 +1,6 @@
 ---
 title: "Mechanistic Interpretability: LLM 내부를 해부하다 — Anthropic의 신경망 해석 연구에서 MIT 2026 10대 기술 선정까지"
-date: 2026-02-18T08:05:24+09:00
+date: 2026-02-16T08:05:24+09:00
 draft: false
 author: "Jesam Kim"
 description: "LLM의 블랙박스를 여는 Mechanistic Interpretability의 핵심 개념, Anthropic의 연구 성과, MIT 2026 10대 기술 선정의 의미, 그리고 최신 표현 기하학 연구까지 심층 분석합니다."
@@ -37,7 +37,7 @@ TocOpen: true
 - **Superposition(중첩)**: 모델이 뉴런 수보다 훨씬 많은 feature를 표현하기 위해, 여러 feature를 하나의 뉴런 공간에 겹쳐서 인코딩하는 현상입니다. 개인적으로 이 개념을 처음 접했을 때, 왜 개별 뉴런 분석이 그토록 어려웠는지 단번에 이해가 되었습니다.
 - **Polysemanticity(다의성)**: Superposition의 직접적인 결과로, 하나의 뉴런이 서로 무관한 여러 개념에 동시에 반응하는 현상입니다. 예를 들어 특정 뉴런이 "학술 인용"과 "한국 지명"에 모두 활성화되는 식입니다.
 
-![기존 XAI(post-hoc, 외부 관찰)와 Mechanistic Interpretability(내부 회로 역공학)의 접근 방식 비교](/ai-tech-blog/images/posts/2026-02-18/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-1.png)
+![기존 XAI(post-hoc, 외부 관찰)와 Mechanistic Interpretability(내부 회로 역공학)의 접근 방식 비교](/ai-tech-blog/images/posts/2026-02-16/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-1.png)
 
 결국 Mechanistic Interpretability가 풀어야 할 과제는, 이렇게 얽혀 있는 뉴런 공간에서 개별 feature를 분리(disentangle)해내고, feature들이 연결되어 형성하는 회로(circuit)의 로직을 해독하는 것입니다. Anthropic이 Sparse Autoencoder(SAE)를 통해 이 문제에 본격적인 돌파구를 열었는데, 다음 섹션에서 자세히 살펴보겠습니다.
 
@@ -51,7 +51,7 @@ TocOpen: true
 
 2023~2024년에 걸쳐 Anthropic은 SAE를 점진적으로 스케일업하며, 실제 Claude 모델의 내부 활성화(Activation)에서 해석 가능한 Feature를 추출하는 데 성공했습니다. 개인적으로 이 과정이 인상적이었던 이유는, 단순히 "분리할 수 있다"는 가능성을 넘어 산업용 LLM 규모에서 실제로 작동함을 증명했기 때문입니다.
 
-![2022 Toy Models of Superposition → 2023 SAE 기반 Feature 추출 → 2024 Scaling Monosemanticity로 이어지는 연구 타임라인](/ai-tech-blog/images/posts/2026-02-18/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-2.png)
+![2022 Toy Models of Superposition → 2023 SAE 기반 Feature 추출 → 2024 Scaling Monosemanticity로 이어지는 연구 타임라인](/ai-tech-blog/images/posts/2026-02-16/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-2.png)
 
 ### Scaling Monosemanticity: 수백만 Feature의 의미
 
@@ -112,7 +112,7 @@ residual = cache["resid_post", 11]  # 마지막 레이어
 print(f"Residual stream shape: {residual.shape}")
 ```
 
-![주요 연구 그룹(Anthropic, OpenAI, DeepMind, EleutherAI)의 Interpretability 연구 타임라인 및 대표 성과 비교](/ai-tech-blog/images/posts/2026-02-18/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-3.png)
+![주요 연구 그룹(Anthropic, OpenAI, DeepMind, EleutherAI)의 Interpretability 연구 타임라인 및 대표 성과 비교](/ai-tech-blog/images/posts/2026-02-16/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-3.png)
 
 개인적으로, 이번 선정이 갖는 가장 큰 의미는 "해석 가능성은 있으면 좋은 것"에서 "반드시 갖춰야 할 것"으로 인식이 전환되고 있다는 점이라고 생각합니다. AI Safety 논의가 추상적 우려에서 구체적 기술 요건으로 옮겨가고 있고, 그 흐름 속에서 Mechanistic Interpretability는 단순한 연구 주제를 넘어 AI 시스템의 신뢰를 뒷받침하는 기반 기술로 자리를 잡아가고 있습니다.
 
@@ -145,7 +145,7 @@ U, S, V = torch.svd(diff)
 
 이런 분석을 통해 미세조정이 모델의 어떤 메커니즘을 건드리는지 파악할 수 있습니다. 실제로 써보면 스타일 관련 특징과 사실 지식 관련 특징이 상당히 분리된 부분 공간에서 변화하는 경향을 확인할 수 있습니다.
 
-![LoRA 적용 전후 표현 공간의 부분 공간 변화를 보여주는 개념도 — base 모델 활성화와 fine-tuned 모델 활성화의 차이 벡터가 특정 방향에 집중되는 모습](/ai-tech-blog/images/posts/2026-02-18/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-4.png)
+![LoRA 적용 전후 표현 공간의 부분 공간 변화를 보여주는 개념도 — base 모델 활성화와 fine-tuned 모델 활성화의 차이 벡터가 특정 방향에 집중되는 모습](/ai-tech-blog/images/posts/2026-02-16/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-4.png)
 
 이처럼 최신 연구들은 Mechanistic Interpretability를 단순히 "모델 내부 들여다보기"에서, 언어의 본질적 구조와 아키텍처의 한계, 나아가 학습 역학을 이해하는 방향으로 확장하고 있습니다.
 
@@ -184,7 +184,7 @@ print("Activation values:", top_features.values)
 - **피처 완전성(Feature Completeness)**: 추출된 피처가 모델 행동 전체를 설명한다는 보장이 없습니다. 중요한 회로(circuit)가 누락될 가능성이 항상 존재합니다.
 - **인과성 검증의 어려움**: 피처 활성화와 출력 사이의 상관관계를 발견해도, 이것이 실제 인과 경로인지 확인하려면 정교한 개입 실험(intervention experiment)이 추가로 필요합니다.
 
-![SAE 기반 해석 파이프라인의 단계별 흐름과 각 단계에서 발생하는 한계점 매핑](/ai-tech-blog/images/posts/2026-02-18/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-5.png)
+![SAE 기반 해석 파이프라인의 단계별 흐름과 각 단계에서 발생하는 한계점 매핑](/ai-tech-blog/images/posts/2026-02-16/mechanistic-interpretability-llm-내부를-해부하다-anthropic의-신경망-해석-/diagram-5.png)
 
 이런 한계에도 불구하고, 모델 안전성 팀에서는 이미 이 기법들을 탐색적 도구로 활용하고 있습니다. EU AI Act 등 규제 프레임워크가 설명 가능성(Explainability) 요건을 요구하면서, 이를 뒷받침할 기술적 기반으로서 관심도 높아지는 추세입니다.
 

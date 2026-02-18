@@ -1,6 +1,6 @@
 ---
 title: "Amazon Personalize와 OpenSearch, LLM을 결합한 하이브리드 개인화 추천 시스템 구축 가이드"
-date: 2026-02-10T15:55:22+09:00
+date: 2026-02-09T15:55:22+09:00
 draft: false
 author: "Jesam Kim"
 description: "Amazon Personalize의 협업 필터링, OpenSearch의 시맨틱 검색, LLM의 자연어 추론을 결합하여 정밀하고 설명 가능한 하이브리드 추천 시스템을 설계하는 아키텍처와 구현 전략을 분석합니다."
@@ -35,7 +35,7 @@ OpenSearch의 BM25 키워드 검색이나 k-NN 기반 시맨틱 검색은 콘텐
 
 최근 GPT 계열 모델을 직접 추천에 활용하려는 시도가 늘고 있지만, 실제로 써보면 근본적인 제약에 부딪힙니다. 우선 환각(Hallucination) 문제로 존재하지 않는 상품이나 콘텐츠를 그럴듯하게 생성해 버립니다. 실시간 사용자 행동 데이터나 최신 카탈로그 정보를 모델 내부에 반영할 수 없어 추천의 신선도(freshness)도 떨어집니다. 대규모 카탈로그 전체를 프롬프트에 담는 것 역시 토큰 제한과 비용 측면에서 비현실적입니다.
 
-![세 가지 단일 추천 접근법(Collaborative Filtering, Search, LLM)의 강점과 한계를 비교하는 표 형태 다이어그램](/ai-tech-blog/images/posts/2026-02-10/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-1.png)
+![세 가지 단일 추천 접근법(Collaborative Filtering, Search, LLM)의 강점과 한계를 비교하는 표 형태 다이어그램](/ai-tech-blog/images/posts/2026-02-09/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-1.png)
 
 개인적으로 이 세 엔진은 각각의 약점이 다른 엔진의 강점으로 보완되는 구조라고 생각합니다. 협업 필터링의 콜드스타트는 콘텐츠 검색이 메워주고, 검색의 비개인화는 협업 필터링이 커버합니다. 두 엔진 모두 부족한 자연어 이해와 설명력은 LLM이 채워줄 수 있습니다. 다음 섹션에서는 이 세 엔진을 실제로 어떻게 조합하는지 아키텍처 수준에서 살펴보겠습니다.
 
@@ -84,7 +84,7 @@ hybrid_query = {
 
 실제로 써보면 가장 체감 효과가 큰 부분이 바로 LLM의 역할입니다. Bedrock 기반 LLM은 크게 두 가지 일을 합니다. 먼저, Personalize와 OpenSearch에서 각각 생성된 후보 목록을 사용자 맥락에 맞게 **Re-ranking**합니다. 그리고 "이 상품은 최근 구매하신 A와 스타일이 유사하여 추천드립니다"와 같은 자연어 설명(Explanation)을 생성합니다. 여기에 더해, 모호한 사용자 쿼리를 분석하여 의도를 파악하고 쿼리를 확장(Query Expansion)하는 역할도 수행하므로 검색 품질이 한층 올라갑니다.
 
-![세 구성 요소(Personalize, OpenSearch, Bedrock LLM)의 역할과 데이터 흐름을 보여주는 컴포넌트 다이어그램 — 각 컴포넌트의 입력/출력과 상호 연결 관계 표시](/ai-tech-blog/images/posts/2026-02-10/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-2.png)
+![세 구성 요소(Personalize, OpenSearch, Bedrock LLM)의 역할과 데이터 흐름을 보여주는 컴포넌트 다이어그램 — 각 컴포넌트의 입력/출력과 상호 연결 관계 표시](/ai-tech-blog/images/posts/2026-02-09/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-2.png)
 
 이 세 요소는 독립적으로도 충분히 쓸모가 있지만, 파이프라인으로 결합했을 때 각각의 한계를 상쇄하며 추천 품질이 확연히 좋아집니다. 다음 섹션에서는 이들을 실제로 어떻게 연결하는지 전체 아키텍처를 살펴보겠습니다.
 
@@ -92,7 +92,7 @@ hybrid_query = {
 
 앞서 살펴본 각 구성 요소의 강점을 실제 시스템으로 엮으려면, 명확한 파이프라인 설계가 필요합니다. 개인적으로 가장 효과적이라고 느낀 구조는 3단계 파이프라인입니다.
 
-![3단계 파이프라인 흐름 — ① Candidate Generation(Amazon Personalize Top-N + OpenSearch Top-M) → ② Scoring/Filtering(퓨전 및 비즈니스 룰 적용) → ③ LLM Re-ranking 및 설명 생성](/ai-tech-blog/images/posts/2026-02-10/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-3.png)
+![3단계 파이프라인 흐름 — ① Candidate Generation(Amazon Personalize Top-N + OpenSearch Top-M) → ② Scoring/Filtering(퓨전 및 비즈니스 룰 적용) → ③ LLM Re-ranking 및 설명 생성](/ai-tech-blog/images/posts/2026-02-09/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-3.png)
 
 ### 1단계: 후보 생성 (Candidate Generation)
 
@@ -132,7 +132,7 @@ final_ranking = reciprocal_rank_fusion([personalize_candidates, opensearch_candi
 
 실시간 추천은 AWS Lambda로 처리하고, 대규모 사용자 대상 배치 추천은 Step Functions로 분리하는 편이 운영 안정성 면에서 낫습니다. 실시간 경로에서는 1·2단계 결과를 캐싱(ElastiCache)해서 LLM 호출 빈도를 줄이고, 배치 경로에서는 Step Functions가 Personalize 배치 추론, RRF 병합, LLM 설명 생성을 순차적으로 오케스트레이션합니다.
 
-![실시간 경로(API Gateway → Lambda → Personalize + OpenSearch → RRF → LLM)와 배치 경로(EventBridge → Step Functions → S3)의 분리 구조](/ai-tech-blog/images/posts/2026-02-10/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-4.png)
+![실시간 경로(API Gateway → Lambda → Personalize + OpenSearch → RRF → LLM)와 배치 경로(EventBridge → Step Functions → S3)의 분리 구조](/ai-tech-blog/images/posts/2026-02-09/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-4.png)
 
 이렇게 파이프라인을 명확히 분리해 두면 각 단계를 독립적으로 튜닝하거나 교체할 수 있어서, 장기적으로 유지보수가 훨씬 수월해집니다.
 
@@ -190,7 +190,7 @@ def rerank_with_llm(user_profile: dict, candidates: list[dict]) -> list[dict]:
 - **페르소나 설정**: `"당신은 10년 경력의 콘텐츠 큐레이터입니다"` 처럼 역할을 명시하면 도메인에 맞는 판단 기준이 적용됩니다.
 - 아이템 속성 구조화: 장르, 감독, 평점 등 메타데이터를 정형화된 포맷으로 전달해야 LLM이 속성 간 비교를 정확히 수행합니다.
 
-![사용자 프로필 + 추천 후보가 RAG 컨텍스트로 LLM에 주입되어 Re-ranked 결과와 추천 이유가 생성되는 흐름](/ai-tech-blog/images/posts/2026-02-10/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-5.png)
+![사용자 프로필 + 추천 후보가 RAG 컨텍스트로 LLM에 주입되어 Re-ranked 결과와 추천 이유가 생성되는 흐름](/ai-tech-blog/images/posts/2026-02-09/amazon-personalize와-opensearch-llm을-결합한-하이브리드-개인화-추천-시스템-구축-/diagram-5.png)
 
 한 가지 주의할 점이 있습니다. LLM 호출은 레이턴시(Latency)와 비용을 수반하므로, 모든 요청에 적용하기보다는 **상위 N개 후보에 대해서만** Re-ranking을 적용하는 편이 실용적입니다.
 

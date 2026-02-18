@@ -1,6 +1,6 @@
 ---
 title: "팔란티어 온톨로지에서 GraphRAG까지: 엔터프라이즈 지식 그래프와 LLM의 결합"
-date: 2026-02-16T19:34:32+09:00
+date: 2026-02-15T19:34:32+09:00
 draft: false
 author: "Jesam Kim"
 description: "Palantir Ontology의 핵심 개념을 출발점으로, GraphRAG·OG-RAG·KAG 등 최신 논문 5편을 비교 분석하며 엔터프라이즈 지식 그래프와 LLM 결합의 현재와 구현 방향을 정리합니다."
@@ -31,7 +31,7 @@ Palantir Foundry 플랫폼은 엔터프라이즈 데이터를 세 가지 축으�
 - **Link (Relationship)**: 객체 간 관계를 명시적으로 연결합니다. `고객 → 보유 → 장비`, `계약 → 포함 → 서비스 항목`처럼 멀티홉 탐색이 가능한 그래프 구조를 만듭니다.
 - **Action**: 온톨로지 위에서 실행 가능한 비즈니스 로직을 정의합니다. 단순 조회가 아니라 "이 장비의 유지보수 일정을 재배치하라" 같은 의사결정과 실행까지 이어집니다.
 
-![Palantir Ontology 3요소(Object Type, Link, Action)와 Foundry 플랫폼 내 데이터 흐름 개념도](/ai-tech-blog/images/posts/2026-02-16/팔란티어-온톨로지에서-graphrag까지-엔터프라이즈-지식-그래프와-llm의-결합/diagram-1.png)
+![Palantir Ontology 3요소(Object Type, Link, Action)와 Foundry 플랫폼 내 데이터 흐름 개념도](/ai-tech-blog/images/posts/2026-02-15/팔란티어-온톨로지에서-graphrag까지-엔터프라이즈-지식-그래프와-llm의-결합/diagram-1.png)
 
 ### 구조화된 세계 모델이 주는 이점
 
@@ -77,7 +77,7 @@ schema_v2 = llm.invoke(refine_prompt(schema_draft, expert_feedback))
 
 두 논문은 "사람이 만들던 KG를 LLM이 만든다"는 동일한 방향을 공유합니다. 그러나 실제로 써보면 한계도 분명합니다. GraphRAG는 추출 단계에서 환각(Hallucination)으로 존재하지 않는 관계가 생성될 수 있고, 온톨로지 자동 구축은 도메인 규칙을 위반하는 스키마를 제안하기도 합니다. 사람의 검증 루프(Human-in-the-Loop)를 완전히 제거하기는 아직 어렵습니다. 이 한계가, 다음에 살펴볼 OG-RAG와 KAG가 "도메인 온톨로지를 명시적으로 주입"하는 방향으로 나아간 이유이기도 합니다.
 
-![GraphRAG 파이프라인(텍스트→엔티티 추출→그래프 구축→커뮤니티 탐지→요약)과 LLM-Driven Ontology Construction 파이프라인(문서→LLM 스키마 제안→전문가 피드백→정제)의 비교 흐름도](/ai-tech-blog/images/posts/2026-02-16/팔란티어-온톨로지에서-graphrag까지-엔터프라이즈-지식-그래프와-llm의-결합/diagram-2.png)
+![GraphRAG 파이프라인(텍스트→엔티티 추출→그래프 구축→커뮤니티 탐지→요약)과 LLM-Driven Ontology Construction 파이프라인(문서→LLM 스키마 제안→전문가 피드백→정제)의 비교 흐름도](/ai-tech-blog/images/posts/2026-02-15/팔란티어-온톨로지에서-graphrag까지-엔터프라이즈-지식-그래프와-llm의-결합/diagram-2.png)
 
 ## 3. 논문 ③: 도메인 온톨로지를 RAG에 직접 주입하다 — OG-RAG
 
@@ -89,7 +89,7 @@ OG-RAG의 핵심 구조는 하이퍼그래프(hypergraph)입니다. 일반 그�
 
 OG-RAG는 도메인 온톨로지의 클래스와 프로퍼티를 하이퍼그래프 노드로 매핑한 뒤, 텍스트 청크를 해당 온톨로지 개념에 정렬(grounding)합니다. 검색 시에는 쿼리를 온톨로지 개념으로 먼저 분해하고, 관련 하이퍼엣지를 따라 의미적으로 연결된 청크 묶음을 한꺼번에 가져오는 방식입니다.
 
-![OG-RAG 파이프라인 — 도메인 온톨로지 → 하이퍼그래프 변환 → 청크 그라운딩 → 쿼리 분해 → 하이퍼엣지 기반 검색 → LLM 생성](/ai-tech-blog/images/posts/2026-02-16/팔란티어-온톨로지에서-graphrag까지-엔터프라이즈-지식-그래프와-llm의-결합/diagram-3.png)
+![OG-RAG 파이프라인 — 도메인 온톨로지 → 하이퍼그래프 변환 → 청크 그라운딩 → 쿼리 분해 → 하이퍼엣지 기반 검색 → LLM 생성](/ai-tech-blog/images/posts/2026-02-15/팔란티어-온톨로지에서-graphrag까지-엔터프라이즈-지식-그래프와-llm의-결합/diagram-3.png)
 
 ### Palantir Ontology와의 구조적 대응
 
