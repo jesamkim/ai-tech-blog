@@ -27,9 +27,9 @@ TocOpen: true
 
 이런 문제를 체계적으로 해결하기 위해, 출력 제어 패턴을 크게 두 가지 축으로 나눠볼 수 있습니다.
 
-첫 번째는 **디코딩 타임 개입(Decode-time Intervention)**입니다. 토큰이 생성되는 바로 그 순간에 확률 분포를 조작해서, 애초에 잘못된 출력이 만들어지지 않도록 원천 차단하는 방식입니다. Logits Masking과 Grammar Constraint가 여기에 해당합니다.
+첫 번째는 <strong>디코딩 타임 개입(Decode-time Intervention)</strong>입니다. 토큰이 생성되는 바로 그 순간에 확률 분포를 조작해서, 애초에 잘못된 출력이 만들어지지 않도록 원천 차단하는 방식입니다. Logits Masking과 Grammar Constraint가 여기에 해당합니다.
 
-두 번째는 **생성 후 변환(Post-generation Transformation)**입니다. LLM이 일단 출력을 생성한 뒤, 별도의 파이프라인 단계에서 톤을 교정하거나 유해 요소를 제거하는 접근입니다. Style Transfer, Reverse Neutralization, Content Optimization이 이 범주에 속합니다.
+두 번째는 <strong>생성 후 변환(Post-generation Transformation)</strong>입니다. LLM이 일단 출력을 생성한 뒤, 별도의 파이프라인 단계에서 톤을 교정하거나 유해 요소를 제거하는 접근입니다. Style Transfer, Reverse Neutralization, Content Optimization이 이 범주에 속합니다.
 
 ```python
 # 출력 제어 패턴의 적용 지점을 개념적으로 표현하면:
@@ -61,7 +61,7 @@ LLM은 매 디코딩 스텝(decoding step)마다 전체 어휘(vocabulary)에 �
 
 이 패턴은 "절대로 생성되면 안 되는" 하드 제약(hard constraint) 시나리오에서 특히 유용합니다.
 
-- **금칙어 필터링**: 욕설, 브랜드명, 민감 정보 관련 토큰을 원천 차단
+- <strong>금칙어 필터링</strong>: 욕설, 브랜드명, 민감 정보 관련 토큰을 원천 차단
 - 언어 제한: 한국어 전용 서비스에서 영어·일본어 토큰을 마스킹하여 단일 언어 출력 보장
 - 포맷 강제: 숫자만 허용하거나 특수문자를 제한하는 등 출력 형식 통제
 
@@ -120,10 +120,10 @@ Logits Masking이 개별 토큰 수준의 제어라면, Grammar Constraint는 �
 
 | 도구 | 접근 방식 | 특징 |
 |------|-----------|------|
-| **Outlines** | 정규식/JSON Schema → FSM 변환 | 임의의 HuggingFace 모델에 적용 가능, 인덱스 프리컴파일로 성능 최적화 |
-| **Guidance** (Microsoft) | 템플릿 기반 인터리빙 생성 | 자유 텍스트와 구조화 영역을 하나의 템플릿에서 혼합 가능 |
-| **llama.cpp GBNF** | BNF 문법 파일 직접 정의 | C++ 레벨 통합으로 오버헤드가 작음 |
-| **Instructor** | Pydantic 모델 → API 레벨 강제 | OpenAI 등 API 기반 서비스에서 바로 활용 가능, 내부적으로 재시도 로직 포함 |
+| <strong>Outlines</strong> | 정규식/JSON Schema → FSM 변환 | 임의의 HuggingFace 모델에 적용 가능, 인덱스 프리컴파일로 성능 최적화 |
+| <strong>Guidance</strong> (Microsoft) | 템플릿 기반 인터리빙 생성 | 자유 텍스트와 구조화 영역을 하나의 템플릿에서 혼합 가능 |
+| <strong>llama.cpp GBNF</strong> | BNF 문법 파일 직접 정의 | C++ 레벨 통합으로 오버헤드가 작음 |
+| <strong>Instructor</strong> | Pydantic 모델 → API 레벨 강제 | OpenAI 등 API 기반 서비스에서 바로 활용 가능, 내부적으로 재시도 로직 포함 |
 
 실제로 써보면, 로컬 모델 기반이라면 Outlines나 GBNF가, API 기반이라면 Instructor가 가장 빠르게 프로덕션에 적용할 수 있는 선택지입니다.
 
@@ -150,7 +150,7 @@ result = generator("Analyze the sentiment of: 'This product is amazing!'")
 
 ### 프로덕션 적용 팁
 
-**Latency 최소화**: Grammar Constraint는 매 디코딩 스텝마다 문법 상태를 체크하므로 오버헤드가 발생합니다. Outlines의 경우 FSM 인덱스를 사전 컴파일(pre-compile)해두면 런타임 비용을 크게 줄일 수 있습니다. 스키마가 복잡할수록 상태 공간이 급격히 커지므로, 가능하면 출력 스키마를 평탄하게(flat) 유지하는 것이 좋습니다.
+<strong>Latency 최소화</strong>: Grammar Constraint는 매 디코딩 스텝마다 문법 상태를 체크하므로 오버헤드가 발생합니다. Outlines의 경우 FSM 인덱스를 사전 컴파일(pre-compile)해두면 런타임 비용을 크게 줄일 수 있습니다. 스키마가 복잡할수록 상태 공간이 급격히 커지므로, 가능하면 출력 스키마를 평탄하게(flat) 유지하는 것이 좋습니다.
 
 스키마 설계 시 참고할 점을 몇 가지 정리하면 다음과 같습니다.
 
@@ -163,15 +163,15 @@ SQL이나 XML처럼 JSON보다 복잡한 문법이 필요한 경우도 있습니
 
 ## 패턴 3 — Style Transfer: 톤·문체·페르소나의 일관성 제어
 
-앞선 두 패턴이 무엇을 출력할 수 있는가(토큰/구조)를 제어했다면, Style Transfer는 **어떻게 말하는가**를 제어하는 패턴입니다. 핵심 아이디어는 단순합니다. 콘텐츠(Content)의 의미는 그대로 보존하면서, 톤(Tone)·격식 수준(Formality)·페르소나(Persona)만 변환하는 것입니다.
+앞선 두 패턴이 무엇을 출력할 수 있는가(토큰/구조)를 제어했다면, Style Transfer는 <strong>어떻게 말하는가</strong>를 제어하는 패턴입니다. 핵심 아이디어는 단순합니다. 콘텐츠(Content)의 의미는 그대로 보존하면서, 톤(Tone)·격식 수준(Formality)·페르소나(Persona)만 변환하는 것입니다.
 
 ### 왜 프로덕션에서 중요한가
 
-고객 응대 챗봇이 어떤 질문에는 반말로, 어떤 질문에는 존댓말로 답한다면 브랜드 신뢰도는 금방 무너집니다. 법률 문서 요약 서비스가 캐주얼한 구어체를 섞어 쓴다면 서비스 자체의 신뢰성이 의심받게 됩니다. Style Transfer 패턴은 이런 **문체 일관성(Stylistic Consistency)** 문제를 체계적으로 다룹니다.
+고객 응대 챗봇이 어떤 질문에는 반말로, 어떤 질문에는 존댓말로 답한다면 브랜드 신뢰도는 금방 무너집니다. 법률 문서 요약 서비스가 캐주얼한 구어체를 섞어 쓴다면 서비스 자체의 신뢰성이 의심받게 됩니다. Style Transfer 패턴은 이런 <strong>문체 일관성(Stylistic Consistency)</strong> 문제를 체계적으로 다룹니다.
 
 ### 접근 방식
 
-**1) System Prompt 기반** — 가장 빠르게 적용할 수 있지만, 긴 대화에서 스타일 드리프트(Style Drift)가 발생하기 쉽습니다.
+<strong>1) System Prompt 기반</strong> — 가장 빠르게 적용할 수 있지만, 긴 대화에서 스타일 드리프트(Style Drift)가 발생하기 쉽습니다.
 
 2) Few-shot 예시 기반 — 원하는 스타일의 입출력 쌍을 프롬프트에 포함시켜 모델이 패턴을 모방하도록 유도합니다.
 
@@ -227,40 +227,40 @@ prompt = build_style_transfer_prompt(
 
 ### 스타일 드리프트 방지 팁
 
-개인적으로 가장 효과적이었던 방법은 **스타일 검증 레이어(Style Validation Layer)**를 후처리에 추가하는 것이었습니다. 출력 텍스트의 격식 수준을 분류 모델(Classifier)로 판정하고, 기준에 미달하면 재생성을 트리거하는 방식입니다. 구조는 단순하지만 멀티턴 대화에서 스타일 일관성을 유지하는 데 꽤 효과가 있었습니다.
+개인적으로 가장 효과적이었던 방법은 <strong>스타일 검증 레이어(Style Validation Layer)</strong>를 후처리에 추가하는 것이었습니다. 출력 텍스트의 격식 수준을 분류 모델(Classifier)로 판정하고, 기준에 미달하면 재생성을 트리거하는 방식입니다. 구조는 단순하지만 멀티턴 대화에서 스타일 일관성을 유지하는 데 꽤 효과가 있었습니다.
 
 다음 패턴에서는 이렇게 제어된 스타일을 의도적으로 역전시키는 Reverse Neutralization 패턴을 살펴보겠습니다.
 
 ## References
 
-1. **Lakshmanan, V. & Hapke, H. (2025). "Generative AI Design Patterns: Solutions to Common Challenges When Building GenAI Agents and Applications."** O'Reilly Media.
+1. <strong>Lakshmanan, V. & Hapke, H. (2025). "Generative AI Design Patterns: Solutions to Common Challenges When Building GenAI Agents and Applications."</strong> O'Reilly Media.
    https://www.oreilly.com/library/view/generative-ai-design/9798341622654/
    본 포스트에서 다루는 Logits Masking, Grammar Constraint, Style Transfer, Reverse Neutralization, Content Optimization의 5가지 출력 제어 패턴을 포함하여 총 32가지 GenAI 디자인 패턴을 체계화한 참고서이다.
 
-3. **Willard, B. T. & Louf, R. (2023). "Efficient Guided Generation for Large Language Models."** arXiv preprint.
+3. <strong>Willard, B. T. & Louf, R. (2023). "Efficient Guided Generation for Large Language Models."</strong> arXiv preprint.
    https://arxiv.org/abs/2307.09702
    LLM 디코딩 단계에서 유한 상태 머신(FSM)을 활용한 logits masking 및 구조화된 출력 생성의 이론적 기반을 제시한 핵심 논문으로, Logits Masking 패턴과 Grammar Constraint 패턴의 학술적 근거를 제공한다.
 
-3. **Outlines — Structured Text Generation library (GitHub)**
+3. <strong>Outlines — Structured Text Generation library (GitHub)</strong>
    https://github.com/dottxt-ai/outlines
    정규표현식, JSON Schema, 문맥 자유 문법(CFG) 등을 활용하여 LLM 출력을 토큰 레벨에서 제약하는 오픈소스 라이브러리로, Logits Masking과 Grammar Constraint 패턴의 대표적 프로덕션 구현체이다.
 
-4. **LMQL — A Programming Language for Large Language Models (GitHub)**
+4. <strong>LMQL — A Programming Language for Large Language Models (GitHub)</strong>
    https://github.com/eth-sri/lmql
    ETH Zürich에서 개발한 LLM 쿼리 언어로, 타입 제약과 디코딩 제어를 프로그래밍 언어 수준에서 선언적으로 표현할 수 있어 Grammar Constraint 패턴의 실용적 접근 방식을 보여준다.
 
-5. **Guidance — A guidance language for controlling LLMs (GitHub)**
+5. <strong>Guidance — A guidance language for controlling LLMs (GitHub)</strong>
    https://github.com/guidance-ai/guidance
    Microsoft에서 공개한 LLM 출력 제어 프레임워크로, 템플릿 기반의 구조화된 생성, 토큰 레벨 제약, 선택적 분기 등을 지원하며 본 포스트에서 다루는 다수의 출력 제어 패턴을 통합적으로 구현할 수 있는 도구이다.
 
-6. **Reif, E. et al. (2022). "A Recipe for Arbitrary Text Style Transfer with Large Language Models."** ACL 2022.
+6. <strong>Reif, E. et al. (2022). "A Recipe for Arbitrary Text Style Transfer with Large Language Models."</strong> ACL 2022.
    https://arxiv.org/abs/2109.03910
    LLM을 활용한 텍스트 스타일 변환의 체계적 방법론을 제시한 논문으로, Style Transfer 패턴에서 프롬프트 기반 스타일 제어와 역방향 스타일 분리 기법의 이론적 토대를 제공한다.
 
-7. **OpenAI API — Structured Outputs (공식 문서)**
+7. <strong>OpenAI API — Structured Outputs (공식 문서)</strong>
    https://platform.openai.com/docs/guides/structured-outputs
    OpenAI API에서 JSON Schema 기반으로 LLM 출력 형식을 강제하는 Structured Outputs 기능의 공식 문서로, 프로덕션 환경에서 Grammar Constraint 패턴을 API 레벨에서 적용하는 실무적 참고 자료이다.
 
-8. **Mudgal, S. et al. (2024). "Controlled Decoding from Language Models."** ICML 2024.
+8. <strong>Mudgal, S. et al. (2024). "Controlled Decoding from Language Models."</strong> ICML 2024.
    https://arxiv.org/abs/2310.17022
    보상 모델이나 가치 함수를 디코딩 단계에 통합하여 LLM 출력의 속성(안전성, 스타일, 품질 등)을 제어하는 Controlled Decoding 프레임워크를 제안한 논문으로, Content Optimization과 Reverse Neutralization 패턴의 학술적 근거를 제공한다.
