@@ -128,25 +128,17 @@ edit_instruction = {
 
 ## References
 
-1. **"Customize AI agent browsing with proxies, profiles, and extensions in Amazon Bedrock AgentCore Browser"** — AWS Blog, 2025.
-   [https://aws.amazon.com/blogs/machine-learning/customize-ai-agent-browsing-with-proxies-profiles-and-extensions-in-amazon-bedrock-agentcore-browser/](https://aws.amazon.com/blogs/machine-learning/customize-ai-agent-browsing-with-proxies-profiles-and-extensions-in-amazon-bedrock-agentcore-browser/)
+1. **can1357. "oh-my-pi: AI Coding agent for the terminal — hash-anchored edits, optimized tool harness"** — GitHub.
+   [https://github.com/can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)
 
-2. **"AI meets HR: Transforming talent acquisition with Amazon Bedrock"** — AWS Blog, 2025.
-   [https://aws.amazon.com/blogs/machine-learning/ai-meets-hr-transforming-talent-acquisition-with-amazon-bedrock/](https://aws.amazon.com/blogs/machine-learning/ai-meets-hr-transforming-talent-acquisition-with-amazon-bedrock/)
-
-3. **"Build long-running MCP servers on Amazon Bedrock AgentCore with Strands Agents integration"** — AWS Blog, 2025.
-   [https://aws.amazon.com/blogs/machine-learning/build-long-running-mcp-servers-on-amazon-bedrock-agentcore-with-strands-agents-integration/](https://aws.amazon.com/blogs/machine-learning/build-long-running-mcp-servers-on-amazon-bedrock-agentcore-with-strands-agents-integration/)
-
-4. **"NVIDIA Nemotron 3 Nano 30B MoE model is now available in Amazon SageMaker JumpStart"** — AWS Blog, 2025.
-   [https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-30b-is-now-available-in-amazon-sagemaker-jumpstart/](https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-30b-is-now-available-in-amazon-sagemaker-jumpstart/)
-
-5. **"Mastering Amazon Bedrock throttling and service availability: A comprehensive guide"** — AWS Blog, 2025.
-   [https://aws.amazon.com/blogs/machine-learning/mastering-amazon-bedrock-throttling-and-service-availability-a-comprehensive-guide/](https://aws.amazon.com/blogs/machine-learning/mastering-amazon-bedrock-throttling-and-service-availability-a-comprehensive-guide/)
-
-6. **Jimenez, C. E. et al. "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"** — 논문, 2023. AI 코딩 에이전트의 실제 소프트웨어 엔지니어링 태스크 수행 능력을 평가하는 대표적 벤치마크로, 하니스 설계(편집 포맷, 도구 인터페이스 등)가 모델 성능에 미치는 영향을 분석하는 데 핵심적인 기반을 제공한다.
+2. **Jimenez, C. E. et al. "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"** — arXiv, 2023. AI 코딩 에이전트의 실제 소프트웨어 엔지니어링 태스크 수행 능력을 평가하는 대표적 벤치마크.
    [https://arxiv.org/abs/2310.06770](https://arxiv.org/abs/2310.06770)
 
-7. **Gauthier, P. "Aider: AI pair programming in your terminal"** — GitHub. 다양한 LLM에 대해 diff 포맷(unified diff, whole-file, search/replace 등) 편집 하니스의 성능 차이를 체계적으로 실험한 오픈소스 프로젝트로, 편집 포맷 벤치마크의 실증적 근거를 제공한다.
+3. **Gauthier, P. "Aider: AI pair programming in your terminal"** — GitHub. 다양한 LLM에 대해 diff 포맷(unified diff, whole-file, search/replace 등) 편집 하니스의 성능 차이를 체계적으로 실험한 오픈소스 프로젝트.
    [https://github.com/Aider-AI/aider](https://github.com/Aider-AI/aider)
 
-8. **Yang, J. et al. "SWE-agent: Agent-Computer Interfaces Are All You Need for Software Engineering"** — 논문, 2024. 에이전트-컴
+4. **Yang, J. et al. "SWE-agent: Agent-Computer Interfaces Are All You Need for Software Engineering"** — arXiv, 2024. 에이전트-컴퓨터 인터페이스(ACI) 설계가 코딩 에이전트 성능의 핵심 변수임을 실증한 논문.
+   [https://arxiv.org/abs/2405.15793](https://arxiv.org/abs/2405.15793)
+
+5. **Anthropic. "Claude Code: Best practices for agentic coding"** — Anthropic Docs, 2025. Claude Code의 도구 인터페이스 설계 철학과 str_replace 편집 포맷의 구현 근거.
+   [https://docs.anthropic.com/en/docs/claude-code](https://docs.anthropic.com/en/docs/claude-code)
