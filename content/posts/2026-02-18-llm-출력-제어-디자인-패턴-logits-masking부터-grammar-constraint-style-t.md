@@ -1,5 +1,5 @@
 ---
-title: "LLM 출력 제어 디자인 패턴: Logits Masking부터 Grammar Constraint, Style Transfer, Reverse Neutralization, Content Optimization까지"
+title: "LLM 출력 제어 디자인 패턴 1편: Logits Masking, Grammar Constraint, Style Transfer"
 date: 2026-02-18T10:12:47+09:00
 draft: false
 author: "Jesam Kim"
