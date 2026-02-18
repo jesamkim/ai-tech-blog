@@ -1,5 +1,5 @@
 ---
-title: "Amazon Bedrock로 비정형 문서를 Markdown으로 변환하기"
+title: "Amazon Bedrock으로 비정형 문서를 Markdown으로 변환하기"
 date: 2026-02-11T18:16:59+09:00
 draft: false
 author: "Jesam Kim"
