@@ -196,9 +196,9 @@ print("Activation values:", top_features.values)
 
 3. **"Text Style Transfer with Parameter-efficient LLM Finetuning and Round-trip Translation"** — 파라미터 효율적 파인튜닝을 통한 텍스트 스타일 변환 연구로, LLM 내부 표현 조작과 관련된 논문. [http://arxiv.org/abs/2602.15013v1](http://arxiv.org/abs/2602.15013v1)
 
-4. **"Common streaming data enrichment patterns in Amazon Managed Service for Apache Flink"** — Amazon Managed Service for Apache Flink에서의 스트리밍 데이터 보강 패턴을 다룬 AWS Blog 포스트. [https://aws.amazon.com/blogs/big-data/common-streaming-data-enrichment-patterns-in-amazon-managed-service-for-apache-flink/](https://aws.amazon.com/blogs/big-data/common-streaming-data-enrichment-patterns-in-amazon-managed-service-for-apache-flink/)
+4. **Bricken, T. et al., "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning" (2023)** — Anthropic 연구팀이 Sparse Autoencoder(SAE)를 활용하여 트랜스포머의 다의적(polysemantic) 뉴런을 단의적(monosemantic) 피처로 분해하는 방법론을 제시한 논문. 본문의 SAE 기반 피처 추출 파이프라인의 이론적 기초. [https://transformer-circuits.pub/2023/monosemantic-features/](https://transformer-circuits.pub/2023/monosemantic-features/)
 
-5. **"Amazon Athena adds 1-minute reservations and new capacity control features"** — Amazon Athena의 1분 단위 예약 및 용량 제어 신규 기능을 소개하는 AWS Blog 포스트. [https://aws.amazon.com/blogs/big-data/amazon-athena-adds-1-minute-reservations-and-new-capacity-control-features/](https://aws.amazon.com/blogs/big-data/amazon-athena-adds-1-minute-reservations-and-new-capacity-control-features/)
+5. **Olah, C. et al., "Zoom In: An Introduction to Circuits" (2020)** — 신경망 내부의 개별 뉴런과 회로를 체계적으로 분석하는 Mechanistic Interpretability 연구의 기초를 놓은 Anthropic/OpenAI 계열 연구. 본문에서 다루는 회로 발견(circuit discovery) 접근법의 출발점. [https://distill.pub/2020/circuits/zoom-in/](https://distill.pub/2020/circuits/zoom-in/)
 
 6. **Anthropic, "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet" (2024)** — Anthropic 연구팀이 Claude 3 Sonnet에서 수백만 개의 해석 가능한 특징(feature)을 추출하여 대규모 언어 모델의 내부 작동을 해부한 핵심 연구. [https://transformer-circuits.pub/2024/scaling-monosemanticity/](https://transformer-circuits.pub/2024/scaling-monosemanticity/)
 
