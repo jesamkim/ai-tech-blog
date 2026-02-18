@@ -217,3 +217,4 @@ Databricks는 노트북(Notebook)을 협업의 중심축으로 삼습니다. 실
 12. Armbrust, M. et al., "Delta Lake: High-Performance ACID Table Storage over Cloud Object Stores," *Proceedings of the VLDB Endowment*, Vol. 13, No. 12, 2020. https://www.vldb.org/pvldb/vol13/p3411-armbrust.pdf
 
 13. Apache Iceberg 공식 문서, "Apache Iceberg – Table Format for Huge Analytic Datasets." https://iceberg.apache.org/docs/latest/
+   대규모 분석 데이터셋을 위한 오픈 테이블 포맷으로, SageMaker Unified Studio와 Databricks 모두 지원하는 핵심 데이터 레이크 기술이다.
