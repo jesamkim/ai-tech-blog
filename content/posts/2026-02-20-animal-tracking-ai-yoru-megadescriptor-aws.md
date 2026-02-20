@@ -27,7 +27,7 @@ TocOpen: true
 
 테마파크와 동물원, 야생 보전 현장에서 동물 개체 단위의 행동 모니터링 수요가 빠르게 늘고 있습니다. 동물 복지 규제가 강화되고 멸종위기종 보전 프로젝트가 확대되면서, "지금 이 개체가 어디서 무엇을 하고 있는가"를 실시간으로 파악해야 하는 상황이 일상이 되었습니다.
 
-하지만 사육사와 현장 연구자의 수작업 관찰(Manual Observation)에는 분명한 병목이 있습니다. 야행성 동물의 심야 행동이나 넓은 사파리 구역의 동시 모니터링은 인력만으로 물리적으로 불가능합니다. 같은 행동을 두고도 관찰자마다 기록이 달라지는 관찰자 간 변이(Inter-observer Variability) 문제도 있고, 개체 수가 수십에서 수백으로 늘어나면 개체 식별과 행동 분류를 동시에 수행하는 것 자체가 비현실적입니다. Nature Communications에 게재된 동물 행동 자동 분석 서베이 논문에서도 이러한 수작업 한계를 지적하며 딥러닝 기반 자동화의 필요성을 강조한 바 있습니다<sup>[6]</sup>.
+하지만 사육사와 현장 연구자의 수작업 관찰(Manual Observation)에는 분명한 병목이 있습니다. 야행성 동물의 심야 행동이나 넓은 사파리 구역의 동시 모니터링은 인력만으로 물리적으로 불가능합니다. 같은 행동을 두고도 관찰자마다 기록이 달라지는 관찰자 간 변이(Inter-observer Variability) 문제도 있고, 개체 수가 수십에서 수백으로 늘어나면 개체 식별과 행동 분류를 동시에 수행하는 것 자체가 비현실적입니다. Nature Communications에 게재된 동물 행동 자동 분석 서베이 논문에서도 이러한 수작업 한계를 지적하며 딥러닝 기반 자동화의 필요성을 강조한 바 있습니다.
 
 개인적으로 동물원 현장 PoC를 진행하면서 가장 자주 들었던 말이 "카메라는 이미 충분히 달려 있는데, 영상을 볼 사람이 없다"는 것이었습니다. 인프라는 갖춰져 있지만, 영상에서 의미 있는 정보를 자동으로 뽑아내는 AI 파이프라인이 빠져 있는 셈입니다.
 
@@ -41,7 +41,7 @@ TocOpen: true
 
 ### YORU의 접근
 
-2026년 2월 Science Advances에 발표된 YORU(You Only Recognize Units of behavior)는 이 2단계를 과감히 걷어냅니다<sup>[1]</sup>. 단일 프레임 이미지만으로 동물의 행동 단위(unit of behavior)를 직접 인식하며, body-part tracking이 전혀 필요하지 않습니다. 객체 탐지(object detection)와 행동 분류(action classification)를 하나의 네트워크에서 동시에 처리하는 구조입니다.
+2026년 2월 Science Advances에 발표된 YORU(You Only Recognize Units of behavior)는 이 2단계를 과감히 걷어냅니다. 단일 프레임 이미지만으로 동물의 행동 단위(unit of behavior)를 직접 인식하며, body-part tracking이 전혀 필요하지 않습니다. 객체 탐지(object detection)와 행동 분류(action classification)를 하나의 네트워크에서 동시에 처리하는 구조입니다.
 
 논문에서 보고된 주요 성과는 다음과 같습니다:
 
@@ -76,15 +76,15 @@ for det in detections:
 
 ### MegaDescriptor의 접근
 
-CVPR 2025 Workshop(FGVC)에서 발표된 MegaDescriptor는 이 문제를 파운데이션 모델(Foundation Model) 방식으로 해결합니다<sup>[2]</sup>. 50개 이상의 야생동물 데이터셋에서 사전 학습하여, 별도의 종별 파인튜닝 없이도 다양한 종에서 개체 구별이 가능한 임베딩을 생성합니다.
+CVPR 2025 Workshop(FGVC)에서 발표된 MegaDescriptor는 이 문제를 파운데이션 모델(Foundation Model) 방식으로 해결합니다. 50개 이상의 야생동물 데이터셋에서 사전 학습하여, 별도의 종별 파인튜닝 없이도 다양한 종에서 개체 구별이 가능한 임베딩을 생성합니다.
 
 핵심 성과를 정리하면:
 
 - <strong>종 무관(Species-agnostic)</strong>: 학습에 포함되지 않은 새로운 종에서도 zero-shot Re-ID 가능
 - <strong>기존 모델 압도</strong>: 동일 벤치마크에서 CLIP, DINOv2 기반 접근 대비 우수한 성능
-- <strong>경량 변형 제공</strong>: ViT-Tiny 기반 MegaDescriptor-T-224가 Hugging Face에 공개되어 있어 엣지 배포에 유리<sup>[3]</sup>
+- <strong>경량 변형 제공</strong>: ViT-Tiny 기반 MegaDescriptor-T-224가 Hugging Face에 공개되어 있어 엣지 배포에 유리
 
-함께 발표된 WildlifeReID-10k 데이터셋은 10,000개체 이상의 야생동물을 포함하며, Re-ID 모델의 표준 벤치마크로 자리 잡고 있습니다<sup>[5]</sup>.
+함께 발표된 WildlifeReID-10k 데이터셋은 10,000개체 이상의 야생동물을 포함하며, Re-ID 모델의 표준 벤치마크로 자리 잡고 있습니다.
 
 ### 실무 활용
 
@@ -119,7 +119,7 @@ print(f"개체 동일 확률: {similarity.item():.3f}")
 
 ### idtracker.ai의 표현 학습 기반 접근
 
-eLife에 발표된 새로운 idtracker.ai는 표현 학습(representation learning)을 핵심 메커니즘으로 사용합니다<sup>[4]</sup>. 각 개체의 고유한 시각적 특징을 학습하여, 겹침이나 빠른 이동 상황에서도 개체 ID를 유지하는 방식입니다.
+eLife에 발표된 새로운 idtracker.ai는 표현 학습(representation learning)을 핵심 메커니즘으로 사용합니다. 각 개체의 고유한 시각적 특징을 학습하여, 겹침이나 빠른 이동 상황에서도 개체 ID를 유지하는 방식입니다.
 
 보고된 핵심 수치는 놀랍습니다:
 
@@ -182,7 +182,7 @@ Manifests:
 
 ### 행동 해석: Amazon Bedrock Claude Sonnet 4.6 Vision
 
-YORU가 "foraging", "resting" 같은 행동 라벨을 출력하지만, 실제 운영에서는 더 풍부한 맥락 해석이 필요합니다. Amazon Bedrock의 Claude Sonnet 4.6 Vision을 활용하면, 탐지 결과와 원본 이미지를 함께 입력하여 "이 행동이 정상 범위인지", "수의사 관심이 필요한 패턴인지" 같은 고차원 판단을 자연어로 받을 수 있습니다<sup>[8]</sup>.
+YORU가 "foraging", "resting" 같은 행동 라벨을 출력하지만, 실제 운영에서는 더 풍부한 맥락 해석이 필요합니다. Amazon Bedrock의 Claude Sonnet 4.6 Vision을 활용하면, 탐지 결과와 원본 이미지를 함께 입력하여 "이 행동이 정상 범위인지", "수의사 관심이 필요한 패턴인지" 같은 고차원 판단을 자연어로 받을 수 있습니다.
 
 예를 들어, YORU가 "abnormal_posture"를 탐지하면 해당 프레임을 Bedrock Claude Vision으로 보내 상세 분석을 요청하고, 판단 결과에 따라 CloudWatch 알람을 트리거하는 방식입니다.
 
