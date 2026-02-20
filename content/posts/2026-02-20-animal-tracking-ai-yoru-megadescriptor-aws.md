@@ -1,5 +1,5 @@
 ---
-title: "동물 객체 인식과 개체 트래킹 AI: YORU에서 MegaDescriptor까지, AWS 위에서 구현하기"
+title: "동물 객체 인식과 개체 트래킹 AI: YORU에서 MegaDescriptor까지, AWS 기반 아키텍처 설계"
 date: 2026-02-20T18:00:00+09:00
 draft: false
 author: "Jesam Kim"
