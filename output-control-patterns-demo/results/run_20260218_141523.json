@@ -1,0 +1,192 @@
+{
+  "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "timestamp": "2026-02-18T14:15:23.796189",
+  "patterns": [
+    {
+      "pattern": "style_transfer",
+      "advanced": true,
+      "scenarios": [
+        {
+          "scenario": "IT Incident Report",
+          "label": "Business Formal",
+          "input": "서버가 또 터졌어요. 빨리 확인해주세요. 어제도 같은 문제였는데 아직도 안 고쳐진 거예요?",
+          "output": "# Formal Business Communication\n\n**Subject: Urgent Server Outage Requiring Immediate Attention**\n\nDear IT Operations Team,\n\nWe regret to inform you that the server has experienced another outage. We kindly request your immediate review and resolution of this matter.\n\nWe would like to bring to your attention that an identical issue occurred yesterday, and it appears that the problem has not yet been rectified.\n\nWe would greatly appreciate your prompt attention to this urgent matter.\n\nRespectfully,\n\n[Corporate Communications]\n\n---\n\n**Alternative Version (Internal Memo Format):**\n\n**RE: Server Outage - Immediate Action Required**\n\nPlease be advised that the server has encountered another failure. Your immediate inspection and corrective action are respectfully requested.\n\nIt should be noted that the same issue was observed yesterday, and the matter appears to remain unresolved at this time.\n\nYour expeditious attention to this critical matter would be greatly appreciated.",
+          "elapsed_sec": 4.94,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "IT Incident Report",
+          "label": "Technical Incident Report",
+          "input": "서버가 또 터졌어요. 빨리 확인해주세요. 어제도 같은 문제였는데 아직도 안 고쳐진 거예요?",
+          "output": "# Incident Report\n\n## Incident Summary\nServer outage detected. Requires immediate investigation.\n\n## Incident Details\n- **Status**: Service disruption reported\n- **Recurrence**: Similar incident occurred on previous day (T-1)\n- **Resolution Status**: Previous incident's root cause appears unresolved\n\n## Action Required\n- Immediate system assessment needed\n- Verify if current incident is related to previous day's event\n- Confirm whether prior remediation actions were implemented\n\n## Timeline\n- T-1: Initial incident occurrence\n- T-0: Recurrent incident reported\n\n---\n*Report generated based on initial notification. Further technical analysis pending.*",
+          "elapsed_sec": 4.84,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "IT Incident Report",
+          "label": "Friendly Customer Service",
+          "input": "서버가 또 터졌어요. 빨리 확인해주세요. 어제도 같은 문제였는데 아직도 안 고쳐진 거예요?",
+          "output": "# Transformed Customer Service Response\n\nDear Valued Customer,\n\nThank you for reaching out to us, and I sincerely apologize for the frustration you're experiencing with the server issues.\n\nI completely understand how concerning and disruptive it must be to encounter the same problem two days in a row. Your patience and the time you've taken to report this to us again are truly appreciated.\n\nPlease be assured that I'm escalating this matter to our technical team immediately as a high priority. We take service reliability very seriously, and I want to get to the bottom of why this issue has recurred despite yesterday's report.\n\nI will personally monitor the progress and keep you updated on the resolution. Could you please provide me with any additional details about when the issue occurred today? This will help our team investigate more effectively.\n\nAgain, I apologize for the inconvenience this has caused you, and I appreciate your understanding as we work to resolve this promptly.\n\nWarm regards,\n\n---\n\n**Key transformations made:**\n- Acknowledged the customer's frustration with empathy\n- Apologized sincerely for the recurring issue\n- Reassured immediate action and personal attention\n- Maintained warm, professional tone throughout\n- Requested additional information constructively",
+          "elapsed_sec": 5.93,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "IT Incident Report",
+          "label": "Medical Opinion",
+          "input": "서버가 또 터졌어요. 빨리 확인해주세요. 어제도 같은 문제였는데 아직도 안 고쳐진 거예요?",
+          "output": "# CLINICAL RECORD\n\n## PRESENTING COMPLAINT\nSystem failure - recurrent episode\n\n## HISTORY OF PRESENTING COMPLAINT\n- Acute system malfunction detected (current episode)\n- Similar episode documented yesterday\n- Persistent unresolved technical pathology noted\n\n## CLINICAL FINDINGS\n- Server dysfunction identified\n- Recurrent pattern established (≥2 episodes within 24-48 hours)\n- Underlying etiology remains unaddressed\n\n## ASSESSMENT\nRecurrent acute server failure with inadequate resolution of primary causative factors\n\n## MANAGEMENT PLAN\n1. Immediate diagnostic evaluation required\n2. Urgent intervention to restore system functionality\n3. Root cause analysis to prevent recurrence\n4. Follow-up assessment of previous corrective measures\n\n**PRIORITY STATUS:** Urgent attention required\n\n---\n*Note: This presentation suggests systemic issues requiring comprehensive technical consultation rather than symptomatic management alone.*",
+          "elapsed_sec": 5.34,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "IT Incident Report",
+          "label": "Legal Opinion",
+          "input": "서버가 또 터졌어요. 빨리 확인해주세요. 어제도 같은 문제였는데 아직도 안 고쳐진 거예요?",
+          "output": "# FORMAL NOTICE REGARDING SERVER SYSTEM FAILURE\n\nTO WHOM IT MAY CONCERN:\n\nWHEREAS the server system has experienced a critical failure and cessation of operations;\n\nWHEREAS immediate investigation and remedial action are hereby required;\n\nWHEREAS an identical system malfunction occurred on the previous date;\n\nWHEREAS said technical deficiency remains unresolved to date;\n\nNOW THEREFORE, the responsible party is hereby obligated to:\n\n1. Conduct an immediate examination of the server infrastructure;\n2. Implement necessary corrective measures without delay;\n3. Provide a formal explanation regarding the continued failure to remedy the recurring system deficiency.\n\nThis matter requires urgent attention and resolution.\n\nRespectfully submitted,\n\n[Date of Notice]",
+          "elapsed_sec": 4.91,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "IT Incident Report",
+          "label": "Emotion Intensity MAX",
+          "input": "서버가 또 터졌어요. 빨리 확인해주세요. 어제도 같은 문제였는데 아직도 안 고쳐진 거예요?",
+          "output": "# 🔥💥 긴급 재난 상황 발생! 💥🔥\n\n## 😡🚨 **또다시!!! 또다시 서버가 완전히 폭발했습니다!!!** 🚨😡\n\n### ⚠️ **지금 당장! 즉시! 1초의 지체도 없이 확인하세요!!!** ⚠️\n\n**이게 말이 됩니까?!**\n- 어제도 똑같은 문제였습니다!\n- 어제도!!!\n- 그런데 아직까지도!\n- 여전히!\n- 전혀!\n- **고쳐지지 않았다는 게 대체 어떻게 된 일입니까?!?!**\n\n### 💢 현재 상황의 심각성 💢\n\n```\n상태: 🔴 최악의 위기 상황\n반복 횟수: 2일 연속!!!\n해결 여부: ❌ 전혀 안 됨!!!\n긴급도: 🆘 최고 등급!!!\n```\n\n### 📢 **지금 즉각 조치가 필요합니다!** 📢\n\n이 상황을 더 이상 방치할 수 없습니다! \n**당장 확인하고 해결해주세요!!!**\n\n---\n*⏰ 시간이 없습니다! 지금 바로 움직이세요! ⏰*",
+          "elapsed_sec": 7.98,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 3,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "IT Incident Report",
+          "label": "Emotion Intensity MIN",
+          "input": "서버가 또 터졌어요. 빨리 확인해주세요. 어제도 같은 문제였는데 아직도 안 고쳐진 거예요?",
+          "output": "SERVER STATUS: DOWN. IMMEDIATE INSPECTION REQUIRED. IDENTICAL ISSUE OCCURRED PREVIOUS DAY. ISSUE REMAINS UNRESOLVED.",
+          "elapsed_sec": 2.16,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "IT Incident Report",
+          "label": "Executive Summary",
+          "input": "서버가 또 터졌어요. 빨리 확인해주세요. 어제도 같은 문제였는데 아직도 안 고쳐진 거예요?",
+          "output": "**EXECUTIVE BRIEFING: CRITICAL INFRASTRUCTURE FAILURE**\n\n• **IMMEDIATE BUSINESS RISK**: Server outage now in second consecutive day threatens revenue continuity, customer trust, and potential SLA breach penalties. Each hour of downtime typically costs $100K-$300K for mid-sized operations.\n\n• **ROOT CAUSE UNRESOLVED**: Recurring failure pattern indicates systemic infrastructure weakness rather than isolated incident—suggests inadequate incident response and problem management protocols.\n\n• **RECOMMENDED ACTION**: Convene emergency war room within 1 hour with CTO, Infrastructure Lead, and vendor support to: (1) restore service immediately, (2) conduct root cause analysis by EOD, and (3) present 48-hour remediation plan with prevention measures to prevent third occurrence.",
+          "elapsed_sec": 4.67,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 4,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "Medical Consultation",
+          "label": "Medical Opinion",
+          "input": "환자가 3일째 두통을 호소하고 있습니다. 진통제를 먹어도 낫지 않고, 어지러움도 동반됩니다. 가족력으로 뇌졸중 이력이 있어 걱정됩니다.",
+          "output": "**CLINICAL RECORD**\n\n**CHIEF COMPLAINT:**\nPersistent headache for 3 days\n\n**PRESENT ILLNESS:**\nThe patient presents with a 3-day history of headache refractory to analgesic medication. Associated symptoms include dizziness.\n\n**PAST MEDICAL HISTORY:**\nNot specified\n\n**FAMILY HISTORY:**\nPositive for cerebrovascular accident (stroke)\n\n**PHYSICAL EXAMINATION:**\nTo be documented\n\n**ASSESSMENT:**\n1. Refractory cephalgia with associated vertigo\n2. Concerning family history of cerebrovascular disease\n\n**PLAN:**\n1. Comprehensive neurological examination\n2. Consider neuroimaging (CT or MRI brain) to rule out intracranial pathology given family history and refractory symptoms\n3. Vital signs monitoring including blood pressure\n4. Further diagnostic workup as clinically indicated\n5. Symptomatic management pending investigation results",
+          "elapsed_sec": 4.62,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "Medical Consultation",
+          "label": "Friendly Customer Service",
+          "input": "환자가 3일째 두통을 호소하고 있습니다. 진통제를 먹어도 낫지 않고, 어지러움도 동반됩니다. 가족력으로 뇌졸중 이력이 있어 걱정됩니다.",
+          "output": "# Transformed Customer Service Response\n\n---\n\nDear Valued Customer,\n\nThank you so much for reaching out to us, and I'm truly sorry to hear about the discomfort you've been experiencing. I completely understand how concerning it must be to deal with a persistent headache for three days, especially when pain medication hasn't provided the relief you need.\n\nI can imagine how worrying this situation is for you, particularly given your family history of stroke. Your health and wellbeing are incredibly important to us, and I want you to know that your concerns are completely valid and understandable.\n\n**Here's what I recommend:**\n\nGiven the symptoms you've described—the ongoing headache, lack of response to pain medication, accompanying dizziness, and your family medical history—I strongly encourage you to seek immediate medical attention. Please consider:\n\n- Visiting your primary care physician as soon as possible\n- Going to an urgent care center today\n- If symptoms worsen or you experience additional concerning signs, please don't hesitate to visit the emergency room\n\nYour safety is our top priority, and these symptoms warrant professional medical evaluation to ensure you receive the proper care and peace of mind you deserve.\n\nPlease don't hesitate to reach out if there's anything else we can do to support you during this time. We're here for you.\n\nWishing you a swift recovery and better health ahead.\n\nWarm regards,\n\n*Your Customer Service Team*\n\n---",
+          "elapsed_sec": 6.11,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "Medical Consultation",
+          "label": "Executive Summary",
+          "input": "환자가 3일째 두통을 호소하고 있습니다. 진통제를 먹어도 낫지 않고, 어지러움도 동반됩니다. 가족력으로 뇌졸중 이력이 있어 걱정됩니다.",
+          "output": "# EXECUTIVE BRIEFING: Patient Neurological Risk Assessment\n\n**CRITICAL RISK:** Patient presenting persistent 3-day headache unresponsive to analgesics with concurrent dizziness and family history of stroke represents potential acute cerebrovascular event requiring immediate intervention. Delayed diagnosis of stroke carries 30-40% mortality risk and permanent disability costs exceeding $140,000 per patient annually.\n\n**QUANTIFIED IMPACT:** \n- Time-sensitive window: Every 15-minute delay in stroke treatment destroys 1.9 million neurons\n- Family history increases stroke risk 1.3-2x baseline probability\n- Symptom triad (refractory headache + dizziness + family history) elevates concern for hemorrhagic or ischemic event\n\n**RECOMMENDED ACTION:** Initiate emergency neurological protocol immediately—CT/MRI imaging within 60 minutes, neurology consultation stat, and activate stroke team if indicated. Do not discharge without definitive ruling out of cerebrovascular pathology.",
+          "elapsed_sec": 6.18,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 4,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "Security Incident",
+          "label": "Technical Incident Report",
+          "input": "어젯밤 내부 관리자 페이지에 비인가 접근이 감지되었습니다. 약 200건의 사용자 레코드가 노출되었을 가능성이 있습니다. 해당 서버는 차단했지만 공격 경로는 아직 파악되지 않았습니다.",
+          "output": "# Incident Report\n\n## Incident Summary\nUnauthorized access to internal administrative interface was detected during overnight hours. Approximately 200 user records potentially exposed. Affected server has been isolated. Attack vector remains unidentified at time of reporting.\n\n## Timeline\n- **Detection Time**: Previous night (specific timestamp required)\n- **Affected System**: Internal administrative page\n- **Immediate Action**: Server isolation completed\n\n## Impact Assessment\n- **Scope**: ~200 user records potentially compromised\n- **Severity**: Under investigation\n\n## Current Status\n- Affected server: Isolated\n- Root cause analysis: In progress\n- Attack vector identification: Pending\n\n## Next Steps Required\n1. Complete forensic analysis to identify attack vector\n2. Verify exact scope of data exposure\n3. Implement additional monitoring controls\n4. Prepare stakeholder communication if breach confirmed",
+          "elapsed_sec": 4.73,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "Security Incident",
+          "label": "Legal Opinion",
+          "input": "어젯밤 내부 관리자 페이지에 비인가 접근이 감지되었습니다. 약 200건의 사용자 레코드가 노출되었을 가능성이 있습니다. 해당 서버는 차단했지만 공격 경로는 아직 파악되지 않았습니다.",
+          "output": "# FORMAL LEGAL NOTICE REGARDING UNAUTHORIZED ACCESS INCIDENT\n\n**TO WHOM IT MAY CONCERN:**\n\nWHEREAS, on the night preceding the date hereof, unauthorized access to the internal administrative page was detected;\n\nWHEREAS, it has been determined that approximately two hundred (200) user records may have been exposed as a result of said unauthorized access;\n\nWHEREAS, the relevant server has been hereby blocked and isolated from further access;\n\nWHEREAS, the specific attack vector and pathway utilized to effectuate such unauthorized intrusion remains, as of the date hereof, unascertained;\n\nNOW, THEREFORE, the responsible party is hereby obligated to:\n\n1. Conduct a comprehensive forensic investigation to identify the method and source of the unauthorized access;\n\n2. Implement immediate remedial measures to prevent further unauthorized access;\n\n3. Notify all affected users whose records may have been compromised in accordance with applicable data protection laws and regulations;\n\n4. Preserve all evidence relating to this security incident for potential legal proceedings.\n\nThis matter is considered of urgent nature and requires immediate attention and resolution.\n\n**Dated this day: [Date]**",
+          "elapsed_sec": 5.09,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 5,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "Security Incident",
+          "label": "Executive Summary",
+          "input": "어젯밤 내부 관리자 페이지에 비인가 접근이 감지되었습니다. 약 200건의 사용자 레코드가 노출되었을 가능성이 있습니다. 해당 서버는 차단했지만 공격 경로는 아직 파악되지 않았습니다.",
+          "output": "**EXECUTIVE BRIEFING: Security Breach**\n\n• **Immediate Risk**: Unauthorized access to internal admin portal detected last night with potential exposure of ~200 user records. Attack vector remains unidentified, creating ongoing vulnerability and regulatory exposure (potential GDPR/privacy law violations, reputational damage).\n\n• **Current Status**: Compromised server isolated, but root cause unknown means threat actors may retain access through alternate entry points. Without rapid forensics, breach scope could expand significantly.\n\n• **Recommended Action**: Initiate emergency incident response protocol within 24 hours—engage cybersecurity forensics team, notify affected users per regulatory requirements, and conduct full infrastructure audit to identify and remediate attack vector before business operations resume.",
+          "elapsed_sec": 5.16,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 4,
+            "tone_shift": 5
+          }
+        },
+        {
+          "scenario": "Security Incident",
+          "label": "Emotion Intensity MAX",
+          "input": "어젯밤 내부 관리자 페이지에 비인가 접근이 감지되었습니다. 약 200건의 사용자 레코드가 노출되었을 가능성이 있습니다. 해당 서버는 차단했지만 공격 경로는 아직 파악되지 않았습니다.",
+          "output": "# 🚨 긴급 보안 침해 경보! 🚨\n\n**어젯밤, 우리 시스템이 공격당했습니다!**\n\n## 💥 심각한 보안 사태 발생! 💥\n\n**비인가 침입자가 우리의 내부 관리자 페이지에 무단으로 침투했습니다!** 이건 단순한 접근 시도가 아닙니다 - **실제 침해 사건입니다!**\n\n### ⚠️ 최악의 시나리오: 데이터 유출 ⚠️\n\n**약 200건의 소중한 사용자 레코드가 공격자의 손에 넘어갔을 가능성이 있습니다!** 200명의 사용자 정보가 지금 이 순간에도 어딘가에서 악용되고 있을 수 있습니다!\n\n### 🔥 현재 상황의 심각성 🔥\n\n- ✅ 해당 서버는 **긴급 차단 조치** 완료\n- ❌ **하지만!** 공격 경로는 **아직도 미파악 상태!**\n- ❌ 공격자가 어떻게 침입했는지 **전혀 모르는 상황!**\n- ❌ 추가 침투 경로가 존재할 가능성 **배제 불가!**\n\n**이것은 재앙입니다! 우리는 지금 당장 모든 보안 허점을 찾아내야 합니다!**\n\n---\n\n*즉각적인 대응이 필요합니다! 모든 보안팀은 비상 소집하십시오!*",
+          "elapsed_sec": 8.56,
+          "metrics": {
+            "preservation": 5,
+            "no_distortion": 2,
+            "tone_shift": 5
+          }
+        }
+      ]
+    }
+  ]
+}
