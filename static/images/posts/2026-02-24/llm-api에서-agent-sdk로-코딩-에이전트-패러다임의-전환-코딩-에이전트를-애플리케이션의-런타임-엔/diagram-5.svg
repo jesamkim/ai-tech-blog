@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FF9900"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#00000030"/>
+    </filter>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#FFF3E0;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="220" rx="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="450" y="28" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#232F3E">Self-Healing CI/CD Pipeline</text>
+
+  <!-- Box 1: CodeBuild (Test Failure) -->
+  <rect x="12" y="55" width="120" height="70" rx="10" fill="url(#boxGrad)" stroke="#FF9900" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="12" y="55" width="120" height="22" rx="10" fill="#FF9900"/>
+  <rect x="12" y="67" width="120" height="10" fill="#FF9900"/>
+  <text x="72" y="71" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">CodeBuild</text>
+  <text x="72" y="95" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#232F3E">Test Failure</text>
+  <circle cx="72" cy="112" r="6" fill="#FF4444" opacity="0.8"/>
+  <text x="72" y="115" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#FFFFFF">✕</text>
+
+  <!-- Arrow 1 -->
+  <line x1="132" y1="90" x2="158" y2="90" stroke="#FF9900" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 2: CloudWatch Events -->
+  <rect x="162" y="55" width="120" height="70" rx="10" fill="url(#boxGrad)" stroke="#FF9900" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="162" y="55" width="120" height="22" rx="10" fill="#FF9900"/>
+  <rect x="162" y="67" width="120" height="10" fill="#FF9900"/>
+  <text x="222" y="71" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">CloudWatch</text>
+  <text x="222" y="95" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#232F3E">Event Rule</text>
+  <text x="222" y="107" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#666666">Trigger</text>
+
+  <!-- Arrow 2 -->
+  <line x1="282" y1="90" x2="308" y2="90" stroke="#FF9900" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 3: Lambda (Agent SDK) -->
+  <rect x="312" y="55" width="120" height="70" rx="10" fill="url(#boxGrad)" stroke="#FF9900" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="312" y="55" width="120" height="22" rx="10" fill="#FF9900"/>
+  <rect x="312" y="67" width="120" height="10" fill="#FF9900"/>
+  <text x="372" y="71" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">Lambda</text>
+  <text x="372" y="95" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#232F3E">Agent SDK</text>
+  <text x="372" y="107" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#666666">Invoke Agent</text>
+
+  <!-- Arrow 3 -->
+  <line x1="432" y1="90" x2="458" y2="90" stroke="#FF9900" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 4: Bedrock Claude Agent (larger) -->
+  <rect x="462" y="45" width="140" height="90" rx="10" fill="url(#boxGrad)" stroke="#FF9900" stroke-width="3" filter="url(#shadow)"/>
+  <rect x="462" y="45" width="140" height="22" rx="10" fill="#232F3E"/>
+  <rect x="462" y="57" width="140" height="10" fill="#232F3E"/>
+  <text x="532" y="61" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#FF9900">Bedrock Claude</text>
+  <text x="532" y="85" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#232F3E">🔍 Log Analysis</text>
+  <text x="532" y="99" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#232F3E">🛠 Code Fix Gen</text>
+  <text x="532" y="113" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#666666">AI Agent</text>
+  <!-- Glow effect for AI box -->
+  <rect x="462" y="45" width="140" height="90" rx="10" fill="none" stroke="#FF9900" stroke-width="1" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Arrow 4 -->
+  <line x1="602" y1="90" x2="628" y2="90" stroke="#FF9900" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 5: CodeCommit (Push Fix) -->
+  <rect x="632" y="55" width="120" height="70" rx="10" fill="url(#boxGrad)" stroke="#FF9900" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="632" y="55" width="120" height="22" rx="10" fill="#FF9900"/>
+  <rect x="632" y="67" width="120" height="10" fill="#FF9900"/>
+  <text x="692" y="71" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">CodeCommit</text>
+  <text x="692" y="95" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#232F3E">Push Fix</text>
+  <text x="692" y="107" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#666666">Auto-commit</text>
+
+  <!-- Arrow 5 -->
+  <line x1="752" y1="90" x2="768" y2="90" stroke="#FF9900" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Box 6: CodeBuild (Rebuild) -->
+  <rect x="772" y="55" width="116" height="70" rx="10" fill="url(#boxGrad)" stroke="#FF9900" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="772" y="55" width="116" height="22" rx="10" fill="#FF9900"/>
+  <rect x="772" y="67" width="116" height="10" fill="#FF9900"/>
+  <text x="830" y="71" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">CodeBuild</text>
+  <text x="830" y="95" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#232F3E">Rebuild</text>
+  <circle cx="830" cy="112" r="6" fill="#4CAF50" opacity="0.8"/>
+  <text x="830" y="115" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="bold" fill="#FFFFFF">✓</text>
+
+  <!-- Feedback loop arrow (bottom) -->
+  <path d="M 830 125 L 830 175 Q 830 185 820 185 L 82 185 Q 72 185 72 175 L 72 130" fill="none" stroke="#FF9900" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)" opacity="0.5"/>
+  <text x="450" y="198" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#999999" font-style="italic">Retry loop if fix fails</text>
+
+  <!-- Step numbers -->
+  <circle cx="26" cy="48" r="8" fill="#232F3E"/>
+  <text x="26" y="51" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">1</text>
+
+  <circle cx="176" cy="48" r="8" fill="#232F3E"/>
+  <text x="176" y="51" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">2</text>
+
+  <circle cx="326" cy="48" r="8" fill="#232F3E"/>
+  <text x="326" y="51" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">3</text>
+
+  <circle cx="476" cy="38" r="8" fill="#232F3E"/>
+  <text x="476" y="41" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">4</text>
+
+  <circle cx="646" cy="48" r="8" fill="#232F3E"/>
+  <text x="646" y="51" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">5</text>
+
+  <circle cx="786" cy="48" r="8" fill="#232F3E"/>
+  <text x="786" y="51" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">6</text>
+</svg>
