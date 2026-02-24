@@ -22,14 +22,14 @@ TocOpen: true
 
 ## 1. 들어가며: LLM API 호출만으로는 부족한 이유
 
-최근 개발 워크플로우에 LLM을 도입하는 팀이 빠르게 늘고 있습니다. 대부분의 첫 시도는 아래와 같은 형태일 것입니다.
+최근 개발 워크플로우에 LLM을 도입하는 팀이 빠르게 늘고 있습니다. 대부분의 첫 시도는 Anthropic API를 직접 호출하는 아래와 같은 형태일 것입니다.
 
 ```python
 import anthropic
 
 client = anthropic.Anthropic()
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="global.anthropic.claude-sonnet-4-6",
     max_tokens=1024,
     messages=[{"role": "user", "content": "Fix the bug in my auth module"}],
 )
@@ -62,7 +62,7 @@ print(response.content.text)
 
 ### Claude Agent SDK: 에이전트를 서브프로세스로
 
-Anthropic이 2025년 출시한 Claude Code SDK는 이 Programmatic 단계를 정조준합니다. 설계 철학의 핵심은 Headless 모드와 멀티턴 오케스트레이션(Multi-turn Orchestration)입니다. 개인적으로 가장 인상적이었던 부분은, 에이전트를 사람이 지켜보는 대화 상대가 아니라 <strong>CI/CD 파이프라인 안의 엔진</strong>으로 쓸 수 있도록 설계했다는 점입니다.
+Anthropic이 2025년 출시한 Claude Code SDK(현 Claude Agent SDK)는 이 Programmatic 단계를 정조준합니다. 설계 철학의 핵심은 Headless 모드와 멀티턴 오케스트레이션(Multi-turn Orchestration)입니다. 개인적으로 가장 인상적이었던 부분은, 에이전트를 사람이 지켜보는 대화 상대가 아니라 <strong>CI/CD 파이프라인 안의 엔진</strong>으로 쓸 수 있도록 설계했다는 점입니다.
 
 ```python
 import subprocess, json
@@ -122,13 +122,20 @@ DeepCode(arXiv 2512.07921)는 기존의 단발성 코드 생성 자동화(Code G
 # 기존: 단발 호출
 response = llm.generate("Fix the bug in auth.py")
 
-# Agentic: 루프 기반 실행
-agent = AgentSDK(model="claude-sonnet-4-20250514")
-result = agent.run(
-    task="Fix the failing test in auth.py",
-    tools=["file_edit", "bash", "test_runner"],
-    max_iterations=10  # 자기 수정 루프 허용
-)
+# Agentic: 루프 기반 실행 (Amazon Bedrock 연동)
+import os
+os.environ["CLAUDE_CODE_USE_BEDROCK"] = "1"  # Bedrock을 모델 프로바이더로 사용
+from claude_agent_sdk import query, ClaudeAgentOptions
+
+async for msg in query(
+    prompt="Fix the failing test in auth.py",
+    options=ClaudeAgentOptions(
+        model="global.anthropic.claude-sonnet-4-6",
+        allowed_tools=["Edit", "Bash"],
+        max_turns=10,  # 자기 수정 루프 허용
+    ),
+):
+    result = msg
 ```
 
 이 구분이 중요한 이유는, 2부에서 다룰 학술적 실효성 측정의 기준선이 되기 때문입니다. 단순 코드 생성 정확도가 아니라, <strong>루프를 통한 최종 문제 해결률</strong>이 진짜 지표가 됩니다.
@@ -175,7 +182,7 @@ effect = (treat_after - treat_before) - (control_after - control_before)
 
 특히 2025년 출시된 <strong>Bedrock AgentCore</strong>는 에이전트의 세션 관리, 도구 호출, 메모리 유지 등을 플랫폼 차원에서 지원하여, 복잡한 멀티스텝 워크플로우를 별도 오케스트레이션 없이 구성할 수 있게 해줍니다.
 
-Claude Agent SDK는 Bedrock과 네이티브로 연동됩니다. `bedrock` 모델 프로바이더를 지정하면 SDK가 내부적으로 AWS 자격 증명 체인(환경 변수, IAM 역할, 인스턴스 프로파일)을 자동으로 활용하므로, CodeBuild나 Lambda 같은 AWS 서비스 내에서 추가 인증 설정 없이 바로 에이전트를 호출할 수 있습니다.
+Claude Agent SDK는 Bedrock과 네이티브로 연동됩니다. `CLAUDE_CODE_USE_BEDROCK=1` 환경 변수를 설정하면 SDK가 내부적으로 AWS 자격 증명 체인(환경 변수, IAM 역할, 인스턴스 프로파일)을 자동으로 활용하므로, CodeBuild나 Lambda 같은 AWS 서비스 내에서 추가 인증 설정 없이 바로 에이전트를 호출할 수 있습니다.
 
 ### 가상 시나리오: Self-Healing 빌드 파이프라인
 
@@ -225,9 +232,12 @@ artifacts:
 <strong>Lambda 핸들러 (Python, Agent SDK + Bedrock 연동)</strong>
 
 ```python
+import asyncio
 import json
+import os
+
 import boto3
-from claude_code_sdk import Claude, BedrockProvider
+from claude_agent_sdk import query, ClaudeAgentOptions
 
 s3 = boto3.client("s3")
 codebuild = boto3.client("codebuild")
@@ -235,6 +245,22 @@ codebuild = boto3.client("codebuild")
 BUCKET = "my-cicd-artifact-bucket"
 REPO_PATH = "/tmp/repo"
 PROJECT_NAME = "my-app-build"
+
+
+async def run_agent(prompt: str) -> list:
+    """Bedrock 기반 Claude Agent를 실행하고 메시지를 수집합니다."""
+    messages = []
+    async for message in query(
+        prompt=prompt,
+        options=ClaudeAgentOptions(
+            model="global.anthropic.claude-sonnet-4-6",
+            max_turns=10,
+            allowed_tools=["Read", "Write", "Bash"],
+            cwd=REPO_PATH,
+        ),
+    ):
+        messages.append(message)
+    return messages
 
 
 def handler(event, context):
@@ -245,18 +271,9 @@ def handler(event, context):
     log_obj = s3.get_object(Bucket=BUCKET, Key=log_key)
     failure_log = log_obj["Body"].read().decode("utf-8")
 
-    # 2. Bedrock 네이티브 인증으로 Claude Agent 초기화
-    provider = BedrockProvider(
-        model_id="anthropic.claude-sonnet-4-20250514-v1:0",
-        region="us-east-1"
-    )
-
-    agent = Claude(
-        provider=provider,
-        max_turns=10,
-        allowed_tools=["read", "write", "bash"],
-        working_directory=REPO_PATH,
-    )
+    # 2. Bedrock 네이티브 인증 활성화 (환경 변수)
+    os.environ["CLAUDE_CODE_USE_BEDROCK"] = "1"
+    os.environ["AWS_REGION"] = "us-east-1"
 
     # 3. 에이전트에게 분석 및 수정 요청
     prompt = (
@@ -266,17 +283,18 @@ def handler(event, context):
         + "수정 후 pytest를 다시 실행하여 테스트가 통과하는지 확인해 주세요."
     )
 
-    result = agent.run(prompt)
+    messages = asyncio.run(run_agent(prompt))
+    last = messages[-1] if messages else None
 
     # 4. 수정 성공 시 재빌드 트리거
-    if result.success:
+    if last and last.type == "result":
         codebuild.start_build(projectName=PROJECT_NAME)
         return {"status": "self-healed", "build_triggered": True}
 
-    return {"status": "manual_review_needed", "summary": result.summary}
+    return {"status": "manual_review_needed", "messages": len(messages)}
 ```
 
-위 코드에서 `BedrockProvider`를 사용하면 Lambda에 부여된 IAM 실행 역할의 권한만으로 Bedrock API를 호출합니다. 별도의 API 키를 환경 변수에 저장하거나 Secrets Manager에서 가져올 필요가 없으므로, 보안 관리가 한결 간결해집니다.
+위 코드에서 `CLAUDE_CODE_USE_BEDROCK=1` 환경 변수를 설정하면 Claude Agent SDK가 내부적으로 Bedrock을 모델 프로바이더로 사용합니다. Lambda에 부여된 IAM 실행 역할의 권한만으로 Bedrock API를 호출하므로, 별도의 API 키를 환경 변수에 저장하거나 Secrets Manager에서 가져올 필요가 없어 보안 관리가 한결 간결해집니다.
 
 실제 프로덕션 적용 시에는 에이전트의 수정 범위를 제한하는 가드레일 설정, 자동 수정 횟수 상한(무한 루프 방지), 그리고 수정 내역에 대한 사람의 최종 승인 단계를 반드시 포함하시기를 권장합니다. Bedrock AgentCore의 세션 관리 기능을 활용하면 이러한 멀티스텝 승인 워크플로우도 체계적으로 구현할 수 있습니다.
 
@@ -308,8 +326,8 @@ AI 에이전트는 개발자를 대체하는 도구가 아니라, 개발자가 �
    https://arxiv.org/abs/2601.13597
    코딩 에이전트의 실제 개발 생산성 영향을 Difference-in-Differences(DiD) 기법으로 측정한 실증 연구로, 2부에서 에이전트 도입의 실효성과 한계를 논증하는 핵심 근거.
 
-5. <strong>Claude Code SDK, Anthropic 공식 문서</strong>
-   https://docs.anthropic.com/en/docs/claude-code/sdk
+5. <strong>Claude Agent SDK, Anthropic 공식 문서</strong>
+   https://platform.claude.com/docs/en/agent-sdk/overview
    Claude Agent SDK의 프로그래매틱 사용법(서브프로세스 호출, JSON 스트리밍 출력 등)을 설명하는 공식 문서로, 1부의 Agent SDK/CLI 엔진화 흐름과 3부의 Bedrock 연동 시나리오에서 핵심 참조.
 
 6. <strong>Amazon Bedrock 개발자 가이드, AWS 공식 문서</strong>
@@ -318,4 +336,4 @@ AI 에이전트는 개발자를 대체하는 도구가 아니라, 개발자가 �
 
 7. <strong>AWS CodePipeline 사용자 가이드, AWS 공식 문서</strong>
    https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html
-   CodePipeline의 파이프라인 구성 및 액션 통합 방법을 설명하는 공식 문서로, 3부에서 테스트 실패 → Bedrock Agent 자동 수정 → 재빌드로 이어지는 CI/CD self-healing 시나리오 설계의 핵심 참고 자료로 활용.
+   CodePipeline의 파이프라인 구성 및 액션 통합 방법을 설명하는 공식 문서로, 3부에서 테스트 실패 → Bedrock Agent 자동 수정 → 재빌드로 이어지는 CI/CD self-healing 시나리오 설
