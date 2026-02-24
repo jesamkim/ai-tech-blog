@@ -336,4 +336,4 @@ AI 에이전트는 개발자를 대체하는 도구가 아니라, 개발자가 �
 
 7. <strong>AWS CodePipeline 사용자 가이드, AWS 공식 문서</strong>
    https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html
-   CodePipeline의 파이프라인 구성 및 액션 통합 방법을 설명하는 공식 문서로, 3부에서 테스트 실패 → Bedrock Agent 자동 수정 → 재빌드로 이어지는 CI/CD self-healing 시나리오 설
+   CodePipeline의 파이프라인 구성 및 액션 통합 방법을 설명하는 공식 문서로, 3부에서 테스트 실패 → Bedrock Agent 자동 수정 → 재빌드로 이어지는 CI/CD self-healing 시나리오 설계에 활용.
