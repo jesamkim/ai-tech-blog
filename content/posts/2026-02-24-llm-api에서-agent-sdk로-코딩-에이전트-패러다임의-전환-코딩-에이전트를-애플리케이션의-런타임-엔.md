@@ -52,7 +52,7 @@ print(response.content.text)
 
 ## 2. [1부] 최신 기술 트렌드: API에서 Agent SDK/CLI 엔진으로
 
-그렇다면 단순 API 호출의 한계를 넘어서기 위해 업계는 어떤 방향으로 움직이고 있을까요? 핵심 키워드는 **"에이전트의 프로그래밍 가능한 런타임화(Programmable Runtime)"**입니다.
+그렇다면 단순 API 호출의 한계를 넘어서기 위해 업계는 어떤 방향으로 움직이고 있을까요? 핵심 키워드는 <strong>"에이전트의 프로그래밍 가능한 런타임화(Programmable Runtime)"</strong>입니다.
 
 ### Interactive → Non-interactive → Programmatic 진화
 
@@ -62,7 +62,7 @@ print(response.content.text)
 
 ### Claude Agent SDK: 에이전트를 서브프로세스로
 
-Anthropic이 2025년 출시한 Claude Code SDK는 이 Programmatic 단계를 정조준합니다. 설계 철학의 핵심은 Headless 모드와 멀티턴 오케스트레이션(Multi-turn Orchestration)입니다. 개인적으로 가장 인상적이었던 부분은, 에이전트를 사람이 지켜보는 대화 상대가 아니라 **CI/CD 파이프라인 안의 엔진**으로 쓸 수 있도록 설계했다는 점입니다.
+Anthropic이 2025년 출시한 Claude Code SDK는 이 Programmatic 단계를 정조준합니다. 설계 철학의 핵심은 Headless 모드와 멀티턴 오케스트레이션(Multi-turn Orchestration)입니다. 개인적으로 가장 인상적이었던 부분은, 에이전트를 사람이 지켜보는 대화 상대가 아니라 <strong>CI/CD 파이프라인 안의 엔진</strong>으로 쓸 수 있도록 설계했다는 점입니다.
 
 ```python
 import subprocess, json
@@ -82,7 +82,7 @@ print(response["result"])  # 수정 내용 + 원인 분석 반환
 
 OpenHands(구 OpenDevin) 역시 SDK를 공개하며 Programmatic 에이전트 시장에 합류했습니다(arXiv 2511.03690). Claude Agent SDK와 비교했을 때 눈에 띄는 차별점은 다음과 같습니다.
 
-1. **Docker 기반 샌드박스 실행 환경**, 에이전트의 코드 실행이 격리된 컨테이너 안에서 이루어지기 때문에 호스트 시스템의 안전성을 확보할 수 있습니다.
+1. <strong>Docker 기반 샌드박스 실행 환경</strong>, 에이전트의 코드 실행이 격리된 컨테이너 안에서 이루어지기 때문에 호스트 시스템의 안전성을 확보할 수 있습니다.
 2. <strong>멀티 LLM 라우팅(Multi-LLM Routing)</strong>, Claude, GPT-4o, DeepSeek 등 여러 모델을 태스크 특성에 따라 전환할 수 있습니다.
 3. <strong>오픈소스 생태계</strong>, 커스텀 에이전트 정의, 도구 확장, 자체 호스팅이 모두 가능해서 엔터프라이즈 환경에서 유연하게 운영할 수 있습니다.
 
@@ -106,10 +106,10 @@ Planning → Tool Use → Feedback Loop → Self-Reflection
 
 코드 생성 에이전트 서베이(arXiv 2508.00083)에서는 이 루프를 더 체계적으로 네 가지 축으로 분류합니다.
 
-- **Perception**: 코드베이스, 이슈, 테스트 결과 등 컨텍스트를 인식하는 계층
-- **Memory**: 대화 히스토리, 파일 변경 이력 등을 유지하는 단기/장기 메모리
-- **Action**: 코드 생성, 파일 수정, 명령어 실행 등 실제 환경에 영향을 미치는 행위
-- **Learning**: 피드백을 통해 전략을 조정하거나 프롬프트를 개선하는 자기 학습
+- <strong>Perception</strong>: 코드베이스, 이슈, 테스트 결과 등 컨텍스트를 인식하는 계층
+- <strong>Memory</strong>: 대화 히스토리, 파일 변경 이력 등을 유지하는 단기/장기 메모리
+- <strong>Action</strong>: 코드 생성, 파일 수정, 명령어 실행 등 실제 환경에 영향을 미치는 행위
+- <strong>Learning</strong>: 피드백을 통해 전략을 조정하거나 프롬프트를 개선하는 자기 학습
 
 실제로 써보면, Claude Code나 OpenHands 같은 SDK가 내부적으로 이 네 가지를 어떻게 구현했느냐에 따라 체감 성능 차이가 상당합니다.
 
@@ -153,7 +153,7 @@ result = agent.run(
 
 ### 코딩 에이전트 실효성의 인과 추정
 
-"에이전트가 정말 생산성을 높이는가?"라는 질문에 대해, 단순 전후 비교가 아닌 **Difference-in-Differences(DiD)** 방법론을 적용한 연구(arxiv 2601.13597)가 주목할 만합니다. 이 연구는 코딩 에이전트 도입 전후 시점에서 처치군(Treatment Group)과 대조군(Control Group)의 생산성 변화 차이를 비교하여, 에이전트 도입의 인과적 효과(Causal Effect)를 추정했습니다.
+"에이전트가 정말 생산성을 높이는가?"라는 질문에 대해, 단순 전후 비교가 아닌 <strong>Difference-in-Differences(DiD)</strong> 방법론을 적용한 연구(arxiv 2601.13597)가 주목할 만합니다. 이 연구는 코딩 에이전트 도입 전후 시점에서 처치군(Treatment Group)과 대조군(Control Group)의 생산성 변화 차이를 비교하여, 에이전트 도입의 인과적 효과(Causal Effect)를 추정했습니다.
 
 ```python
 # DiD 추정의 개념적 구조 (간소화)
@@ -292,30 +292,30 @@ AI 에이전트는 개발자를 대체하는 도구가 아니라, 개발자가 �
 
 ## References
 
-1. **AI Agentic Programming: A Survey of Techniques, Challenges, and Opportunities**, 논문, 2025
+1. <strong>AI Agentic Programming: A Survey of Techniques, Challenges, and Opportunities</strong>, 논문, 2025
    https://arxiv.org/abs/2508.11126
    Agentic Programming 패러다임의 정의, 기법 분류, 도전과제를 포괄적으로 정리한 서베이 논문으로, 2부에서 LLM 기반 에이전트가 소프트웨어 개발 워크플로를 어떻게 재편하는지에 대한 학술적 근거로 활용.
 
-2. **A Survey on Code Generation with LLM-based Agents**, 논문, 2025
+2. <strong>A Survey on Code Generation with LLM-based Agents</strong>, 논문, 2025
    https://arxiv.org/abs/2508.00083
    LLM 기반 코드 생성 에이전트의 아키텍처, 벤치마크(SWE-bench 등), 한계(SWE-EVO 포함)를 체계적으로 분석한 서베이로, 2부에서 코드 생성 에이전트의 현재 수준과 실효성 논의의 핵심 참고 자료.
 
-3. **The OpenHands Software Agent SDK**, 논문, 2025
+3. <strong>The OpenHands Software Agent SDK</strong>, 논문, 2025
    https://arxiv.org/abs/2511.03690
    OpenHands SDK의 설계 철학과 프로그래매틱 에이전트 활용 방식을 소개한 논문으로, 1부에서 Interactive → Non-interactive → Programmatic 진화 흐름을 설명하고 Agent SDK 엔진화 트렌드를 뒷받침하는 데 직접 인용.
 
-4. **AI IDEs or Autonomous Agents? Measuring the Impact of Coding Agents on Software Development**, 논문, 2025
+4. <strong>AI IDEs or Autonomous Agents? Measuring the Impact of Coding Agents on Software Development</strong>, 논문, 2025
    https://arxiv.org/abs/2601.13597
    코딩 에이전트의 실제 개발 생산성 영향을 Difference-in-Differences(DiD) 기법으로 측정한 실증 연구로, 2부에서 에이전트 도입의 실효성과 한계를 논증하는 핵심 근거.
 
-5. **Claude Code SDK, Anthropic 공식 문서**
+5. <strong>Claude Code SDK, Anthropic 공식 문서</strong>
    https://docs.anthropic.com/en/docs/claude-code/sdk
    Claude Agent SDK의 프로그래매틱 사용법(서브프로세스 호출, JSON 스트리밍 출력 등)을 설명하는 공식 문서로, 1부의 Agent SDK/CLI 엔진화 흐름과 3부의 Bedrock 연동 시나리오에서 핵심 참조.
 
-6. **Amazon Bedrock 개발자 가이드, AWS 공식 문서**
+6. <strong>Amazon Bedrock 개발자 가이드, AWS 공식 문서</strong>
    https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
    Amazon Bedrock의 모델 호출, 인증, 에이전트 기능을 설명하는 공식 문서로, 3부에서 Bedrock 인증을 통한 Claude Agent SDK 네이티브 연동 아키텍처를 구성하는 데 활용.
 
-7. **AWS CodePipeline 사용자 가이드, AWS 공식 문서**
+7. <strong>AWS CodePipeline 사용자 가이드, AWS 공식 문서</strong>
    https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html
    CodePipeline의 파이프라인 구성 및 액션 통합 방법을 설명하는 공식 문서로, 3부에서 테스트 실패 → Bedrock Agent 자동 수정 → 재빌드로 이어지는 CI/CD self-healing 시나리오 설
