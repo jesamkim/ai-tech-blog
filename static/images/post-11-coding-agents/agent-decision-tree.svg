@@ -1,103 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'NanumBarunGothic', 'NanumSquare', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="'NanumBarunGothic', 'NanumSquare', sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#1a1a2e"/>
       <stop offset="100%" stop-color="#16213e"/>
     </linearGradient>
-  </defs>
-  <rect width="800" height="520" fill="url(#bg)" rx="12"/>
-  <text x="400" y="38" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="bold">AI 코딩 에이전트 선택 가이드</text>
-  <text x="400" y="58" text-anchor="middle" fill="#8899aa" font-size="12">상황별 최적 도구 Decision Tree</text>
-
-  <!-- Start node -->
-  <rect x="290" y="75" width="220" height="40" rx="20" fill="#4a9eff" opacity="0.9"/>
-  <text x="400" y="100" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">어떤 작업을 하려는가?</text>
-
-  <!-- Arrows from start -->
-  <line x1="330" y1="115" x2="170" y2="155" stroke="#4a9eff" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="400" y1="115" x2="400" y2="155" stroke="#4a9eff" stroke-width="1.5"/>
-  <line x1="470" y1="115" x2="630" y2="155" stroke="#4a9eff" stroke-width="1.5"/>
-
-  <defs>
     <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#4a9eff"/>
     </marker>
   </defs>
+  <rect width="900" height="480" fill="url(#bg)" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="bold">AI 코딩 에이전트 선택 가이드</text>
+  <text x="450" y="58" text-anchor="middle" fill="#8899aa" font-size="12">상황별 최적 도구 Decision Tree</text>
+
+  <!-- Start node -->
+  <rect x="340" y="75" width="220" height="40" rx="20" fill="#4a9eff" opacity="0.9"/>
+  <text x="450" y="100" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">어떤 작업을 하려는가?</text>
+
+  <!-- Arrows from start -->
+  <line x1="370" y1="115" x2="180" y2="155" stroke="#4a9eff" stroke-width="1.5"/>
+  <line x1="450" y1="115" x2="450" y2="155" stroke="#4a9eff" stroke-width="1.5"/>
+  <line x1="530" y1="115" x2="720" y2="155" stroke="#4a9eff" stroke-width="1.5"/>
 
   <!-- Branch labels -->
-  <text x="230" y="140" text-anchor="middle" fill="#8899aa" font-size="10">복잡한 구현/빌드</text>
-  <text x="400" y="145" text-anchor="middle" fill="#8899aa" font-size="10">분석/리뷰/리팩터링</text>
-  <text x="580" y="140" text-anchor="middle" fill="#8899aa" font-size="10">빠른 질의/수정</text>
+  <text x="260" y="140" text-anchor="middle" fill="#8899aa" font-size="10">복잡한 구현/빌드</text>
+  <text x="450" y="145" text-anchor="middle" fill="#8899aa" font-size="10">분석/리뷰/리팩터링</text>
+  <text x="640" y="140" text-anchor="middle" fill="#8899aa" font-size="10">빠른 질의/수정</text>
 
-  <!-- Left branch: Complex implementation -->
-  <rect x="70" y="158" width="200" height="36" rx="8" fill="#2a4a3e" stroke="#50c878" stroke-width="1.5"/>
-  <text x="170" y="180" text-anchor="middle" fill="#50c878" font-size="12" font-weight="bold">복잡한 구현/빌드</text>
-
-  <line x1="120" y1="194" x2="120" y2="225" stroke="#50c878" stroke-width="1"/>
-  <line x1="220" y1="194" x2="220" y2="225" stroke="#50c878" stroke-width="1"/>
-
-  <text x="120" y="218" text-anchor="middle" fill="#8899aa" font-size="9">spec 기반?</text>
-  <text x="220" y="218" text-anchor="middle" fill="#8899aa" font-size="9">자유 구현?</text>
+  <!-- Left: Complex implementation -->
+  <rect x="80" y="158" width="200" height="36" rx="8" fill="#2a4a3e" stroke="#50c878" stroke-width="1.5"/>
+  <text x="180" y="180" text-anchor="middle" fill="#50c878" font-size="12" font-weight="bold">복잡한 구현/빌드</text>
+  <line x1="130" y1="194" x2="130" y2="220" stroke="#50c878" stroke-width="1"/>
+  <line x1="230" y1="194" x2="230" y2="220" stroke="#50c878" stroke-width="1"/>
+  <text x="130" y="215" text-anchor="middle" fill="#8899aa" font-size="9">spec 기반?</text>
+  <text x="230" y="215" text-anchor="middle" fill="#8899aa" font-size="9">자유 구현?</text>
 
   <!-- Kiro box -->
-  <rect x="40" y="228" width="160" height="70" rx="8" fill="#1a3a2e" stroke="#50c878" stroke-width="2"/>
-  <text x="120" y="250" text-anchor="middle" fill="#50c878" font-size="14" font-weight="bold">✦ Kiro</text>
-  <text x="120" y="268" text-anchor="middle" fill="#aaccbb" font-size="10">Steering + Specs로</text>
-  <text x="120" y="282" text-anchor="middle" fill="#aaccbb" font-size="10">구조화된 개발</text>
+  <rect x="50" y="228" width="160" height="65" rx="8" fill="#1a3a2e" stroke="#50c878" stroke-width="2"/>
+  <text x="130" y="250" text-anchor="middle" fill="#50c878" font-size="14" font-weight="bold">✦ Kiro</text>
+  <text x="130" y="268" text-anchor="middle" fill="#aaccbb" font-size="10">Steering + Specs로</text>
+  <text x="130" y="282" text-anchor="middle" fill="#aaccbb" font-size="10">구조화된 개발</text>
 
   <!-- Claude Code box (left) -->
-  <rect x="140" y="228" width="160" height="70" rx="8" fill="#2a2a1e" stroke="#d4a574" stroke-width="2" transform="translate(60,0)"/>
-  <text x="260" y="250" text-anchor="middle" fill="#d4a574" font-size="14" font-weight="bold">✦ Claude Code</text>
-  <text x="260" y="268" text-anchor="middle" fill="#ccbb99" font-size="10">1M context로</text>
-  <text x="260" y="282" text-anchor="middle" fill="#ccbb99" font-size="10">대규모 코드베이스 탐색</text>
+  <rect x="230" y="228" width="160" height="65" rx="8" fill="#2a2a1e" stroke="#d4a574" stroke-width="2"/>
+  <text x="310" y="250" text-anchor="middle" fill="#d4a574" font-size="14" font-weight="bold">✦ Claude Code</text>
+  <text x="310" y="268" text-anchor="middle" fill="#ccbb99" font-size="10">1M context로</text>
+  <text x="310" y="282" text-anchor="middle" fill="#ccbb99" font-size="10">대규모 코드베이스 탐색</text>
 
-  <!-- Middle branch: Analysis/Review -->
-  <rect x="310" y="158" width="180" height="36" rx="8" fill="#2a2a3e" stroke="#d4a574" stroke-width="1.5"/>
-  <text x="400" y="180" text-anchor="middle" fill="#d4a574" font-size="12" font-weight="bold">분석/리뷰/리팩터링</text>
-
-  <line x1="400" y1="194" x2="400" y2="228" stroke="#d4a574" stroke-width="1"/>
+  <!-- Middle: Analysis -->
+  <rect x="360" y="158" width="180" height="36" rx="8" fill="#2a2a3e" stroke="#d4a574" stroke-width="1.5"/>
+  <text x="450" y="180" text-anchor="middle" fill="#d4a574" font-size="12" font-weight="bold">분석/리뷰/리팩터링</text>
+  <line x1="450" y1="194" x2="450" y2="228" stroke="#d4a574" stroke-width="1"/>
 
   <!-- Claude Code box (middle) -->
-  <rect x="320" y="228" width="160" height="70" rx="8" fill="#2a2a1e" stroke="#d4a574" stroke-width="2"/>
-  <text x="400" y="250" text-anchor="middle" fill="#d4a574" font-size="14" font-weight="bold">✦ Claude Code</text>
-  <text x="400" y="268" text-anchor="middle" fill="#ccbb99" font-size="10">깊은 코드 이해력</text>
-  <text x="400" y="282" text-anchor="middle" fill="#ccbb99" font-size="10">+ 확장 사고(thinking)</text>
+  <rect x="370" y="228" width="160" height="65" rx="8" fill="#2a2a1e" stroke="#d4a574" stroke-width="2"/>
+  <text x="450" y="250" text-anchor="middle" fill="#d4a574" font-size="14" font-weight="bold">✦ Claude Code</text>
+  <text x="450" y="268" text-anchor="middle" fill="#ccbb99" font-size="10">깊은 코드 이해력</text>
+  <text x="450" y="282" text-anchor="middle" fill="#ccbb99" font-size="10">+ 확장 사고(thinking)</text>
 
-  <!-- Right branch: Quick tasks -->
-  <rect x="530" y="158" width="200" height="36" rx="8" fill="#2a3a4e" stroke="#4a9eff" stroke-width="1.5"/>
-  <text x="630" y="180" text-anchor="middle" fill="#4a9eff" font-size="12" font-weight="bold">빠른 질의/수정</text>
-
-  <line x1="580" y1="194" x2="580" y2="228" stroke="#4a9eff" stroke-width="1"/>
-  <line x1="680" y1="194" x2="680" y2="228" stroke="#4a9eff" stroke-width="1"/>
-
-  <text x="580" y="218" text-anchor="middle" fill="#8899aa" font-size="9">AWS 환경?</text>
-  <text x="680" y="218" text-anchor="middle" fill="#8899aa" font-size="9">범용?</text>
+  <!-- Right: Quick tasks -->
+  <rect x="620" y="158" width="200" height="36" rx="8" fill="#2a3a4e" stroke="#4a9eff" stroke-width="1.5"/>
+  <text x="720" y="180" text-anchor="middle" fill="#4a9eff" font-size="12" font-weight="bold">빠른 질의/수정</text>
+  <line x1="670" y1="194" x2="670" y2="220" stroke="#4a9eff" stroke-width="1"/>
+  <line x1="770" y1="194" x2="770" y2="220" stroke="#4a9eff" stroke-width="1"/>
+  <text x="670" y="215" text-anchor="middle" fill="#8899aa" font-size="9">AWS 환경?</text>
+  <text x="770" y="215" text-anchor="middle" fill="#8899aa" font-size="9">범용?</text>
 
   <!-- Kiro CLI box -->
-  <rect x="500" y="228" width="160" height="70" rx="8" fill="#1a3a2e" stroke="#50c878" stroke-width="2"/>
-  <text x="580" y="250" text-anchor="middle" fill="#50c878" font-size="14" font-weight="bold">✦ Kiro CLI</text>
-  <text x="580" y="268" text-anchor="middle" fill="#aaccbb" font-size="10">MCP + AWS 통합</text>
-  <text x="580" y="282" text-anchor="middle" fill="#aaccbb" font-size="10">터미널 워크플로우</text>
+  <rect x="590" y="228" width="160" height="65" rx="8" fill="#1a3a2e" stroke="#50c878" stroke-width="2"/>
+  <text x="670" y="250" text-anchor="middle" fill="#50c878" font-size="14" font-weight="bold">✦ Kiro CLI</text>
+  <text x="670" y="268" text-anchor="middle" fill="#aaccbb" font-size="10">MCP + AWS 통합</text>
+  <text x="670" y="282" text-anchor="middle" fill="#aaccbb" font-size="10">터미널 워크플로우</text>
 
   <!-- Both box -->
-  <rect x="600" y="228" width="160" height="70" rx="8" fill="#2a2a3e" stroke="#9988cc" stroke-width="2" transform="translate(60,0)"/>
-  <text x="720" y="250" text-anchor="middle" fill="#bb99ee" font-size="14" font-weight="bold">둘 다 OK</text>
-  <text x="720" y="268" text-anchor="middle" fill="#aa99cc" font-size="10">개인 선호도와</text>
-  <text x="720" y="282" text-anchor="middle" fill="#aa99cc" font-size="10">기존 워크플로우 기준</text>
+  <rect x="770" y="228" width="110" height="65" rx="8" fill="#2a2a3e" stroke="#9988cc" stroke-width="2"/>
+  <text x="825" y="250" text-anchor="middle" fill="#bb99ee" font-size="13" font-weight="bold">둘 다 OK</text>
+  <text x="825" y="268" text-anchor="middle" fill="#aa99cc" font-size="9">개인 선호도와</text>
+  <text x="825" y="282" text-anchor="middle" fill="#aa99cc" font-size="9">기존 워크플로우 기준</text>
 
   <!-- Bottom insight box -->
-  <rect x="100" y="330" width="600" height="80" rx="10" fill="#1a2a3e" stroke="#4a5a7e" stroke-width="1"/>
-  <text x="400" y="355" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">💡 핵심 인사이트</text>
-  <text x="400" y="375" text-anchor="middle" fill="#aabbcc" font-size="11">하나만 고집할 필요 없습니다. 작업 성격에 따라 도구를 바꿔 쓰는 것이 가장 효율적입니다.</text>
-  <text x="400" y="393" text-anchor="middle" fill="#aabbcc" font-size="11">구현 속도가 중요하면 Kiro, 깊은 분석이 필요하면 Claude Code가 유리합니다.</text>
+  <rect x="150" y="320" width="600" height="70" rx="10" fill="#1a2a3e" stroke="#4a5a7e" stroke-width="1"/>
+  <text x="450" y="345" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">💡 핵심 인사이트</text>
+  <text x="450" y="365" text-anchor="middle" fill="#aabbcc" font-size="11">하나만 고집할 필요 없습니다. 작업 성격에 따라 도구를 바꿔 쓰는 것이 가장 효율적입니다.</text>
+  <text x="450" y="383" text-anchor="middle" fill="#aabbcc" font-size="11">구현 속도가 중요하면 Kiro, 깊은 분석이 필요하면 Claude Code가 유리합니다.</text>
 
   <!-- Legend -->
-  <rect x="200" y="435" width="14" height="14" rx="3" fill="#50c878"/>
-  <text x="220" y="447" fill="#aaccbb" font-size="11">Kiro (AWS)</text>
-  <rect x="340" y="435" width="14" height="14" rx="3" fill="#d4a574"/>
-  <text x="360" y="447" fill="#ccbb99" font-size="11">Claude Code (Anthropic)</text>
-  <rect x="530" y="435" width="14" height="14" rx="3" fill="#9988cc"/>
-  <text x="550" y="447" fill="#aa99cc" font-size="11">상황에 따라 선택</text>
+  <rect x="250" y="410" width="14" height="14" rx="3" fill="#50c878"/>
+  <text x="270" y="422" fill="#aaccbb" font-size="11">Kiro (AWS)</text>
+  <rect x="390" y="410" width="14" height="14" rx="3" fill="#d4a574"/>
+  <text x="410" y="422" fill="#ccbb99" font-size="11">Claude Code (Anthropic)</text>
+  <rect x="580" y="410" width="14" height="14" rx="3" fill="#9988cc"/>
+  <text x="600" y="422" fill="#aa99cc" font-size="11">상황에 따라 선택</text>
 
-  <text x="400" y="500" text-anchor="middle" fill="#556677" font-size="10">Jesam Kim | AI Tech Blog | 2026-02-27</text>
+  <text x="450" y="460" text-anchor="middle" fill="#556677" font-size="10">Jesam Kim | AI Tech Blog | 2026-02-27</text>
 </svg>
