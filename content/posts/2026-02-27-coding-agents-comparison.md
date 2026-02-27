@@ -57,6 +57,10 @@ Kiro는 AWS가 2025년 7월 프리뷰로 공개하고, 같은 해 11월 정식 �
 - <strong>Kiro CLI</strong>: 터미널에서 Kiro 에이전트를 사용할 수 있는 CLI 도구입니다. SSH 환경에서도 동작하며, MCP(Model Context Protocol) 서버와 네이티브로 통합됩니다.
 - <strong>Powers</strong>: Stripe, Figma, Datadog 등 외부 도구와의 통합을 제공하는 기능으로, 에이전트에게 특정 도구에 대한 전문성을 부여합니다.
 
+![Kiro의 Spec 기반 개발 워크플로우: 요구사항 → 설계 문서 → 태스크 분해](/ai-tech-blog/images/post-11-coding-agents/kiro-specs-design.gif)
+
+*Kiro가 자연어 프롬프트를 요구사항 → 설계 → 태스크로 자동 분해하는 과정. 출처: [Kiro 공식 블로그](https://kiro.dev/blog/introducing-kiro/)*
+
 ### 설계 철학의 차이
 
 Claude Code가 <strong>모델의 원시 능력</strong>을 최대한 활용하는 방향이라면, Kiro는 <strong>프로세스와 구조</strong>로 에이전트의 행동을 가이드하는 방향입니다. 비유하자면, Claude Code는 뛰어난 프리랜서 개발자에게 자유롭게 맡기는 것이고, Kiro는 체계적인 프로젝트 매니저가 개발자를 관리하는 것에 가깝습니다.
