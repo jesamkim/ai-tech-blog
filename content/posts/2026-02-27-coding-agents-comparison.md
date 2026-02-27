@@ -145,9 +145,19 @@ Steering 파일로 프로젝트 규칙을 정의하고, spec 기반으로 요구
 
 Steering 파일과 spec이 팀 전체의 코딩 규칙과 프로젝트 컨텍스트를 공유하는 역할을 합니다. 새로운 팀원이 합류해도 에이전트가 동일한 규칙을 따르므로 일관성을 유지하기 쉽습니다.
 
-### 다른 에이전트는?
+### 주목할 만한 에이전트: Google Antigravity
 
-Cursor와 Windsurf는 에디터 통합 경험이 뛰어나고, Devin은 장시간 자율 작업에 특화되어 있습니다. Google Antigravity는 Gemini 3 기반의 에이전틱 IDE로, Mission Control을 통해 자율 에이전트를 오케스트레이션하며 에디터-터미널-브라우저를 넘나드는 멀티툴 태스크 위임이 가능합니다. 2025년 11월 정식 출시 이후 빠르게 사용자를 확보하고 있습니다. 시장이 빠르게 변하고 있어서, 6개월 뒤에는 이 가이드도 달라질 수 있습니다.
+Google이 2025년 11월 Gemini 3 출시와 함께 공개한 에이전틱 IDE입니다. VS Code를 포크한 에디터에 <strong>Agent Manager(Mission Control)</strong>를 탑재하여, 에이전트가 에디터-터미널-브라우저를 자율적으로 넘나들며 작업을 수행합니다.
+
+![Google Antigravity의 Agent Manager 화면](/ai-tech-blog/images/post-11-coding-agents/antigravity-agent-manager.png)
+
+*Antigravity의 Agent Manager. 에이전트가 코드 작성, 터미널 실행, 브라우저 테스트를 자율적으로 오케스트레이션합니다. 출처: [Google Developers Blog](https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/)*
+
+Kiro가 spec/steering으로 구조를 잡아주는 방식이라면, Antigravity는 <strong>에이전트의 자율성을 극대화</strong>하는 방향입니다. 멀티 에이전트 협업, 웹 브라우징을 통한 실시간 테스트 검증 등 Kiro나 Claude Code와는 또 다른 접근을 보여줍니다. Gemini 3.1 Pro를 기본 모델로 사용하며, 무료 티어를 제공하고 있어 진입 장벽이 낮습니다.
+
+### 그 외 에이전트
+
+Cursor와 Windsurf는 에디터 통합 경험이 뛰어나고, Devin은 장시간 자율 작업에 특화되어 있습니다. 시장이 빠르게 변하고 있어서, 6개월 뒤에는 이 가이드도 달라질 수 있습니다.
 
 ## 6. 마무리: 하나만 쓸 필요 없다
 
