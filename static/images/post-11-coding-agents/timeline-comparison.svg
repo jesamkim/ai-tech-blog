@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'NanumBarunGothic', 'NanumSquare', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="bold">실전 비교: 동일 태스크 타임라인</text>
+  <text x="400" y="58" text-anchor="middle" fill="#8899aa" font-size="12">백테스트 환경 구축 (Python + 데이터 파이프라인 + 시뮬레이션)</text>
+
+  <!-- Time axis -->
+  <line x1="100" y1="420" x2="740" y2="420" stroke="#4a5a7e" stroke-width="1.5"/>
+  <!-- Time markers: 0, 2, 4, 6, 8, 10, 12 min -->
+  <g fill="#8899aa" font-size="11" text-anchor="middle">
+    <line x1="100" y1="415" x2="100" y2="425" stroke="#4a5a7e" stroke-width="1"/>
+    <text x="100" y="440">0분</text>
+    <line x1="207" y1="415" x2="207" y2="425" stroke="#4a5a7e" stroke-width="1"/>
+    <text x="207" y="440">2분</text>
+    <line x1="313" y1="415" x2="313" y2="425" stroke="#4a5a7e" stroke-width="1"/>
+    <text x="313" y="440">4분</text>
+    <line x1="420" y1="415" x2="420" y2="425" stroke="#4a5a7e" stroke-width="1"/>
+    <text x="420" y="440">6분</text>
+    <line x1="527" y1="415" x2="527" y2="425" stroke="#4a5a7e" stroke-width="1"/>
+    <text x="527" y="440">8분</text>
+    <line x1="633" y1="415" x2="633" y2="425" stroke="#4a5a7e" stroke-width="1"/>
+    <text x="633" y="440">10분</text>
+    <line x1="690" y1="415" x2="690" y2="425" stroke="#4a5a7e" stroke-width="1"/>
+    <text x="690" y="440">11분</text>
+  </g>
+
+  <!-- === Kiro Timeline (top) === -->
+  <text x="50" y="105" text-anchor="middle" fill="#50c878" font-size="15" font-weight="bold">Kiro</text>
+  <text x="50" y="120" text-anchor="middle" fill="#50c878" font-size="10">(kiro-cli)</text>
+
+  <!-- Phase bars for Kiro -->
+  <!-- 0-1min: Steering 로드 + 분석 -->
+  <rect x="100" y="90" width="53" height="30" rx="4" fill="#2a5a3e" stroke="#50c878" stroke-width="1"/>
+  <text x="127" y="109" text-anchor="middle" fill="#aaddbb" font-size="8">분석</text>
+
+  <!-- 1-4min: 프로젝트 구조 생성 -->
+  <rect x="153" y="90" width="160" height="30" rx="4" fill="#3a6a4e" stroke="#50c878" stroke-width="1"/>
+  <text x="233" y="109" text-anchor="middle" fill="#aaddbb" font-size="9">프로젝트 구조 + 코드 생성</text>
+
+  <!-- 4-7min: 데이터 파이프라인 -->
+  <rect x="313" y="90" width="160" height="30" rx="4" fill="#4a7a5e" stroke="#50c878" stroke-width="1"/>
+  <text x="393" y="109" text-anchor="middle" fill="#aaddbb" font-size="9">데이터 파이프라인 구현</text>
+
+  <!-- 7-9min: 테스트 작성 -->
+  <rect x="473" y="90" width="107" height="30" rx="4" fill="#3a6a4e" stroke="#50c878" stroke-width="1"/>
+  <text x="527" y="109" text-anchor="middle" fill="#aaddbb" font-size="9">테스트 29개</text>
+
+  <!-- 9-11min: 시뮬레이션 + 완료 -->
+  <rect x="580" y="90" width="110" height="30" rx="4" fill="#2a5a3e" stroke="#50c878" stroke-width="1"/>
+  <text x="635" y="109" text-anchor="middle" fill="#aaddbb" font-size="9">시뮬레이션 완료</text>
+
+  <!-- Kiro result marker -->
+  <circle cx="690" cy="105" r="8" fill="#50c878"/>
+  <text x="690" y="109" text-anchor="middle" fill="#1a1a2e" font-size="9" font-weight="bold">✓</text>
+
+  <!-- Kiro output summary -->
+  <rect x="100" y="130" width="590" height="28" rx="5" fill="#1a3a2e" stroke="#50c878" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="395" y="148" text-anchor="middle" fill="#88ccaa" font-size="11">결과: 8개 파일 생성 | 29개 테스트 통과 | 시뮬레이션 실행 완료 | 11분</text>
+
+  <!-- === Claude Code Timeline (bottom) === -->
+  <text x="50" y="230" text-anchor="middle" fill="#d4a574" font-size="15" font-weight="bold">Claude</text>
+  <text x="50" y="245" text-anchor="middle" fill="#d4a574" font-size="10">Code</text>
+
+  <!-- Phase bars for Claude Code -->
+  <!-- 0-3min: 코드베이스 분석 (Read) -->
+  <rect x="100" y="215" width="160" height="30" rx="4" fill="#3a3a1e" stroke="#d4a574" stroke-width="1"/>
+  <text x="180" y="234" text-anchor="middle" fill="#ccbb88" font-size="9">코드베이스 Read (반복)</text>
+
+  <!-- 3-6min: 아키텍처 분석 -->
+  <rect x="260" y="215" width="160" height="30" rx="4" fill="#3a3a1e" stroke="#d4a574" stroke-width="1"/>
+  <text x="340" y="234" text-anchor="middle" fill="#ccbb88" font-size="9">아키텍처 분석 계속</text>
+
+  <!-- 6-10min: 추가 분석 -->
+  <rect x="420" y="215" width="213" height="30" rx="4" fill="#2a2a1e" stroke="#d4a574" stroke-width="1"/>
+  <text x="527" y="234" text-anchor="middle" fill="#ccbb88" font-size="9">의존성 분석 + 추가 Read</text>
+
+  <!-- 10min+: still analyzing -->
+  <rect x="633" y="215" width="80" height="30" rx="4" fill="#2a1a1e" stroke="#cc6644" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="673" y="234" text-anchor="middle" fill="#cc8866" font-size="9">분석 중...</text>
+
+  <!-- Claude Code result summary -->
+  <rect x="100" y="255" width="590" height="28" rx="5" fill="#2a2a1e" stroke="#d4a574" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="395" y="273" text-anchor="middle" fill="#ccaa77" font-size="11">결과: 파일 0개 생성 | 10분+ Read 반복 | Analysis Paralysis 상태</text>
+
+  <!-- Comparison box -->
+  <rect x="140" y="310" width="520" height="85" rx="10" fill="#1a2a3e" stroke="#4a5a7e" stroke-width="1"/>
+  <text x="400" y="335" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">📊 동일 태스크 결과 비교</text>
+  <text x="250" y="358" text-anchor="middle" fill="#50c878" font-size="12">Kiro: 11분, 8파일, 29테스트 ✓</text>
+  <text x="550" y="358" text-anchor="middle" fill="#d4a574" font-size="12">Claude Code: 10분+, 0파일 ✗</text>
+  <text x="400" y="382" text-anchor="middle" fill="#8899aa" font-size="10">같은 프롬프트, 같은 코드베이스, 같은 요구사항</text>
+
+  <text x="400" y="480" text-anchor="middle" fill="#556677" font-size="10">Jesam Kim | AI Tech Blog | 2026-02-27</text>
+</svg>
