@@ -39,7 +39,7 @@ LLM은 질문에 대한 정답을 데이터베이스에서 꺼내오는 시스�
 
 Transformer의 핵심은 <strong>Self-Attention</strong> 메커니즘입니다. 시퀀스 내 각 토큰이 다른 모든 토큰과의 관련도를 계산하여, 문맥에 따라 자신의 표현을 동적으로 조정합니다. Scaled Dot-Product Attention 수식은 다음과 같습니다.
 
-![Scaled Dot-Product Attention](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-attention.png)
+![Scaled Dot-Product Attention](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-attention-v2.png)
 
 Q(Query), K(Key), V(Value)는 입력 임베딩에서 선형 변환을 통해 만들어집니다. sqrt(d_k)로 나누는 이유는 차원이 커질수록 내적 값이 지나치게 커져 softmax의 그래디언트가 소실되는 것을 방지하기 위함입니다.
 
@@ -55,7 +55,7 @@ Attention 출력은 토큰별로 독립적인 <strong>Feed-Forward Network(FFN)<
 
 LLM이 텍스트를 생성하는 방식은 의외로 단순합니다. 전체 시퀀스의 확률을 조건부 확률의 곱으로 분해하는 것입니다.
 
-![Autoregressive Decomposition](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-autoregressive.png)
+![Autoregressive Decomposition](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-autoregressive-v2.png)
 
 모델은 한 번에 문장 전체를 만들어내지 않습니다. 매 스텝마다 "다음 토큰 하나"의 확률 분포를 계산하고, 거기서 하나를 골라낸 뒤, 그 결과를 다시 입력에 붙여 다음 스텝을 진행합니다. 종료 토큰(End-of-Sequence)이 나올 때까지 이 과정이 반복됩니다.
 
@@ -63,7 +63,7 @@ LLM이 텍스트를 생성하는 방식은 의외로 단순합니다. 전체 시
 
 Transformer 마지막 레이어를 통과한 은닉 상태(hidden state)는 선형 변환을 거쳐 어휘 크기만큼의 logit 벡터로 변환됩니다. 여기에 softmax를 적용하면 전체 어휘에 대한 확률 분포가 됩니다.
 
-![Softmax Probability](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-softmax.png)
+![Softmax Probability](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-softmax-v2.png)
 
 z_i는 시점 t에서 토큰 i의 logit, V는 전체 어휘 크기입니다. 어휘가 수만에서 십만 개에 달하므로, 이 분포는 매우 고차원적입니다.
 
@@ -82,7 +82,7 @@ probs = F.softmax(logits, dim=-1)
 next_token = torch.multinomial(probs, num_samples=1)
 ```
 
-![Softmax를 거친 상위 5개 토큰의 확률 분포 바 차트 - 여러 토큰이 비슷한 확률로 경합하는 모습](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-softmax-distribution.png)
+![Softmax를 거친 상위 5개 토큰의 확률 분포 바 차트 - 여러 토큰이 비슷한 확률로 경합하는 모습](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-softmax-distribution-v2.png)
 
 ### 가장 높은 확률이 정답이 아닌 이유
 
@@ -98,7 +98,7 @@ next_token = torch.multinomial(probs, num_samples=1)
 
 가장 직관적인 방법은 매 스텝에서 확률이 가장 높은 토큰을 무조건 선택하는 것입니다.
 
-![Greedy Decoding](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-greedy.png)
+![Greedy Decoding](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-greedy-v2.png)
 
 이 방식을 Greedy Decoding이라 합니다. 완전히 결정적(deterministic)이므로 동일한 입력에 대해 항상 동일한 출력이 나옵니다. 그러나 실제로 사용해 보면, 같은 표현이 반복되거나 안전하고 무난한 토큰만 계속 선택되면서 텍스트가 단조로워지는 현상(degeneration)이 빈번하게 발생합니다. 확률 2위인 토큰이 1위와 거의 차이가 없는 상황에서도 Greedy는 항상 1위만 고집하기 때문입니다.
 
@@ -106,7 +106,7 @@ next_token = torch.multinomial(probs, num_samples=1)
 
 Temperature는 Softmax에 들어가기 전 로짓을 스케일링하는 하이퍼파라미터 T입니다.
 
-![Temperature Scaling](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-temperature.png)
+![Temperature Scaling](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-temperature-v2.png)
 
 T의 값에 따른 직관은 다음과 같습니다.
 
@@ -132,7 +132,7 @@ for T in [0.1, 0.5, 1.0, 2.0]:
 # T=2.0 → [0.2966 0.1802 0.1398 0.0662 0.1147]  ← 평평한 분포
 ```
 
-![Temperature 값(0.1, 0.5, 1.0, 2.0)에 따른 확률분포 변화를 막대그래프로 비교. T가 낮을수록 분포가 뾰족하고, T가 높을수록 평평해지는 시각화](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-4.png)
+![Temperature 값(0.1, 0.5, 1.0, 2.0)에 따른 확률분포 변화를 막대그래프로 비교. T가 낮을수록 분포가 뾰족하고, T가 높을수록 평평해지는 시각화](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-4-v2.png)
 
 ### Top-k Sampling: 상위 후보만 남기기
 
@@ -154,7 +154,7 @@ def top_k_sampling(logits, k=10):
 
 Top-p Sampling은 Top-k의 한계를 해결하기 위해 고안된 방식입니다. 고정된 개수 대신, 확률을 내림차순으로 정렬한 뒤 누적합이 p에 도달할 때까지의 토큰만 후보로 남깁니다.
 
-![Nucleus Sampling](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-nucleus.png)
+![Nucleus Sampling](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-nucleus-v2.png)
 
 p=0.9로 설정하면, 누적확률의 상위 90%를 차지하는 토큰들만 후보가 됩니다. 분포가 뾰족한 스텝에서는 후보가 자연스럽게 줄어들고, 분포가 평평한 스텝에서는 후보가 자동으로 늘어나는 적응적(adaptive) 특성이 핵심 강점입니다.
 
@@ -188,7 +188,7 @@ def top_p_sampling(logits, p=0.9, temperature=0.7):
 
 첫 번째 스텝에서 "해당"이 아닌 "이"가 선택되었다고 가정해 보겠습니다. 단 하나의 토큰 차이지만, 다음 스텝의 조건부 확률 P(x_2 \mid x_1) 자체가 완전히 달라집니다. "해당" 뒤에는 "기술은", "방식은" 같은 토큰이 높은 확률을 갖겠지만, "이" 뒤에는 "문제를", "과정에서" 같은 전혀 다른 토큰들이 상위권을 차지합니다. 이 차이가 스텝마다 누적되면서, 초기의 미세한 분기가 완전히 다른 문장으로 갈라지는 것입니다.
 
-![자기회귀 생성의 나비효과. 첫 토큰 선택의 차이가 이후 조건부 확률을 연쇄적으로 변화시켜 완전히 다른 문장이 생성되는 분기 트리 다이어그램](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-5.png)
+![자기회귀 생성의 나비효과. 첫 토큰 선택의 차이가 이후 조건부 확률을 연쇄적으로 변화시켜 완전히 다른 문장이 생성되는 분기 트리 다이어그램](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-5-v2.png)
 
 카오스 이론의 나비효과와 구조적으로 동일합니다. 초기 조건의 미세한 차이가 시스템의 궤적을 완전히 바꿔놓는 것입니다. LLM에서 "같은 프롬프트, 다른 답변"이 발생하는 근본 원인이 바로 여기에 있습니다.
 
@@ -228,7 +228,7 @@ Temperature와 샘플링 파라미터의 선택은 결국 "정확성과 다양�
 
 이 값들은 출발점일 뿐이며, 실제 프로젝트에서는 평가 데이터셋을 기반으로 파라미터를 튜닝하는 과정이 반드시 필요합니다.
 
-![용도별 Temperature/Top-p 파라미터 추천 구간을 스펙트럼 형태로 시각화. 왼쪽(정확성)에서 오른쪽(다양성)으로 갈수록 Temperature가 높아지는 구조](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-6.png)
+![용도별 Temperature/Top-p 파라미터 추천 구간을 스펙트럼 형태로 시각화. 왼쪽(정확성)에서 오른쪽(다양성)으로 갈수록 Temperature가 높아지는 구조](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-6-v2.png)
 
 ### 프롬프트 엔지니어링의 본질: 확률분포 조건화
 
