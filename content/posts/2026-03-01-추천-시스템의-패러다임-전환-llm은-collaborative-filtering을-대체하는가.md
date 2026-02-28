@@ -1,6 +1,6 @@
 ---
 title: "추천 시스템의 패러다임 전환 - LLM은 Collaborative Filtering을 대체하는가?"
-date: 2026-03-01
+date: 2026-02-28
 draft: false
 tags: ["LLM", "Recommendation System", "AWS", "Bedrock", "Personalize", "OpenSearch", "Collaborative Filtering"]
 categories: ["AWS AI/ML"]
