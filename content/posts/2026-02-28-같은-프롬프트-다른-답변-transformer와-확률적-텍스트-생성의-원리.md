@@ -13,7 +13,6 @@ tags:
   - "Softmax"
   - "Next Token Prediction"
 description: "같은 프롬프트를 입력해도 LLM의 응답이 매번 달라지는 이유를 Transformer 아키텍처와 확률적 텍스트 생성 과정을 통해 살펴봅니다."
-math: true
 ShowToc: true
 TocOpen: true
 ---
@@ -40,11 +39,9 @@ LLM은 질문에 대한 정답을 데이터베이스에서 꺼내오는 시스�
 
 Transformer의 핵심은 <strong>Self-Attention</strong> 메커니즘입니다. 시퀀스 내 각 토큰이 다른 모든 토큰과의 관련도를 계산하여, 문맥에 따라 자신의 표현을 동적으로 조정합니다. Scaled Dot-Product Attention 수식은 다음과 같습니다.
 
-$$
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-$$
+![Scaled Dot-Product Attention](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-attention.png)
 
-$Q$(Query), $K$(Key), $V$(Value)는 입력 임베딩에서 선형 변환을 통해 만들어집니다. $\sqrt{d_k}$로 나누는 이유는 차원이 커질수록 내적 값이 지나치게 커져 softmax의 그래디언트가 소실되는 것을 방지하기 위함입니다.
+Q(Query), K(Key), V(Value)는 입력 임베딩에서 선형 변환을 통해 만들어집니다. sqrt(d_k)로 나누는 이유는 차원이 커질수록 내적 값이 지나치게 커져 softmax의 그래디언트가 소실되는 것을 방지하기 위함입니다.
 
 실제 Transformer에서는 이 Attention을 하나만 쓰지 않습니다. 여러 개의 헤드(head)로 병렬 수행하는 <strong>Multi-Head Attention</strong>을 사용합니다. 한 헤드는 문법적 의존 관계(주어-동사 일치)를, 다른 헤드는 의미적 유사성(동의어, 문맥상 관련 단어)을 각각 포착하고, 그 결과를 concat 후 선형 변환으로 합칩니다.
 
@@ -58,9 +55,7 @@ Attention 출력은 토큰별로 독립적인 <strong>Feed-Forward Network(FFN)<
 
 LLM이 텍스트를 생성하는 방식은 의외로 단순합니다. 전체 시퀀스의 확률을 조건부 확률의 곱으로 분해하는 것입니다.
 
-$$
-P(x_1, x_2, \ldots, x_T) = \prod_{t=1}^{T} P(x_t \mid x_1, \ldots, x_{t-1})
-$$
+![Autoregressive Decomposition](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-autoregressive.png)
 
 모델은 한 번에 문장 전체를 만들어내지 않습니다. 매 스텝마다 "다음 토큰 하나"의 확률 분포를 계산하고, 거기서 하나를 골라낸 뒤, 그 결과를 다시 입력에 붙여 다음 스텝을 진행합니다. 종료 토큰(End-of-Sequence)이 나올 때까지 이 과정이 반복됩니다.
 
@@ -68,11 +63,9 @@ $$
 
 Transformer 마지막 레이어를 통과한 은닉 상태(hidden state)는 선형 변환을 거쳐 어휘 크기만큼의 logit 벡터로 변환됩니다. 여기에 softmax를 적용하면 전체 어휘에 대한 확률 분포가 됩니다.
 
-$$
-P(x_t \mid x_1, x_2, \ldots, x_{t-1}) = \frac{\exp(z_i)}{\sum_{j=1}^{V} \exp(z_j)}
-$$
+![Softmax Probability](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-softmax.png)
 
-$z_i$는 시점 $t$에서 토큰 $i$의 logit, $V$는 전체 어휘 크기입니다. 어휘가 수만에서 십만 개에 달하므로, 이 분포는 매우 고차원적입니다.
+z_i는 시점 t에서 토큰 i의 logit, V는 전체 어휘 크기입니다. 어휘가 수만에서 십만 개에 달하므로, 이 분포는 매우 고차원적입니다.
 
 ```python
 import torch
@@ -105,27 +98,23 @@ next_token = torch.multinomial(probs, num_samples=1)
 
 가장 직관적인 방법은 매 스텝에서 확률이 가장 높은 토큰을 무조건 선택하는 것입니다.
 
-$$
-x_t = \arg\max_{x} P(x \mid x_{<t})
-$$
+![Greedy Decoding](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-greedy.png)
 
 이 방식을 Greedy Decoding이라 합니다. 완전히 결정적(deterministic)이므로 동일한 입력에 대해 항상 동일한 출력이 나옵니다. 그러나 실제로 사용해 보면, 같은 표현이 반복되거나 안전하고 무난한 토큰만 계속 선택되면서 텍스트가 단조로워지는 현상(degeneration)이 빈번하게 발생합니다. 확률 2위인 토큰이 1위와 거의 차이가 없는 상황에서도 Greedy는 항상 1위만 고집하기 때문입니다.
 
 ### Temperature Scaling: 분포의 날카로움을 조절하는 다이얼
 
-Temperature는 Softmax에 들어가기 전 로짓을 스케일링하는 하이퍼파라미터 $T$입니다.
+Temperature는 Softmax에 들어가기 전 로짓을 스케일링하는 하이퍼파라미터 T입니다.
 
-$$
-P(x_i) = \frac{\exp(z_i / T)}{\sum_{j=1}^{V} \exp(z_j / T)}
-$$
+![Temperature Scaling](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-temperature.png)
 
-$T$의 값에 따른 직관은 다음과 같습니다.
+T의 값에 따른 직관은 다음과 같습니다.
 
-- $T \to 0$: 분포가 극도로 날카로워집니다. 가장 높은 로짓을 가진 토큰의 확률이 1에 수렴하므로, 사실상 Greedy Decoding과 동일해집니다.
-- $T = 1$: 모델이 학습 시 사용한 원래 분포 그대로입니다.
-- $T > 1$: 분포가 평평(flat)해집니다. 낮은 확률의 토큰들도 선택될 가능성이 높아져 출력이 다양해지지만, 너무 높이면 일관성 없는 텍스트가 생성됩니다.
+- T → 0: 분포가 극도로 날카로워집니다. 가장 높은 로짓을 가진 토큰의 확률이 1에 수렴하므로, 사실상 Greedy Decoding과 동일해집니다.
+- T = 1: 모델이 학습 시 사용한 원래 분포 그대로입니다.
+- T > 1: 분포가 평평(flat)해집니다. 낮은 확률의 토큰들도 선택될 가능성이 높아져 출력이 다양해지지만, 너무 높이면 일관성 없는 텍스트가 생성됩니다.
 
-비유하자면, Temperature는 주사위의 형태를 바꾸는 다이얼입니다. $T$를 낮추면 한 면이 압도적으로 큰 찌그러진 주사위가 되고, $T$를 높이면 모든 면이 비슷한 정육면체에 가까워집니다.
+비유하자면, Temperature는 주사위의 형태를 바꾸는 다이얼입니다. T를 낮추면 한 면이 압도적으로 큰 찌그러진 주사위가 되고, T를 높이면 모든 면이 비슷한 정육면체에 가까워집니다.
 
 ```python
 import torch
@@ -147,7 +136,7 @@ for T in [0.1, 0.5, 1.0, 2.0]:
 
 ### Top-k Sampling: 상위 후보만 남기기
 
-Top-k Sampling은 확률이 높은 상위 $k$개의 토큰만 후보로 남기고, 나머지 토큰의 확률을 0으로 설정한 뒤 재정규화(renormalization)하는 방식입니다.
+Top-k Sampling은 확률이 높은 상위 k개의 토큰만 후보로 남기고, 나머지 토큰의 확률을 0으로 설정한 뒤 재정규화(renormalization)하는 방식입니다.
 
 ```python
 def top_k_sampling(logits, k=10):
@@ -159,17 +148,15 @@ def top_k_sampling(logits, k=10):
     return torch.multinomial(probs, num_samples=1)
 ```
 
-이 방식의 장점은 꼬리(tail) 부분의 비합리적인 토큰이 선택되는 것을 원천 차단한다는 점입니다. 그러나 고정된 $k$ 값이 모든 상황에 적합하지는 않습니다. 어떤 스텝에서는 후보가 3개면 충분한데 $k=50$이 적용되어 불필요한 잡음이 포함될 수 있고, 반대로 후보가 100개쯤 필요한 스텝에서 $k=50$이 유망한 토큰을 잘라낼 수도 있습니다.
+이 방식의 장점은 꼬리(tail) 부분의 비합리적인 토큰이 선택되는 것을 원천 차단한다는 점입니다. 그러나 고정된 k 값이 모든 상황에 적합하지는 않습니다. 어떤 스텝에서는 후보가 3개면 충분한데 k=50이 적용되어 불필요한 잡음이 포함될 수 있고, 반대로 후보가 100개쯤 필요한 스텝에서 k=50이 유망한 토큰을 잘라낼 수도 있습니다.
 
 ### Top-p (Nucleus) Sampling: 누적확률 기반의 적응적 필터링
 
-Top-p Sampling은 Top-k의 한계를 해결하기 위해 고안된 방식입니다. 고정된 개수 대신, 확률을 내림차순으로 정렬한 뒤 누적합이 $p$에 도달할 때까지의 토큰만 후보로 남깁니다.
+Top-p Sampling은 Top-k의 한계를 해결하기 위해 고안된 방식입니다. 고정된 개수 대신, 확률을 내림차순으로 정렬한 뒤 누적합이 p에 도달할 때까지의 토큰만 후보로 남깁니다.
 
-$$
-\text{Nucleus}(p) = \min \left\lbrace S \subseteq V : \sum_{x \in S} P(x \mid x_{<t}) \geq p \right\rbrace
-$$
+![Nucleus Sampling](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/math-nucleus.png)
 
-$p=0.9$로 설정하면, 누적확률의 상위 90%를 차지하는 토큰들만 후보가 됩니다. 분포가 뾰족한 스텝에서는 후보가 자연스럽게 줄어들고, 분포가 평평한 스텝에서는 후보가 자동으로 늘어나는 적응적(adaptive) 특성이 핵심 강점입니다.
+p=0.9로 설정하면, 누적확률의 상위 90%를 차지하는 토큰들만 후보가 됩니다. 분포가 뾰족한 스텝에서는 후보가 자연스럽게 줄어들고, 분포가 평평한 스텝에서는 후보가 자동으로 늘어나는 적응적(adaptive) 특성이 핵심 강점입니다.
 
 ```python
 def top_p_sampling(logits, p=0.9, temperature=0.7):
@@ -199,7 +186,7 @@ def top_p_sampling(logits, p=0.9, temperature=0.7):
 
 이 모든 전략에서 공통적으로 작동하는 원리가 하나 있습니다. 자기회귀 생성에서는 각 토큰이 이후 모든 토큰의 조건이 된다는 점입니다.
 
-첫 번째 스텝에서 "해당"이 아닌 "이"가 선택되었다고 가정해 보겠습니다. 단 하나의 토큰 차이지만, 다음 스텝의 조건부 확률 $P(x_2 \mid x_1)$ 자체가 완전히 달라집니다. "해당" 뒤에는 "기술은", "방식은" 같은 토큰이 높은 확률을 갖겠지만, "이" 뒤에는 "문제를", "과정에서" 같은 전혀 다른 토큰들이 상위권을 차지합니다. 이 차이가 스텝마다 누적되면서, 초기의 미세한 분기가 완전히 다른 문장으로 갈라지는 것입니다.
+첫 번째 스텝에서 "해당"이 아닌 "이"가 선택되었다고 가정해 보겠습니다. 단 하나의 토큰 차이지만, 다음 스텝의 조건부 확률 P(x_2 \mid x_1) 자체가 완전히 달라집니다. "해당" 뒤에는 "기술은", "방식은" 같은 토큰이 높은 확률을 갖겠지만, "이" 뒤에는 "문제를", "과정에서" 같은 전혀 다른 토큰들이 상위권을 차지합니다. 이 차이가 스텝마다 누적되면서, 초기의 미세한 분기가 완전히 다른 문장으로 갈라지는 것입니다.
 
 ![자기회귀 생성의 나비효과. 첫 토큰 선택의 차이가 이후 조건부 확률을 연쇄적으로 변화시켜 완전히 다른 문장이 생성되는 분기 트리 다이어그램](/ai-tech-blog/images/posts/2026-02-28-transformer-sampling/diagram-5.png)
 
@@ -247,7 +234,7 @@ Temperature와 샘플링 파라미터의 선택은 결국 "정확성과 다양�
 
 여기까지 이해하셨다면, 프롬프트 엔지니어링이 왜 효과적인지도 자연스럽게 설명됩니다.
 
-프롬프트를 바꾼다는 것은 조건부 확률 $P(x_t \mid x_{<t})$에서 조건 $x_{<t}$를 바꾸는 행위입니다. "요약해 줘"라는 프롬프트와 "3문장으로 핵심만 요약해 줘"라는 프롬프트는 모델에게 서로 다른 조건을 제공하고, 이에 따라 완전히 다른 확률분포가 형성됩니다. <strong>좋은 프롬프트란, 원하는 토큰이 높은 확률을 갖도록 분포를 조건화하는 입력</strong>입니다.
+프롬프트를 바꾼다는 것은 조건부 확률 P(x_t \mid x_{<t})에서 조건 x<ₜ를 바꾸는 행위입니다. "요약해 줘"라는 프롬프트와 "3문장으로 핵심만 요약해 줘"라는 프롬프트는 모델에게 서로 다른 조건을 제공하고, 이에 따라 완전히 다른 확률분포가 형성됩니다. <strong>좋은 프롬프트란, 원하는 토큰이 높은 확률을 갖도록 분포를 조건화하는 입력</strong>입니다.
 
 이 관점에서 보면, few-shot 예시를 추가하는 것도, 역할을 지정하는 것도, 출력 형식을 명시하는 것도 모두 확률분포의 형태를 원하는 방향으로 편향시키는 작업입니다. Temperature가 분포의 <strong>모양</strong>을 조절한다면, 프롬프트는 분포의 <strong>위치</strong> 자체를 옮깁니다.
 
