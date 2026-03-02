@@ -20,7 +20,7 @@ Anthropic은 2025년 Claude Sonnet 4.5에서 처음 1M 토큰 컨텍스트 윈�
 Chroma Research가 2025년에 발표한 연구에 따르면, LLM의 컨텍스트 윈도우가 길어질수록 <strong>입력 토큰 증가에 비례해 성능이 저하</strong>되는 현상이 관찰되었습니다. 이를 "Context Rot"이라고 부릅니다.
 
 ![Context Rot 벤치마크](/ai-tech-blog/images/posts/2026-03-02-context-window/chroma-context-rot.png)
-*출처: Chroma Research, "Context Rot: Understanding LLM Performance Degradation" (2025)*
+*Chroma Research (2025) 데이터를 참고한 시각화*
 
 위 차트는 Claude, GPT-4, Gemini 등 주요 LLM들이 컨텍스트 크기가 증가할수록 어떻게 성능이 떨어지는지를 보여줍니다. 특히 주목할 점은:
 
