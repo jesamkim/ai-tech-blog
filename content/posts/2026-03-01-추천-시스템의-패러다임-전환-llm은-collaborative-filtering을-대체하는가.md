@@ -73,9 +73,9 @@ Netflix의 Shi et al.(2026)은 "From Logs to Language"라는 매우 실용적인
 
 이 연구는 기존 CF 시스템의 데이터를 LLM에 효과적으로 전달하는 "다리(bridge)" 역할을 합니다. CF를 대체하는 것이 아니라 CF의 신호를 LLM이 활용할 수 있게 하는 접근입니다.
 
-### 2.5 설명과 추천의 공동 최적화: RecPIE
+### 2.5 설명과 추천의 공동 최적화
 
-RecPIE(2026)는 추천 정확도와 설명 품질을 동시에 최적화합니다. "왜 이 아이템을 추천하는가?"에 대한 자연어 설명이 다시 추천 모델에 피드백되어 정확도를 높이는 선순환 구조입니다. Google Maps 데이터에서 SOTA 대비 3-4% 정확도 향상을 달성하면서, <strong>학습 데이터의 12%만으로 동등한 성능</strong>을 보여줬습니다. 이는 데이터 효율성 측면에서 LLM의 가치를 보여주는 결과입니다.
+Wang et al.(2026)은 추천 정확도와 설명 품질을 동시에 최적화합니다. "왜 이 아이템을 추천하는가?"에 대한 자연어 설명이 다시 추천 모델에 피드백되어 정확도를 높이는 선순환 구조입니다. Google Maps 데이터에서 SOTA 대비 3-4% 정확도 향상을 달성하면서, <strong>학습 데이터의 12%만으로 동등한 성능</strong>을 보여줬습니다. 이는 데이터 효율성 측면에서 LLM의 가치를 보여주는 결과입니다.
 
 ## 3. 그래도 Collaborative Filtering이 필요한 이유
 
@@ -209,9 +209,9 @@ AWS 아키텍처 관점에서는 [Bedrock Agent](/ai-tech-blog/posts/2026-02-24-
 
 - Shi, Y., Li, Y., Wang, Y., et al. (2026). *From Logs to Language: Learning Optimal Verbalization for LLM-Based Recommendation in Production*. arXiv:2602.20558. https://arxiv.org/abs/2602.20558
 
-- Li, Y., et al. (2026). *RecPIE: Recommendation with Prediction-Informed Explanations*. arXiv:2502.16759. https://arxiv.org/abs/2502.16759
+- Wang, Y., Li, P., Chen, M., et al. (2026). *Can Explanations Improve Recommendations? A Joint Optimization with LLM Reasoning*. arXiv:2502.16759. https://arxiv.org/abs/2502.16759
 
-- Wang, Z., et al. (2026). *Uncertainty and Fairness Awareness in LLM-Based Recommendation Systems*. arXiv:2602.02582. https://arxiv.org/abs/2602.02582
+- Sah, C.K., Lian, X., Zhang, L., et al. (2026). *Uncertainty and Fairness Awareness in LLM-Based Recommendation Systems*. arXiv:2602.02582. https://arxiv.org/abs/2602.02582
 
 - Verma, J. (2026). *RecSys After LLMs: Four Paradigms for What Comes Next*. https://januverma.substack.com/p/recsys-after-llms-four-paradigms
 
