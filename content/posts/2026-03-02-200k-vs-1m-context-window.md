@@ -179,7 +179,7 @@ RAG로 관련 파일만 추출한 후 Long Context로 추론하는 하이브리�
 - Chroma Research (2025). "Context Rot: Understanding LLM Performance Degradation in Long Contexts." https://research.trychroma.com/context-rot
 - Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2023). "Lost in the Middle: How Language Models Use Long Contexts." arXiv:2307.03172. https://arxiv.org/abs/2307.03172
 - Kuratov, Y., Bulatov, A., Anokhin, P., Rodkin, D., Sorokin, D., Sorokin, A., & Burtsev, M. (2024). "BABILong: Testing the Limits of LLMs with Long Context Reasoning." NeurIPS 2024. https://proceedings.neurips.cc/paper_files/paper/2024
-- Chen, H., Wang, Z., Liu, Y., & Zhang, Y. (2025). "LaRA: Long-context Retrieval-Augmented Generation for Enterprise Applications." arXiv:2502.09977. https://arxiv.org/abs/2502.09977
-- Wang, X., Li, M., Zhang, S., & Liu, H. (2025). "U-NIAH: Unbiased Needle-in-a-Haystack Evaluation with Chunk Reordering." arXiv:2503.00353. https://arxiv.org/abs/2503.00353
+- Li, K., Zhang, L., Jiang, Y., Xie, P., & Huang, F. (2025). "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs." arXiv:2502.09977. https://arxiv.org/abs/2502.09977
+- Gao, Y., Xiong, Y., Wu, W., Huang, Z., & Li, B. (2025). "U-NIAH: Unified RAG and LLM Evaluation for Long Context Needle-In-A-Haystack." arXiv:2503.00353. https://arxiv.org/abs/2503.00353
 - Anthropic (2026). "Claude Sonnet 4.6 Model Card." https://docs.anthropic.com/en/docs/about-claude/models
-- Amazon Web Services (2026). "Amazon Bedrock Context Window Pricing." https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html
+- Amazon Web Services (2026). "Amazon Bedrock Pricing." https://aws.amazon.com/bedrock/pricing/
