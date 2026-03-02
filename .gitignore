@@ -6,3 +6,4 @@ resources/
 .github/workflows/generate-posts.yml
 __pycache__/
 CLAUDE.md
+kis-trading-bot/
