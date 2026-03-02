@@ -21,11 +21,17 @@
 {{ if .Param "math" }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3TiOf4SRUFhHdRFflGJmTE/jMHMvlU1MYEmXOHUfJTwKIuSY0MiYBJQv" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-bB0mNg9BHIY3eRkUCI92+N0RMM7KWiS0o0u2TXeE6oMBF0EYKPHlhSfOAjGKVhA" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrKS6CPnSoUAeTq9MrkNJxwyTbGFSwvocNioPAJTo0jmfCE/Z6EcV4YGwS3wh" crossorigin="anonymous"
-    onload="renderMathInElement(document.body, {
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrKS6CPnSoUAeTq9MrkNJxwyTbGFSwvocNioPAJTo0jmfCE/Z6EcV4YGwS3wh" crossorigin="anonymous"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  if (typeof renderMathInElement !== "undefined") {
+    renderMathInElement(document.body, {
       delimiters: [
-        {left: {{ `$$` | safeJS }}, right: {{ `$$` | safeJS }}, display: true},
-        {left: {{ `$` | safeJS }}, right: {{ `$` | safeJS }}, display: false}
+        {left: "\$\$", right: "\$\$", display: true},
+        {left: "\\(", right: "\\)", display: false}
       ]
-    });"></script>
+    });
+  }
+});
+</script>
 {{ end }}

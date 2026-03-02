@@ -107,12 +107,14 @@ Reverse Neutralization이 LLM의 방향성을 잡아주는 패턴이라면, Cont
 마지막으로 Multi-Pass Optimization(다단계 패스)입니다. 한 번의 비평으로 끝내지 않고 여러 패스를 거치되, 각 패스마다 서로 다른 품질 축에 집중하도록 설계합니다.
 
 ```python
-def content_optimization_loop(client, initial_prompt, quality_criteria, max_passes=3):
+import boto3, json
+
+bedrock = boto3.client("bedrock-runtime", region_name="us-west-2")
+MODEL_ID = "anthropic.claude-sonnet-4-5-20250929-v1:0"
+
+def content_optimization_loop(initial_prompt, quality_criteria, max_passes=3):
     # 1단계: 초기 생성
-    draft = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": initial_prompt}]
-    ).choices[0].message.content
+    draft = call_bedrock(initial_prompt)
 
     for i in range(max_passes):
         critique_prompt = f"""다음 글을 아래 기준으로 평가하고, 각 기준별 점수(1-5)와 구체적 개선점을 제시하세요.
@@ -125,14 +127,17 @@ def content_optimization_loop(client, initial_prompt, quality_criteria, max_pass
 
 평가 후, 개선점을 모두 반영한 수정본을 작성하세요."""
 
-        response = client.chat.completions.create(
-            model="gpt-4o",
-            messages=[{"role": "user", "content": critique_prompt}]
-        ).choices[0].message.content
-
+        response = call_bedrock(critique_prompt)
         draft = extract_revised_text(response)  # 수정본 추출
 
     return draft
+
+def call_bedrock(prompt):
+    resp = bedrock.converse(
+        modelId=MODEL_ID,
+        messages=[{"role": "user", "content": [{"text": prompt}]}],
+    )
+    return resp["output"]["message"]["content"][0]["text"]
 ```
 
 ![Quality Criteria → Initial Generation → Self-Critique → Refinement → 재평가로 이어지는 반복 루프 구조, 각 패스에서 품질 점수가 점진적으로 상승하는 흐름](/ai-tech-blog/images/posts/2026-02-18/llm-출력-제어-디자인-패턴-2편-reverse-neutralization과-content-optimiza/diagram-3.png)
