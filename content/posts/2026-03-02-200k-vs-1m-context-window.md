@@ -103,13 +103,13 @@ BABILong 결과, 대부분 LLM은 100K 토큰을 넘어서면 <strong>추론 정
 
 Claude Sonnet 4.6 기준:
 - <strong>200K 이하</strong>: Input $0.003 / 1K tokens, Output $0.015 / 1K tokens
-- <strong>200K 초과</strong>: Input $0.006 / 1K tokens, Output $0.030 / 1K tokens
+- <strong>200K 초과</strong>: Input $0.006 / 1K tokens (2x), Output $0.0225 / 1K tokens (1.5x)
 
-500K 토큰을 입력하면:
-- 200K 이하 가격: $0.60
-- 실제 가격(200K 초과): $1.80
+500K 토큰을 입력하면 (input 기준):
+- 전체 일반 가격 적용 시: $1.50 (500K x $3/1M)
+- 실제 가격: $2.40 (200K x $3 + 300K x $6)
 
-<strong>3배 비용 차이</strong>가 발생합니다. 매일 수백 건의 요청을 처리하는 서비스라면 월 비용이 수천 달러 증가할 수 있습니다.
+<strong>약 60% 비용 증가</strong>가 발생합니다. 매일 수백 건의 요청을 처리하는 서비스라면 월 비용이 수천 달러 증가할 수 있습니다.
 
 ### 레이턴시 문제
 
@@ -176,10 +176,10 @@ RAG로 관련 파일만 추출한 후 Long Context로 추론하는 하이브리�
 
 ## References
 
-- Chroma Research (2025). "Context Rot: Understanding LLM Performance Degradation in Long Contexts." https://research.trychroma.com/context-rot
+- Chroma Research (2025). "Context Rot: How Increasing Input Tokens Impacts LLM Performance." https://research.trychroma.com/context-rot
 - Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2023). "Lost in the Middle: How Language Models Use Long Contexts." arXiv:2307.03172. https://arxiv.org/abs/2307.03172
-- Kuratov, Y., Bulatov, A., Anokhin, P., Rodkin, D., Sorokin, D., Sorokin, A., & Burtsev, M. (2024). "BABILong: Testing the Limits of LLMs with Long Context Reasoning." NeurIPS 2024. https://proceedings.neurips.cc/paper_files/paper/2024
-- Li, K., Zhang, L., Jiang, Y., Xie, P., & Huang, F. (2025). "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs." arXiv:2502.09977. https://arxiv.org/abs/2502.09977
+- Kuratov, Y., Bulatov, A., Anokhin, P., Rodkin, D., Sorokin, D., Sorokin, A., & Burtsev, M. (2024). "BABILong: Testing the Limits of LLMs with Long Context Reasoning-in-a-Haystack." NeurIPS 2024. https://arxiv.org/abs/2406.10149
+- Li, K., Zhang, L., Jiang, Y., Xie, P., & Huang, F. (2025). "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs -- No Silver Bullet for LC or RAG Routing." arXiv:2502.09977. https://arxiv.org/abs/2502.09977
 - Gao, Y., Xiong, Y., Wu, W., Huang, Z., & Li, B. (2025). "U-NIAH: Unified RAG and LLM Evaluation for Long Context Needle-In-A-Haystack." arXiv:2503.00353. https://arxiv.org/abs/2503.00353
 - Anthropic (2026). "Claude Sonnet 4.6 Model Card." https://docs.anthropic.com/en/docs/about-claude/models
 - Amazon Web Services (2026). "Amazon Bedrock Pricing." https://aws.amazon.com/bedrock/pricing/
