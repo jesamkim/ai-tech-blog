@@ -56,6 +56,9 @@ NeurIPS 2024에서 발표된 <strong>BABILong 벤치마크</strong>는 이 문�
 - <strong>NIAH</strong>: "John이 사무실로 갔다"는 문장이 10만 토큰 어딘가에 있습니다. 찾으세요.
 - <strong>BABILong</strong>: John, Mary, Bob이 각각 다른 시간에 다른 장소로 이동했습니다. 오후 3시에 John과 Mary가 같은 장소에 있었나요?
 
+![BABILong 벤치마크: 모델별 컨텍스트 길이에 따른 정확도](/ai-tech-blog/images/posts/2026-03-02-context-window/babilong-benchmark.png)
+*BABILong 벤치마크 결과. 컨텍스트가 길어질수록 대부분 모델의 정확도가 급격히 하락합니다 (녹색=높은 정확도, 빨간색=낮은 정확도). 출처: [Kuratov et al., NeurIPS 2024](https://github.com/booydar/babilong)*
+
 BABILong 결과, 대부분 LLM은 100K 토큰을 넘어서면 <strong>추론 정확도가 50% 이하</strong>로 떨어졌습니다. 단순 검색은 잘하지만, 컨텍스트 전체를 이해하고 논리적 결론을 도출하는 능력은 여전히 제한적입니다.
 
 이는 긴 컨텍스트가 "모든 것을 기억하는 마법"이 아니라, <strong>추론 작업에는 여전히 한계</strong>가 있음을 보여줍니다.
