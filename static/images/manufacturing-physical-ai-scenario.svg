@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-family="monospace" font-size="20" fill="white" font-weight="bold">Manufacturing Physical AI Scenario</text>
+
+  <!-- Factory Floor Layout -->
+  <rect x="30" y="60" width="840" height="580" rx="8" fill="#16213e" stroke="#555" stroke-width="2" stroke-dasharray="10,5"/>
+  <text x="450" y="85" text-anchor="middle" font-family="monospace" font-size="12" fill="#888">Smart Factory Floor</text>
+
+  <!-- Station 1: Inspection (VLM) -->
+  <g id="station1">
+    <rect x="60" y="110" width="240" height="150" rx="8" fill="#1a1a3e" stroke="#ef5350" stroke-width="2"/>
+    <text x="180" y="135" text-anchor="middle" font-family="monospace" font-size="13" fill="#ef5350" font-weight="bold">Inspection Station</text>
+    <text x="180" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(VLM-based Quality Control)</text>
+
+    <!-- Camera icon -->
+    <circle cx="100" cy="185" r="15" fill="#ef5350" fill-opacity="0.2" stroke="#ef5350" stroke-width="2"/>
+    <text x="100" y="192" text-anchor="middle" font-family="monospace" font-size="12" fill="#ef5350">📷</text>
+
+    <!-- Details -->
+    <text x="130" y="182" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Wafer map analysis</text>
+    <text x="130" y="196" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Defect classification</text>
+    <text x="130" y="210" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• 96% accuracy (Cosmos Reason)</text>
+
+    <!-- Status -->
+    <rect x="70" y="225" width="80" height="20" rx="4" fill="#66bb6a" fill-opacity="0.2" stroke="#66bb6a" stroke-width="1"/>
+    <text x="110" y="239" text-anchor="middle" font-family="monospace" font-size="8" fill="#66bb6a">PASS: 942</text>
+
+    <rect x="160" y="225" width="80" height="20" rx="4" fill="#ef5350" fill-opacity="0.2" stroke="#ef5350" stroke-width="1"/>
+    <text x="200" y="239" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef5350">FAIL: 58</text>
+  </g>
+
+  <!-- Arrow to Station 2 -->
+  <text x="315" y="190" font-size="20" fill="#555">→</text>
+
+  <!-- Station 2: Assembly (VLA) -->
+  <g id="station2">
+    <rect x="350" y="110" width="240" height="150" rx="8" fill="#1a1a3e" stroke="#ab47bc" stroke-width="2"/>
+    <text x="470" y="135" text-anchor="middle" font-family="monospace" font-size="13" fill="#ab47bc" font-weight="bold">Assembly Station</text>
+    <text x="470" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(VLA Robot Control)</text>
+
+    <!-- Robot icon -->
+    <circle cx="390" cy="185" r="15" fill="#ab47bc" fill-opacity="0.2" stroke="#ab47bc" stroke-width="2"/>
+    <text x="390" y="192" text-anchor="middle" font-family="monospace" font-size="12" fill="#ab47bc">🤖</text>
+
+    <!-- Details -->
+    <text x="420" y="182" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Natural lang command</text>
+    <text x="420" y="196" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Pick-and-place tasks</text>
+    <text x="420" y="210" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Zero-shot adaptation</text>
+
+    <!-- Status -->
+    <rect x="360" y="225" width="100" height="20" rx="4" fill="#4fc3f7" fill-opacity="0.2" stroke="#4fc3f7" stroke-width="1"/>
+    <text x="410" y="239" text-anchor="middle" font-family="monospace" font-size="8" fill="#4fc3f7">Assembled: 87/h</text>
+
+    <rect x="470" y="225" width="110" height="20" rx="4" fill="#ffdd44" fill-opacity="0.2" stroke="#ffdd44" stroke-width="1"/>
+    <text x="525" y="239" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffdd44">Uptime: 99.2%</text>
+  </g>
+
+  <!-- Arrow to Station 3 -->
+  <text x="605" y="190" font-size="20" fill="#555">→</text>
+
+  <!-- Station 3: Packaging -->
+  <g id="station3">
+    <rect x="640" y="110" width="210" height="150" rx="8" fill="#1a1a3e" stroke="#4fc3f7" stroke-width="2"/>
+    <text x="745" y="135" text-anchor="middle" font-family="monospace" font-size="13" fill="#4fc3f7" font-weight="bold">Packaging Station</text>
+    <text x="745" y="152" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(VLA + Vision Guidance)</text>
+
+    <!-- Box icon -->
+    <circle cx="680" cy="185" r="15" fill="#4fc3f7" fill-opacity="0.2" stroke="#4fc3f7" stroke-width="2"/>
+    <text x="680" y="192" text-anchor="middle" font-family="monospace" font-size="12" fill="#4fc3f7">📦</text>
+
+    <!-- Details -->
+    <text x="710" y="182" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Box recognition</text>
+    <text x="710" y="196" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Placement accuracy</text>
+    <text x="710" y="210" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Label verification</text>
+
+    <!-- Status -->
+    <rect x="650" y="225" width="180" height="20" rx="4" fill="#66bb6a" fill-opacity="0.2" stroke="#66bb6a" stroke-width="1"/>
+    <text x="740" y="239" text-anchor="middle" font-family="monospace" font-size="8" fill="#66bb6a">Throughput: 120 boxes/h</text>
+  </g>
+
+  <!-- Digital Twin Control Center -->
+  <g id="digital-twin">
+    <rect x="60" y="290" width="380" height="160" rx="8" fill="#1a1a3e" stroke="#66bb6a" stroke-width="2"/>
+    <text x="250" y="315" text-anchor="middle" font-family="monospace" font-size="13" fill="#66bb6a" font-weight="bold">Digital Twin Control Center</text>
+    <text x="250" y="332" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(World Model + Simulation)</text>
+
+    <!-- Screen visualization -->
+    <rect x="80" y="345" width="160" height="85" rx="6" fill="#0a0a2e" stroke="#66bb6a" stroke-width="1"/>
+    <text x="160" y="365" text-anchor="middle" font-family="monospace" font-size="8" fill="#66bb6a">NVIDIA Omniverse</text>
+
+    <!-- Simulation elements -->
+    <line x1="90" y1="375" x2="230" y2="375" stroke="#66bb6a" stroke-width="1" opacity="0.5"/>
+    <line x1="90" y1="385" x2="220" y2="385" stroke="#4fc3f7" stroke-width="1" opacity="0.5"/>
+    <line x1="90" y1="395" x2="225" y2="395" stroke="#ffdd44" stroke-width="1" opacity="0.5"/>
+    <line x1="90" y1="405" x2="215" y2="405" stroke="#ab47bc" stroke-width="1" opacity="0.5"/>
+    <text x="160" y="425" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Real-time Factory Simulation</text>
+
+    <!-- Capabilities -->
+    <text x="260" y="355" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Physics simulation</text>
+    <text x="260" y="370" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Scenario testing</text>
+    <text x="260" y="385" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Synthetic data gen</text>
+    <text x="260" y="400" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Layout optimization</text>
+    <text x="260" y="415" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Cosmos Predict/Transfer</text>
+  </g>
+
+  <!-- Predictive Maintenance -->
+  <g id="predictive-maintenance">
+    <rect x="470" y="290" width="380" height="160" rx="8" fill="#1a1a3e" stroke="#ffdd44" stroke-width="2"/>
+    <text x="660" y="315" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffdd44" font-weight="bold">Predictive Maintenance System</text>
+    <text x="660" y="332" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(VLM + Sensor Fusion)</text>
+
+    <!-- Monitoring display -->
+    <rect x="490" y="345" width="160" height="85" rx="6" fill="#0a0a2e" stroke="#ffdd44" stroke-width="1"/>
+
+    <!-- Health indicators -->
+    <circle cx="520" cy="370" r="8" fill="#66bb6a" opacity="0.8"/>
+    <text x="535" y="375" text-anchor="start" font-family="monospace" font-size="8" fill="#e0e0e0">Robot A: 98%</text>
+
+    <circle cx="520" cy="390" r="8" fill="#ffdd44" opacity="0.8"/>
+    <text x="535" y="395" text-anchor="start" font-family="monospace" font-size="8" fill="#e0e0e0">Robot B: 76%</text>
+
+    <circle cx="520" cy="410" r="8" fill="#ef5350" opacity="0.8"/>
+    <text x="535" y="415" text-anchor="start" font-family="monospace" font-size="8" fill="#e0e0e0">Conveyor: 45%</text>
+
+    <!-- Predictions -->
+    <text x="670" y="355" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Anomaly detection</text>
+    <text x="670" y="370" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Failure prediction</text>
+    <text x="670" y="385" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Vision + sensor data</text>
+    <text x="670" y="400" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• 72h forecast window</text>
+    <text x="670" y="415" text-anchor="start" font-family="monospace" font-size="9" fill="#e0e0e0">• Auto maintenance req</text>
+  </g>
+
+  <!-- Central AI Control -->
+  <g id="central-ai">
+    <rect x="60" y="480" width="790" height="140" rx="8" fill="#16213e" stroke="#ff9900" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="455" y="505" text-anchor="middle" font-family="monospace" font-size="14" fill="#ff9900" font-weight="bold">Central AI Control System</text>
+
+    <!-- Edge devices -->
+    <rect x="80" y="520" width="180" height="80" rx="6" fill="#1a1a3e" stroke="#ff9900" stroke-width="1"/>
+    <text x="170" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff9900">Edge AI Inference</text>
+    <text x="170" y="558" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• IoT Greengrass V2</text>
+    <text x="170" y="571" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• Local VLM (7B)</text>
+    <text x="170" y="584" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• &lt;50ms latency</text>
+
+    <!-- Cloud training -->
+    <rect x="280" y="520" width="180" height="80" rx="6" fill="#1a1a3e" stroke="#ff9900" stroke-width="1"/>
+    <text x="370" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff9900">Cloud Training</text>
+    <text x="370" y="558" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• SageMaker AI</text>
+    <text x="370" y="571" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• VLA fine-tuning</text>
+    <text x="370" y="584" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• Distillation pipeline</text>
+
+    <!-- LLM orchestration -->
+    <rect x="480" y="520" width="180" height="80" rx="6" fill="#1a1a3e" stroke="#ff9900" stroke-width="1"/>
+    <text x="570" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff9900">LLM Orchestration</text>
+    <text x="570" y="558" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• Amazon Bedrock</text>
+    <text x="570" y="571" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• Claude Sonnet 4.6</text>
+    <text x="570" y="584" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• Vision + reasoning</text>
+
+    <!-- Monitoring -->
+    <rect x="680" y="520" width="150" height="80" rx="6" fill="#1a1a3e" stroke="#ff9900" stroke-width="1"/>
+    <text x="755" y="540" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff9900">Monitoring</text>
+    <text x="755" y="558" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• CloudWatch</text>
+    <text x="755" y="571" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• Real-time logs</text>
+    <text x="755" y="584" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• Alerts</text>
+  </g>
+
+  <!-- Footer -->
+</svg>
