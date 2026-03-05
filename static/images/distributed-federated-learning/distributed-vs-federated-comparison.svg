@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="24" fill="#e0e0e0" font-weight="bold">
+    분산 학습 vs 연합 학습: 핵심 차이
+  </text>
+
+  <!-- Column Headers -->
+  <rect x="50" y="70" width="360" height="50" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="230" y="100" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="16" fill="#4fc3f7" font-weight="bold">
+    분산 학습 (Distributed Training)
+  </text>
+
+  <rect x="490" y="70" width="360" height="50" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
+  <text x="670" y="100" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="16" fill="#66bb6a" font-weight="bold">
+    연합 학습 (Federated Learning)
+  </text>
+
+  <!-- Row 1: 목적 -->
+  <text x="25" y="165" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#888" font-weight="bold">목적</text>
+  <rect x="50" y="145" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="230" y="167" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    학습 속도 향상
+  </text>
+  <text x="230" y="185" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    (더 빠른 수렴, 대규모 모델 학습)
+  </text>
+
+  <rect x="490" y="145" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="670" y="167" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    데이터 프라이버시 보존
+  </text>
+  <text x="670" y="185" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    (분산된 데이터를 중앙 집중 없이 학습)
+  </text>
+
+  <!-- Row 2: 데이터 분포 -->
+  <text x="25" y="235" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#888" font-weight="bold">데이터</text>
+  <rect x="50" y="215" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="230" y="237" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    IID (균등 분포)
+  </text>
+  <text x="230" y="255" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    중앙 서버가 데이터를 노드에 균등 분할
+  </text>
+
+  <rect x="490" y="215" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="670" y="237" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    Non-IID (불균등 분포)
+  </text>
+  <text x="670" y="255" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    각 클라이언트가 고유한 데이터 보유
+  </text>
+
+  <!-- Row 3: 통신 패턴 -->
+  <text x="25" y="305" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#888" font-weight="bold">통신</text>
+  <rect x="50" y="285" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="230" y="307" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    고속 네트워크 (데이터센터 내)
+  </text>
+  <text x="230" y="325" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    All-Reduce, Parameter Server
+  </text>
+
+  <rect x="490" y="285" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="670" y="307" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    저속/불안정 네트워크 (인터넷)
+  </text>
+  <text x="670" y="325" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    FedAvg (수백~수천 라운드 압축 통신)
+  </text>
+
+  <!-- Row 4: 신뢰 모델 -->
+  <text x="25" y="375" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#888" font-weight="bold">신뢰</text>
+  <rect x="50" y="355" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="230" y="377" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    완전 신뢰 환경
+  </text>
+  <text x="230" y="395" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    모든 노드가 동일 조직 소속
+  </text>
+
+  <rect x="490" y="355" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="670" y="377" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    제한적 신뢰 (Semi-honest)
+  </text>
+  <text x="670" y="395" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    클라이언트는 데이터를 공유하지 않음
+  </text>
+
+  <!-- Row 5: 데이터 소유권 -->
+  <text x="25" y="445" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#888" font-weight="bold">소유권</text>
+  <rect x="50" y="425" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="230" y="447" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    중앙 집중 (단일 소유)
+  </text>
+  <text x="230" y="465" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    데이터는 중앙 서버가 관리
+  </text>
+
+  <rect x="490" y="425" width="360" height="55" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="670" y="447" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    분산 소유 (다중 당사자)
+  </text>
+  <text x="670" y="465" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    각 클라이언트가 데이터 소유/통제
+  </text>
+
+  <!-- Row 6: 대표 논문 -->
+  <text x="25" y="515" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#888" font-weight="bold">논문</text>
+  <rect x="50" y="495" width="360" height="70" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="230" y="515" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    Dean+ (2012) DistBelief
+  </text>
+  <text x="230" y="531" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    Goyal+ (2017) Large Minibatch SGD
+  </text>
+  <text x="230" y="547" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    Huang+ (2019) GPipe
+  </text>
+
+  <rect x="490" y="495" width="360" height="70" rx="6" fill="#1a1a2e" stroke="#333" stroke-width="1"/>
+  <text x="670" y="515" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    McMahan+ (2017) FedAvg
+  </text>
+  <text x="670" y="531" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    Konečný+ (2016) Communication Efficiency
+  </text>
+  <text x="670" y="547" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    Li+ (2020) FedProx
+  </text>
+
+  <!-- Watermark -->
+  <text x="20" y="585" font-family="monospace" font-size="9" fill="#555" font-weight="bold" opacity="0.7">
+    jesamkim.github.io
+  </text>
+</svg>

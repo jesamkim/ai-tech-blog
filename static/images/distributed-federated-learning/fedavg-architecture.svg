@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 650">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="650" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="20" fill="#e0e0e0" font-weight="bold">
+    Federated Averaging (FedAvg) 프로토콜
+  </text>
+  <text x="400" y="55" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#888">
+    McMahan et al. (2017) - Communication-Efficient Learning of Deep Networks
+  </text>
+
+  <!-- Central Server -->
+  <rect x="330" y="90" width="140" height="50" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="400" y="112" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="14" fill="#ffd54f" font-weight="bold">
+    중앙 서버
+  </text>
+  <text x="400" y="130" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    글로벌 모델 w<tspan baseline-shift="sub" font-size="8">t</tspan>
+  </text>
+
+  <!-- Round t label -->
+  <text x="50" y="180" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#4fc3f7" font-weight="bold">
+    라운드 t
+  </text>
+
+  <!-- Arrow down: Broadcast -->
+  <path d="M 400 140 L 400 185" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+  <text x="420" y="165" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#4fc3f7">
+    1. 브로드캐스트 w<tspan baseline-shift="sub" font-size="8">t</tspan>
+  </text>
+
+  <!-- Clients Row -->
+  <g id="clients">
+    <!-- Client 1 -->
+    <rect x="80" y="200" width="120" height="90" rx="6" fill="#1a1a2e" stroke="#66bb6a" stroke-width="2"/>
+    <text x="140" y="220" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#66bb6a" font-weight="bold">
+      클라이언트 1
+    </text>
+    <text x="140" y="240" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      로컬 데이터 D<tspan baseline-shift="sub" font-size="7">1</tspan>
+    </text>
+    <text x="140" y="256" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#888">
+      E 에폭 학습
+    </text>
+    <text x="140" y="272" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#66bb6a">
+      → w<tspan baseline-shift="sub" font-size="7">t+1</tspan><tspan baseline-shift="super" font-size="7">(1)</tspan>
+    </text>
+
+    <!-- Client 2 -->
+    <rect x="240" y="200" width="120" height="90" rx="6" fill="#1a1a2e" stroke="#66bb6a" stroke-width="2"/>
+    <text x="300" y="220" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#66bb6a" font-weight="bold">
+      클라이언트 2
+    </text>
+    <text x="300" y="240" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      로컬 데이터 D<tspan baseline-shift="sub" font-size="7">2</tspan>
+    </text>
+    <text x="300" y="256" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#888">
+      E 에폭 학습
+    </text>
+    <text x="300" y="272" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#66bb6a">
+      → w<tspan baseline-shift="sub" font-size="7">t+1</tspan><tspan baseline-shift="super" font-size="7">(2)</tspan>
+    </text>
+
+    <!-- Client ... -->
+    <text x="410" y="245" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#555">
+      ...
+    </text>
+
+    <!-- Client K -->
+    <rect x="480" y="200" width="120" height="90" rx="6" fill="#1a1a2e" stroke="#66bb6a" stroke-width="2"/>
+    <text x="540" y="220" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#66bb6a" font-weight="bold">
+      클라이언트 K
+    </text>
+    <text x="540" y="240" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      로컬 데이터 D<tspan baseline-shift="sub" font-size="7">K</tspan>
+    </text>
+    <text x="540" y="256" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#888">
+      E 에폭 학습
+    </text>
+    <text x="540" y="272" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#66bb6a">
+      → w<tspan baseline-shift="sub" font-size="7">t+1</tspan><tspan baseline-shift="super" font-size="7">(K)</tspan>
+    </text>
+  </g>
+
+  <!-- Arrow up: Upload -->
+  <path d="M 140 290 L 370 350" stroke="#ab47bc" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+  <path d="M 300 290 L 390 350" stroke="#ab47bc" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+  <path d="M 540 290 L 430 350" stroke="#ab47bc" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+
+  <text x="240" y="325" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#ab47bc">
+    2. 업로드 (모델 업데이트만)
+  </text>
+
+  <!-- Aggregation Server -->
+  <rect x="300" y="360" width="200" height="80" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="400" y="382" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#ffd54f" font-weight="bold">
+    3. 집계 (Aggregation)
+  </text>
+  <text x="400" y="404" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    w<tspan baseline-shift="sub" font-size="9">t+1</tspan> = Σ (n<tspan baseline-shift="sub" font-size="9">k</tspan>/n) · w<tspan baseline-shift="sub" font-size="9">t+1</tspan><tspan baseline-shift="super" font-size="9">(k)</tspan>
+  </text>
+  <text x="400" y="425" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#888">
+    (데이터 크기 기반 가중 평균)
+  </text>
+
+  <!-- Arrow down: Next round -->
+  <path d="M 400 440 L 400 485" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+  <text x="420" y="465" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#4fc3f7">
+    4. 다음 라운드
+  </text>
+
+  <!-- Round t+1 label -->
+  <text x="50" y="500" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#4fc3f7" font-weight="bold">
+    라운드 t+1
+  </text>
+
+  <!-- Key Properties Box -->
+  <rect x="50" y="520" width="700" height="100" rx="8" fill="#1a1a2e" stroke="#333" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="70" y="545" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#ffd54f" font-weight="bold">
+    핵심 특징
+  </text>
+
+  <text x="70" y="565" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    • <tspan font-weight="bold" fill="#66bb6a">데이터 프라이버시</tspan>: 원본 데이터는 클라이언트를 벗어나지 않음 (모델 파라미터만 전송)
+  </text>
+  <text x="70" y="583" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    • <tspan font-weight="bold" fill="#ab47bc">통신 효율</tspan>: 로컬에서 E 에폭 학습 후 1회 전송 (기존 SGD 대비 통신 90% 감소)
+  </text>
+  <text x="70" y="601" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    • <tspan font-weight="bold" fill="#4fc3f7">Non-IID 대응</tspan>: 클라이언트마다 다른 데이터 분포에서도 수렴 (FedProx 등으로 개선)
+  </text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4fc3f7"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ab47bc"/>
+    </marker>
+  </defs>
+
+  <!-- Watermark -->
+  <text x="20" y="635" font-family="monospace" font-size="9" fill="#555" font-weight="bold" opacity="0.7">
+    jesamkim.github.io
+  </text>
+</svg>

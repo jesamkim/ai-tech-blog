@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="20" fill="#e0e0e0" font-weight="bold">
+    Data Parallel Training (데이터 병렬 학습)
+  </text>
+  <text x="400" y="55" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#888">
+    Goyal et al. (2017) - Accurate, Large Minibatch SGD
+  </text>
+
+  <!-- Central Dataset -->
+  <rect x="310" y="85" width="180" height="50" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="400" y="107" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#ffd54f" font-weight="bold">
+    중앙 데이터셋 D
+  </text>
+  <text x="400" y="125" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#888">
+    (IID, 균등 분할 가능)
+  </text>
+
+  <!-- Arrow: Data Split -->
+  <path d="M 340 135 L 140 180" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="5,3"/>
+  <path d="M 400 135 L 300 180" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="5,3"/>
+  <path d="M 460 135 L 500 180" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="5,3"/>
+
+  <text x="220" y="160" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#4fc3f7">
+    데이터 분할
+  </text>
+
+  <!-- GPU Workers -->
+  <g id="workers">
+    <!-- GPU 1 -->
+    <rect x="50" y="190" width="140" height="110" rx="6" fill="#1a1a2e" stroke="#4fc3f7" stroke-width="2"/>
+    <text x="120" y="212" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#4fc3f7" font-weight="bold">
+      GPU 1
+    </text>
+    <text x="120" y="232" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      모델 복사본 w
+    </text>
+    <text x="120" y="250" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      미니배치 B<tspan baseline-shift="sub" font-size="7">1</tspan>
+    </text>
+    <line x1="65" y1="260" x2="175" y2="260" stroke="#333" stroke-width="1"/>
+    <text x="120" y="275" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#888">
+      Forward Pass
+    </text>
+    <text x="120" y="290" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#66bb6a">
+      ∇w<tspan baseline-shift="sub" font-size="7">1</tspan> 계산
+    </text>
+
+    <!-- GPU 2 -->
+    <rect x="230" y="190" width="140" height="110" rx="6" fill="#1a1a2e" stroke="#4fc3f7" stroke-width="2"/>
+    <text x="300" y="212" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#4fc3f7" font-weight="bold">
+      GPU 2
+    </text>
+    <text x="300" y="232" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      모델 복사본 w
+    </text>
+    <text x="300" y="250" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      미니배치 B<tspan baseline-shift="sub" font-size="7">2</tspan>
+    </text>
+    <line x1="245" y1="260" x2="355" y2="260" stroke="#333" stroke-width="1"/>
+    <text x="300" y="275" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#888">
+      Forward Pass
+    </text>
+    <text x="300" y="290" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#66bb6a">
+      ∇w<tspan baseline-shift="sub" font-size="7">2</tspan> 계산
+    </text>
+
+    <!-- GPU ... -->
+    <text x="420" y="245" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#555">
+      ...
+    </text>
+
+    <!-- GPU N -->
+    <rect x="490" y="190" width="140" height="110" rx="6" fill="#1a1a2e" stroke="#4fc3f7" stroke-width="2"/>
+    <text x="560" y="212" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#4fc3f7" font-weight="bold">
+      GPU N
+    </text>
+    <text x="560" y="232" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      모델 복사본 w
+    </text>
+    <text x="560" y="250" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#e0e0e0">
+      미니배치 B<tspan baseline-shift="sub" font-size="7">N</tspan>
+    </text>
+    <line x1="505" y1="260" x2="615" y2="260" stroke="#333" stroke-width="1"/>
+    <text x="560" y="275" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#888">
+      Forward Pass
+    </text>
+    <text x="560" y="290" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="9" fill="#66bb6a">
+      ∇w<tspan baseline-shift="sub" font-size="7">N</tspan> 계산
+    </text>
+  </g>
+
+  <!-- Arrow: Gradient Sync -->
+  <path d="M 120 300 L 370 350" stroke="#ab47bc" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+  <path d="M 300 300 L 390 350" stroke="#ab47bc" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+  <path d="M 560 300 L 430 350" stroke="#ab47bc" stroke-width="2" fill="none" marker-end="url(#arrowPurple)"/>
+
+  <text x="240" y="330" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#ab47bc">
+    All-Reduce (그래디언트 동기화)
+  </text>
+
+  <!-- Synchronization -->
+  <rect x="280" y="360" width="240" height="60" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="400" y="382" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#ffd54f" font-weight="bold">
+    그래디언트 평균화
+  </text>
+  <text x="400" y="404" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">
+    ∇w = (1/N) Σ ∇w<tspan baseline-shift="sub" font-size="9">i</tspan>
+  </text>
+
+  <!-- Key Properties Box -->
+  <rect x="50" y="440" width="700" height="60" rx="8" fill="#1a1a2e" stroke="#333" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="70" y="462" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#ffd54f" font-weight="bold">
+    핵심 특징
+  </text>
+  <text x="70" y="480" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    • <tspan font-weight="bold" fill="#4fc3f7">속도 향상</tspan>: N개 GPU → N배 유효 배치 크기 → 빠른 수렴 (ImageNet 1시간 학습)
+  </text>
+  <text x="70" y="495" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0">
+    • <tspan font-weight="bold" fill="#ab47bc">동기화 필수</tspan>: 매 스텝마다 All-Reduce (고속 네트워크 필요, InfiniBand/NVLink)
+  </text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4fc3f7"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ab47bc"/>
+    </marker>
+  </defs>
+
+  <!-- Watermark -->
+  <text x="20" y="505" font-family="monospace" font-size="9" fill="#555" font-weight="bold" opacity="0.7">
+    jesamkim.github.io
+  </text>
+</svg>
