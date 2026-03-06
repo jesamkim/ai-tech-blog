@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="520" fill="url(#bg2)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="white">비용 계산 로직 플로우</text>
+
+  <!-- Step 1: Token Collection -->
+  <rect x="80" y="70" width="640" height="80" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="400" y="95" text-anchor="middle" font-family="monospace" font-size="12" fill="#4fc3f7" font-weight="bold">Step 1: 토큰 수 집계 (모델별)</text>
+  <g transform="translate(100, 110)">
+    <text x="0" y="0" font-family="monospace" font-size="9" fill="#888">Input: 6,885,109</text>
+    <text x="150" y="0" font-family="monospace" font-size="9" fill="#888">Output: 2,962,258</text>
+    <text x="320" y="0" font-family="monospace" font-size="9" fill="#888">Cache Read: 1,229,148,119</text>
+    <text x="520" y="0" font-family="monospace" font-size="9" fill="#888">Cache Write: 187,227,315</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 400 150 L 400 180" stroke="#555" stroke-width="2" fill="none"/>
+  <polygon points="400,180 396,173 404,173" fill="#555"/>
+
+  <!-- Step 2: Pricing Table -->
+  <rect x="80" y="180" width="640" height="150" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
+  <text x="400" y="205" text-anchor="middle" font-family="monospace" font-size="12" fill="#66bb6a" font-weight="bold">Step 2: 가격표 적용 (per 1M tokens)</text>
+
+  <g transform="translate(100, 230)">
+    <!-- Opus Pricing -->
+    <text x="0" y="0" font-family="monospace" font-size="10" fill="#ffd54f" font-weight="bold">claude-opus-4-6</text>
+    <text x="0" y="18" font-family="monospace" font-size="8" fill="#888">Input: $15.00</text>
+    <text x="120" y="18" font-family="monospace" font-size="8" fill="#888">Output: $75.00</text>
+    <text x="260" y="18" font-family="monospace" font-size="8" fill="#888">Cache Read: $1.50</text>
+    <text x="410" y="18" font-family="monospace" font-size="8" fill="#888">Cache Write: $18.75</text>
+
+    <!-- Sonnet Pricing -->
+    <text x="0" y="50" font-family="monospace" font-size="10" fill="#ab47bc" font-weight="bold">claude-sonnet-4-6</text>
+    <text x="0" y="68" font-family="monospace" font-size="8" fill="#888">Input: $3.00</text>
+    <text x="120" y="68" font-family="monospace" font-size="8" fill="#888">Output: $15.00</text>
+    <text x="260" y="68" font-family="monospace" font-size="8" fill="#888">Cache Read: $0.30</text>
+    <text x="410" y="68" font-family="monospace" font-size="8" fill="#888">Cache Write: $3.75</text>
+
+    <!-- Haiku Pricing -->
+    <text x="0" y="82" font-family="monospace" font-size="10" fill="#4fc3f7" font-weight="bold">claude-haiku-4-5</text>
+    <text x="0" y="100" font-family="monospace" font-size="8" fill="#888">Input: $0.80</text>
+    <text x="120" y="100" font-family="monospace" font-size="8" fill="#888">Output: $4.00</text>
+    <text x="260" y="100" font-family="monospace" font-size="8" fill="#888">Cache Read: $0.08</text>
+    <text x="410" y="100" font-family="monospace" font-size="8" fill="#888">Cache Write: $1.00</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 400 330 L 400 360" stroke="#555" stroke-width="2" fill="none"/>
+  <polygon points="400,360 396,353 404,353" fill="#555"/>
+
+  <!-- Step 3: Formula -->
+  <rect x="80" y="360" width="640" height="100" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="400" y="385" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffd54f" font-weight="bold">Step 3: 비용 공식</text>
+
+  <g transform="translate(100, 405)">
+    <text x="0" y="0" font-family="monospace" font-size="9" fill="#e0e0e0">Cost = (Input × $15 + Output × $75 + Cache Read × $1.50 + Cache Write × $18.75) / 1M</text>
+    <text x="0" y="20" font-family="monospace" font-size="9" fill="#888">예시 (Opus 4.6):</text>
+    <text x="0" y="38" font-family="monospace" font-size="8" fill="#888">= (6.9M × $15 + 3.0M × $75 + 1229.1M × $1.50 + 187.2M × $18.75) / 1M</text>
+  </g>
+
+  <!-- Result Box -->
+  <rect x="250" y="475" width="300" height="30" rx="6" fill="#16213e" stroke="#ef5350" stroke-width="2"/>
+  <text x="400" y="497" text-anchor="middle" font-family="monospace" font-size="14" fill="#ef5350" font-weight="bold">Total: $5,679.68</text>
+
+  <!-- Watermark -->
+  <text x="12" y="508" font-family="monospace" font-size="9" fill="#555" font-weight="bold" opacity="0.4">jesamkim.github.io</text>
+</svg>

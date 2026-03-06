@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="white">CloudWatch 메트릭 조회 플로우</text>
+
+  <!-- Step 1: List Models -->
+  <rect x="50" y="70" width="220" height="60" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="160" y="95" text-anchor="middle" font-family="monospace" font-size="11" fill="#4fc3f7" font-weight="bold">1. 모델 목록 조회</text>
+  <text x="160" y="113" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">aws cloudwatch list-metrics</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 270 100 L 310 100" stroke="#555" stroke-width="2" fill="none"/>
+  <polygon points="310,100 303,96 303,104" fill="#555"/>
+
+  <!-- Step 2: Get Metrics -->
+  <rect x="310" y="70" width="220" height="60" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
+  <text x="420" y="95" text-anchor="middle" font-family="monospace" font-size="11" fill="#66bb6a" font-weight="bold">2. 토큰 메트릭 수집</text>
+  <text x="420" y="113" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">get-metric-statistics</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 530 100 L 570 100" stroke="#555" stroke-width="2" fill="none"/>
+  <polygon points="570,100 563,96 563,104" fill="#555"/>
+
+  <!-- Step 3: Calculate Cost -->
+  <rect x="570" y="70" width="180" height="60" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="660" y="95" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffd54f" font-weight="bold">3. 비용 계산</text>
+  <text x="660" y="113" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">가격표 적용</text>
+
+  <!-- Metrics Box -->
+  <rect x="80" y="180" width="640" height="240" rx="8" fill="#1a1a2e" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="90" y="205" font-family="monospace" font-size="10" fill="#888" font-weight="bold">AWS/Bedrock 네임스페이스 메트릭</text>
+
+  <!-- Metric Items -->
+  <g transform="translate(100, 230)">
+    <!-- InputTokenCount -->
+    <rect x="0" y="0" width="280" height="36" rx="6" fill="#16213e" stroke="#4fc3f7" stroke-width="1"/>
+    <text x="10" y="14" font-family="monospace" font-size="9" fill="#4fc3f7">InputTokenCount</text>
+    <text x="10" y="28" font-family="monospace" font-size="8" fill="#888">프롬프트 입력 토큰</text>
+
+    <!-- OutputTokenCount -->
+    <rect x="300" y="0" width="280" height="36" rx="6" fill="#16213e" stroke="#66bb6a" stroke-width="1"/>
+    <text x="310" y="14" font-family="monospace" font-size="9" fill="#66bb6a">OutputTokenCount</text>
+    <text x="310" y="28" font-family="monospace" font-size="8" fill="#888">응답 생성 토큰</text>
+
+    <!-- CacheReadInputTokenCount -->
+    <rect x="0" y="50" width="280" height="36" rx="6" fill="#16213e" stroke="#ab47bc" stroke-width="1"/>
+    <text x="10" y="64" font-family="monospace" font-size="9" fill="#ab47bc">CacheReadInputTokenCount</text>
+    <text x="10" y="78" font-family="monospace" font-size="8" fill="#888">캐시 히트 토큰</text>
+
+    <!-- CacheWriteInputTokenCount -->
+    <rect x="300" y="50" width="280" height="36" rx="6" fill="#16213e" stroke="#ffd54f" stroke-width="1"/>
+    <text x="310" y="64" font-family="monospace" font-size="9" fill="#ffd54f">CacheWriteInputTokenCount</text>
+    <text x="310" y="78" font-family="monospace" font-size="8" fill="#888">캐시 생성 토큰</text>
+
+    <!-- Invocations -->
+    <rect x="0" y="100" width="280" height="36" rx="6" fill="#16213e" stroke="#ef5350" stroke-width="1"/>
+    <text x="10" y="114" font-family="monospace" font-size="9" fill="#ef5350">Invocations</text>
+    <text x="10" y="128" font-family="monospace" font-size="8" fill="#888">API 호출 횟수</text>
+
+    <!-- ModelId Dimension -->
+    <rect x="300" y="100" width="280" height="36" rx="6" fill="#16213e" stroke="#888" stroke-width="1"/>
+    <text x="310" y="114" font-family="monospace" font-size="9" fill="#888">Dimension: ModelId</text>
+    <text x="310" y="128" font-family="monospace" font-size="8" fill="#555">모델별 필터링</text>
+  </g>
+
+  <!-- Watermark -->
+  <text x="12" y="468" font-family="monospace" font-size="9" fill="#555" font-weight="bold" opacity="0.4">jesamkim.github.io</text>
+</svg>
