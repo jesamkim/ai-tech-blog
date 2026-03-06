@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a2e"/>
@@ -7,152 +7,152 @@
   </defs>
 
   <!-- Background -->
-  <rect width="900" height="600" fill="url(#bg)" rx="12"/>
+  <rect width="1100" height="600" fill="url(#bg)" rx="12"/>
 
   <!-- Title -->
-  <text x="450" y="35" text-anchor="middle" font-family="monospace" font-size="20" fill="white" font-weight="bold">VLM → World Model → VLA Pipeline</text>
+  <text x="550" y="35" text-anchor="middle" font-family="monospace" font-size="20" fill="white" font-weight="bold">VLM → World Model → VLA Pipeline</text>
 
   <!-- Stage 1: VLM (Vision-Language Model) -->
   <g id="stage1">
-    <rect x="50" y="80" width="200" height="140" rx="8" fill="#1a1a3e" stroke="#4fc3f7" stroke-width="2"/>
-    <text x="150" y="105" text-anchor="middle" font-family="monospace" font-size="14" fill="#4fc3f7" font-weight="bold">Vision-Language Model</text>
-    <text x="150" y="125" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">(VLM)</text>
+    <rect x="100" y="80" width="200" height="140" rx="8" fill="#1a1a3e" stroke="#4fc3f7" stroke-width="2"/>
+    <text x="200" y="105" text-anchor="middle" font-family="monospace" font-size="14" fill="#4fc3f7" font-weight="bold">Vision-Language Model</text>
+    <text x="200" y="125" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">(VLM)</text>
 
     <!-- VLM components -->
-    <rect x="70" y="140" width="160" height="20" rx="4" fill="#4fc3f7" fill-opacity="0.2" stroke="#4fc3f7" stroke-width="1"/>
-    <text x="150" y="154" text-anchor="middle" font-family="monospace" font-size="9" fill="#4fc3f7">Image/Video Input</text>
+    <rect x="120" y="140" width="160" height="20" rx="4" fill="#4fc3f7" fill-opacity="0.2" stroke="#4fc3f7" stroke-width="1"/>
+    <text x="200" y="154" text-anchor="middle" font-family="monospace" font-size="9" fill="#4fc3f7">Image/Video Input</text>
 
-    <rect x="70" y="165" width="160" height="20" rx="4" fill="#4fc3f7" fill-opacity="0.2" stroke="#4fc3f7" stroke-width="1"/>
-    <text x="150" y="179" text-anchor="middle" font-family="monospace" font-size="9" fill="#4fc3f7">Language Understanding</text>
+    <rect x="120" y="165" width="160" height="20" rx="4" fill="#4fc3f7" fill-opacity="0.2" stroke="#4fc3f7" stroke-width="1"/>
+    <text x="200" y="179" text-anchor="middle" font-family="monospace" font-size="9" fill="#4fc3f7">Language Understanding</text>
 
-    <rect x="70" y="190" width="160" height="20" rx="4" fill="#4fc3f7" fill-opacity="0.2" stroke="#4fc3f7" stroke-width="1"/>
-    <text x="150" y="204" text-anchor="middle" font-family="monospace" font-size="9" fill="#4fc3f7">Semantic Reasoning</text>
+    <rect x="120" y="190" width="160" height="20" rx="4" fill="#4fc3f7" fill-opacity="0.2" stroke="#4fc3f7" stroke-width="1"/>
+    <text x="200" y="204" text-anchor="middle" font-family="monospace" font-size="9" fill="#4fc3f7">Semantic Reasoning</text>
 
     <!-- Examples -->
-    <text x="150" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">GPT-4o, Gemini 2.5 Pro</text>
-    <text x="150" y="248" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Claude Sonnet 4.6 Vision</text>
+    <text x="200" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">GPT-4o, Gemini 2.5 Pro</text>
+    <text x="200" y="248" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Claude Sonnet 4.6 Vision</text>
   </g>
 
   <!-- Arrow 1 -->
-  <text x="270" y="155" font-size="24" fill="#555">→</text>
+  <text x="320" y="155" font-size="24" fill="#555">→</text>
 
   <!-- Stage 2: World Model -->
   <g id="stage2">
-    <rect x="310" y="80" width="200" height="140" rx="8" fill="#1a1a3e" stroke="#66bb6a" stroke-width="2"/>
-    <text x="410" y="105" text-anchor="middle" font-family="monospace" font-size="14" fill="#66bb6a" font-weight="bold">World Model</text>
-    <text x="410" y="125" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">(Physics-Aware)</text>
+    <rect x="370" y="80" width="200" height="140" rx="8" fill="#1a1a3e" stroke="#66bb6a" stroke-width="2"/>
+    <text x="470" y="105" text-anchor="middle" font-family="monospace" font-size="14" fill="#66bb6a" font-weight="bold">World Model</text>
+    <text x="470" y="125" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">(Physics-Aware)</text>
 
     <!-- World Model components -->
-    <rect x="330" y="140" width="160" height="20" rx="4" fill="#66bb6a" fill-opacity="0.2" stroke="#66bb6a" stroke-width="1"/>
-    <text x="410" y="154" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Physical Simulation</text>
+    <rect x="390" y="140" width="160" height="20" rx="4" fill="#66bb6a" fill-opacity="0.2" stroke="#66bb6a" stroke-width="1"/>
+    <text x="470" y="154" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Physical Simulation</text>
 
-    <rect x="330" y="165" width="160" height="20" rx="4" fill="#66bb6a" fill-opacity="0.2" stroke="#66bb6a" stroke-width="1"/>
-    <text x="410" y="179" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Next-State Prediction</text>
+    <rect x="390" y="165" width="160" height="20" rx="4" fill="#66bb6a" fill-opacity="0.2" stroke="#66bb6a" stroke-width="1"/>
+    <text x="470" y="179" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Next-State Prediction</text>
 
-    <rect x="330" y="190" width="160" height="20" rx="4" fill="#66bb6a" fill-opacity="0.2" stroke="#66bb6a" stroke-width="1"/>
-    <text x="410" y="204" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Synthetic Data Gen</text>
+    <rect x="390" y="190" width="160" height="20" rx="4" fill="#66bb6a" fill-opacity="0.2" stroke="#66bb6a" stroke-width="1"/>
+    <text x="470" y="204" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Synthetic Data Gen</text>
 
     <!-- Examples -->
-    <text x="410" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">NVIDIA Cosmos Predict</text>
-    <text x="410" y="248" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Cosmos Transfer</text>
+    <text x="470" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">NVIDIA Cosmos Predict</text>
+    <text x="470" y="248" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Cosmos Transfer</text>
   </g>
 
   <!-- Arrow 2 -->
-  <text x="530" y="155" font-size="24" fill="#555">→</text>
+  <text x="590" y="155" font-size="24" fill="#555">→</text>
 
   <!-- Stage 3: VLA (Vision-Language-Action) -->
   <g id="stage3">
-    <rect x="570" y="80" width="200" height="140" rx="8" fill="#1a1a3e" stroke="#ab47bc" stroke-width="2"/>
-    <text x="670" y="105" text-anchor="middle" font-family="monospace" font-size="14" fill="#ab47bc" font-weight="bold">Vision-Language-Action</text>
-    <text x="670" y="125" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">(VLA)</text>
+    <rect x="640" y="80" width="200" height="140" rx="8" fill="#1a1a3e" stroke="#ab47bc" stroke-width="2"/>
+    <text x="740" y="105" text-anchor="middle" font-family="monospace" font-size="14" fill="#ab47bc" font-weight="bold">Vision-Language-Action</text>
+    <text x="740" y="125" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">(VLA)</text>
 
     <!-- VLA components -->
-    <rect x="590" y="140" width="160" height="20" rx="4" fill="#ab47bc" fill-opacity="0.2" stroke="#ab47bc" stroke-width="1"/>
-    <text x="670" y="154" text-anchor="middle" font-family="monospace" font-size="9" fill="#ab47bc">Embodied Control</text>
+    <rect x="660" y="140" width="160" height="20" rx="4" fill="#ab47bc" fill-opacity="0.2" stroke="#ab47bc" stroke-width="1"/>
+    <text x="740" y="154" text-anchor="middle" font-family="monospace" font-size="9" fill="#ab47bc">Embodied Control</text>
 
-    <rect x="590" y="165" width="160" height="20" rx="4" fill="#ab47bc" fill-opacity="0.2" stroke="#ab47bc" stroke-width="1"/>
-    <text x="670" y="179" text-anchor="middle" font-family="monospace" font-size="9" fill="#ab47bc">Robot Action Output</text>
+    <rect x="660" y="165" width="160" height="20" rx="4" fill="#ab47bc" fill-opacity="0.2" stroke="#ab47bc" stroke-width="1"/>
+    <text x="740" y="179" text-anchor="middle" font-family="monospace" font-size="9" fill="#ab47bc">Robot Action Output</text>
 
-    <rect x="590" y="190" width="160" height="20" rx="4" fill="#ab47bc" fill-opacity="0.2" stroke="#ab47bc" stroke-width="1"/>
-    <text x="670" y="204" text-anchor="middle" font-family="monospace" font-size="9" fill="#ab47bc">Multi-Task Learning</text>
+    <rect x="660" y="190" width="160" height="20" rx="4" fill="#ab47bc" fill-opacity="0.2" stroke="#ab47bc" stroke-width="1"/>
+    <text x="740" y="204" text-anchor="middle" font-family="monospace" font-size="9" fill="#ab47bc">Multi-Task Learning</text>
 
     <!-- Examples -->
-    <text x="670" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Google RT-2, OpenVLA</text>
-    <text x="670" y="248" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">NVIDIA GR00T N1.6</text>
+    <text x="740" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Google RT-2, OpenVLA</text>
+    <text x="740" y="248" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">NVIDIA GR00T N1.6</text>
   </g>
 
   <!-- Data Flow Section -->
-  <text x="450" y="290" text-anchor="middle" font-family="monospace" font-size="16" fill="white" font-weight="bold">Data Flow &amp; Training Pipeline</text>
+  <text x="550" y="290" text-anchor="middle" font-family="monospace" font-size="16" fill="white" font-weight="bold">Data Flow &amp; Training Pipeline</text>
 
   <!-- Training Data -->
   <g id="training-data">
-    <rect x="50" y="310" width="800" height="70" rx="8" fill="#16213e" stroke="#ffdd44" stroke-width="2" stroke-dasharray="5,5"/>
-    <text x="450" y="330" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffdd44" font-weight="bold">Training Data Sources</text>
+    <rect x="80" y="310" width="940" height="70" rx="8" fill="#16213e" stroke="#ffdd44" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="550" y="330" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffdd44" font-weight="bold">Training Data Sources</text>
 
-    <rect x="70" y="345" width="180" height="25" rx="6" fill="#ffdd44" fill-opacity="0.15" stroke="#ffdd44" stroke-width="1"/>
-    <text x="160" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffdd44">Internet VQA Dataset</text>
+    <rect x="105" y="345" width="210" height="25" rx="6" fill="#ffdd44" fill-opacity="0.15" stroke="#ffdd44" stroke-width="1"/>
+    <text x="210" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffdd44">Internet VQA Dataset</text>
 
-    <rect x="270" y="345" width="180" height="25" rx="6" fill="#ffdd44" fill-opacity="0.15" stroke="#ffdd44" stroke-width="1"/>
-    <text x="360" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffdd44">Robot Trajectory (970K+)</text>
+    <rect x="340" y="345" width="210" height="25" rx="6" fill="#ffdd44" fill-opacity="0.15" stroke="#ffdd44" stroke-width="1"/>
+    <text x="445" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffdd44">Robot Trajectory (970K+)</text>
 
-    <rect x="470" y="345" width="180" height="25" rx="6" fill="#ffdd44" fill-opacity="0.15" stroke="#ffdd44" stroke-width="1"/>
-    <text x="560" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffdd44">Simulation Data (20M hrs)</text>
+    <rect x="575" y="345" width="210" height="25" rx="6" fill="#ffdd44" fill-opacity="0.15" stroke="#ffdd44" stroke-width="1"/>
+    <text x="680" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffdd44">Simulation Data (20M hrs)</text>
 
-    <rect x="670" y="345" width="160" height="25" rx="6" fill="#ffdd44" fill-opacity="0.15" stroke="#ffdd44" stroke-width="1"/>
-    <text x="750" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffdd44">Real-World Sensor</text>
+    <rect x="810" y="345" width="185" height="25" rx="6" fill="#ffdd44" fill-opacity="0.15" stroke="#ffdd44" stroke-width="1"/>
+    <text x="902" y="363" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffdd44">Real-World Sensor</text>
   </g>
 
   <!-- Application Examples -->
-  <text x="450" y="420" text-anchor="middle" font-family="monospace" font-size="16" fill="white" font-weight="bold">Manufacturing Applications</text>
+  <text x="550" y="420" text-anchor="middle" font-family="monospace" font-size="16" fill="white" font-weight="bold">Manufacturing Applications</text>
 
   <g id="applications">
     <!-- Defect Detection -->
-    <rect x="50" y="440" width="190" height="110" rx="8" fill="#16213e" stroke="#ef5350" stroke-width="2"/>
-    <text x="145" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#ef5350" font-weight="bold">Defect Detection</text>
-    <text x="145" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Wafer map analysis</text>
-    <text x="145" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• 96%+ accuracy</text>
-    <text x="145" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Auto classification</text>
-    <text x="145" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Contamination detect</text>
-    <text x="70" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
-    <text x="70" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
-    <text x="70" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
-    <text x="70" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <rect x="80" y="440" width="240" height="110" rx="8" fill="#16213e" stroke="#ef5350" stroke-width="2"/>
+    <text x="200" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#ef5350" font-weight="bold">Defect Detection</text>
+    <text x="105" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <text x="105" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <text x="105" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <text x="105" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <text x="140" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Wafer map analysis</text>
+    <text x="140" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• 96%+ accuracy</text>
+    <text x="140" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Auto classification</text>
+    <text x="140" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Contamination detect</text>
 
     <!-- Robot Assembly -->
-    <rect x="260" y="440" width="190" height="110" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="2"/>
-    <text x="355" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#ab47bc" font-weight="bold">Robot Assembly</text>
-    <text x="355" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Natural lang control</text>
-    <text x="355" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Multi-robot coord</text>
-    <text x="355" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Zero-shot transfer</text>
-    <text x="355" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Dexterous grasp</text>
-    <text x="280" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLA:</text>
-    <text x="280" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLA:</text>
-    <text x="280" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLA:</text>
-    <text x="280" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLA:</text>
+    <rect x="340" y="440" width="240" height="110" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="2"/>
+    <text x="460" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#ab47bc" font-weight="bold">Robot Assembly</text>
+    <text x="365" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLA:</text>
+    <text x="365" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLA:</text>
+    <text x="365" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLA:</text>
+    <text x="365" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLA:</text>
+    <text x="400" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Natural lang control</text>
+    <text x="400" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Multi-robot coord</text>
+    <text x="400" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Zero-shot transfer</text>
+    <text x="400" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Dexterous grasp</text>
 
     <!-- Digital Twin -->
-    <rect x="470" y="440" width="190" height="110" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
-    <text x="565" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#66bb6a" font-weight="bold">Digital Twin</text>
-    <text x="565" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Factory simulation</text>
-    <text x="565" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Synthetic data gen</text>
-    <text x="565" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Scenario testing</text>
-    <text x="565" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Omniverse + Cosmos</text>
-    <text x="490" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">WM:</text>
-    <text x="490" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">WM:</text>
-    <text x="490" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">WM:</text>
-    <text x="490" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">WM:</text>
+    <rect x="600" y="440" width="240" height="110" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
+    <text x="720" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#66bb6a" font-weight="bold">Digital Twin</text>
+    <text x="625" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">WM:</text>
+    <text x="625" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">WM:</text>
+    <text x="625" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">WM:</text>
+    <text x="625" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">WM:</text>
+    <text x="655" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Factory simulation</text>
+    <text x="655" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Synthetic data gen</text>
+    <text x="655" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Scenario testing</text>
+    <text x="655" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Omniverse + Cosmos</text>
 
     <!-- Predictive Maintenance -->
-    <rect x="680" y="440" width="170" height="110" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
-    <text x="765" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#4fc3f7" font-weight="bold">Pred. Maint.</text>
-    <text x="765" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Anomaly detect</text>
-    <text x="765" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Failure prediction</text>
-    <text x="765" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Vision+sensor fuse</text>
-    <text x="765" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Downtime prevent</text>
-    <text x="700" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
-    <text x="700" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
-    <text x="700" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
-    <text x="700" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <rect x="860" y="440" width="240" height="110" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+    <text x="980" y="460" text-anchor="middle" font-family="monospace" font-size="11" fill="#4fc3f7" font-weight="bold">Pred. Maint.</text>
+    <text x="885" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <text x="885" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <text x="885" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <text x="885" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">VLM:</text>
+    <text x="920" y="480" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Anomaly detect</text>
+    <text x="920" y="495" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Failure prediction</text>
+    <text x="920" y="510" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Vision+sensor fuse</text>
+    <text x="920" y="525" text-anchor="start" font-family="monospace" font-size="8" fill="#888">• Downtime prevent</text>
   </g>
 
   <!-- Footer -->
