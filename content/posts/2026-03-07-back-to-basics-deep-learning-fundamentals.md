@@ -1,7 +1,7 @@
 ---
 title: "Back to Basics: 딥러닝, 결국 뭘 하는 건가"
 date: 2026-03-07T17:00:00+09:00
-description: AWS Solutions Architect 4년 차, AI 대학원 2학년. 새 학기 분산학습 수업을 들으며 다시 기본으로 돌아갑니다. 딥러닝이 정확히 무엇을 하는 건지, 왜 작동하는지 차근차근 정리했습니다.
+description: Solutions Architect 4년 차, AI 대학원 2학년. 새 학기 분산학습 수업을 들으며 다시 기본으로 돌아갑니다. 딥러닝이 정확히 무엇을 하는 건지, 왜 작동하는지 차근차근 정리했습니다.
 categories: ["Deep Learning"]
 tags: ["Deep Learning", "Back to Basics", "Gradient Descent", "Backpropagation", "Neural Network"]
 author: "Jesam Kim"
@@ -9,7 +9,7 @@ author: "Jesam Kim"
 
 ## 다시 기본으로
 
-새 학기가 시작됐습니다. "AI 분산 학습 및 추론" 수업을 듣는데, 첫 주차는 딥러닝 기초를 다시 복습하는 시간이었습니다. 솔직히 말하면, AWS Solutions Architect로 4년 동안 일하면서 AI/ML 서비스를 수도 없이 다뤘지만, 수식 앞에서는 다시 겸손해지더군요.
+새 학기가 시작됐습니다. "AI 분산 학습 및 추론" 수업을 듣는데, 첫 주차는 딥러닝 기초를 다시 복습하는 시간이었습니다. 솔직히 말하면, Solutions Architect로 4년 동안 일하면서 AI/ML 서비스를 수도 없이 다뤘지만, 수식 앞에서는 다시 겸손해지더군요.
 
 "딥러닝이 뭐냐"고 물으면 뭐라 답하시겠습니까? 저는 그동안 "데이터를 넣으면 학습해서 예측하는 것" 정도로만 이해하고 있었습니다. 하지만 이번 기회에 제대로 정리해보고 싶었습니다. 분산 학습을 배우기 전에, 일단 딥러닝 자체가 정확히 무엇을 하는 건지 알아야 했으니까요.
 
