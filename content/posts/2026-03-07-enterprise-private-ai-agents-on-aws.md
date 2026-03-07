@@ -60,7 +60,13 @@ Amazon Bedrock은 Claude, Nova2, Llama 같은 Foundation 모델을 API로 제공
 
 Claude Sonnet 4.6을 Bedrock으로 호출하면 요청과 응답이 모두 AWS 네트워크 안에 머뭅니다. Anthropic 외부 API를 거치지 않습니다. 데이터 주권 요구사항을 만족시킬 수 있는 구조입니다.
 
-코딩 에이전트도 마찬가지입니다. Anthropic의 Claude Code는 `CLAUDE_CODE_USE_BEDROCK=1` 환경 변수 하나로 Amazon Bedrock을 백엔드로 사용할 수 있습니다. 코드 생성, 리팩토링, 테스트 작성 같은 개발 작업이 모두 AWS 인프라 안에서 처리되며, 소스 코드가 외부로 유출되지 않습니다.
+### Claude Code + Bedrock: 코딩 에이전트도 Private 환경에서
+
+대화형 AI뿐 아니라 <strong>코딩 에이전트</strong>도 같은 원리로 Private 환경에서 운영할 수 있습니다. Anthropic의 Claude Code는 터미널에서 직접 코드를 작성하고, 테스트를 실행하고, Git 커밋까지 하는 자율 코딩 에이전트입니다.
+
+핵심은 `CLAUDE_CODE_USE_BEDROCK=1` 환경 변수 하나로 <strong>Amazon Bedrock을 백엔드로 전환</strong>할 수 있다는 점입니다. 이렇게 설정하면 코드 생성, 리팩토링, 테스트 작성 같은 모든 개발 작업이 AWS 인프라 안에서 처리됩니다. 소스 코드가 Anthropic 외부 API를 거치지 않으므로, 민감한 코드베이스를 다루는 기업에서도 안심하고 사용할 수 있습니다.
+
+EC2나 Lightsail 인스턴스에 Claude Code를 설치하고 Bedrock 연동하면, 개발팀 전용 AI 코딩 어시스턴트를 VPC 내부에서 운영할 수 있습니다. IAM Role로 Bedrock 접근 권한을 제어하고, CloudTrail로 모든 API 호출을 감사하는 것도 동일합니다.
 
 ### Amazon Lightsail: 에이전트 런타임
 
