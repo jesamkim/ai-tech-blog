@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" width="1400" height="720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620">
 <defs>
   <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#545B64">
-    <polygon points="0 0, 10 3.5, 0 7"/>
-  </marker>
-  <marker id="arr-red" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#D13212">
     <polygon points="0 0, 10 3.5, 0 7"/>
   </marker>
   <marker id="arr-purple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#8C4FFF">
@@ -82,232 +79,122 @@
 
 </defs>
 
-<rect width="1400" height="720" fill="#FFFFFF"/>
+<rect width="900" height="620" fill="#FFFFFF"/>
 
-<!-- ═══ Title ═══ -->
-<text x="700" y="30" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="bold" fill="#232F3E">SaaS AI Agent vs AWS Private AI Agent</text>
-<text x="700" y="50" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#666666">Data flow comparison: where does your data go?</text>
+<!-- Title -->
+<text x="450" y="30" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="bold" fill="#232F3E">AWS Private AI Agent Architecture</text>
+<text x="450" y="50" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#666666">Secure, compliant AI agent deployment — data never leaves AWS VPC</text>
 
-<!-- ═════════════════════════════════════════════════════ -->
-<!-- LEFT SIDE: SaaS Model (Claude Cowork)               -->
-<!-- ═════════════════════════════════════════════════════ -->
+<!-- ═══ AWS Cloud boundary ═══ -->
+<rect x="24" y="66" width="856" height="340" rx="6" fill="none" stroke="#232F3E" stroke-width="2"/>
+<rect x="24" y="66" width="96" height="22" rx="4" fill="#232F3E"/>
+<text x="36" y="81" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">AWS Cloud</text>
 
-<!-- Header bar -->
-<rect x="30" y="68" width="610" height="30" rx="6" fill="#D13212"/>
-<text x="38" y="76" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF">✕</text>
-<text x="335" y="88" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">SaaS Model (Claude Cowork)</text>
+<!-- ═══ VPC boundary ═══ -->
+<rect x="44" y="98" width="600" height="294" rx="4" fill="none" stroke="#7AA116" stroke-width="1.5"/>
+<rect x="44" y="98" width="102" height="20" rx="4 4 0 0" fill="#7AA116"/>
+<text x="56" y="112" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#FFFFFF">VPC (Private)</text>
 
-<!-- Enterprise box -->
-<rect x="48" y="112" width="240" height="160" rx="6" fill="#FFF5F5" stroke="#D13212" stroke-width="1"/>
-<text x="168" y="130" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#232F3E">Enterprise</text>
+<!-- ── Agent Runtime box ── -->
+<rect x="62" y="128" width="200" height="116" rx="4" fill="#E8F5E9" fill-opacity="0.5" stroke="#7AA116" stroke-width="1"/>
+<text x="162" y="144" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#7AA116">Agent Runtime</text>
 
-<!-- User icon (simple) -->
-<g transform="translate(72,140)">
-  <circle cx="16" cy="10" r="8" fill="none" stroke="#232F3E" stroke-width="1.5"/>
-  <path d="M3,32 C3,24 8,20 16,20 C24,20 29,24 29,32" fill="none" stroke="#232F3E" stroke-width="1.5"/>
+<use href="#ic-lightsail" x="88" y="152" width="44" height="44"/>
+<text x="110" y="208" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">Lightsail</text>
+<text x="110" y="219" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">OpenClaw</text>
+
+<use href="#ic-privatelink" x="180" y="156" width="34" height="34"/>
+<text x="197" y="200" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#8C4FFF">VPC Endpoint</text>
+
+<!-- MCP label + targets -->
+<text x="162" y="234" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">MCP Servers</text>
+
+<!-- ── Model Inference box ── -->
+<rect x="296" y="128" width="156" height="116" rx="4" fill="#E0F7F5" fill-opacity="0.5" stroke="#01A88D" stroke-width="1"/>
+<text x="374" y="144" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#01A88D">Model Inference</text>
+
+<use href="#ic-bedrock" x="350" y="156" width="44" height="44"/>
+<text x="372" y="212" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">Amazon Bedrock</text>
+<text x="372" y="223" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#01A88D" font-style="italic">Claude via PrivateLink</text>
+
+<!-- ── Data Layer box ── -->
+<rect x="62" y="256" width="390" height="120" rx="4" fill="#E3F2FD" fill-opacity="0.5" stroke="#147EBA" stroke-width="1"/>
+<text x="257" y="274" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#147EBA">Data Layer — Enterprise Data Never Leaves VPC</text>
+
+<use href="#ic-s3" x="82" y="284" width="40" height="40"/>
+<text x="102" y="336" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">Amazon S3</text>
+<text x="102" y="347" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">Documents</text>
+
+<use href="#ic-opensearch" x="182" y="284" width="40" height="40"/>
+<text x="202" y="336" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">OpenSearch</text>
+<text x="202" y="347" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">Knowledge Base</text>
+
+<use href="#ic-rds" x="282" y="284" width="40" height="40"/>
+<text x="302" y="336" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">Amazon RDS</text>
+<text x="302" y="347" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">Enterprise DB</text>
+
+<use href="#ic-kms" x="382" y="284" width="40" height="40"/>
+<text x="402" y="336" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">AWS KMS</text>
+<text x="402" y="347" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">Encryption</text>
+
+<!-- Arrows: Runtime → Bedrock -->
+<line x1="262" y1="180" x2="292" y2="180" stroke="#545B64" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="277" y="174" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666">API</text>
+
+<!-- Arrow: Runtime → Data (MCP) -->
+<line x1="162" y1="244" x2="162" y2="256" stroke="#888" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+<text x="175" y="254" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#888">MCP</text>
+
+<!-- ═══ Security & Observability panel ═══ -->
+<rect x="668" y="98" width="196" height="294" rx="4" fill="none" stroke="#DD344C" stroke-width="1" stroke-dasharray="5,3"/>
+<text x="766" y="118" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#DD344C">Security &amp; Observability</text>
+
+<use href="#ic-cloudtrail" x="686" y="132" width="40" height="40"/>
+<text x="706" y="182" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">CloudTrail</text>
+<text x="706" y="193" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">Audit Logs</text>
+
+<use href="#ic-guardduty" x="798" y="132" width="40" height="40"/>
+<text x="818" y="182" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">GuardDuty</text>
+<text x="818" y="193" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">Threat Detection</text>
+
+<use href="#ic-iam" x="686" y="210" width="40" height="40"/>
+<text x="706" y="260" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">AWS IAM</text>
+<text x="706" y="271" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">Access Control</text>
+
+<!-- Arrow: VPC → Security -->
+<path d="M 644,200 L 664,200" fill="none" stroke="#DD344C" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arr)"/>
+<text x="654" y="194" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="7" fill="#DD344C">Logs</text>
+
+<!-- ═══ Enterprise Users (bottom) ═══ -->
+<g transform="translate(50,420)">
+  <circle cx="20" cy="12" r="10" fill="none" stroke="#232F3E" stroke-width="1.5"/>
+  <path d="M4,38 C4,28 10,23 20,23 C30,23 36,28 36,38" fill="none" stroke="#232F3E" stroke-width="1.5"/>
 </g>
-<text x="88" y="182" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">Users</text>
+<text x="70" y="470" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#232F3E">Enterprise Users</text>
 
-<!-- Document icon -->
-<rect x="128" y="142" width="24" height="28" rx="2" fill="#545B64"/>
-<rect x="132" y="148" width="16" height="2" fill="#FFF"/>
-<rect x="132" y="153" width="16" height="2" fill="#FFF"/>
-<rect x="132" y="158" width="10" height="2" fill="#FFF"/>
-<text x="140" y="182" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">Documents</text>
+<!-- Direct Connect -->
+<use href="#ic-direct-connect" x="160" y="430" width="40" height="40"/>
+<text x="180" y="480" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#8C4FFF">Direct Connect</text>
 
-<!-- Database icon -->
-<ellipse cx="204" cy="148" rx="16" ry="6" fill="#545B64"/>
-<rect x="188" y="148" width="32" height="20" fill="#545B64"/>
-<ellipse cx="204" cy="168" rx="16" ry="6" fill="#6B7280"/>
-<text x="204" y="182" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">Database</text>
+<!-- Arrow: Users → Direct Connect → VPC -->
+<line x1="96" y1="448" x2="156" y2="448" stroke="#8C4FFF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-purple)"/>
+<path d="M 200,430 L 200,406 L 162,406 L 162,392" fill="none" stroke="#8C4FFF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-purple)"/>
+<text x="140" y="418" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#8C4FFF" font-style="italic">Private circuit</text>
 
-<text x="168" y="198" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#666" font-style="italic">Internal tools &amp; data</text>
+<!-- ═══ Benefits ═══ -->
+<rect x="24" y="500" width="856" height="100" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+<text x="44" y="522" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#16A34A">Key Benefits</text>
 
-<!-- Sensitive data warning -->
-<rect x="58" y="212" width="220" height="32" rx="4" fill="#FEF3CD" stroke="#F59E0B" stroke-width="1"/>
-<text x="168" y="226" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#92400E">Contracts, PII, Source Code</text>
-<text x="168" y="238" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#92400E">Sensitive enterprise data</text>
+<text x="44" y="544" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ All data stays within AWS VPC — no internet traversal</text>
+<text x="480" y="544" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ IAM least-privilege per agent</text>
 
-<!-- Arrow: Data leaves network -->
-<line x1="288" y1="185" x2="350" y2="185" stroke="#D13212" stroke-width="2" marker-end="url(#arr-red)"/>
-<text x="319" y="178" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#D13212">Data leaves</text>
-<text x="319" y="190" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#D13212">network →</text>
+<text x="44" y="564" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ CloudTrail records every API call with identity + timestamp</text>
+<text x="480" y="564" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ KMS encryption at rest</text>
 
-<!-- Public Internet icon -->
-<g transform="translate(350,170)">
-  <circle cx="16" cy="16" r="14" fill="none" stroke="#666" stroke-width="1.5"/>
-  <ellipse cx="16" cy="16" rx="7" ry="14" fill="none" stroke="#666" stroke-width="1"/>
-  <line x1="2" y1="16" x2="30" y2="16" stroke="#666" stroke-width="1"/>
-</g>
-<text x="366" y="205" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#666">Public Internet</text>
-
-<!-- Arrow to Anthropic -->
-<line x1="382" y1="185" x2="418" y2="185" stroke="#D13212" stroke-width="2" marker-end="url(#arr-red)"/>
-
-<!-- Anthropic Cloud box -->
-<rect x="418" y="112" width="200" height="160" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
-<rect x="418" y="112" width="200" height="24" rx="6 6 0 0" fill="#16A34A"/>
-<text x="518" y="128" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">Anthropic Cloud</text>
-
-<rect x="438" y="148" width="160" height="36" rx="4" fill="#DCFCE7" stroke="#16A34A" stroke-width="1"/>
-<text x="518" y="166" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#166534">Claude Cowork</text>
-<text x="518" y="178" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#166534">+ Plugins</text>
-
-<rect x="438" y="196" width="160" height="28" rx="4" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
-<text x="518" y="214" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#166534">Claude Model</text>
-
-<!-- No Audit Logs warning -->
-<rect x="438" y="236" width="160" height="28" rx="4" fill="#FEE2E2" stroke="#D13212" stroke-width="1"/>
-<text x="448" y="248" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#D13212">✕</text>
-<text x="518" y="248" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#991B1B">No Audit Logs</text>
-<text x="518" y="259" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#991B1B">No Compliance API</text>
-
-<!-- Challenges box -->
-<rect x="48" y="290" width="570" height="178" rx="6" fill="#FFF5F5" stroke="#FCA5A5" stroke-width="1"/>
-<text x="68" y="310" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#DC2626">Challenges</text>
-
-<text x="68" y="332" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✕ Documents sent to external servers</text>
-<text x="68" y="352" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✕ No network isolation (public internet required)</text>
-<text x="68" y="372" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✕ Audit logs not available for Cowork activity</text>
-<text x="68" y="392" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✕ Limited governance controls (per-department, per-model)</text>
-<text x="68" y="412" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✕ GDPR / HIPAA / financial compliance gaps</text>
-<text x="68" y="432" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✕ Blocked by security policy in regulated industries</text>
-
-<text x="68" y="458" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#9CA3AF" font-style="italic">Source: Claude Cowork docs — "activity is not captured in Audit Logs, Compliance API, or Data Exports"</text>
-
-<!-- ═════════════════════════════════════════════════════ -->
-<!-- RIGHT SIDE: AWS Private Model (Bedrock + OpenClaw)   -->
-<!-- ═════════════════════════════════════════════════════ -->
-
-<!-- Header bar -->
-<rect x="660" y="68" width="720" height="30" rx="6" fill="#16A34A"/>
-<text x="668" y="76" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF">✓</text>
-<text x="1020" y="88" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">AWS Private Model (Bedrock + OpenClaw)</text>
-
-<!-- AWS Cloud boundary -->
-<rect x="660" y="108" width="720" height="290" rx="6" fill="none" stroke="#232F3E" stroke-width="2"/>
-<rect x="660" y="108" width="94" height="20" rx="4 4 0 0" fill="#232F3E"/>
-<text x="670" y="121" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">AWS Cloud</text>
-
-<!-- VPC boundary -->
-<rect x="678" y="138" width="524" height="246" rx="4" fill="none" stroke="#7AA116" stroke-width="1.5"/>
-<rect x="678" y="138" width="96" height="18" rx="4 4 0 0" fill="#7AA116"/>
-<text x="688" y="150" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#FFFFFF">VPC (Private)</text>
-
-<!-- Agent Runtime box -->
-<rect x="694" y="166" width="170" height="100" rx="4" fill="#E8F5E9" fill-opacity="0.5" stroke="#7AA116" stroke-width="1"/>
-<text x="779" y="180" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#7AA116">Agent Runtime</text>
-
-<!-- Lightsail icon -->
-<use href="#ic-lightsail" x="726" y="186" width="40" height="40"/>
-<text x="746" y="236" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#232F3E">Lightsail</text>
-<text x="746" y="245" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="7" fill="#666" font-style="italic">OpenClaw</text>
-
-<!-- PrivateLink small -->
-<use href="#ic-privatelink" x="804" y="192" width="28" height="28"/>
-<text x="818" y="228" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="7" fill="#8C4FFF">VPC Endpoint</text>
-
-<!-- MCP label -->
-<text x="779" y="258" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">MCP Servers</text>
-
-<!-- MCP target list -->
-<rect x="708" y="262" width="142" height="20" rx="3" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="0.5"/>
-<text x="779" y="275" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666">S3 · RDS · OpenSearch</text>
-
-<!-- Arrow: Agent Runtime → Model Inference -->
-<line x1="864" y1="212" x2="886" y2="212" stroke="#545B64" stroke-width="1.5" marker-end="url(#arr)"/>
-
-<!-- Model Inference box -->
-<rect x="886" y="166" width="140" height="100" rx="4" fill="#E0F7F5" fill-opacity="0.5" stroke="#01A88D" stroke-width="1"/>
-<text x="956" y="180" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#01A88D">Model Inference</text>
-
-<!-- Bedrock icon -->
-<use href="#ic-bedrock" x="932" y="188" width="40" height="40"/>
-<text x="952" y="238" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#232F3E">Bedrock</text>
-<text x="952" y="248" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="7" fill="#01A88D" font-style="italic">(PrivateLink)</text>
-
-<!-- Data Layer box -->
-<rect x="1042" y="166" width="146" height="100" rx="4" fill="#E3F2FD" fill-opacity="0.5" stroke="#147EBA" stroke-width="1"/>
-<text x="1115" y="180" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#147EBA">Data Layer</text>
-
-<!-- S3 icon -->
-<use href="#ic-s3" x="1058" y="192" width="36" height="36"/>
-<text x="1076" y="238" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#232F3E">S3</text>
-
-<!-- RDS icon -->
-<use href="#ic-rds" x="1120" y="192" width="36" height="36"/>
-<text x="1138" y="238" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#232F3E">RDS</text>
-
-<text x="1115" y="258" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#147EBA" font-style="italic">Data never leaves VPC</text>
-
-<!-- "Data stays in" badge -->
-<rect x="874" y="300" width="120" height="28" rx="14" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
-<text x="883" y="310" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#16A34A">🔒</text>
-<text x="934" y="318" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#166534">Data stays in</text>
-
-<!-- Arrow: Agent Runtime → Data Layer (dashed) -->
-<line x1="864" y1="235" x2="886" y2="235" stroke="#545B64" stroke-width="1" stroke-dasharray="4,3"/>
-<path d="M 1026,212 L 1042,212" fill="none" stroke="#545B64" stroke-width="1.5" marker-end="url(#arr)"/>
-
-<!-- Security & Observability panel -->
-<rect x="1218" y="136" width="148" height="252" rx="4" fill="none" stroke="#DD344C" stroke-width="1" stroke-dasharray="4,3"/>
-<text x="1292" y="154" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#DD344C">Security &amp; Observability</text>
-
-<!-- IAM -->
-<use href="#ic-iam" x="1232" y="166" width="32" height="32"/>
-<text x="1248" y="208" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#232F3E">IAM</text>
-
-<!-- KMS -->
-<use href="#ic-kms" x="1282" y="166" width="32" height="32"/>
-<text x="1298" y="208" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#232F3E">KMS</text>
-
-<!-- CloudTrail -->
-<use href="#ic-cloudtrail" x="1332" y="166" width="32" height="32"/>
-<text x="1348" y="208" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#232F3E">CloudTrail</text>
-
-<!-- GuardDuty -->
-<use href="#ic-guardduty" x="1268" y="222" width="32" height="32"/>
-<text x="1284" y="264" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#232F3E">GuardDuty</text>
-
-<!-- Enterprise Users (bottom left of right panel) -->
-<g transform="translate(678,420)">
-  <circle cx="16" cy="10" r="8" fill="none" stroke="#232F3E" stroke-width="1.5"/>
-  <path d="M3,32 C3,24 8,20 16,20 C24,20 29,24 29,32" fill="none" stroke="#232F3E" stroke-width="1.5"/>
-</g>
-<text x="694" y="462" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#232F3E">Enterprise</text>
-<text x="694" y="474" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#232F3E">Users</text>
-
-<!-- Sensitive Data box -->
-<rect x="730" y="424" width="100" height="36" rx="4" fill="#FEF3CD" stroke="#F59E0B" stroke-width="1"/>
-<text x="780" y="441" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#92400E">Sensitive Data</text>
-<text x="780" y="454" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#92400E">PII · Source Code</text>
-
-<!-- Direct Connect icon -->
-<use href="#ic-direct-connect" x="860" y="422" width="40" height="40"/>
-<text x="880" y="472" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#8C4FFF">Direct Connect</text>
-
-<!-- Arrows: Users → Data → Direct Connect → VPC -->
-<line x1="830" y1="442" x2="856" y2="442" stroke="#8C4FFF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-purple)"/>
-
-<!-- Arrow: Direct Connect up to VPC -->
-<path d="M 880,422 L 880,394 L 780,394 L 780,384" fill="none" stroke="#8C4FFF" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-purple)"/>
-<text x="840" y="390" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#8C4FFF" font-style="italic">Private circuit</text>
-
-<!-- Full audit trail label (top right) -->
-<text x="1292" y="384" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#DD344C" font-style="italic">Full audit trail</text>
-<path d="M 1200,300 L 1260,300 L 1260,370" fill="none" stroke="#DD344C" stroke-width="1" stroke-dasharray="3,3"/>
-
-<!-- Benefits box -->
-<rect x="660" y="492" width="720" height="132" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
-<text x="680" y="516" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#16A34A">Benefits</text>
-
-<text x="680" y="540" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ All data stays within AWS VPC (no internet traversal)</text>
-<text x="680" y="560" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ CloudTrail records every API call with IAM identity + timestamp</text>
-<text x="680" y="580" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ IAM least-privilege per agent, KMS encryption at rest</text>
-<text x="680" y="600" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ Same agent capabilities (MCP plugins), self-hosted runtime</text>
-<text x="680" y="620" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ GuardDuty threat detection + automated response</text>
+<text x="44" y="584" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ Same agent capabilities (MCP plugins), self-hosted runtime</text>
+<text x="480" y="584" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#374151">✓ GuardDuty threat detection</text>
 
 <!-- ═══ Watermark ═══ -->
-<text x="1370" y="710" text-anchor="end" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#999999">jesamkim.github.io</text>
+<text x="870" y="612" text-anchor="end" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#AAAAAA">jesamkim.github.io</text>
 
 </svg>
