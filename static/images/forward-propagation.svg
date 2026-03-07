@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" width="800" height="160">
+<rect width="800" height="160" fill="#FFFFFF"/>
+<defs>
+  <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#545B64"><polygon points="0 0, 10 3.5, 0 7"/></marker>
+</defs>
+<!-- Boxes -->
+<rect x="20" y="50" width="140" height="60" rx="8" fill="#FFF3E0" stroke="#ED7100" stroke-width="2"/>
+<text x="90" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#232F3E">입력</text>
+<text x="90" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666">고양이 사진</text>
+
+<rect x="210" y="50" width="110" height="60" rx="8" fill="#E3F2FD" stroke="#147EBA" stroke-width="2"/>
+<text x="265" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E">Layer 1</text>
+
+<rect x="370" y="50" width="110" height="60" rx="8" fill="#E3F2FD" stroke="#147EBA" stroke-width="2"/>
+<text x="425" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E">Layer 2</text>
+
+<rect x="530" y="50" width="110" height="60" rx="8" fill="#E3F2FD" stroke="#147EBA" stroke-width="2"/>
+<text x="585" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#232F3E">Layer 3</text>
+
+<rect x="690" y="50" width="90" height="60" rx="8" fill="#E8F5E9" stroke="#7AA116" stroke-width="2"/>
+<text x="735" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#232F3E">출력</text>
+<text x="735" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666">확률값</text>
+
+<!-- Arrows -->
+<line x1="160" y1="80" x2="206" y2="80" stroke="#545B64" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="320" y1="80" x2="366" y2="80" stroke="#545B64" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="480" y1="80" x2="526" y2="80" stroke="#545B64" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="640" y1="80" x2="686" y2="80" stroke="#545B64" stroke-width="2" marker-end="url(#arr)"/>
+
+<!-- Labels -->
+<text x="190" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">W×x+b</text>
+<text x="350" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">W×x+b</text>
+<text x="510" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">W×x+b</text>
+
+<text x="400" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#999">Forward Propagation: 입력 → 각 층을 거쳐 → 출력</text>
+</svg>

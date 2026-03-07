@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" width="800" height="280">
+<rect width="800" height="280" fill="#FFFFFF"/>
+<defs>
+  <marker id="arr4" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#545B64"><polygon points="0 0, 10 3.5, 0 7"/></marker>
+</defs>
+
+<rect x="20" y="20" width="140" height="50" rx="8" fill="#F3E8FD" stroke="#8C4FFF" stroke-width="2"/>
+<text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#232F3E">전체 데이터</text>
+<text x="90" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">5만 장</text>
+
+<line x1="160" y1="45" x2="196" y2="45" stroke="#545B64" stroke-width="2" marker-end="url(#arr4)"/>
+<text x="178" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">섞기</text>
+
+<!-- Mini-batches -->
+<rect x="200" y="10" width="100" height="36" rx="6" fill="#E3F2FD" stroke="#147EBA" stroke-width="1.5"/>
+<text x="250" y="33" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#232F3E">Batch 1 (100장)</text>
+
+<rect x="200" y="52" width="100" height="36" rx="6" fill="#E3F2FD" stroke="#147EBA" stroke-width="1.5"/>
+<text x="250" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#232F3E">Batch 2 (100장)</text>
+
+<rect x="200" y="94" width="100" height="36" rx="6" fill="#E3F2FD" stroke="#147EBA" stroke-width="1.5"/>
+<text x="250" y="117" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#232F3E">Batch 3 (100장)</text>
+
+<text x="250" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#888">⋮</text>
+
+<!-- Process arrows -->
+<line x1="300" y1="28" x2="370" y2="28" stroke="#545B64" stroke-width="1.5" marker-end="url(#arr4)"/>
+<rect x="374" y="10" width="180" height="36" rx="6" fill="#FFF3E0" stroke="#ED7100" stroke-width="1.5"/>
+<text x="464" y="33" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#232F3E">Gradient 계산 + 업데이트</text>
+
+<line x1="464" y1="46" x2="464" y2="52" stroke="#545B64" stroke-width="1"/>
+<line x1="464" y1="52" x2="350" y2="52" stroke="#545B64" stroke-width="1"/>
+<line x1="350" y1="52" x2="350" y2="70" stroke="#545B64" stroke-width="1" marker-end="url(#arr4)"/>
+
+<line x1="300" y1="70" x2="370" y2="70" stroke="#545B64" stroke-width="1.5" marker-end="url(#arr4)"/>
+<rect x="374" y="52" width="180" height="36" rx="6" fill="#FFF3E0" stroke="#ED7100" stroke-width="1.5"/>
+<text x="464" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#232F3E">Gradient 계산 + 업데이트</text>
+
+<line x1="464" y1="88" x2="464" y2="94" stroke="#545B64" stroke-width="1"/>
+<line x1="464" y1="94" x2="350" y2="94" stroke="#545B64" stroke-width="1"/>
+<line x1="350" y1="94" x2="350" y2="112" stroke="#545B64" stroke-width="1" marker-end="url(#arr4)"/>
+
+<line x1="300" y1="112" x2="370" y2="112" stroke="#545B64" stroke-width="1.5" marker-end="url(#arr4)"/>
+<rect x="374" y="94" width="180" height="36" rx="6" fill="#FFF3E0" stroke="#ED7100" stroke-width="1.5"/>
+<text x="464" y="117" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#232F3E">Gradient 계산 + 업데이트</text>
+
+<!-- 1 Epoch -->
+<rect x="610" y="40" width="160" height="60" rx="25" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+<text x="690" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#166534">1 Epoch 완료!</text>
+<text x="690" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">→ 다시 섞고 반복</text>
+<line x1="554" y1="70" x2="606" y2="70" stroke="#16A34A" stroke-width="2" marker-end="url(#arr4)"/>
+
+<text x="400" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#999">Mini-batch SGD: 데이터를 작은 묶음으로 나눠서 반복 학습</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" width="800" height="160">
+<rect width="800" height="160" fill="#FFFFFF"/>
+<defs>
+  <marker id="arr2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#D13212"><polygon points="0 0, 10 3.5, 0 7"/></marker>
+</defs>
+
+<rect x="20" y="50" width="160" height="60" rx="8" fill="#FFF3E0" stroke="#ED7100" stroke-width="2"/>
+<text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#232F3E">각 가중치를</text>
+<text x="100" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#232F3E">얼마나 수정?</text>
+
+<rect x="230" y="50" width="140" height="60" rx="8" fill="#FEE2E2" stroke="#D13212" stroke-width="1.5"/>
+<text x="300" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#991B1B">Layer 1 Gradient</text>
+
+<rect x="420" y="50" width="140" height="60" rx="8" fill="#FEE2E2" stroke="#D13212" stroke-width="1.5"/>
+<text x="490" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#991B1B">Layer 2 Gradient</text>
+
+<rect x="610" y="50" width="140" height="60" rx="8" fill="#FEE2E2" stroke="#D13212" stroke-width="1.5"/>
+<text x="680" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#991B1B">Loss 계산</text>
+
+<line x1="610" y1="80" x2="564" y2="80" stroke="#D13212" stroke-width="2" marker-end="url(#arr2)"/>
+<line x1="420" y1="80" x2="374" y2="80" stroke="#D13212" stroke-width="2" marker-end="url(#arr2)"/>
+<line x1="230" y1="80" x2="184" y2="80" stroke="#D13212" stroke-width="2" marker-end="url(#arr2)"/>
+
+<text x="400" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#999">Backpropagation: Loss → 역방향으로 각 층의 Gradient 계산</text>
+</svg>
