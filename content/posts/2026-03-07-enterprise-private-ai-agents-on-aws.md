@@ -50,9 +50,9 @@ Claude Cowork 기술 방향은 맞습니다. 실제로 [Claude Cowork 공식 문
 
 데이터를 외부 SaaS로 보내는 대신, <strong>에이전트를 데이터 옆에 놓는 발상</strong>입니다. 이미 AWS 안에 있는 자산을 그대로 활용하면서, Private 네트워크 경계를 넘지 않는 구조입니다.
 
-먼저 SaaS AI 에이전트와 AWS Private AI 에이전트의 데이터 흐름 차이를 비교해보겠습니다:
+AWS Private 환경에서 AI 에이전트를 구축하면 다음과 같은 구조가 됩니다:
 
-![SaaS vs AWS Private AI Agent Comparison](/ai-tech-blog/images/saas-vs-private-comparison.png)
+![AWS Private AI Agent Architecture Overview](/ai-tech-blog/images/saas-vs-private-comparison.png)
 
 컨셉추얼 아키텍처는 다음과 같습니다:
 
