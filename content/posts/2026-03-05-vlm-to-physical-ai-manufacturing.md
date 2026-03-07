@@ -1,6 +1,6 @@
 ---
 title: "VLM에서 Physical AI까지 — 비전 언어 모델이 물리 세계를 이해하고 제조 현장을 바꾸는 방법"
-date: 2026-03-06T10:00:00+09:00
+date: 2026-03-05T10:00:00+09:00
 description: "GPT-4o, Claude Sonnet 4.6 Vision 같은 VLM이 어떻게 World Model과 VLA를 거쳐 제조 산업의 불량 검출, 로봇 조립, 디지털 트윈으로 확장되는지, 그리고 AWS 기반 Physical AI 아키텍처를 살펴봅니다."
 categories: ["Physical AI"]
 tags: ["VLM", "World Model", "VLA", "NVIDIA Cosmos", "Manufacturing AI", "AWS IoT", "SageMaker", "Bedrock"]
