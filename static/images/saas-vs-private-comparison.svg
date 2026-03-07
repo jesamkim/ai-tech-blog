@@ -93,15 +93,15 @@
 <!-- ═══ VPC boundary ═══ -->
 <rect x="44" y="98" width="600" height="294" rx="4" fill="none" stroke="#7AA116" stroke-width="1.5"/>
 <rect x="44" y="98" width="102" height="20" rx="4 4 0 0" fill="#7AA116"/>
-<text x="56" y="112" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#FFFFFF">VPC (Private)</text>
+<text x="56" y="112" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#FFFFFF">Amazon VPC</text>
 
 <!-- ── Agent Runtime box ── -->
 <rect x="62" y="128" width="200" height="116" rx="4" fill="#E8F5E9" fill-opacity="0.5" stroke="#7AA116" stroke-width="1"/>
 <text x="162" y="144" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#7AA116">Agent Runtime</text>
 
 <use href="#ic-lightsail" x="88" y="152" width="44" height="44"/>
-<text x="110" y="208" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">Lightsail</text>
-<text x="110" y="219" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">OpenClaw</text>
+<text x="110" y="208" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" fill="#232F3E">EC2 / Lightsail</text>
+<text x="110" y="219" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#666" font-style="italic">OpenClaw Runtime</text>
 
 <use href="#ic-privatelink" x="180" y="156" width="34" height="34"/>
 <text x="197" y="200" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="8" fill="#8C4FFF">VPC Endpoint</text>
