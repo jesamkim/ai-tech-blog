@@ -20,7 +20,7 @@ AWS Private 네트워크 안에서 같은 AI 에이전트 역량을 구축하는
 
 # Enterprise AI agents: building securely on AWS Private networks
 
-AI agents crossed a threshold in early 2026. They stopped being conversational tools and started doing real work — sending emails, editing documents, managing calendars, querying databases. Anthropic's Claude Cowork connects to Gmail, Google Drive, DocuSign, and Salesforce through a plugin marketplace. Spotify automated code migration across thousands of microservices using the Claude Agent SDK. The technology works.
+AI agents crossed a threshold in early 2026. They stopped being conversational tools and started doing real work — sending emails, editing documents, managing calendars, querying databases. SaaS AI agents now connect to Gmail, Google Drive, DocuSign, and Salesforce through plugin marketplaces. Spotify automated code migration across thousands of microservices using AI coding agents. The technology works.
 
 But as a Solutions Architect at AWS, I hear a different story from enterprise customers. The reaction is almost universal: "The tech is impressive, but we can't use it."
 
@@ -28,15 +28,13 @@ But as a Solutions Architect at AWS, I hear a different story from enterprise cu
 
 The barriers aren't technical — they're about governance.
 
-**Data sovereignty** comes first. Financial institutions and government agencies don't allow internal data to flow to external SaaS platforms. Using Claude Cowork means sending documents to Anthropic's servers, which violates security policies outright.
+**Data sovereignty** comes first. Financial institutions and government agencies don't allow internal data to flow to external SaaS platforms. Using external SaaS AI agents means sending documents to third-party servers, which can violate security policies.
 
-**Network isolation** is another wall. Healthcare, defense, and some financial sectors operate systems that cannot communicate with the public internet at all. Calling an external API like Claude Cowork is simply not an option.
+**Network isolation** is another wall. Healthcare, defense, and some financial sectors operate systems that cannot communicate with the public internet at all. Calling external SaaS APIs is simply not an option in these environments.
 
 **Audit and compliance** requirements are strict. GDPR, HIPAA, and financial regulations demand detailed records of who accessed what data and when. External SaaS platforms rarely provide the granularity enterprises need.
 
-Anthropic recognizes this gap themselves. Their [official Cowork documentation](https://support.claude.com/en/articles/13345190-get-started-with-cowork) states: "Cowork activity is not captured in Audit Logs, Compliance API, or Data Exports." They explicitly advise against using Cowork for regulated workloads.
-
-The technology direction is right. The deployment model needs work.
+The technology direction is right. But for regulated industries, the deployment model needs to evolve — data sovereignty, audit trails, and network isolation aren't optional.
 
 ## Bring the agent to the data
 
@@ -50,7 +48,7 @@ Here's the architecture:
 
 **Claude Code on Bedrock** extends this to coding agents. Setting  routes all Claude Code activity through Amazon Bedrock. Code generation, refactoring, and test writing all happen within AWS infrastructure. Source code never leaves your network boundary.
 
-**Amazon Lightsail** provides a simple runtime for self-hosted AI agents like OpenClaw. A single Lightsail instance with Docker runs a fully autonomous agent for about 2/month. It executes terminal commands, makes Git commits, runs code reviews — capabilities similar to Claude Cowork, but self-hosted.
+**Amazon Lightsail** provides a simple runtime for self-hosted AI agents like OpenClaw. A single Lightsail instance with Docker runs a fully autonomous agent for about 2/month. It executes terminal commands, makes Git commits, runs code reviews — capabilities similar to SaaS AI agents, but fully self-hosted.
 
 **VPC + PrivateLink** keeps all traffic on the AWS backbone. Lightsail connects to the VPC via peering. Bedrock calls go through VPC Endpoints. No internet traversal.
 
@@ -69,11 +67,11 @@ Architecture alone isn't enough. Enterprises need traceability.
 - **GuardDuty** detects anomalies — unusual API patterns or unexpected network connections.
 - **AWS Config** tracks resource configuration changes over time.
 
-When a compliance auditor asks "who accessed this customer data?", you have the CloudTrail logs ready. That's a fundamentally different story from "it went through a third-party SaaS."
+When a compliance auditor asks "who accessed this customer data?", you have the CloudTrail logs ready. That level of traceability is difficult to achieve with external SaaS platforms.
 
 ## Start small, scale with confidence
 
-AI agent adoption in the enterprise isn't a technology problem — it's a governance problem. The capabilities that Claude Cowork demonstrated are achievable within AWS Private networks, with the added benefits of complete data control, network isolation, and comprehensive audit trails.
+AI agent adoption in the enterprise isn't a technology problem — it's a governance problem. The capabilities that SaaS AI agents have demonstrated are achievable within AWS Private networks, with the added benefits of complete data control, network isolation, and comprehensive audit trails.
 
 OpenClaw on Lightsail is a practical starting point. Deploy an agent for a few dollars a month, connect it to internal tools via MCP, and validate the use case before scaling. The infrastructure for secure AI agents already exists. The question isn't whether to adopt AI agents — it's how to adopt them safely.
 
