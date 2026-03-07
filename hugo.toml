@@ -20,7 +20,7 @@ enableEmoji = false
 [params]
   env = "production"
   title = "AI Tech Blog"
-  description = "AWS SA가 쓰는 AI/ML 기술 블로그 - AI Tech Blog by an AWS Solutions Architect: trends, paper reviews, and hands-on guides"
+  description = "Jesam Kim이 쓰는 AI/ML 기술 블로그 - AI Tech Blog by Jesam Kim: trends, paper reviews, and hands-on guides"
   keywords = ["AI", "ML", "Deep Learning", "AWS", "논문 리뷰"]
   author = "Jesam Kim"
   defaultTheme = "auto"
