@@ -54,6 +54,7 @@
 <rect width="100%" height="100%" fill="#FFFFFF"/>
 <text x="40" y="28" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="bold" fill="#232F3E">Enterprise Private AI Agent Architecture on AWS</text>
 <text x="40" y="46" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#666666">Secure, compliant AI agent deployment with MCP integration</text>
+<!-- 1. 배경 컨테이너 -->
 <rect x="40.0" y="240.0" width="200.0" height="160.0" fill="#F5F5F5" stroke="#232F3E" stroke-width="2" rx="8"/>
 <rect x="40.0" y="240.0" width="160.0" height="22" fill="#232F3E" rx="8"/>
 <text x="68.0" y="255.0" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">Corporate Data Center</text>
@@ -63,6 +64,46 @@
 <rect x="508.0" y="142.0" width="520.0" height="740.0" fill="none" stroke="#8C4FFF" stroke-width="1.5" rx="0"/>
 <rect x="508.0" y="142.0" width="264.0" height="22" fill="#8C4FFF" rx="0"/>
 <text x="536.0" y="157.0" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">Amazon VPC (Private Network)</text>
+
+<!-- 2. 모든 화살표와 연결 라벨 (먼저 그림) -->
+<path d="M 164.0,320.0 L 290.0,320.0" fill="none" stroke="#8C4FFF" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
+<path d="M 338.0,320.0 L 430.0,320.0 L 430.0,384.0 L 542.0,384.0" fill="none" stroke="#8C4FFF" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
+<text x="386.0" y="368.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#8C4FFF">AWS Direct Connect</text>
+<path d="M 590.0,384.0 L 656.0,384.0 L 656.0,208.0 L 722.0,208.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
+<text x="638.0" y="296.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Private</text>
+<path d="M 770.0,208.0 L 836.0,208.0 L 836.0,384.0 L 902.0,384.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
+<text x="869.0" y="368.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">API</text>
+<path d="M 590.0,384.0 L 680.0,384.0 L 680.0,704.0 L 722.0,704.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="654.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
+<path d="M 566.0,408.0 L 566.0,520.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="543.4" y="464.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
+<path d="M 590.0,704.0 L 820.0,704.0 L 820.0,384.0 L 902.0,384.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="794.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
+<path d="M 590.0,360.0 L 590.0,330.0 L 1050.0,330.0 L 1050.0,176.0 L 1244.0,176.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
+<text x="820.0" y="322.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Logs/Metrics</text>
+<path d="M 590.0,568.0 L 590.0,800.0 L 1070.0,800.0 L 1070.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="832.0" y="793.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Encrypt</text>
+<path d="M 770.0,704.0 L 1100.0,704.0 L 1100.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="935.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Encrypt</text>
+<path d="M 950.0,704.0 L 1130.0,704.0 L 1130.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="1040.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Encrypt</text>
+
+<!-- 3. 번호 원 -->
+<circle cx="351.6" cy="304.0" r="12" fill="#232F3E"/>
+<text x="351.6" y="308.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">1</text>
+<circle cx="836.0" cy="258.8" r="12" fill="#232F3E"/>
+<text x="836.0" y="262.8" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">2</text>
+<circle cx="566.0" cy="516.8" r="12" fill="#232F3E"/>
+<text x="566.0" y="520.8" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">3</text>
+<circle cx="746.0" cy="480.8" r="12" fill="#232F3E"/>
+<text x="746.0" y="484.8" text-anchor="middle" font-family="Amazon Ember, Helvetica Nove, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">4</text>
+
+<!-- 4. 자물쇠 아이콘 (IAM+KMS) -->
+<circle cx="836.0" cy="296.0" r="14" fill="#DD344C"/>
+<path d="M 831,293 L 831,290 C 831,287 833,285 836,285 C 839,285 841,287 841,290 L 841,293 M 829,293 L 843,293 L 843,302 L 829,302 Z" fill="#FFFFFF" stroke="none"/>
+<text x="858.0" y="298.0" text-anchor="start" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#DD344C">IAM + KMS</text>
+
+<!-- 5. 모든 서비스 아이콘 + 라벨 (마지막에 그림 - 최상단 레이어) -->
 <use href="#icon-users" x="116.0" y="292.0" width="48" height="48"/>
 <text x="140.0" y="354.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E"><tspan x="140.0">Enterprise</tspan><tspan x="140.0" dy="13">Users</tspan></text>
 <use href="#icon-direct-connect" x="290.0" y="296.0" width="48" height="48"/>
@@ -101,37 +142,5 @@
 <use href="#icon-kms" x="1244.0" y="792.0" width="48" height="48"/>
 <text x="1268.0" y="854.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E">AWS KMS</text>
 <text x="1268.0" y="868.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Encryption</text>
-<path d="M 164.0,320.0 L 290.0,320.0" fill="none" stroke="#8C4FFF" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
-<path d="M 338.0,320.0 L 430.0,320.0 L 430.0,384.0 L 542.0,384.0" fill="none" stroke="#8C4FFF" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
-<text x="386.0" y="368.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="bold" fill="#8C4FFF">AWS Direct Connect</text>
-<path d="M 590.0,384.0 L 656.0,384.0 L 656.0,208.0 L 722.0,208.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
-<text x="638.0" y="296.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Private</text>
-<path d="M 770.0,208.0 L 836.0,208.0 L 836.0,384.0 L 902.0,384.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
-<circle cx="836.0" cy="296.0" r="14" fill="#DD344C"/>
-<path d="M 831,293 L 831,290 C 831,287 833,285 836,285 C 839,285 841,287 841,290 L 841,293 M 829,293 L 843,293 L 843,302 L 829,302 Z" fill="#FFFFFF" stroke="none"/>
-<text x="858.0" y="298.0" text-anchor="start" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#DD344C">IAM + KMS</text>
-<text x="869.0" y="368.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">API</text>
-<path d="M 590.0,384.0 L 680.0,384.0 L 680.0,704.0 L 722.0,704.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="654.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
-<path d="M 566.0,408.0 L 566.0,520.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="543.4" y="464.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
-<path d="M 590.0,384.0 L 820.0,384.0 L 820.0,704.0 L 902.0,704.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="794.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
-<path d="M 590.0,360.0 L 590.0,330.0 L 1050.0,330.0 L 1050.0,176.0 L 1244.0,176.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
-<text x="820.0" y="322.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Logs/Metrics</text>
-<path d="M 590.0,568.0 L 590.0,800.0 L 1070.0,800.0 L 1070.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="832.0" y="793.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Encrypt</text>
-<path d="M 770.0,704.0 L 1100.0,704.0 L 1100.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="935.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Encrypt</text>
-<path d="M 950.0,704.0 L 1130.0,704.0 L 1130.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="1040.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Encrypt</text>
-<circle cx="351.6" cy="304.0" r="12" fill="#232F3E"/>
-<text x="351.6" y="308.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">1</text>
-<circle cx="836.0" cy="258.8" r="12" fill="#232F3E"/>
-<text x="836.0" y="262.8" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">2</text>
-<circle cx="566.0" cy="516.8" r="12" fill="#232F3E"/>
-<text x="566.0" y="520.8" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">3</text>
-<circle cx="746.0" cy="480.8" r="12" fill="#232F3E"/>
-<text x="746.0" y="484.8" text-anchor="middle" font-family="Amazon Ember, Helvetica Nove, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">4</text>
 
 </svg>

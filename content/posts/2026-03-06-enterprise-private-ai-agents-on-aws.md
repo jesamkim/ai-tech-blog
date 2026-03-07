@@ -40,7 +40,7 @@ VentureBeat 기사에 따르면 Anthropic은 Claude Code로 개발 도구 시장
 
 <strong>커스텀 거버넌스</strong>도 필요합니다. 부서마다 다른 권한을 줘야 하고, 특정 모델만 사용하도록 제한해야 하고, 비용 한도를 설정해야 합니다. SaaS 플랫폼은 이런 세밀한 정책을 지원하지 않는 경우가 많습니다.
 
-Claude Cowork를 비판하려는 게 아닙니다. 기술 방향은 맞습니다. 실제로 Claude Cowork 공식 문서에서도 "Cowork activity is not captured in Audit Logs, Compliance API, or Data Exports"라고 명시하며, 규제 워크로드에는 사용하지 않도록 안내하고 있습니다. Anthropic 스스로도 이 gap을 인지하고 있다는 뜻입니다. 다만 기업 환경에는 넘어야 할 장벽들이 있습니다.
+Claude Cowork 기술 방향은 맞습니다. 실제로 Claude Cowork 공식 문서에서도 "Cowork activity is not captured in Audit Logs, Compliance API, or Data Exports"라고 명시하며, 규제 워크로드에는 사용하지 않도록 안내하고 있습니다. Anthropic 스스로도 이 gap을 인지하고 있다는 뜻입니다. 다만 기업 환경에는 넘어야 할 장벽들이 있습니다.
 
 ## AWS Private 환경에서의 AI 에이전트 아키텍처
 
@@ -56,7 +56,7 @@ Claude Cowork를 비판하려는 게 아닙니다. 기술 방향은 맞습니다
 
 ### Amazon Bedrock: 모델 추론이 AWS 내에서 완결
 
-Amazon Bedrock은 Claude, Llama, Titan 같은 Foundation 모델을 API로 제공하는 관리형 서비스입니다. 중요한 점은 <strong>추론이 AWS 인프라 내에서 이뤄지고, 고객 데이터가 모델 학습에 사용되지 않는다</strong>는 겁니다.
+Amazon Bedrock은 Claude, Nova2, Llama 같은 Foundation 모델을 API로 제공하는 관리형 서비스입니다. 중요한 점은 <strong>추론이 AWS 인프라 내에서 이뤄지고, 고객 데이터가 모델 학습에 사용되지 않는다</strong>는 겁니다.
 
 Claude Sonnet 4.6을 Bedrock으로 호출하면 요청과 응답이 모두 AWS 네트워크 안에 머뭅니다. Anthropic 외부 API를 거치지 않습니다. 데이터 주권 요구사항을 만족시킬 수 있는 구조입니다.
 
