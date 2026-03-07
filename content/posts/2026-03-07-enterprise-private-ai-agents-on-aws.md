@@ -40,7 +40,7 @@ VentureBeat 기사에 따르면 Anthropic은 Claude Code로 개발 도구 시장
 
 <strong>커스텀 거버넌스</strong>도 필요합니다. 부서마다 다른 권한을 줘야 하고, 특정 모델만 사용하도록 제한해야 하고, 비용 한도를 설정해야 합니다. SaaS 플랫폼은 이런 세밀한 정책을 지원하지 않는 경우가 많습니다.
 
-Claude Cowork 기술 방향은 맞습니다. 실제로 [Claude Cowork 공식 문서](https://support.claude.com/en/articles/13345190-get-started-with-cowork)에서도 "Cowork activity is not captured in Audit Logs, Compliance API, or Data Exports"라고 명시하며, 규제 워크로드에는 사용하지 않도록 안내하고 있습니다. Anthropic 스스로도 이 gap을 인지하고 있다는 뜻입니다. 다만 기업 환경에는 넘어야 할 장벽들이 있습니다.
+SaaS AI 에이전트의 기술 방향은 맞습니다. 다만 엔터프라이즈 환경에서는 데이터 주권, 감사 로그, 네트워크 격리 같은 요구사항을 추가로 충족해야 합니다.
 
 ## AWS Private 환경에서의 AI 에이전트 아키텍처
 
