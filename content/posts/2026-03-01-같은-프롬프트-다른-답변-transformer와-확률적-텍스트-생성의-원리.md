@@ -1,6 +1,6 @@
 ---
 title: "같은 프롬프트, 다른 답변 - Transformer와 확률적 텍스트 생성의 원리"
-date: 2026-02-28T11:00:00+09:00
+date: 2026-03-01T10:00:00+09:00
 draft: false
 author: "Jesam Kim"
 categories:

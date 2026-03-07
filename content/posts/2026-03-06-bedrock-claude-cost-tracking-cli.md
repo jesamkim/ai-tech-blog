@@ -1,6 +1,6 @@
 ---
 title: "Amazon Bedrock Claude 비용 추적 — CloudWatch 메트릭으로 만드는 경량 CLI"
-date: 2026-03-05
+date: 2026-03-06T10:00:00+09:00
 description: "AWS Cost Explorer는 서비스 레벨만 보여주고, Bedrock은 토큰 단위 과금인데 모델별 세분화가 안 됩니다. CloudWatch에 숨어있는 Bedrock 메트릭을 Python으로 직접 조회하여 일별/모델별 비용을 추적하는 경량 CLI를 만들었습니다."
 categories: ["AWS AI/ML"]
 tags: ["Amazon Bedrock", "Claude", "Cost Tracking", "CloudWatch", "Prompt Caching", "Python CLI", "FinOps"]

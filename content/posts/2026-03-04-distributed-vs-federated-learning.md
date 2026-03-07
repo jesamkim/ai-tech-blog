@@ -1,6 +1,6 @@
 ---
 title: "분산 학습 vs 연합 학습: 같은 뿌리, 다른 철학"
-date: 2026-03-05
+date: 2026-03-04T10:00:00+09:00
 description: "분산 학습과 연합 학습은 모두 여러 노드에서 모델을 학습하지만, 목적과 제약 조건이 완전히 다릅니다. 핵심 논문들의 Problem/Contribution/Method를 비교하며 두 접근법의 차이를 살펴봅니다."
 categories: ["AI/ML 기술 심층분석"]
 tags: ["Distributed Learning", "Federated Learning", "FedAvg", "Data Parallel", "Privacy", "Non-IID", "Communication Efficiency"]
