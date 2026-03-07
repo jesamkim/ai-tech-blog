@@ -103,10 +103,10 @@
 <text x="543.4" y="551.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
 <path d="M 590.0,384.0 L 746.0,384.0 L 746.0,704.0 L 902.0,704.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
 <text x="720.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
-<path d="M 590.0,384.0 L 1050.0,384.0 L 1050.0,176.0 L 1244.0,176.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
-<text x="820.0" y="368.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Logs/Metrics</text>
-<path d="M 590.0,704.0 L 1070.0,704.0 L 1070.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="832.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Encrypt</text>
+<path d="M 590.0,360.0 L 590.0,330.0 L 1050.0,330.0 L 1050.0,176.0 L 1244.0,176.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
+<text x="820.0" y="322.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Logs/Metrics</text>
+<path d="M 590.0,728.0 L 590.0,775.0 L 1070.0,775.0 L 1070.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="832.0" y="768.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Encrypt</text>
 <path d="M 950.0,704.0 L 1100.0,704.0 L 1100.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
 <text x="1025.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Encrypt</text>
 <circle cx="351.6" cy="304.0" r="12" fill="#232F3E"/>
@@ -117,5 +117,5 @@
 <text x="566.0" y="520.8" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">3</text>
 <circle cx="746.0" cy="480.8" r="12" fill="#232F3E"/>
 <text x="746.0" y="484.8" text-anchor="middle" font-family="Amazon Ember, Helvetica Nove, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">4</text>
-<text x="40" y="930" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="24" font-weight="bold" fill="#232F3E" opacity="0.14">jesamkim.github.io</text>
+
 </svg>
