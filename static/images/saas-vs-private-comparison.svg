@@ -79,7 +79,7 @@
 
 </defs>
 
-<rect width="900" height="620" fill="#FFFFFF"/>
+<rect width="900" height="720" fill="#FFFFFF"/>
 
 <!-- Title -->
 <text x="450" y="30" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="bold" fill="#232F3E">AWS Private AI Agent Architecture</text>
