@@ -175,5 +175,8 @@ AI 에이전트 시대는 이미 시작됐습니다. 이제 중요한 건 어떻
 - Spotify Case Study: Claude Agent SDK
   https://claude.com/customers/spotify
 
+- Claude Code on Amazon Bedrock
+  https://code.claude.com/docs/en/amazon-bedrock
+
 - Claude Cowork Safety Guide (Audit Logs limitation)
   https://support.claude.com/en/articles/13345190-get-started-with-cowork
