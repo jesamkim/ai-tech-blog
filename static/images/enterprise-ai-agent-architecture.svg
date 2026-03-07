@@ -41,6 +41,12 @@
 <line x1="6" y1="24" x2="18" y2="24" stroke="#8C4FFF" stroke-width="2.5"/>
 <line x1="30" y1="24" x2="42" y2="24" stroke="#8C4FFF" stroke-width="2.5"/>
 </symbol>
+<symbol id="icon-opensearch" viewBox="0 0 80 80">
+<g id="Icon-Architecture/64/Arch_Amazon-OpenSearch-Service_64" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Icon-Architecture-BG/64/Analytics" fill="#8C4FFF"><rect x="0" y="0" width="80" height="80" id="Rectangle"/></g><path d="M40 53C31.729 53 25 46.271 25 38 25 29.729 31.729 23 40 23 48.271 23 55 29.729 55 38 55 46.271 48.271 53 40 53M40 21C30.626 21 23 28.626 23 38 23 47.374 30.626 55 40 55 49.374 55 57 47.374 57 38 57 28.626 49.374 21 40 21M48.364 46.95C46.879 48.937 44.839 50.449 42.5 51.293L42.5 40 48.364 46.95ZM50.05 45.364L44 38.586 44 28.086C47.27 29.271 49.729 32.282 50.05 35.95L50.05 45.364ZM42 40.586L47.95 47.45C46.465 48.438 44.754 49.05 42.916 49.229L42 48.172 42 40.586ZM40.085 49.229C38.246 49.05 36.535 48.438 35.05 47.45L41 40.586 41 48.172 40.085 49.229ZM31.636 46.95L37.5 40 37.5 51.293C35.161 50.449 33.121 48.937 31.636 46.95M29.95 45.364L29.95 35.95C30.271 32.282 32.73 29.271 36 28.086L36 38.586 29.95 45.364ZM37.084 26.771C38.923 26.95 40.634 27.562 42.12 28.55L36 35.586 36 27.828 37.084 26.771ZM43.88 28.55C45.366 27.562 47.077 26.95 48.916 26.771L44 31.828 44 35.586 43.88 28.55ZM38 27.828L38 35.586 31.88 28.55C33.366 27.562 35.077 26.95 36.916 26.771L38 27.828ZM68 38C68 54.016 55.016 67 39 67 22.984 67 10 54.016 10 38 10 21.984 22.984 9 39 9 55.016 9 68 21.984 68 38M70 38C70 20.881 56.119 7 39 7 21.881 7 8 20.881 8 38 8 55.119 21.881 69 39 69 56.119 69 70 55.119 70 38" id="Amazon-OpenSearch-Service_Icon_64_Squid" fill="#FFFFFF"/></g>
+</symbol>
+<symbol id="icon-dynamodb" viewBox="0 0 80 80">
+<g id="Icon-Architecture/64/Arch_Amazon-DynamoDB_64" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Icon-Architecture-BG/64/Database" fill="#C925D1"><rect x="0" y="0" width="80" height="80" id="Rectangle"/></g><path d="M40 30.333C32.853 30.333 29 28.487 29 27.733 29 26.978 32.853 25.133 40 25.133 47.146 25.133 51 26.978 51 27.733 51 28.487 47.146 30.333 40 30.333M29 35.191C31.463 36.551 35.832 37.193 40 37.193 44.168 37.193 48.537 36.551 51 35.191L51 40.051C51 41.069 46.835 42.938 40.029 42.938 33.187 42.938 29 41.069 29 40.051L29 35.191ZM40 48.574C32.883 48.574 29 46.661 29 45.678L29 40.816C31.431 42.245 35.742 42.985 40.029 42.985 44.292 42.985 48.578 42.246 51 40.821L51 45.678C51 46.661 47.117 48.574 40 48.574M29 52.305C31.431 53.734 35.742 54.474 40.029 54.474 44.292 54.474 48.578 53.735 51 52.31L51 57.168C51 58.151 47.117 60.063 40 60.063 32.883 60.063 29 58.151 29 57.168L29 52.305ZM40 23.133C33.739 23.133 27 24.572 27 27.733L27 57.168C27 60.383 33.54 62.063 40 62.063 46.46 62.063 53 60.383 53 57.168L53 27.733C53 24.572 46.261 23.133 40 23.133M68 39C68 24.088 55.912 12 41 12 26.088 12 14 24.088 14 39 14 53.912 26.088 66 41 66 55.912 66 68 53.912 68 39M12 39C12 22.984 25.984 9 42 9 58.016 9 72 22.984 72 39 72 55.016 58.016 69 42 69 25.984 69 12 55.016 12 39" id="Amazon-DynamoDB_Icon_64_Squid" fill="#FFFFFF"/></g>
+</symbol>
 <symbol id="icon-s3" viewBox="0 0 80 80">
 <g id="Icon-Architecture/64/Arch_Amazon-Simple-Storage-Service_64" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Icon-Architecture-BG/64/Storage" fill="#7AA116"><rect x="0" y="0" width="80" height="80" id="Rectangle"/></g><g id="Icon-Service/64/Amazon-Simple-Storage-Service_64" fill="#FFFFFF" transform="translate(12.9999 11.9996)"><path d="M47.836 30.893 48.22 28.189C51.761 30.31 51.807 31.186 51.806 31.21 51.8 31.215 51.196 31.719 47.836 30.893L47.836 30.893ZM45.893 30.353C39.773 28.501 31.25 24.591 27.801 22.961 27.801 22.947 27.805 22.934 27.805 22.92 27.805 21.595 26.727 20.517 25.401 20.517 24.077 20.517 22.999 21.595 22.999 22.92 22.999 24.245 24.077 25.323 25.401 25.323 25.983 25.323 26.511 25.106 26.928 24.761 30.986 26.682 39.443 30.535 45.608 32.355L43.17 49.561C43.163 49.608 43.16 49.655 43.16 49.702 43.16 51.217 36.453 54 25.494 54 14.419 54 7.641 51.217 7.641 49.702 7.641 49.656 7.638 49.611 7.632 49.566L2.538 12.359C6.947 15.394 16.43 17 25.5 17 34.556 17 44.023 15.4 48.441 12.374L45.893 30.353ZM2 8.478C2.072 7.162 9.634 2 25.5 2 41.364 2 48.927 7.161 49 8.478L49 8.927C48.13 11.878 38.33 15 25.5 15 12.648 15 2.843 11.868 2 8.913L2 8.478ZM51 8.5C51 5.035 41.066 0 25.5 0 9.934 0 0 5.035 0 8.5L0.094 9.254 5.642 49.778C5.775 54.31 17.861 56 25.494 56 34.966 56 45.029 53.822 45.159 49.781L47.555 32.884C48.888 33.203 49.985 33.366 50.866 33.366 52.049 33.366 52.849 33.077 53.334 32.499 53.732 32.025 53.884 31.451 53.77 30.84 53.511 29.456 51.868 27.964 48.522 26.055L50.898 9.293 51 8.5Z" id="Amazon-Simple-Storage-Service-Icon_64_Squid"/></g></g>
 </symbol>
@@ -54,7 +60,7 @@
 <rect x="480.0" y="96.0" width="880.0" height="810.0" fill="none" stroke="#232F3E" stroke-width="2" rx="8"/>
 <rect x="480.0" y="96.0" width="112.0" height="22" fill="#232F3E" rx="8"/>
 <text x="508.0" y="111.0" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">AWS Cloud</text>
-<rect x="508.0" y="142.0" width="520.0" height="640.0" fill="none" stroke="#8C4FFF" stroke-width="1.5" rx="0"/>
+<rect x="508.0" y="142.0" width="520.0" height="740.0" fill="none" stroke="#8C4FFF" stroke-width="1.5" rx="0"/>
 <rect x="508.0" y="142.0" width="264.0" height="22" fill="#8C4FFF" rx="0"/>
 <text x="536.0" y="157.0" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">Amazon VPC (Private Network)</text>
 <use href="#icon-users" x="116.0" y="292.0" width="48" height="48"/>
@@ -69,9 +75,15 @@
 <use href="#icon-s3" x="542.0" y="680.0" width="48" height="48"/>
 <text x="566.0" y="742.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E">Amazon S3</text>
 <text x="566.0" y="756.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Enterprise Documents</text>
-<use href="#icon-rds" x="902.0" y="680.0" width="48" height="48"/>
-<text x="926.0" y="742.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E">Amazon RDS</text>
-<text x="926.0" y="756.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Enterprise Database</text>
+<use href="#icon-rds" x="722.0" y="680.0" width="48" height="48"/>
+<text x="746.0" y="742.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E">Amazon RDS</text>
+<text x="746.0" y="756.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Enterprise Database</text>
+<use href="#icon-opensearch" x="542.0" y="520.0" width="48" height="48"/>
+<text x="566.0" y="582.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E">Amazon OpenSearch</text>
+<text x="566.0" y="596.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Knowledge Base</text>
+<use href="#icon-dynamodb" x="902.0" y="680.0" width="48" height="48"/>
+<text x="926.0" y="742.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E">Amazon DynamoDB</text>
+<text x="926.0" y="756.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Application Data</text>
 <use href="#icon-privatelink" x="722.0" y="184.0" width="48" height="48"/>
 <text x="746.0" y="246.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#232F3E"><tspan x="746.0">VPC Endpoint</tspan><tspan x="746.0" dy="13">(PrivateLink)</tspan></text>
 <use href="#icon-cloudwatch" x="1244.0" y="152.0" width="48" height="48"/>
@@ -99,16 +111,20 @@
 <path d="M 831,293 L 831,290 C 831,287 833,285 836,285 C 839,285 841,287 841,290 L 841,293 M 829,293 L 843,293 L 843,302 L 829,302 Z" fill="#FFFFFF" stroke="none"/>
 <text x="858.0" y="298.0" text-anchor="start" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="bold" fill="#DD344C">IAM + KMS</text>
 <text x="869.0" y="368.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">API</text>
-<path d="M 566.0,408.0 L 566.0,680.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="543.4" y="551.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
-<path d="M 590.0,384.0 L 746.0,384.0 L 746.0,704.0 L 902.0,704.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="720.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
+<path d="M 590.0,384.0 L 680.0,384.0 L 680.0,704.0 L 722.0,704.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="654.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
+<path d="M 566.0,408.0 L 566.0,520.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="543.4" y="464.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
+<path d="M 590.0,384.0 L 820.0,384.0 L 820.0,704.0 L 902.0,704.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="794.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">MCP</text>
 <path d="M 590.0,360.0 L 590.0,330.0 L 1050.0,330.0 L 1050.0,176.0 L 1244.0,176.0" fill="none" stroke="#545B64" stroke-width="2" marker-end="url(#arrowhead)"/>
 <text x="820.0" y="322.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Logs/Metrics</text>
-<path d="M 590.0,728.0 L 590.0,775.0 L 1070.0,775.0 L 1070.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="832.0" y="768.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Encrypt</text>
-<path d="M 950.0,704.0 L 1100.0,704.0 L 1100.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-<text x="1025.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Encrypt</text>
+<path d="M 590.0,568.0 L 590.0,800.0 L 1070.0,800.0 L 1070.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="832.0" y="793.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#232F3E">Encrypt</text>
+<path d="M 770.0,704.0 L 1100.0,704.0 L 1100.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="935.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Encrypt</text>
+<path d="M 950.0,704.0 L 1130.0,704.0 L 1130.0,816.0 L 1244.0,816.0" fill="none" stroke="#545B64" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+<text x="1040.0" y="688.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="10" font-style="italic" fill="#666666">Encrypt</text>
 <circle cx="351.6" cy="304.0" r="12" fill="#232F3E"/>
 <text x="351.6" y="308.0" text-anchor="middle" font-family="Amazon Ember, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">1</text>
 <circle cx="836.0" cy="258.8" r="12" fill="#232F3E"/>
