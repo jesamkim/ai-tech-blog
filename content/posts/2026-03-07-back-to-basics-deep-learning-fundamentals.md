@@ -285,6 +285,6 @@ ReLU(x) = max(0, x)
 
 ## References
 
-- Bommasani et al., "On the Opportunities and Risks of Foundation Models", arXiv:2108.07258, 2022
-- Goodfellow et al., "Deep Learning", MIT Press, 2016
-- Kingma & Ba, "Adam: A Method for Stochastic Optimization", ICLR 2015
+- Bommasani et al., [On the Opportunities and Risks of Foundation Models](https://arxiv.org/abs/2108.07258), arXiv:2108.07258, 2022
+- Goodfellow et al., [Deep Learning](https://www.deeplearningbook.org/), MIT Press, 2016
+- Kingma & Ba, [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980), ICLR 2015

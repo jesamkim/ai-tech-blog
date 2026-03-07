@@ -51,4 +51,5 @@
 <line x1="554" y1="70" x2="606" y2="70" stroke="#16A34A" stroke-width="2" marker-end="url(#arr4)"/>
 
 <text x="400" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#999">Mini-batch SGD: 데이터를 작은 묶음으로 나눠서 반복 학습</text>
+<text x="790" y="272" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#CCCCCC">jesamkim.github.io</text>
 </svg>
