@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#bg3)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="monospace" font-size="18" fill="white" font-weight="bold">Neural Vocoder의 진화</text>
+
+  <!-- Timeline -->
+  <line x1="100" y1="90" x2="700" y2="90" stroke="#333" stroke-width="2"/>
+
+  <!-- 2016: WaveNet -->
+  <circle cx="150" cy="90" r="8" fill="#ff9900"/>
+  <text x="150" y="75" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">2016</text>
+  <rect x="90" y="110" width="120" height="110" rx="8" fill="#16213e" stroke="#ff9900" stroke-width="2"/>
+  <text x="150" y="133" text-anchor="middle" font-family="monospace" font-size="12" fill="#ff9900" font-weight="bold">WaveNet</text>
+  <text x="150" y="150" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">CNN 기반</text>
+  <text x="150" y="164" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Autoregressive</text>
+  <text x="150" y="178" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d4aa">✓ 고품질</text>
+  <text x="150" y="192" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff4444">✗ 1초 생성에 5분</text>
+  <text x="150" y="210" text-anchor="middle" font-family="monospace" font-size="7" fill="#555">DeepMind 2016</text>
+
+  <!-- 2018: WaveRNN -->
+  <circle cx="280" cy="90" r="8" fill="#00a8ff"/>
+  <text x="280" y="75" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">2018</text>
+  <rect x="220" y="110" width="120" height="90" rx="8" fill="#16213e" stroke="#00a8ff" stroke-width="2"/>
+  <text x="280" y="133" text-anchor="middle" font-family="monospace" font-size="12" fill="#00a8ff" font-weight="bold">WaveRNN</text>
+  <text x="280" y="150" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">RNN 기반</text>
+  <text x="280" y="164" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Autoregressive</text>
+  <text x="280" y="178" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d4aa">조금 빨라짐</text>
+  <text x="280" y="194" text-anchor="middle" font-family="monospace" font-size="7" fill="#555">Kalchbrenner+ 2018</text>
+
+  <!-- 2018: Parallel WaveNet -->
+  <circle cx="410" cy="90" r="8" fill="#aa88ff"/>
+  <text x="410" y="75" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">2018</text>
+  <rect x="350" y="110" width="120" height="110" rx="8" fill="#16213e" stroke="#aa88ff" stroke-width="2"/>
+  <text x="410" y="128" text-anchor="middle" font-family="monospace" font-size="11" fill="#aa88ff" font-weight="bold">Parallel</text>
+  <text x="410" y="142" text-anchor="middle" font-family="monospace" font-size="11" fill="#aa88ff" font-weight="bold">WaveNet</text>
+  <text x="410" y="158" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Non-autoregressive</text>
+  <text x="410" y="172" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Knowledge Distillation</text>
+  <text x="410" y="186" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d4aa">✓ 1초 생성 0.02초</text>
+  <text x="410" y="200" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff4444">✗ 학습 어려움</text>
+  <text x="410" y="214" text-anchor="middle" font-family="monospace" font-size="7" fill="#555">van den Oord+ 2018</text>
+
+  <!-- 2019: WaveGlow -->
+  <circle cx="540" cy="90" r="8" fill="#00d4aa"/>
+  <text x="540" y="75" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">2019</text>
+  <rect x="480" y="110" width="120" height="90" rx="8" fill="#16213e" stroke="#00d4aa" stroke-width="2"/>
+  <text x="540" y="133" text-anchor="middle" font-family="monospace" font-size="12" fill="#00d4aa" font-weight="bold">WaveGlow</text>
+  <text x="540" y="150" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Flow 기반</text>
+  <text x="540" y="164" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Non-autoregressive</text>
+  <text x="540" y="178" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d4aa">빠른 추론</text>
+  <text x="540" y="194" text-anchor="middle" font-family="monospace" font-size="7" fill="#555">Prenger+ 2019</text>
+
+  <!-- 2020: Parallel WaveGAN -->
+  <circle cx="650" cy="90" r="10" fill="#ffdd44"/>
+  <text x="650" y="73" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffdd44" font-weight="bold">2020</text>
+  <rect x="590" y="110" width="120" height="110" rx="8" fill="#16213e" stroke="#ffdd44" stroke-width="3"/>
+  <text x="650" y="128" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffdd44" font-weight="bold">Parallel</text>
+  <text x="650" y="142" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffdd44" font-weight="bold">WaveGAN</text>
+  <text x="650" y="158" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">GAN 기반</text>
+  <text x="650" y="172" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Distillation 제거</text>
+  <text x="650" y="186" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d4aa">✓ 빠름 + 고품질</text>
+  <text x="650" y="200" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d4aa">✓ 학습 안정적</text>
+  <text x="650" y="214" text-anchor="middle" font-family="monospace" font-size="7" fill="#555">Yamamoto+ 2020</text>
+
+  <!-- 2021: DiffWave -->
+  <text x="700" y="145" text-anchor="start" font-family="monospace" font-size="10" fill="#888">2021: DiffWave</text>
+  <text x="700" y="162" text-anchor="start" font-family="monospace" font-size="8" fill="#555">(Diffusion)</text>
+
+  <!-- Bottom: Key Innovation -->
+  <rect x="50" y="260" width="700" height="220" rx="12" fill="#0a0a2e" stroke="#333" stroke-width="1"/>
+  <text x="400" y="290" text-anchor="middle" font-family="monospace" font-size="14" fill="#00ff88" font-weight="bold">핵심 전환점: Mel-spectrogram의 재발견</text>
+
+  <text x="80" y="320" text-anchor="start" font-family="monospace" font-size="11" fill="#888">• Parametric Vocoder (LPC) 시대:</text>
+  <text x="100" y="340" text-anchor="start" font-family="monospace" font-size="9" fill="#555">- LP coefficients + Residual 사용</text>
+  <text x="100" y="355" text-anchor="start" font-family="monospace" font-size="9" fill="#555">- Source-filter 모델 기반 합성</text>
+  <text x="100" y="370" text-anchor="start" font-family="monospace" font-size="9" fill="#ff4444">- 음질 한계, feature engineering 필요</text>
+
+  <text x="80" y="400" text-anchor="start" font-family="monospace" font-size="11" fill="#888">• Neural Vocoder 시대:</text>
+  <text x="100" y="420" text-anchor="start" font-family="monospace" font-size="9" fill="#555">- Mel-spectrogram 입력</text>
+  <text x="100" y="435" text-anchor="start" font-family="monospace" font-size="9" fill="#555">- 딥러닝 모델이 직접 waveform 생성</text>
+  <text x="100" y="450" text-anchor="start" font-family="monospace" font-size="9" fill="#00d4aa">- 고품질 자연스러운 음성 합성 가능</text>
+  <text x="100" y="465" text-anchor="start" font-family="monospace" font-size="9" fill="#00d4aa">- TTS, Voice Conversion, Speech Translation 등 응용</text>
+
+  <!-- Watermark -->
+  <text x="15" y="508" font-family="monospace" font-size="9" fill="#555" font-weight="bold" opacity="0.6">jesamkim.github.io</text>
+</svg>

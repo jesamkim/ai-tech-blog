@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg2)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="monospace" font-size="18" fill="white" font-weight="bold">인간의 음성 생성 원리</text>
+
+  <!-- Left: Vocal Cords -->
+  <rect x="80" y="80" width="280" height="160" rx="12" fill="#16213e" stroke="#ff9900" stroke-width="3"/>
+  <text x="220" y="110" text-anchor="middle" font-family="monospace" font-size="16" fill="#ff9900" font-weight="bold">성대 (Vocal Cords)</text>
+  <text x="220" y="135" text-anchor="middle" font-family="monospace" font-size="11" fill="#00d4aa">Source (음원 생성)</text>
+
+  <!-- Voiced sound -->
+  <rect x="100" y="155" width="115" height="70" rx="6" fill="#0a0a2e" stroke="#00d4aa" stroke-width="1"/>
+  <text x="157" y="173" text-anchor="middle" font-family="monospace" font-size="10" fill="#00d4aa" font-weight="bold">유성음 (Voiced)</text>
+  <text x="157" y="190" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">준주기적 신호</text>
+  <text x="157" y="203" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">모음, 비음</text>
+  <text x="157" y="216" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d4aa">→ 톤 결정</text>
+
+  <!-- Unvoiced sound -->
+  <rect x="225" y="155" width="115" height="70" rx="6" fill="#0a0a2e" stroke="#ff4444" stroke-width="1"/>
+  <text x="282" y="173" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff4444" font-weight="bold">무성음 (Unvoiced)</text>
+  <text x="282" y="190" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">잡음성 신호</text>
+  <text x="282" y="203" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">무성 자음, 속삭임</text>
+  <text x="282" y="216" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff4444">→ 진동 없음</text>
+
+  <!-- Arrow down -->
+  <path d="M 220 240 L 220 280" stroke="#555" stroke-width="3" fill="none"/>
+  <polygon points="220,280 213,268 227,268" fill="#555"/>
+
+  <!-- Right: Vocal Tract -->
+  <rect x="440" y="80" width="280" height="160" rx="12" fill="#16213e" stroke="#00a8ff" stroke-width="3"/>
+  <text x="580" y="110" text-anchor="middle" font-family="monospace" font-size="16" fill="#00a8ff" font-weight="bold">성도 (Vocal Tract)</text>
+  <text x="580" y="135" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffdd44">Filter (발음 결정)</text>
+
+  <!-- Formants -->
+  <rect x="460" y="155" width="240" height="70" rx="6" fill="#0a0a2e" stroke="#ffdd44" stroke-width="1"/>
+  <text x="580" y="173" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffdd44" font-weight="bold">입 모양 + 코 사용</text>
+  <text x="580" y="190" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Formant frequency 결정</text>
+  <text x="580" y="203" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">아/에/이/오/우</text>
+  <text x="580" y="216" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffdd44">→ 발음 결정</text>
+
+  <!-- Arrow down -->
+  <path d="M 580 240 L 580 280" stroke="#555" stroke-width="3" fill="none"/>
+  <polygon points="580,280 573,268 587,268" fill="#555"/>
+
+  <!-- Center: Combined -->
+  <rect x="250" y="290" width="300" height="120" rx="12" fill="#16213e" stroke="#00ff88" stroke-width="3"/>
+  <text x="400" y="320" text-anchor="middle" font-family="monospace" font-size="16" fill="#00ff88" font-weight="bold">최종 음성 신호</text>
+  <text x="400" y="350" text-anchor="middle" font-family="monospace" font-size="11" fill="#888">Source (톤) × Filter (발음)</text>
+  <text x="400" y="375" text-anchor="middle" font-family="monospace" font-size="11" fill="#888">= Speech Waveform</text>
+  <text x="400" y="395" text-anchor="middle" font-family="monospace" font-size="10" fill="#00ff88">🔊 "안녕하세요"</text>
+
+  <!-- Watermark -->
+  <text x="15" y="438" font-family="monospace" font-size="9" fill="#555" font-weight="bold" opacity="0.6">jesamkim.github.io</text>
+</svg>
