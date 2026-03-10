@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520">
   <defs>
     <linearGradient id="bg3" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a2e"/>
@@ -6,13 +6,13 @@
     </linearGradient>
   </defs>
 
-  <rect width="800" height="520" fill="url(#bg3)" rx="12"/>
+  <rect width="1000" height="520" fill="url(#bg3)" rx="12"/>
 
   <!-- Title -->
-  <text x="400" y="35" text-anchor="middle" font-family="monospace" font-size="18" fill="white" font-weight="bold">Neural Vocoder의 진화</text>
+  <text x="500" y="35" text-anchor="middle" font-family="monospace" font-size="18" fill="white" font-weight="bold">Neural Vocoder의 진화</text>
 
   <!-- Timeline -->
-  <line x1="100" y1="90" x2="700" y2="90" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="90" x2="900" y2="90" stroke="#333" stroke-width="2"/>
 
   <!-- 2016: WaveNet -->
   <circle cx="150" cy="90" r="8" fill="#ff9900"/>
@@ -70,12 +70,18 @@
   <text x="650" y="214" text-anchor="middle" font-family="monospace" font-size="7" fill="#555">Yamamoto+ 2020</text>
 
   <!-- 2021: DiffWave -->
-  <text x="700" y="145" text-anchor="start" font-family="monospace" font-size="10" fill="#888">2021: DiffWave</text>
-  <text x="700" y="162" text-anchor="start" font-family="monospace" font-size="8" fill="#555">(Diffusion)</text>
+  <circle cx="780" cy="90" r="8" fill="#ff66ff"/>
+  <text x="780" y="75" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">2021</text>
+  <rect x="720" y="110" width="120" height="90" rx="8" fill="#16213e" stroke="#ff66ff" stroke-width="2"/>
+  <text x="780" y="133" text-anchor="middle" font-family="monospace" font-size="12" fill="#ff66ff" font-weight="bold">DiffWave</text>
+  <text x="780" y="150" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Diffusion 기반</text>
+  <text x="780" y="164" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">Non-autoregressive</text>
+  <text x="780" y="178" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d4aa">고품질 생성</text>
+  <text x="780" y="194" text-anchor="middle" font-family="monospace" font-size="7" fill="#555">Kong+ 2021</text>
 
   <!-- Bottom: Key Innovation -->
-  <rect x="50" y="260" width="700" height="220" rx="12" fill="#0a0a2e" stroke="#333" stroke-width="1"/>
-  <text x="400" y="290" text-anchor="middle" font-family="monospace" font-size="14" fill="#00ff88" font-weight="bold">핵심 전환점: Mel-spectrogram의 재발견</text>
+  <rect x="50" y="260" width="900" height="220" rx="12" fill="#0a0a2e" stroke="#333" stroke-width="1"/>
+  <text x="500" y="290" text-anchor="middle" font-family="monospace" font-size="14" fill="#00ff88" font-weight="bold">핵심 전환점: Mel-spectrogram의 재발견</text>
 
   <text x="80" y="320" text-anchor="start" font-family="monospace" font-size="11" fill="#888">• Parametric Vocoder (LPC) 시대:</text>
   <text x="100" y="340" text-anchor="start" font-family="monospace" font-size="9" fill="#555">- LP coefficients + Residual 사용</text>
