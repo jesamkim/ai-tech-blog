@@ -1,135 +1,120 @@
 #!/usr/bin/env python3
-"""PEFT Decision Flowchart - 한글 폰트 수정"""
-
+"""PEFT Decision Flowchart - 완전 새로 작성"""
 import matplotlib
 matplotlib.rcParams["font.family"] = "NanumGothic"
 matplotlib.rcParams["axes.unicode_minus"] = False
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-
-# 폰트 매니저 캐시 초기화
 import matplotlib.font_manager as fm
 fm._load_fontmanager(try_read_cache=False)
 
-# 다크 테마 색상
-BG_COLOR = "#1a1a2e"
-TEXT_COLOR = "#e0e0e0"
-BOX_COLOR = "#16213e"
+BG = "#1a1a2e"
+TX = "#e0e0e0"
+BX = "#16213e"
 BLUE = "#4fc3f7"
 GREEN = "#66bb6a"
+RED = "#ef5350"
 YELLOW = "#ffd54f"
+PURPLE = "#ab47bc"
 
-# Figure 생성 (가로 18, 세로 21, xlim 여유 충분히)
-fig, ax = plt.subplots(figsize=(18, 21), facecolor=BG_COLOR)
-ax.set_facecolor(BG_COLOR)
-ax.set_xlim(-1, 17)  # 오른쪽 여유 증가
-ax.set_ylim(0, 20)
+fig, ax = plt.subplots(figsize=(16, 20), facecolor=BG)
+ax.set_facecolor(BG)
+ax.set_xlim(-1, 15)
+ax.set_ylim(-1, 19)
 ax.axis("off")
 
-def draw_diamond(ax, x, y, w, h, text, color=BLUE):
-    """다이아몬드 판단 노드"""
-    diamond = mpatches.FancyBboxPatch(
-        (x - w/2, y - h/2), w, h,
-        boxstyle="round,pad=0.1",
-        facecolor=BOX_COLOR, edgecolor=color, linewidth=2
-    )
-    ax.add_patch(diamond)
-    # 텍스트 줄바꿈
-    lines = text.split("\n")
-    y_offset = 0.15 * (len(lines) - 1)
-    for i, line in enumerate(lines):
-        ax.text(x, y + y_offset - i * 0.3, line, ha="center", va="center",
-                fontsize=10, color=TEXT_COLOR, weight="bold")
-
-def draw_box(ax, x, y, w, h, text, color=GREEN):
-    """사각형 결과 노드"""
-    box = mpatches.FancyBboxPatch(
-        (x - w/2, y - h/2), w, h,
-        boxstyle="round,pad=0.1",
-        facecolor=BOX_COLOR, edgecolor=color, linewidth=2
-    )
+def draw_box(x, y, w, h, text, color=TX, sub=None):
+    box = mpatches.FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.15",
+                                   facecolor=BX, edgecolor=color, linewidth=2)
     ax.add_patch(box)
-    ax.text(x, y, text, ha="center", va="center",
+    ax.text(x+w/2, y+h/2+(0.15 if sub else 0), text, ha="center", va="center",
             fontsize=11, color=color, weight="bold")
+    if sub:
+        ax.text(x+w/2, y+h/2-0.25, sub, ha="center", va="center",
+                fontsize=9, color=TX, alpha=0.8)
 
-def draw_arrow(ax, x1, y1, x2, y2, label=""):
-    """직선 화살표"""
+def draw_diamond(x, y, w, h, text, sub=None):
+    cx, cy = x+w/2, y+h/2
+    pts = [(cx, cy+h/2), (cx+w/2, cy), (cx, cy-h/2), (cx-w/2, cy)]
+    diamond = plt.Polygon(pts, facecolor=BX, edgecolor=YELLOW, linewidth=2)
+    ax.add_patch(diamond)
+    ax.text(cx, cy+(0.15 if sub else 0), text, ha="center", va="center",
+            fontsize=10, color=YELLOW, weight="bold")
+    if sub:
+        ax.text(cx, cy-0.25, sub, ha="center", va="center", fontsize=8, color=TX)
+
+def arrow(x1, y1, x2, y2, color=TX):
     ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
-                arrowprops=dict(arrowstyle="->", color=TEXT_COLOR, lw=2))
-    if label:
-        mid_x, mid_y = (x1 + x2) / 2, (y1 + y2) / 2
-        ax.text(mid_x + 0.3, mid_y, label, ha="left", va="center",
-                fontsize=9, color=YELLOW, style="italic")
+                arrowprops=dict(arrowstyle="-|>", color=color, lw=1.5))
 
-# === 플로우차트 구조 ===
+# Title
+ax.text(7, 18.3, "PEFT 기법 선택 가이드", ha="center", fontsize=16, color=TX, weight="bold")
 
-# 시작
-ax.text(8, 19, "PEFT 기법 선택 가이드", ha="center", va="center",
-        fontsize=16, color=TEXT_COLOR, weight="bold")
+# Start
+draw_box(4.5, 17, 5, 0.8, "파인튜닝 필요", GREEN)
 
-# 1. GPU 메모리
-draw_diamond(ax, 8, 17, 3, 1, "GPU 메모리\n제한 심각?")
-draw_arrow(ax, 8, 16.5, 8, 15.5, "YES")
-draw_box(ax, 8, 15, 2.5, 0.8, "QLoRA", GREEN)
+# Q1: GPU 메모리
+arrow(7, 17, 7, 16.2)
+draw_diamond(4.5, 14.8, 5, 1.4, "GPU 메모리 제약?", "(VRAM < 16GB)")
 
-draw_arrow(ax, 10, 17, 12, 17)
-ax.text(11, 17.3, "NO", ha="center", va="bottom", fontsize=9, color=YELLOW, style="italic")
+# Q1 YES -> QLoRA
+ax.text(3.8, 15.2, "YES", fontsize=9, color=GREEN, weight="bold")
+arrow(4.5, 15.5, 2.5, 15.5)
+draw_box(0.2, 14.8, 2.3, 1, "QLoRA", PURPLE, "4-bit 양자화+LoRA")
 
-# 2. 태스크 복잡도
-draw_diamond(ax, 12, 17, 3, 1, "태스크\n복잡도 높음?")
-draw_arrow(ax, 12, 16.5, 12, 15.5, "YES")
-draw_box(ax, 12, 15, 2.5, 0.8, "LoRA / DoRA", GREEN)
+# Q1 NO -> Q2
+ax.text(10, 15.2, "NO", fontsize=9, color=RED, weight="bold")
+arrow(9.5, 15.5, 11, 15.5)
 
-draw_arrow(ax, 12, 16.5, 8, 13.5)
-ax.text(10, 15, "NO", ha="center", va="center", fontsize=9, color=YELLOW, style="italic")
+# Q2: Forgetting 우려?
+draw_diamond(8.5, 13, 5, 1.4, "Forgetting 우려?", "(범용 능력 유지 필요)")
 
-# 3. 도메인 적응
-draw_diamond(ax, 8, 13, 3, 1, "도메인 적응\n목적?")
-draw_arrow(ax, 8, 12.5, 8, 11.5, "YES")
-draw_box(ax, 8, 11, 2.5, 0.8, "Adapter", GREEN)
+arrow(11, 14.8, 11, 14.4)
 
-draw_arrow(ax, 6, 13, 4, 13)
-ax.text(5, 13.3, "NO", ha="center", va="bottom", fontsize=9, color=YELLOW, style="italic")
+# Q2 YES -> LoRA + Data Mixing
+ax.text(7.8, 13.4, "YES", fontsize=9, color=GREEN, weight="bold")
+arrow(8.5, 13.7, 6.5, 13.7)
+draw_box(3, 13, 3.5, 1, "LoRA/DoRA", GREEN, "+ Data Mixing")
 
-# 4. 프롬프트 기반
-draw_diamond(ax, 4, 13, 3, 1, "프롬프트\n기반 선호?")
-draw_arrow(ax, 4, 12.5, 4, 11.5, "YES")
+# Q2 NO -> Q3
+ax.text(11.5, 12.5, "NO", fontsize=9, color=RED, weight="bold")
+arrow(11, 13, 11, 11.5)
 
-# 5. 생성 태스크
-draw_diamond(ax, 4, 11, 2.8, 1, "생성\n태스크?")
-draw_arrow(ax, 4, 10.5, 2.5, 9.5, "YES")
-draw_box(ax, 2.5, 9, 2.5, 0.8, "Prefix-Tuning", GREEN)
+# Q3: 데이터 크기
+draw_diamond(8.5, 10, 5, 1.4, "데이터 크기?")
 
-draw_arrow(ax, 4, 10.5, 5.5, 9.5, "NO")
-draw_box(ax, 5.5, 9, 2.5, 0.8, "P-Tuning v2", GREEN)
+# <5K
+ax.text(7.8, 10.4, "<5K", fontsize=9, color=BLUE, weight="bold")
+arrow(8.5, 10.7, 6.5, 10.7)
+draw_box(3.5, 10, 3, 1, "LoRA", BLUE, "r=16, alpha=64")
 
-# 6. 추론 속도
-draw_arrow(ax, 4, 12.5, 8, 9)
-ax.text(6, 10.5, "NO", ha="center", va="center", fontsize=9, color=YELLOW, style="italic")
+# 5K-50K
+ax.text(10.5, 9.5, "5K-50K", fontsize=9, color=BLUE, weight="bold")
+arrow(11, 10, 11, 8.5)
+draw_box(9, 7.8, 4, 0.8, "LoRA+ (r=32)", BLUE)
 
-draw_diamond(ax, 8, 9, 3, 1, "추론 속도\n중요?")
-draw_arrow(ax, 8, 8.5, 8, 7.5, "YES")
-draw_box(ax, 8, 7, 2.5, 0.8, "IA³", GREEN)
+# >50K
+ax.text(14, 10.4, ">50K", fontsize=9, color=RED, weight="bold")
+arrow(13.5, 10.7, 14, 10.7)
+draw_box(12.5, 9.5, 2.3, 0.8, "Full-rank", RED, "또는 DoRA")
 
-draw_arrow(ax, 10, 9, 12, 9)
-ax.text(11, 9.3, "NO", ha="center", va="bottom", fontsize=9, color=YELLOW, style="italic")
+# Bottom recommendation
+ax.text(7, 5.5, "일반적 권장 순서", ha="center", fontsize=12, color=YELLOW, weight="bold")
+ax.text(7, 4.8, "LoRA (r=16) → DoRA → LoRA+ (r=32) → QLoRA (메모리 부족 시)", 
+        ha="center", fontsize=10, color=TX)
 
-# 7. 관리형 서비스
-draw_diamond(ax, 12, 9, 3, 1, "관리형\n서비스?")
-draw_arrow(ax, 12, 8.5, 12, 7.5, "YES")
-draw_box(ax, 12, 7, 2.5, 0.8, "Nova Forge", GREEN)
+# Nova Forge box
+nf = mpatches.FancyBboxPatch((2, 2.5, ), 10, 1.5, boxstyle="round,pad=0.2",
+                              facecolor=BX, edgecolor=BLUE, linewidth=2)
+ax.add_patch(nf)
+ax.text(7, 3.7, "Amazon Nova Forge 추천 설정", ha="center", fontsize=11, color=BLUE, weight="bold")
+ax.text(7, 3.1, "LoRA+ (alpha=64, lora_plus_lr_ratio=64) + Data Mixing 활성화", 
+        ha="center", fontsize=9, color=TX)
 
-draw_arrow(ax, 12, 8.5, 12, 5.5, "NO")
-draw_box(ax, 12, 5, 2.5, 0.8, "LoRA (기본)", GREEN)
-
-# 하단 요약
-ax.text(8, 3, "※ 일반적 권장: LoRA → DoRA → QLoRA 순서로 시도",
-        ha="center", va="center", fontsize=11, color=BLUE, style="italic")
-
-# 워터마크
-ax.text(0.5, 0.5, "jesamkim.github.io", fontsize=10, color=TEXT_COLOR, alpha=0.4, weight="bold")
+# Watermark
+ax.text(0.5, -0.5, "jesamkim.github.io", fontsize=10, color=TX, alpha=0.4)
 
 plt.tight_layout()
-plt.savefig("static/images/peft-decision-flowchart.png", dpi=100, facecolor=BG_COLOR)
-print("✓ peft-decision-flowchart.png 생성 완료")
+plt.savefig("static/images/peft-decision-flowchart.png", dpi=100, facecolor=BG, bbox_inches="tight")
+print("Done: peft-decision-flowchart.png")
 plt.close()
