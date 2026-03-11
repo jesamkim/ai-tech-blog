@@ -252,10 +252,15 @@ training_config:
 ### Forgetting 방지 체크리스트
 
 ✅ <strong>LoRA/LoRA+ 사용</strong> (Full-rank보다 우선)
+
 ✅ <strong>Data Mixing 활성화</strong> (50% Nova 데이터 혼합)
+
 ✅ <strong>Reasoning 데이터 포함</strong> (범용 벤치마크 유지)
+
 ✅ <strong>중간 체크포인트 검증</strong> (MMLU, HellaSwag 등)
+
 ✅ <strong>Learning rate 보수적 설정</strong> (1e-5 이하)
+
 ✅ <strong>적절한 Warmup</strong> (max_steps의 15%)
 
 ### 데이터 준비 팁
