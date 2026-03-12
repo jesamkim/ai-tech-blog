@@ -56,7 +56,7 @@ enableEmoji = false
 
   [params.homeInfoParams]
     Title = "AI Tech Blog"
-    Content = "From AI/ML fundamentals to deep dives: paper reviews, AWS architectures, and practical guides by <span style='color:#64b5f6; font-weight:700'>Jesam Kim</span>" 
+    Content = "From AI/ML fundamentals to deep dives: paper reviews, AWS architectures, and practical guides by <span style='color:#3b82f6; font-weight:700'>Jesam Kim</span>" 
 
   [[params.socialIcons]]
     name = "github"
