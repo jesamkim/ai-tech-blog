@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg2)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="monospace" font-size="18" fill="white" font-weight="bold">Circuit Tracing with Cross-Layer Transcoder (CLT)</text>
+
+  <!-- Phase 1: SAE Training -->
+  <rect x="50" y="60" width="700" height="90" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="70" y="80" text-anchor="start" font-family="monospace" font-size="12" fill="#4fc3f7" font-weight="bold">Phase 1: SAE Training (Per-Layer)</text>
+
+  <rect x="70" y="95" width="100" height="40" rx="6" fill="#1a1a2e" stroke="#66bb6a" stroke-width="1"/>
+  <text x="120" y="112" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Layer 0 SAE</text>
+  <text x="120" y="125" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">features₀</text>
+
+  <text x="185" y="115" text-anchor="middle" font-family="monospace" font-size="14" fill="#666">→</text>
+
+  <rect x="200" y="95" width="100" height="40" rx="6" fill="#1a1a2e" stroke="#66bb6a" stroke-width="1"/>
+  <text x="250" y="112" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Layer 1 SAE</text>
+  <text x="250" y="125" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">features₁</text>
+
+  <text x="315" y="115" text-anchor="middle" font-family="monospace" font-size="14" fill="#666">→</text>
+
+  <rect x="330" y="95" width="100" height="40" rx="6" fill="#1a1a2e" stroke="#66bb6a" stroke-width="1"/>
+  <text x="380" y="112" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Layer 2 SAE</text>
+  <text x="380" y="125" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">features₂</text>
+
+  <text x="445" y="115" text-anchor="middle" font-family="monospace" font-size="14" fill="#666">…</text>
+
+  <rect x="470" y="95" width="100" height="40" rx="6" fill="#1a1a2e" stroke="#66bb6a" stroke-width="1"/>
+  <text x="520" y="112" text-anchor="middle" font-family="monospace" font-size="9" fill="#66bb6a">Layer N SAE</text>
+  <text x="520" y="125" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">features<tspan baseline-shift="sub" font-size="7">N</tspan></text>
+
+  <!-- Phase 2: CLT Training -->
+  <rect x="50" y="170" width="700" height="90" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="2"/>
+  <text x="70" y="190" text-anchor="start" font-family="monospace" font-size="12" fill="#ab47bc" font-weight="bold">Phase 2: Cross-Layer Transcoder (CLT) Training</text>
+
+  <rect x="70" y="205" width="130" height="40" rx="6" fill="#1a1a2e" stroke="#ffd54f" stroke-width="1"/>
+  <text x="135" y="219" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffd54f">features<tspan baseline-shift="sub" font-size="7">i</tspan> (Layer i)</text>
+  <text x="135" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">입력</text>
+
+  <path d="M 200 225 L 240 225" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+
+  <rect x="240" y="205" width="140" height="40" rx="6" fill="#1a1a2e" stroke="#ab47bc" stroke-width="2"/>
+  <text x="310" y="219" text-anchor="middle" font-family="monospace" font-size="9" fill="#ab47bc" font-weight="bold">CLT<tspan baseline-shift="sub" font-size="7">i→j</tspan></text>
+  <text x="310" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">layer-to-layer map</text>
+
+  <path d="M 380 225 L 420 225" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+
+  <rect x="420" y="205" width="130" height="40" rx="6" fill="#1a1a2e" stroke="#ffd54f" stroke-width="1"/>
+  <text x="485" y="219" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffd54f">features<tspan baseline-shift="sub" font-size="7">j</tspan> (Layer j)</text>
+  <text x="485" y="235" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">예측</text>
+
+  <!-- Phase 3: Attribution Graph -->
+  <rect x="50" y="280" width="700" height="160" rx="8" fill="#16213e" stroke="#ef5350" stroke-width="2"/>
+  <text x="70" y="300" text-anchor="start" font-family="monospace" font-size="12" fill="#ef5350" font-weight="bold">Phase 3: Attribution Graph Generation</text>
+
+  <!-- Input -->
+  <rect x="70" y="315" width="100" height="30" rx="6" fill="#1a1a2e" stroke="#4fc3f7" stroke-width="1"/>
+  <text x="120" y="334" text-anchor="middle" font-family="monospace" font-size="9" fill="#4fc3f7">프롬프트 입력</text>
+
+  <path d="M 170 330 L 200 330" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+
+  <!-- Replacement Model -->
+  <rect x="200" y="315" width="140" height="110" rx="6" fill="#1a1a2e" stroke="#ab47bc" stroke-width="2"/>
+  <text x="270" y="333" text-anchor="middle" font-family="monospace" font-size="10" fill="#ab47bc" font-weight="bold">Replacement</text>
+  <text x="270" y="348" text-anchor="middle" font-family="monospace" font-size="10" fill="#ab47bc" font-weight="bold">Model</text>
+  <text x="270" y="365" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">(SAE + CLT)</text>
+
+  <!-- Mini boxes inside -->
+  <rect x="215" y="375" width="40" height="18" rx="3" fill="#16213e" stroke="#66bb6a" stroke-width="1"/>
+  <text x="235" y="388" text-anchor="middle" font-family="monospace" font-size="7" fill="#66bb6a">SAE</text>
+
+  <rect x="260" y="375" width="40" height="18" rx="3" fill="#16213e" stroke="#ffd54f" stroke-width="1"/>
+  <text x="280" y="388" text-anchor="middle" font-family="monospace" font-size="7" fill="#ffd54f">CLT</text>
+
+  <rect x="215" y="398" width="85" height="18" rx="3" fill="#16213e" stroke="#66bb6a" stroke-width="1"/>
+  <text x="257" y="411" text-anchor="middle" font-family="monospace" font-size="7" fill="#66bb6a">feature flow</text>
+
+  <path d="M 340 370 L 380 370" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+
+  <!-- Attribution Graph -->
+  <rect x="380" y="315" width="150" height="110" rx="6" fill="#1a1a2e" stroke="#ef5350" stroke-width="2"/>
+  <text x="455" y="333" text-anchor="middle" font-family="monospace" font-size="10" fill="#ef5350" font-weight="bold">Attribution</text>
+  <text x="455" y="348" text-anchor="middle" font-family="monospace" font-size="10" fill="#ef5350" font-weight="bold">Graph</text>
+
+  <!-- Graph visualization -->
+  <circle cx="420" cy="375" r="5" fill="#66bb6a" opacity="0.8"/>
+  <circle cx="445" cy="375" r="5" fill="#66bb6a" opacity="0.8"/>
+  <circle cx="470" cy="375" r="5" fill="#66bb6a" opacity="0.8"/>
+  <circle cx="495" cy="375" r="5" fill="#66bb6a" opacity="0.8"/>
+
+  <circle cx="430" cy="400" r="5" fill="#4fc3f7" opacity="0.8"/>
+  <circle cx="460" cy="400" r="5" fill="#4fc3f7" opacity="0.8"/>
+  <circle cx="490" cy="400" r="5" fill="#4fc3f7" opacity="0.8"/>
+
+  <line x1="420" y1="375" x2="430" y2="400" stroke="#666" stroke-width="1" opacity="0.5"/>
+  <line x1="445" y1="375" x2="430" y2="400" stroke="#666" stroke-width="1" opacity="0.5"/>
+  <line x1="445" y1="375" x2="460" y2="400" stroke="#666" stroke-width="1" opacity="0.5"/>
+  <line x1="470" y1="375" x2="460" y2="400" stroke="#666" stroke-width="1" opacity="0.5"/>
+  <line x1="495" y1="375" x2="490" y2="400" stroke="#666" stroke-width="1" opacity="0.5"/>
+
+  <path d="M 530 370 L 570 370" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+
+  <!-- Analysis -->
+  <rect x="570" y="315" width="160" height="110" rx="6" fill="#1a1a2e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="650" y="333" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffd54f" font-weight="bold">Circuit Analysis</text>
+  <text x="650" y="353" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• Feature 인과관계</text>
+  <text x="650" y="370" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• 멀티홉 추론 경로</text>
+  <text x="650" y="387" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• 환각 메커니즘</text>
+  <text x="650" y="404" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• 탈옥 회로</text>
+  <text x="650" y="421" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">• CoT 진위 구분</text>
+
+  <!-- Key metrics box -->
+  <rect x="50" y="460" width="700" height="30" rx="6" fill="#16213e" stroke="#4fc3f7" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="400" y="480" text-anchor="middle" font-family="monospace" font-size="10" fill="#4fc3f7">성능: Replacement Model이 원본 출력 <tspan fill="#ffd54f" font-weight="bold">~50%</tspan> 매칭 | Attribution Graph가 <tspan fill="#ffd54f" font-weight="bold">~25%</tspan> 프롬프트에서 유의미한 인사이트 제공</text>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+</svg>

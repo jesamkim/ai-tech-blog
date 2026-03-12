@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="400" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="monospace" font-size="18" fill="white" font-weight="bold">Sparse Autoencoder (SAE) Architecture</text>
+
+  <!-- Input Layer: MLP Neurons -->
+  <rect x="50" y="80" width="120" height="220" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="110" y="100" text-anchor="middle" font-family="monospace" font-size="11" fill="#4fc3f7" font-weight="bold">MLP Neurons</text>
+  <text x="110" y="120" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">(Polysemantic)</text>
+
+  <!-- Neuron dots -->
+  <circle cx="70" cy="150" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="90" cy="150" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="110" cy="150" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="130" cy="150" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="150" cy="150" r="4" fill="#4fc3f7" opacity="0.6"/>
+
+  <circle cx="70" cy="175" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="90" cy="175" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="110" cy="175" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="130" cy="175" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="150" cy="175" r="4" fill="#4fc3f7" opacity="0.6"/>
+
+  <text x="110" y="205" text-anchor="middle" font-family="monospace" font-size="16" fill="#888">⋮</text>
+
+  <circle cx="70" cy="230" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="90" cy="230" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="110" cy="230" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="130" cy="230" r="4" fill="#4fc3f7" opacity="0.6"/>
+  <circle cx="150" cy="230" r="4" fill="#4fc3f7" opacity="0.6"/>
+
+  <text x="110" y="270" text-anchor="middle" font-family="monospace" font-size="12" fill="#4fc3f7" font-weight="bold">n = 512</text>
+
+  <!-- Arrow 1: Input to Encoder -->
+  <path d="M 170 190 L 220 190" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="195" y="180" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">encode</text>
+
+  <!-- Encoder -->
+  <rect x="220" y="100" width="140" height="180" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
+  <text x="290" y="120" text-anchor="middle" font-family="monospace" font-size="11" fill="#66bb6a" font-weight="bold">SAE Encoder</text>
+  <text x="290" y="135" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(Dictionary Learning)</text>
+
+  <!-- Feature dots (more) -->
+  <circle cx="240" cy="160" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="255" cy="160" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="270" cy="160" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="285" cy="160" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="300" cy="160" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="315" cy="160" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="330" cy="160" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="345" cy="160" r="3" fill="#66bb6a" opacity="0.5"/>
+
+  <circle cx="240" cy="180" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="255" cy="180" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="270" cy="180" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="285" cy="180" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="300" cy="180" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="315" cy="180" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="330" cy="180" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="345" cy="180" r="3" fill="#66bb6a" opacity="0.5"/>
+
+  <text x="290" y="205" text-anchor="middle" font-family="monospace" font-size="16" fill="#888">⋮</text>
+
+  <circle cx="240" cy="230" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="255" cy="230" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="270" cy="230" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="285" cy="230" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="300" cy="230" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="315" cy="230" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="330" cy="230" r="3" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="345" cy="230" r="3" fill="#66bb6a" opacity="0.5"/>
+
+  <text x="290" y="260" text-anchor="middle" font-family="monospace" font-size="12" fill="#66bb6a" font-weight="bold">m = 4,096+</text>
+
+  <!-- Arrow 2: Encoder to Decoder -->
+  <path d="M 360 190 L 410 190" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="385" y="180" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">decode</text>
+
+  <!-- Decoder -->
+  <rect x="410" y="100" width="140" height="180" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="2"/>
+  <text x="480" y="120" text-anchor="middle" font-family="monospace" font-size="11" fill="#ab47bc" font-weight="bold">SAE Decoder</text>
+  <text x="480" y="135" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(Reconstruction)</text>
+
+  <!-- Neuron dots (reconstructed) -->
+  <circle cx="430" cy="165" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="450" cy="165" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="470" cy="165" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="490" cy="165" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="510" cy="165" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="530" cy="165" r="4" fill="#ab47bc" opacity="0.6"/>
+
+  <circle cx="430" cy="190" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="450" cy="190" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="470" cy="190" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="490" cy="190" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="510" cy="190" r="4" fill="#ab47bc" opacity="0.6"/>
+  <circle cx="530" cy="190" r="4" fill="#ab47bc" opacity="0.6"/>
+
+  <text x="480" y="215" text-anchor="middle" font-family="monospace" font-size="16" fill="#888">⋮</text>
+
+  <text x="480" y="250" text-anchor="middle" font-family="monospace" font-size="12" fill="#ab47bc" font-weight="bold">n = 512</text>
+
+  <!-- Arrow 3: Output -->
+  <path d="M 550 190 L 600 190" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Output box -->
+  <rect x="600" y="160" width="150" height="60" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="675" y="180" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffd54f" font-weight="bold">Reconstructed</text>
+  <text x="675" y="195" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffd54f" font-weight="bold">Activations</text>
+  <text x="675" y="210" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(≈ original)</text>
+
+  <!-- Key insight box -->
+  <rect x="220" y="310" width="530" height="60" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="485" y="330" text-anchor="middle" font-family="monospace" font-size="10" fill="#4fc3f7" font-weight="bold">핵심: 512개 뉴런에서 4,096+ 해석 가능한 features 추출</text>
+  <text x="485" y="348" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">Polysemantic neurons → Monosemantic features</text>
+  <text x="485" y="362" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">(하나의 뉴런이 여러 개념 → 하나의 feature가 하나의 개념)</text>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+</svg>
