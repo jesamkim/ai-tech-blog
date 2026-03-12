@@ -17,6 +17,8 @@ tags:
   - "Prompt Engineering"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-llm-output-control-1.png"
 ---
 
 ## 왜 LLM 출력 제어가 프로덕션의 핵심 과제인가

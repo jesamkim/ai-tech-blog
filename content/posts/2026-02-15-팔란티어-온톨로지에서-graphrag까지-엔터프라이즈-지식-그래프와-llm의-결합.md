@@ -17,6 +17,8 @@ tags:
   - "AWS Neptune"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-palantir-graphrag.png"
 ---
 
 ## 1. 왜 엔터프라이즈 지식 그래프인가 — Palantir Ontology가 보여준 것

@@ -18,6 +18,8 @@ tags:
   - "이상탐지"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-iot-generative-ai.png"
 ---
 
 ## 1. 설비 예방정비(Predictive Maintenance)의 핵심 과제

@@ -17,6 +17,8 @@ tags:
   - "Embodied AI"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-world-models.png"
 ---
 ## 월드 모델이란 무엇인가
 

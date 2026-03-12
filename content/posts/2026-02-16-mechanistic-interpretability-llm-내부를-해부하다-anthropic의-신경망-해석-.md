@@ -17,6 +17,8 @@ tags:
   - "신경망 해석"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-mechanistic-interpretability.png"
 ---
 
 ## 1. Mechanistic Interpretability란 무엇인가?

@@ -21,6 +21,8 @@ tags:
   - "Edge AI"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-animal-tracking-ai.png"
 ---
 
 ## 1. 왜 지금 동물 AI인가

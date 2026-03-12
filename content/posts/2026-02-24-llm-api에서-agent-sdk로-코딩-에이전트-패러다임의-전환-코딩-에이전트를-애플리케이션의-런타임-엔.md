@@ -18,6 +18,8 @@ tags:
   - "LLM"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-agent-sdk.png"
 ---
 
 ## 1. 들어가며: LLM API 호출만으로는 부족한 이유

@@ -17,6 +17,8 @@ tags:
   - "Sparsity"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-pruning-35years.png"
 ---
 
 ## 왜 프루닝인가 — 모델 압축의 필요성과 프루닝의 위치

@@ -16,6 +16,8 @@ tags:
   - "AWS"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-sagemaker-vs-databricks.png"
 ---
 
 ## 왜 지금 '통합 데이터·AI 플랫폼' 전쟁인가

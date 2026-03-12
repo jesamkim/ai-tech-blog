@@ -19,6 +19,8 @@ tags:
   - "Document AI"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-bedrock-document-parsing.png"
 ---
 
 ## 비정형 문서 파싱이 어려운 이유

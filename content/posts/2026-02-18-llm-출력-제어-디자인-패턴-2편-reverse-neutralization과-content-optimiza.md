@@ -16,6 +16,8 @@ tags:
   - "도메인 특화"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-llm-output-control-2.png"
 ---
 
 ## 1편 요약과 2편의 문제의식: 왜 LLM은 "무난한 답"만 하는가

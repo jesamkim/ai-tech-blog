@@ -17,6 +17,8 @@ tags:
   - "Amazon Bedrock AgentCore"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-coding-agent-harness.png"
 ---
 
 ## 1. 왜 모델 성능만으로는 코딩 에이전트를 설명할 수 없는가

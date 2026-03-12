@@ -16,6 +16,8 @@ tags:
   - "AWS"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-coding-agents-comparison.png"
 ---
 
 ## 1. 코딩 에이전트 시대, 왜 비교가 필요한가

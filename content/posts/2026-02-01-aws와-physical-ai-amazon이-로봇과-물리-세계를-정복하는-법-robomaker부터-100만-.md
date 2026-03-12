@@ -15,6 +15,8 @@ tags:
   - "클라우드 로보틱스"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-physical-ai-aws.png"
 ---
 
 ## Physical AI란 무엇인가 — 소프트웨어 AI에서 물리 세계로의 확장

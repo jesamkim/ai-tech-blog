@@ -17,6 +17,8 @@ tags:
   - "Amazon Bedrock"
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-personalize-hybrid-recommendation.png"
 ---
 
 ## 왜 하이브리드 추천인가 — 단일 추천 엔진의 한계
