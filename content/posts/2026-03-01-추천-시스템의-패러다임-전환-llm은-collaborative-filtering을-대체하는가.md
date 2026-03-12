@@ -8,6 +8,8 @@ description: "2026년 최신 논문을 기반으로, LLM이 전통적인 추천 
 author: "Jesam Kim"
 showToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-추천-시스템의-패러다임-전환.png"
 ---
 
 ## 1. 추천 시스템, 무엇이 부족한가

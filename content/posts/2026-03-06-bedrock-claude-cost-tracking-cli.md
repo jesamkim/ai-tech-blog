@@ -5,6 +5,8 @@ description: "AWS Cost Explorer는 서비스 레벨만 보여주고, Bedrock은 
 categories: ["AWS AI/ML"]
 tags: ["Amazon Bedrock", "Claude", "Cost Tracking", "CloudWatch", "Prompt Caching", "Python CLI", "FinOps"]
 author: "Jesam Kim"
+cover:
+  image: "/ai-tech-blog/images/cover-bedrock-claude-cost-tracking-cli.png"
 ---
 
 ## 1. 왜 Bedrock 비용 추적이 어려운가
@@ -95,6 +97,8 @@ data = json.loads(result.stdout)
 
 Sum 값이 토큰 수입니다. 이걸 모델별 가격표에 곱하면 비용이 나옵니다.
 
+cover:
+  image: "/ai-tech-blog/images/cover-bedrock-claude-cost-tracking-cli.png"
 ---
 
 ## 3. Python CLI 구현 — claude-cost
@@ -293,6 +297,8 @@ claude-cost aws 30 --profile prod
 
 dev 환경에서 실험하고, prod 환경에서 실제 비용을 추적할 수 있습니다. 리전도 `--region`으로 지정 가능합니다.
 
+cover:
+  image: "/ai-tech-blog/images/cover-bedrock-claude-cost-tracking-cli.png"
 ---
 
 ## 5. 확장 가능성

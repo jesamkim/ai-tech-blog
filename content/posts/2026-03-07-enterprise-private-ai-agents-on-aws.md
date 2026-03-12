@@ -5,6 +5,8 @@ description: "Claude Cowork가 보여준 AI 에이전트 트렌드는 맞지만,
 categories: ["AWS AI/ML"]
 tags: ["AI Agent", "Claude Cowork", "OpenClaw", "Amazon Bedrock", "Amazon Lightsail", "MCP", "Enterprise AI", "Security"]
 author: "Jesam Kim"
+cover:
+  image: "/ai-tech-blog/images/cover-enterprise-private-ai-agents-on-aws.png"
 ---
 
 ## 2026년, AI 에이전트가 도구를 쓰기 시작했다

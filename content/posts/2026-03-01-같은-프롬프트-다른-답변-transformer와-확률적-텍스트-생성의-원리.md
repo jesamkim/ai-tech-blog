@@ -15,6 +15,8 @@ tags:
 description: "같은 프롬프트를 입력해도 LLM의 응답이 매번 달라지는 이유를 Transformer 아키텍처와 확률적 텍스트 생성 과정을 통해 살펴봅니다."
 ShowToc: true
 TocOpen: true
+cover:
+  image: "/ai-tech-blog/images/cover-같은-프롬프트-다른-답변.png"
 ---
 
 ## 들어가며 - LLM은 아는 것을 말하는 게 아니라 확률적으로 생성한다

@@ -5,6 +5,8 @@ description: "Claude Sonnet 4.6/Opus 4.6의 1M 컨텍스트 윈도우 시대. Co
 categories: ["AI/ML 기술 심층분석"]
 tags: ["LLM", "Context Window", "RAG", "Claude", "Bedrock", "Prompt Engineering"]
 author: "Jesam Kim"
+cover:
+  image: "/ai-tech-blog/images/cover-200k-vs-1m-context-window.png"
 ---
 
 ## 1. 1M 시대의 도래

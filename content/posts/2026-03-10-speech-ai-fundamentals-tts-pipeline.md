@@ -5,6 +5,8 @@ description: 음성 생성 AI는 어떻게 작동할까요? 사람이 말을 하
 categories: ["AI/ML 기술 심층분석"]
 tags: ["Speech AI", "TTS", "Neural Vocoder", "Mel-spectrogram", "Signal Processing"]
 author: "Jesam Kim"
+cover:
+  image: "/ai-tech-blog/images/cover-speech-ai-fundamentals-tts-pipeline.png"
 ---
 
 ## 음성 AI를 처음 만났을 때

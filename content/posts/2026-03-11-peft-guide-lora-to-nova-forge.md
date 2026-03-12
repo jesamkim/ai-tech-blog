@@ -5,6 +5,8 @@ description: "대규모 언어 모델을 파인튜닝할 때 직면하는 치명
 categories: ["AI/ML 기술 심층분석"]
 tags: ["Fine-tuning", "PEFT", "LoRA", "Catastrophic Forgetting", "Amazon Nova", "LLM"]
 author: "Jesam Kim"
+cover:
+  image: "/ai-tech-blog/images/cover-peft-guide-lora-to-nova-forge.png"
 ---
 
 ## 1. 왜 Fine-tuning인가: RAG vs Fine-tuning 판단 기준

@@ -5,6 +5,8 @@ description: "GPT-4o, Claude Sonnet 4.6 Vision 같은 VLM이 어떻게 World Mod
 categories: ["Physical AI"]
 tags: ["VLM", "World Model", "VLA", "NVIDIA Cosmos", "Manufacturing AI", "AWS IoT", "SageMaker", "Bedrock"]
 author: "Jesam Kim"
+cover:
+  image: "/ai-tech-blog/images/cover-vlm-to-physical-ai-manufacturing.png"
 ---
 
 비전 언어 모델(VLM)은 이미지와 텍스트를 동시에 이해하는 AI 모델입니다. 하지만 제조 현장에서 실제 가치를 만들려면 이미지를 해석하는 것만으로는 부족합니다. 물리 법칙을 예측하고 로봇을 직접 제어해야 합니다. 이 글에서는 VLM이 World Model과 VLA(Vision-Language-Action)로 확장되며 제조 산업을 바꾸는 과정과, AWS 기반 구현 방법을 다룹니다.
