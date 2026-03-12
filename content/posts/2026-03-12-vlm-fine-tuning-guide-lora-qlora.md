@@ -314,7 +314,7 @@ response = bedrock_runtime.invoke_model(
 
 ### 5.2 SageMaker - 오픈소스 VLM 파인튜닝
 
-SageMaker에서 Qwen2.5-VL 같은 오픈소스 모델을 파인튜닝할 수 있습니다.
+SageMaker AI에서 Qwen2.5-VL 같은 오픈소스 모델을 파인튜닝할 수 있습니다.
 
 추천 구성:
 - <strong>인스턴스</strong>: ml.g5.2xlarge (A10G 24GB) - 7B 모델 QLoRA 가능
@@ -374,7 +374,7 @@ result = predictor.predict({
 | <strong>커스터마이징</strong> | 제한적 | 완전 자유 |
 | <strong>추천 시점</strong> | 빠른 PoC, Nova 성능 충분 | 고급 튜닝, 특정 모델 필요 |
 
-실전 조언: 먼저 Bedrock Nova로 프로토타입을 만들어 비즈니스 가치를 검증하고, 성능이 부족하거나 특수 요구사항이 있으면 SageMaker로 이전하는 전략이 효과적입니다.
+실전 조언: 먼저 Bedrock Nova로 프로토타입을 만들어 비즈니스 가치를 검증하고, 성능이 부족하거나 특수 요구사항이 있으면 SageMaker AI로 이전하는 전략이 효과적입니다.
 
 ## 6. 도메인별 응용 시나리오
 
@@ -513,7 +513,7 @@ VLM 파인튜닝은 더 이상 대기업 연구소만의 영역이 아닙니다.
 2. 자신의 도메인 이미지 100개로 프로토타입 학습 (1~2시간 소요)
 3. 추론 결과 확인하고 데이터 보강 계획 수립
 
-프로덕션 배포를 고려한다면 AWS Bedrock Nova로 PoC를 만들어 비즈니스 가치를 먼저 검증하는 것을 추천합니다. 성능이 충분하면 그대로 쓰고, 더 높은 성능이 필요하면 SageMaker에서 오픈소스 모델을 파인튜닝하는 것이 효율적인 경로입니다.
+프로덕션 배포를 고려한다면 AWS Bedrock Nova로 PoC를 만들어 비즈니스 가치를 먼저 검증하는 것을 추천합니다. 성능이 충분하면 그대로 쓰고, 더 높은 성능이 필요하면 SageMaker AI에서 오픈소스 모델을 파인튜닝하는 것이 효율적인 경로입니다.
 
 ## References
 
