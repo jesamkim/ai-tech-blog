@@ -1,0 +1,30 @@
+Read /Workshop/yan/ai-tech-blog/blog-task.txt carefully. This is a detailed specification for a new blog post about Video RAG Pipeline.
+
+YOUR TASKS:
+1. Write the full blog post markdown (7 sections) following ALL rules in blog-task.txt and CLAUDE.md
+2. Generate matplotlib charts (dark theme, Korean font NanumSquareRound):
+   - Pipeline similarity comparison bar chart (Frame-avg vs Pegasus+Marengo, exact data in task file)
+   - Frame inter-similarity heatmap (3 videos, showing 0.74~0.79 range)
+3. Generate SVG diagrams (dark theme #1a1a2e), then convert to PNG with rsvg-convert:
+   - Two approaches comparison (Frame embedding vs VLM pipeline, side-by-side flow)
+   - Video RAG architecture (S3 + Bedrock + Vector DB)
+4. Add watermark to all generated images (Pillow, 'jesamkim.github.io', bottom-left, bold, 4%, opacity 140)
+5. Save post to content/posts/2026-03-13-video-rag-pipeline-frame-embedding-vs-vlm.md
+6. Save all images to static/images/
+
+CRITICAL RULES:
+- Use ONLY the exact numbers from blog-task.txt (cosine similarity scores, pricing, etc). DO NOT make up any numbers.
+- All Korean bold text must use <strong></strong> tags (not ** markdown)
+- No inline citations [1], [2] etc - References section only
+- No LaTeX/KaTeX - use HTML sub/sup for inline math
+- No em dash (—) in Korean text
+- date: 2026-03-13T10:00:00+09:00
+- Verify all Reference URLs actually exist before including them
+- Cover image is already at static/images/cover-video-rag-pipeline.png
+
+After writing, do a final QA check:
+- grep for any remaining ** around Korean text
+- grep for any [1], [2], <sup> citations in body
+- grep for any — (em dash)
+- grep for any LaTeX syntax ($, \frac, \mid)
+- Verify all image files exist in static/images/

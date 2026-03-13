@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400">
+  <!-- Background -->
+  <rect width="900" height="1400" fill="#1a1a2e" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="26" fill="#4fc3f7" font-weight="bold">비디오 RAG 아키텍처</text>
+
+  <!-- INDEXING PIPELINE (LEFT) -->
+  <rect x="30" y="80" width="400" height="480" rx="8" fill="none" stroke="#ffd54f" stroke-width="3" stroke-dasharray="10,5"/>
+  <text x="230" y="110" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="20" fill="#ffd54f" font-weight="bold">인덱싱 파이프라인</text>
+
+  <!-- S3 -->
+  <rect x="60" y="140" width="340" height="70" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="230" y="168" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#e0e0e0" font-weight="bold">S3</text>
+  <text x="230" y="193" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="14" fill="#aaa">비디오 저장</text>
+
+  <!-- Arrow -->
+  <path d="M 230 210 L 230 240" stroke="#ffd54f" stroke-width="3" marker-end="url(#arrowYellow)"/>
+
+  <!-- Pegasus (VLM) -->
+  <rect x="60" y="240" width="340" height="80" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="2"/>
+  <text x="230" y="270" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#ab47bc" font-weight="bold">Pegasus v1.2</text>
+  <text x="230" y="295" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="14" fill="#aaa">비디오 설명 생성</text>
+  <text x="230" y="313" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#aaa">(시간 맥락 보존)</text>
+
+  <!-- Arrow -->
+  <path d="M 230 320 L 230 350" stroke="#ffd54f" stroke-width="3" marker-end="url(#arrowYellow)"/>
+
+  <!-- Marengo Embed -->
+  <rect x="60" y="350" width="340" height="80" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="230" y="380" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#4fc3f7" font-weight="bold">Marengo Embed 3.0</text>
+  <text x="230" y="405" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="14" fill="#aaa">텍스트 임베딩</text>
+  <text x="230" y="423" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#aaa">(512차원 벡터)</text>
+
+  <!-- Arrow -->
+  <path d="M 230 430 L 230 460" stroke="#ffd54f" stroke-width="3" marker-end="url(#arrowYellow)"/>
+
+  <!-- Storage Data Box -->
+  <rect x="60" y="460" width="340" height="80" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="230" y="485" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="15" fill="#ffd54f" font-weight="bold">저장 데이터</text>
+  <text x="85" y="508" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#aaa">• 벡터: 512차원</text>
+  <text x="85" y="526" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#aaa">• video_key: S3 경로  • description: 설명</text>
+
+  <!-- RETRIEVAL PIPELINE (RIGHT) -->
+  <rect x="470" y="80" width="400" height="480" rx="8" fill="none" stroke="#66bb6a" stroke-width="3" stroke-dasharray="10,5"/>
+  <text x="670" y="110" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="20" fill="#66bb6a" font-weight="bold">검색 파이프라인</text>
+
+  <!-- User Query -->
+  <rect x="500" y="140" width="340" height="70" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
+  <text x="670" y="168" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#e0e0e0" font-weight="bold">사용자 쿼리</text>
+  <text x="670" y="193" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#aaa" style="font-style: italic">"크레인 작업하는 영상..."</text>
+
+  <!-- Arrow -->
+  <path d="M 670 210 L 670 240" stroke="#66bb6a" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+  <!-- Marengo Embed (Query) -->
+  <rect x="500" y="240" width="340" height="70" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="670" y="268" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#4fc3f7" font-weight="bold">Marengo Embed 3.0</text>
+  <text x="670" y="293" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="14" fill="#aaa">쿼리 임베딩</text>
+
+  <!-- Arrow -->
+  <path d="M 670 310 L 670 340" stroke="#66bb6a" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+  <!-- Vector DB Search -->
+  <rect x="500" y="340" width="340" height="90" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
+  <text x="670" y="370" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#66bb6a" font-weight="bold">Vector DB</text>
+  <text x="670" y="395" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="14" fill="#aaa">Cosine Search</text>
+  <text x="670" y="418" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#aaa">Top-K 검색 (유사도 순)</text>
+
+  <!-- Arrow -->
+  <path d="M 670 430 L 670 460" stroke="#66bb6a" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+  <!-- Pegasus (Video QA) -->
+  <rect x="500" y="460" width="340" height="80" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="2"/>
+  <text x="670" y="490" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#ab47bc" font-weight="bold">Pegasus v1.2</text>
+  <text x="670" y="515" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="14" fill="#aaa">상세 비디오 QA</text>
+  <text x="670" y="533" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#aaa">타임스탬프 추출</text>
+
+  <!-- Vector DB Connection (dotted line) -->
+  <path d="M 230 580 Q 450 650 670 580" stroke="#e0e0e0" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+  <text x="450" y="640" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="12" fill="#aaa">벡터 인덱스 연결</text>
+
+  <!-- Vector DB (bottom center) -->
+  <rect x="280" y="600" width="340" height="70" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="450" y="630" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#ffd54f" font-weight="bold">Vector DB</text>
+  <text x="450" y="655" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="13" fill="#aaa">OpenSearch / Pinecone / S3 Vectors</text>
+
+  <!-- Final Answer -->
+  <rect x="500" y="710" width="340" height="70" rx="8" fill="#1f2d1f" stroke="#66bb6a" stroke-width="3"/>
+  <text x="670" y="738" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="18" fill="#66bb6a" font-weight="bold">최종 답변 생성</text>
+  <text x="670" y="763" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="14" fill="#aaa">타임스탬프 + 상세 설명</text>
+
+  <!-- CONSIDERATIONS SECTION -->
+  <text x="450" y="830" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="22" fill="#4fc3f7" font-weight="bold">구현 고려사항</text>
+
+  <!-- Column 1: Scaling -->
+  <rect x="30" y="860" width="200" height="480" rx="8" fill="#16213e" stroke="#ffd54f" stroke-width="2"/>
+  <text x="130" y="890" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="16" fill="#ffd54f" font-weight="bold">스케일링</text>
+
+  <text x="45" y="930" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• 비동기 인덱싱</text>
+  <text x="50" y="950" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">(Step Functions / Lambda)</text>
+
+  <text x="45" y="985" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• Pegasus 설명 캐싱</text>
+  <text x="50" y="1005" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">(중복 요약 방지)</text>
+
+  <text x="45" y="1040" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• 하이브리드 검색</text>
+  <text x="50" y="1060" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">(벡터 + 메타데이터 필터)</text>
+
+  <!-- Column 2: Performance -->
+  <rect x="245" y="860" width="200" height="480" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="2"/>
+  <text x="345" y="890" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="16" fill="#66bb6a" font-weight="bold">성능</text>
+
+  <text x="260" y="930" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• VLM 파이프라인:</text>
+  <text x="265" y="950" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">Frame-avg 대비 5~10배</text>
+  <text x="265" y="968" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">높은 유사도 스코어</text>
+
+  <text x="260" y="1003" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• 시간 맥락 보존,</text>
+  <text x="265" y="1023" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">관계/이벤트 이해</text>
+
+  <!-- Column 3: Region -->
+  <rect x="460" y="860" width="200" height="480" rx="8" fill="#16213e" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="560" y="890" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="16" fill="#4fc3f7" font-weight="bold">리전</text>
+
+  <text x="475" y="930" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• Pegasus v1.2:</text>
+  <text x="480" y="950" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">US West (Oregon),</text>
+  <text x="480" y="968" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">Europe (Ireland),</text>
+  <text x="480" y="986" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">Asia Pacific (Seoul)</text>
+  <text x="480" y="1004" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">등 7개 리전</text>
+
+  <text x="475" y="1039" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• Marengo Embed 3.0:</text>
+  <text x="480" y="1059" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">US East (N. Virginia),</text>
+  <text x="480" y="1077" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">Europe (Ireland),</text>
+  <text x="480" y="1095" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">Asia Pacific (Seoul)</text>
+
+  <!-- Column 4: Limitations -->
+  <rect x="675" y="860" width="200" height="480" rx="8" fill="#16213e" stroke="#ef5350" stroke-width="2"/>
+  <text x="775" y="890" text-anchor="middle" font-family="NanumSquareRound, sans-serif" font-size="16" fill="#ef5350" font-weight="bold">한계</text>
+
+  <text x="690" y="930" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• 동기 API(InvokeModel):</text>
+  <text x="695" y="950" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">텍스트/이미지만</text>
+  <text x="695" y="968" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">(비디오는 비동기 API</text>
+  <text x="695" y="986" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">필요)</text>
+
+  <text x="690" y="1021" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="11" fill="#e0e0e0">• Pegasus:</text>
+  <text x="695" y="1041" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">일부 hallucination 발생</text>
+  <text x="695" y="1059" text-anchor="start" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#aaa">(특히 한국어)</text>
+
+  <!-- Watermark -->
+  <text x="820" y="1385" text-anchor="end" font-family="NanumSquareRound, sans-serif" font-size="10" fill="#e0e0e0" opacity="0.25" font-weight="bold">jesamkim.github.io</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowYellow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ffd54f"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#66bb6a"/>
+    </marker>
+  </defs>
+</svg>

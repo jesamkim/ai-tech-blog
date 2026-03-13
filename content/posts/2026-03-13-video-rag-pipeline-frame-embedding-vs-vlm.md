@@ -13,7 +13,7 @@ cover:
 
 텍스트 RAG(Retrieval-Augmented Generation)는 이미 성숙한 기술입니다. 문서를 청크로 나누고, 임베딩하고, 벡터 데이터베이스에 저장한 뒤, 쿼리와 유사한 청크를 검색해 LLM의 응답을 보강하는 패턴이 확립되어 있습니다.
 
-하지만 기업 데이터의 상당 부분은 텍스트가 아닌 <strong>비디오</strong>입니다. CCTV 녹화, 회의 녹화, 교육 콘텐츠, 마케팅 영상 등 비디오 형태로 축적된 정보는 방대합니다. Cisco의 예측에 따르면 [2025년 기준 인터넷 트래픽의 82%가 비디오](https://www.cisco.com/c/en/us/solutions/collateral/executive-perspectives/annual-internet-report/white-paper-c11-741490.html)가 될 것이라고 합니다.
+하지만 기업 데이터의 상당 부분은 텍스트가 아닌 <strong>비디오</strong>입니다. CCTV 녹화, 회의 녹화, 교육 콘텐츠, 마케팅 영상 등 비디오 형태로 축적된 정보는 방대합니다. Cisco의 예측에 따르면 [2022년까지 인터넷 트래픽의 82%가 비디오](https://www.cisco.com/c/en/us/solutions/collateral/executive-perspectives/annual-internet-report/white-paper-c11-741490.html)가 될 것이라고 합니다.
 
 이러한 배경에서 [VideoRAG 논문](https://arxiv.org/abs/2501.05874)(Jeong et al., 2025, ACL Findings)이 비디오 RAG 프레임워크를 제안했습니다. 기존 접근법은 비디오를 텍스트로 변환할 때 멀티모달 정보가 손실되거나, 쿼리 기반 검색 없이 사전에 정의된 비디오만 사용하는 한계가 있었습니다.
 
@@ -83,13 +83,13 @@ cover:
 
 ### Twelve Labs 소개
 
-[Twelve Labs](https://www.twelvelabs.io/)는 비디오 이해 전문 AI 스타트업입니다. [AWS SageMaker HyperPod](https://aws.amazon.com/blogs/aws/twelvelabs-video-understanding-models-are-now-available-in-amazon-bedrock/)에서 모델을 학습하며, 2025년 1월부터 Amazon Bedrock에서 사용할 수 있습니다.
+[Twelve Labs](https://www.twelvelabs.io/)는 비디오 이해 전문 AI 스타트업입니다. [AWS SageMaker HyperPod](https://aws.amazon.com/blogs/aws/twelvelabs-video-understanding-models-are-now-available-in-amazon-bedrock/)에서 모델을 학습하며, 2025년 7월부터 Amazon Bedrock에서 정식으로 사용할 수 있습니다.
 
 ### Pegasus v1.2 (비디오 언어 모델)
 
 [Pegasus v1.2](https://www.twelvelabs.io/blog/introducing-pegasus-1-2)는 Twelve Labs의 최신 비디오 언어 모델입니다.
 
-<strong>아키텍처:</strong> video encoder + video-language alignment + language decoder로 구성되어 있으며, [Pegasus-1 Technical Report](https://arxiv.org/abs/2404.14687)에 따르면 약 80B 파라미터를 가지고 있습니다.
+<strong>아키텍처:</strong> video encoder + video-language alignment + language decoder로 구성되어 있으며, [Pegasus-1 Technical Report](https://arxiv.org/abs/2404.14687)에 따르면 약 80B 파라미터를 가진 것으로 알려져 있습니다 (Pegasus-1 기준, v1.2의 정확한 파라미터 수는 별도 공개되지 않았습니다).
 
 <strong>성능:</strong>
 - 최대 1시간 비디오 지원
@@ -102,20 +102,18 @@ cover:
 
 <strong>Bedrock 설정:</strong>
 - Inference Profile: `us.twelvelabs.pegasus-1-2-v1:0`
-- 리전: US West (Oregon), Europe (Ireland) (cross-region inference)
+- 리전: US West (Oregon), Europe (Ireland), US East (N. Virginia), Asia Pacific (Seoul) 등 7개 리전 (cross-region inference)
 - [파라미터 문서](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-pegasus.html)
 
 ### Marengo Embed 3.0 (멀티모달 임베딩)
 
 [Marengo Embed 3.0](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-marengo.html)은 512차원 벡터를 출력하는 멀티모달 임베딩 모델입니다.
 
-<strong>입력:</strong> 텍스트 + 이미지
-
-<strong>주의:</strong> Bedrock에서 Marengo Embed 3.0은 <strong>비디오 직접 임베딩을 지원하지 않습니다</strong>. 텍스트와 이미지만 입력으로 받습니다. 비디오를 직접 임베딩하려면 Marengo 2.7 모델과 StartAsyncInvoke API를 사용해야 합니다.
+<strong>입력 모달리티:</strong> InvokeModel(동기 API)로는 텍스트와 이미지를, StartAsyncInvoke(비동기 API)로는 비디오, 오디오, 이미지, 텍스트를 모두 임베딩할 수 있습니다. 비동기 API를 사용하면 최대 4시간/6GB 비디오까지 처리 가능합니다.
 
 <strong>Bedrock 설정:</strong>
 - Inference Profile: `us.twelvelabs.marengo-embed-3-0-v1:0`
-- 리전: US East (N. Virginia)
+- 리전: US East (N. Virginia), Europe (Ireland), Asia Pacific (Seoul)
 
 ## 5. 실전 실험: Bedrock에서 직접 비교해 보니
 
@@ -234,18 +232,18 @@ Frame-avg 방식의 근본적인 문제는 <strong>프레임끼리 너무 비슷
 
 10초 비디오를 Pegasus로 요약하면:
 - 입력 비용: $0.00049 × 10초 = $0.0049
-- 출력 비용: 상세 설명 생성 시(약 1,000토큰) $0.0075 × 1 = $0.0075
+- 출력 비용: 상세 설명 생성 시(약 2,000토큰) $0.0075 × 2 = $0.015
 - <strong>총 약 $0.02 수준</strong>
 
-30초 평균 비디오 1,000개를 인덱싱해도 약 $60 수준으로, 비용 부담이 크지 않습니다.
+30초 평균 비디오 1,000개를 인덱싱해도 약 $30 수준으로, 비용 부담이 크지 않습니다.
 
 ### 한계점
 
-1. <strong>Marengo Embed 3.0의 비디오 직접 임베딩 미지원:</strong> Bedrock에서는 텍스트와 이미지만 임베딩할 수 있습니다. 비디오를 직접 임베딩하려면 Marengo 2.7 모델과 비동기 API를 사용해야 합니다. 향후 Embed 3.0도 지원 확대가 예상됩니다.
+1. <strong>동기 API의 모달리티 제한:</strong> Bedrock InvokeModel(동기 API)에서는 텍스트와 이미지만 임베딩할 수 있습니다. 비디오와 오디오 임베딩은 StartAsyncInvoke(비동기 API)를 사용해야 하므로, 실시간 비디오 임베딩이 필요한 경우 파이프라인 설계에 유의해야 합니다.
 
 2. <strong>Hallucination:</strong> Pegasus가 한국어 요약 시 일부 환각을 생성합니다. 예를 들어 "페가수스 공원" 같은 존재하지 않는 장소를 언급하는 경우가 있습니다.
 
-3. <strong>리전 제한:</strong> Pegasus는 US/EU만, Marengo 3.0은 us-east-1만 지원합니다. cross-region inference를 사용하면 latency가 증가할 수 있습니다.
+3. <strong>리전 간 구성:</strong> Pegasus v1.2와 Marengo Embed 3.0은 서울 리전을 포함한 다수의 리전에서 사용 가능하지만, 두 모델의 지원 리전이 완전히 동일하지는 않으므로 파이프라인 구성 시 리전 배치를 고려해야 합니다.
 
 ### 전망
 
@@ -275,7 +273,7 @@ Amazon Bedrock에서 Twelve Labs 모델을 사용하면, 복잡한 인프라 구
 - VideoRAG: https://arxiv.org/abs/2501.05874 (Jeong et al., 2025, ACL Findings)
 - TwelveLabs on Bedrock: https://aws.amazon.com/bedrock/twelvelabs/
 - Bedrock Pegasus Documentation: https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-pegasus.html
-- Bedrock Marengo Documentation: https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-marengo.html
+- Bedrock Marengo Documentation: https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-marengo-3.html
 - Twelve Labs Pegasus-1 블로그: https://www.twelvelabs.io/blog/introducing-pegasus-1
 - VAST Data + TwelveLabs Partnership: https://www.vastdata.com/press-releases/vast-data-and-twelvelabs-partner-to-expand-video-intelligence
 - 실험 코드 GitHub 레포: https://github.com/jesamkim/bedrock-twelvelabs
