@@ -1,10 +1,10 @@
 ---
-title: "프레임 임베딩 vs 비디오 언어 모델: 비디오 RAG 파이프라인, 어떻게 만들어야 할까"
+title: "비디오 직접 임베딩 vs VLM 파이프라인: 비디오 RAG, 어떤 접근법이 더 나을까"
 date: 2026-03-13T10:00:00+09:00
 author: "Jesam Kim"
 categories: ["AI/ML 기술 심층분석"]
-tags: ["Video RAG", "Twelve Labs", "Amazon Bedrock", "Pegasus", "Marengo", "Video Understanding", "Embedding"]
-description: "비디오 RAG를 구축할 때 프레임 임베딩과 비디오 언어 모델 기반 파이프라인의 성능 차이를 실험으로 비교합니다. Twelve Labs Pegasus v1.2와 Marengo Embed 3.0을 Amazon Bedrock에서 테스트한 결과, VLM 기반 파이프라인이 5~10배 높은 유사도 스코어를 보여줍니다."
+tags: ["Video RAG", "Twelve Labs", "Amazon Bedrock", "Pegasus", "Marengo", "Video Understanding", "Embedding", "Async Embedding"]
+description: "비디오 RAG를 구축할 때 비디오 직접 임베딩과 VLM 파이프라인의 성능 차이를 실험으로 비교합니다. Twelve Labs Marengo의 비동기 비디오 임베딩과 Pegasus+Marengo VLM 파이프라인을 Amazon Bedrock에서 테스트한 결과, VLM 파이프라인이 5배 높은 유사도 스코어를 보여주지만 비디오 직접 임베딩도 클립 단위 시간 검색에서 강점을 보입니다."
 cover:
   image: "images/cover-video-rag-pipeline.png"
 ---
@@ -47,35 +47,47 @@ cover:
 
 비디오 RAG를 구축하려면, 비디오를 벡터로 변환해야 합니다. 두 가지 접근법이 있습니다.
 
-![프레임 임베딩 vs VLM 파이프라인 비교 다이어그램](/ai-tech-blog/images/video-rag-two-approaches.png)
+![비디오 직접 임베딩 vs VLM 파이프라인 비교 다이어그램](/ai-tech-blog/images/video-rag-two-approaches.png)
 
-### 접근법 A: 프레임 임베딩 (Frame-level Embedding)
+### 접근법 A: 비디오 직접 임베딩 (Async Video Embedding)
 
-가장 단순한 방법은 비디오에서 N개의 프레임을 추출하고, 각 프레임을 이미지 임베딩 모델로 변환한 뒤, 벡터들의 <strong>평균</strong>을 구하는 것입니다.
+Marengo Embed 3.0의 StartAsyncInvoke API를 사용해 비디오를 <strong>직접 임베딩</strong>하는 방식입니다.
+
+<strong>동작 방식:</strong>
+- 비디오 파일을 S3에 업로드하고, StartAsyncInvoke API를 호출합니다
+- Marengo가 비디오 전체를 분석해 <strong>멀티모달 벡터</strong>를 생성합니다
+- <strong>Asset-level</strong>: 비디오 전체에 대한 visual, audio, transcription 벡터 (3개)
+- <strong>Clip-level</strong>: 약 6.5초 단위 세그먼트별 벡터 (영상당 9~18개)
+- 최대 4시간/6GB 비디오 지원
 
 <strong>장점:</strong>
-- 구현이 단순합니다
-- 기존 이미지 임베딩 인프라를 재사용할 수 있습니다
+- <strong>클립 단위 시간 검색</strong>이 가능합니다. "사람이 제스처를 하는 구간"을 타임스탬프로 정확히 검색할 수 있습니다
+- 오디오와 대화를 반영합니다 (audio modality 벡터)
+- 단일 API 호출로 완료되어 구현이 단순합니다
 
 <strong>단점:</strong>
-- <strong>시간적 맥락이 소실</strong>됩니다. "사람이 문을 열고 들어온다"와 "사람이 문을 닫고 나간다"는 프레임 평균으로는 구분하기 어렵습니다
-- 오디오와 대화를 무시합니다
-- 프레임 간 의미가 희석됩니다. 서로 다른 장면의 프레임들을 평균내면, 의미적으로 중심점이 애매해집니다
-
-<strong>이론적 분석:</strong> 벡터 평균은 기하학적 중심점을 계산합니다. 예를 들어 "열기구" 프레임(v<sub>1</sub>)과 "사람 대화" 프레임(v<sub>2</sub>)의 평균 (v<sub>1</sub> + v<sub>2</sub>) / 2는 두 의미의 중간 어딘가를 가리키지만, 비디오의 실제 의미를 대표하지 못할 수 있습니다.
+- <strong>절대 유사도 스코어가 낮습니다</strong> (0.07~0.15 수준)
+- 비동기 API이므로 완료까지 수십 초 소요됩니다
+- 텍스트 설명을 재사용할 수 없습니다
 
 ### 접근법 B: VLM(Video Language Model) 기반 파이프라인
 
-비디오 전체를 Video Language Model에 입력하고, 텍스트 설명을 생성한 뒤, 그 텍스트를 임베딩하는 방식입니다.
+비디오 전체를 Pegasus v1.2에 입력해 텍스트 설명을 생성한 뒤, 그 텍스트를 Marengo Embed 3.0으로 임베딩하는 방식입니다.
+
+<strong>동작 방식:</strong>
+1. Pegasus v1.2가 비디오를 분석해 자연어 설명을 생성합니다
+2. 생성된 텍스트를 Marengo Embed 3.0의 InvokeModel(동기 API)로 임베딩합니다
+3. 단일 512차원 벡터를 얻습니다
 
 <strong>장점:</strong>
-- <strong>시간적 맥락과 관계를 포착</strong>합니다. "처음에는 A가 일어나고, 그 다음 B가 일어난다"는 인과 관계를 이해합니다
-- 오디오와 대화를 반영할 수 있습니다
-- 이벤트와 행동을 자연어로 표현합니다
+- <strong>높은 유사도 스코어</strong> (0.46~0.64 수준, 비디오 직접 임베딩 대비 5배)
+- 시간적 맥락과 인과 관계를 자연어로 표현합니다
+- 텍스트 설명을 캐싱해 재사용할 수 있습니다
 
 <strong>단점:</strong>
+- 2단계 API 호출이 필요합니다 (Pegasus → Marengo)
+- 클립 단위 시간 검색이 불가능합니다
 - 추가 추론 비용이 발생합니다
-- 파이프라인이 복잡해집니다
 
 실험을 통해 두 접근법의 성능 차이를 비교해 보겠습니다.
 
@@ -107,13 +119,21 @@ cover:
 
 ### Marengo Embed 3.0 (멀티모달 임베딩)
 
-[Marengo Embed 3.0](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-marengo.html)은 512차원 벡터를 출력하는 멀티모달 임베딩 모델입니다.
+[Marengo Embed 3.0](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-marengo-3.html)은 512차원 벡터를 출력하는 멀티모달 임베딩 모델입니다.
 
-<strong>입력 모달리티:</strong> InvokeModel(동기 API)로는 텍스트와 이미지를, StartAsyncInvoke(비동기 API)로는 비디오, 오디오, 이미지, 텍스트를 모두 임베딩할 수 있습니다. 비동기 API를 사용하면 최대 4시간/6GB 비디오까지 처리 가능합니다.
+<strong>입력 모달리티:</strong>
+- <strong>InvokeModel (동기 API):</strong> 텍스트, 이미지를 즉시 임베딩합니다
+- <strong>StartAsyncInvoke (비동기 API):</strong> 비디오, 오디오, 이미지, 텍스트를 모두 임베딩할 수 있습니다. 최대 4시간/6GB 비디오까지 처리 가능합니다
+
+<strong>비디오 임베딩 출력:</strong>
+- Asset-level: 비디오 전체에 대한 visual, audio, transcription 모달리티별 벡터 (3개)
+- Clip-level: 약 6.5초 단위 세그먼트별로 3개 모달리티 벡터 생성
+- 예: 19.3초 비디오 → asset 3개 + clip 12개 = 총 15개 벡터
 
 <strong>Bedrock 설정:</strong>
 - Inference Profile: `us.twelvelabs.marengo-embed-3-0-v1:0`
 - 리전: US East (N. Virginia), Europe (Ireland), Asia Pacific (Seoul)
+- [파라미터 문서](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-marengo-3.html)
 
 ## 5. 실전 실험: Bedrock에서 직접 비교해 보니
 
@@ -144,14 +164,14 @@ cover:
 
 두 가지 방식으로 비디오 임베딩을 생성하고, 쿼리와의 유사도를 비교했습니다.
 
-<strong>Frame-avg:</strong>
-1. 비디오에서 4개 프레임 추출
-2. 각 프레임을 Marengo Embed 3.0으로 이미지 임베딩
-3. 4개 벡터의 평균 계산
+<strong>Async Video Embed:</strong>
+1. 비디오를 S3에 업로드
+2. StartAsyncInvoke API로 Marengo Embed 3.0 호출
+3. Asset-level visual 벡터를 사용 (비디오 전체의 시각적 특징)
 
 <strong>Pegasus+Marengo:</strong>
 1. Pegasus v1.2로 비디오 전체를 텍스트 설명으로 변환
-2. 텍스트를 Marengo Embed 3.0으로 임베딩
+2. 텍스트를 Marengo Embed 3.0으로 임베딩 (동기 API)
 
 ### 결과 데이터
 
@@ -159,12 +179,12 @@ cover:
 
 | 쿼리 | 방식 | nature | city | cooking |
 |------|------|--------|------|---------|
-| "hot air balloons in cappadocia" | Frame-avg | 0.043 | -0.051 | -0.058 |
-|  | Pegasus+Marengo | <strong>0.421</strong> | 0.176 | 0.117 |
-| "people having conversation outdoors" | Frame-avg | 0.006 | 0.069 | -0.028 |
-|  | Pegasus+Marengo | 0.290 | <strong>0.616</strong> | 0.158 |
-| "science experiment in lab" | Frame-avg | -0.032 | -0.043 | 0.068 |
-|  | Pegasus+Marengo | 0.222 | 0.254 | <strong>0.562</strong> |
+| "hot air balloons in cappadocia" | Async Video Embed | <strong>0.135</strong> | 0.005 | -0.070 |
+|  | Pegasus+Marengo | <strong>0.456</strong> | 0.176 | 0.117 |
+| "people having conversation outdoors" | Async Video Embed | -0.022 | <strong>0.067</strong> | -0.075 |
+|  | Pegasus+Marengo | 0.290 | <strong>0.636</strong> | 0.158 |
+| "science experiment in lab" | Async Video Embed | -0.083 | -0.066 | <strong>0.099</strong> |
+|  | Pegasus+Marengo | 0.222 | 0.254 | <strong>0.534</strong> |
 
 ![파이프라인 유사도 비교 차트](/ai-tech-blog/images/video-rag-pipeline-comparison.png)
 
@@ -172,69 +192,93 @@ cover:
 
 1. <strong>두 방식 모두 정확한 1위 매칭</strong>을 했습니다(3/3). 즉, "열기구" 쿼리는 nature 비디오를, "대화" 쿼리는 city 비디오를, "실험" 쿼리는 cooking 비디오를 각각 최고 점수로 검색했습니다.
 
-2. 하지만 <strong>마진이 극적으로 다릅니다</strong>. Frame-avg의 최고 스코어는 0.069인 반면, Pegasus+Marengo는 0.616으로 <strong>약 9배 높습니다</strong>.
+2. 하지만 <strong>절대 스코어가 극적으로 다릅니다</strong>. Async Video Embed의 평균 스코어는 0.100인 반면, Pegasus+Marengo는 0.542로 <strong>약 5배 높습니다</strong>.
 
-3. Frame-avg는 음수 스코어가 많습니다. 이는 프레임 평균 벡터가 쿼리와 거의 직교하거나 반대 방향을 가리킨다는 의미입니다.
+3. Pegasus+Marengo는 모든 쿼리에서 양수 스코어를 보이지만, Async Video Embed는 음수 스코어가 많습니다. 이는 비디오 시각적 벡터가 텍스트 쿼리와 직접 비교될 때 의미적 정렬이 약하다는 것을 의미합니다.
 
-### 프레임 간 유사도 문제
+### 클립 단위 시간 검색
 
-Frame-avg 방식의 근본적인 문제는 <strong>프레임끼리 너무 비슷하다</strong>는 것입니다.
+Async Video Embed의 강점은 <strong>클립 단위 검색</strong>입니다. city.mp4의 클립별 유사도를 보면:
 
-![프레임 간 유사도 히트맵](/ai-tech-blog/images/video-rag-similarity-matrix.png)
+| 쿼리 | 타임스탬프 | 유사도 |
+|------|-----------|--------|
+| "people gesturing and talking" | 13.0-19.2초 | 0.107 |
+|  | 6.5-13.0초 | 0.083 |
+|  | 0-6.5초 | 0.063 |
 
-3개 비디오에서 추출한 12개 프레임의 cosine similarity를 계산하면, 대부분 0.74~0.79 범위에 분포합니다. 즉, <strong>서로 다른 비디오의 프레임끼리도 유사도가 높습니다</strong>.
+실제로 13.0-19.2초 구간에서 사람들이 손으로 제스처를 하며 대화하는 장면이 가장 두드러집니다. <strong>클립 단위 벡터가 시간적 세그먼트를 정확히 찾아냅니다</strong>.
 
-이는 이미지 임베딩이 저수준 시각적 특징(색상, 질감, 구도)에 민감하기 때문입니다. "열기구"와 "대화"는 의미적으로 전혀 다르지만, 프레임 레벨에서는 "야외 풍경"이라는 공통점 때문에 비슷하게 보입니다.
+### 비디오 간 유사도 개선
 
-결국 프레임 평균으로는 <strong>의미적 차이를 구분하기 어렵습니다</strong>.
+3개 비디오의 asset-level visual 벡터끼리 cosine similarity를 계산하면:
 
-## 6. 비디오 RAG 파이프라인 아키텍처: 권장 패턴
+![비디오 간 유사도 행렬](/ai-tech-blog/images/video-rag-similarity-matrix.png)
 
-실험 결과를 바탕으로, 권장하는 비디오 RAG 아키텍처는 다음과 같습니다.
+| | nature | city | cooking |
+|---|--------|------|---------|
+| nature | 1.00 | 0.63 | 0.60 |
+| city | 0.63 | 1.00 | 0.62 |
+| cooking | 0.60 | 0.62 | 1.00 |
+
+비디오 직접 임베딩은 <strong>0.60~0.63 범위</strong>로, 프레임 평균 방식(0.74~0.79)보다 의미적 구분이 개선되었습니다. 하지만 여전히 절대 스코어가 낮아, 텍스트 쿼리와의 직접 매칭에는 한계가 있습니다.
+
+### 종합 비교
+
+| 방식 | 평균 스코어 | 장점 | 단점 |
+|-----|-----------|------|------|
+| Async Video Embed | 0.100 | 클립 단위 시간 검색, 단일 API | 낮은 절대 스코어 |
+| Pegasus+Marengo | 0.542 | 높은 유사도, 텍스트 재사용 | 2단계 API, 시간 검색 불가 |
+
+## 6. 비디오 RAG 파이프라인 아키텍처: 하이브리드 접근법
+
+실험 결과를 바탕으로, <strong>두 방식을 모두 활용하는 하이브리드 아키텍처</strong>를 권장합니다.
 
 ![비디오 RAG 아키텍처 다이어그램](/ai-tech-blog/images/video-rag-architecture.png)
 
 ### Phase 1: 인덱싱
 
 1. <strong>비디오 저장:</strong> S3에 비디오를 업로드합니다
-2. <strong>텍스트 설명 생성:</strong> Pegasus v1.2로 비디오 전체를 텍스트로 요약합니다
-3. <strong>임베딩 생성:</strong> Marengo Embed 3.0으로 텍스트를 512차원 벡터로 변환합니다
-4. <strong>저장:</strong> 벡터와 메타데이터(video_key, description, timestamps)를 Vector DB에 저장합니다
+2. <strong>비동기 비디오 임베딩:</strong> StartAsyncInvoke로 Marengo가 asset + clip 벡터를 생성합니다
+3. <strong>텍스트 설명 생성:</strong> Pegasus v1.2로 비디오 전체를 텍스트로 요약합니다
+4. <strong>텍스트 임베딩:</strong> Marengo의 동기 API로 텍스트를 임베딩합니다
+5. <strong>저장:</strong> 두 종류의 벡터(비디오 + 텍스트)와 메타데이터를 Vector DB에 저장합니다
 
 ### Phase 2: 검색
 
-1. <strong>쿼리 임베딩:</strong> 사용자 쿼리를 Marengo Embed 3.0으로 임베딩합니다
-2. <strong>벡터 검색:</strong> Vector DB에서 cosine similarity 기반으로 Top-K 비디오를 검색합니다
-3. <strong>메타데이터 반환:</strong> 검색된 비디오의 메타데이터(S3 key, 설명)를 가져옵니다
+1. <strong>쿼리 임베딩:</strong> 사용자 쿼리를 Marengo로 임베딩합니다
+2. <strong>하이브리드 검색:</strong>
+   - 텍스트 임베딩으로 Top-K 비디오 검색 (높은 정확도)
+   - 비디오 임베딩으로 클립 단위 시간 검색 (타임스탬프)
+3. <strong>메타데이터 반환:</strong> 검색된 비디오의 메타데이터와 관련 구간을 가져옵니다
 
 ### Phase 3: 생성
 
 1. <strong>상세 QA:</strong> 검색된 비디오를 Pegasus v1.2에 다시 입력하고, 사용자 쿼리에 대한 상세 답변을 생성합니다
-2. <strong>타임스탬프 제공:</strong> 답변과 함께 관련 장면의 타임스탬프를 제공합니다
+2. <strong>타임스탬프 제공:</strong> 답변과 함께 클립 단위 검색 결과에서 얻은 정확한 타임스탬프를 제공합니다
 
 ### AWS 서비스 구성
 
 - <strong>S3:</strong> 비디오 저장
-- <strong>Amazon Bedrock:</strong> Pegasus v1.2 + Marengo Embed 3.0
-- <strong>Vector DB:</strong> Amazon OpenSearch Service 또는 Pinecone
+- <strong>Amazon Bedrock:</strong> Pegasus v1.2 + Marengo Embed 3.0 (동기 + 비동기 API)
+- <strong>Vector DB:</strong> Amazon OpenSearch Service, Pinecone, 또는 S3 Vectors
 
 [AWS 케이스 스터디](https://aws.amazon.com/bedrock/twelvelabs/)에서는 TwelveLabs와 S3 Vectors 통합이 소개되어 있습니다. S3 Vectors를 사용하면 별도의 Vector DB 없이 S3에서 직접 벡터 검색이 가능합니다.
 
 ### 스케일링 고려사항
 
-- <strong>비동기 인덱싱:</strong> 수천 개의 비디오를 인덱싱할 때는 비동기 워크플로우(Step Functions 등)를 사용합니다
-- <strong>캐시 전략:</strong> 자주 검색되는 비디오는 Pegasus 응답을 캐싱해 비용을 절감합니다
-- <strong>메타데이터 필터링:</strong> 날짜, 카테고리 등 메타데이터로 사전 필터링하면 검색 정확도가 향상됩니다
+- <strong>비동기 인덱싱:</strong> 수천 개의 비디오를 인덱싱할 때는 비동기 워크플로우(Step Functions 등)를 사용합니다. StartAsyncInvoke 완료 시 SNS 알림을 받아 다음 단계를 트리거합니다
+- <strong>캐시 전략:</strong> Pegasus 텍스트 설명을 S3 또는 DynamoDB에 캐싱해 재사용합니다
+- <strong>하이브리드 필터링:</strong> 먼저 텍스트 임베딩으로 Top-10을 찾고, 그 중에서 비디오 임베딩으로 클립 구간을 정밀 검색합니다
 
 ## 7. 한계와 전망
 
 ### 한계점
 
-1. <strong>동기 API의 모달리티 제한:</strong> Bedrock InvokeModel(동기 API)에서는 텍스트와 이미지만 임베딩할 수 있습니다. 비디오와 오디오 임베딩은 StartAsyncInvoke(비동기 API)를 사용해야 하므로, 실시간 비디오 임베딩이 필요한 경우 파이프라인 설계에 유의해야 합니다.
+1. <strong>텍스트-비디오 의미 정렬:</strong> 비디오 직접 임베딩의 절대 스코어가 낮아, 텍스트 쿼리와 직접 매칭 시 정확도가 떨어집니다. 텍스트 임베딩을 함께 사용하는 하이브리드 접근이 필요합니다.
 
 2. <strong>Hallucination:</strong> Pegasus가 한국어 요약 시 일부 환각을 생성합니다. 예를 들어 "페가수스 공원" 같은 존재하지 않는 장소를 언급하는 경우가 있습니다.
 
-3. <strong>리전 간 구성:</strong> Pegasus v1.2와 Marengo Embed 3.0은 서울 리전을 포함한 다수의 리전에서 사용 가능하지만, 두 모델의 지원 리전이 완전히 동일하지는 않으므로 파이프라인 구성 시 리전 배치를 고려해야 합니다.
+3. <strong>비동기 처리 지연:</strong> StartAsyncInvoke는 비디오 길이에 따라 수십 초에서 수 분이 소요되므로, 실시간 인덱싱이 필요한 경우에는 부적합합니다.
 
 ### 전망
 
@@ -248,7 +292,9 @@ Frame-avg 방식의 근본적인 문제는 <strong>프레임끼리 너무 비슷
 
 ## 결론
 
-비디오 RAG를 구축할 때, <strong>프레임 임베딩 평균 방식</strong>은 구현이 간단하지만 시간적 맥락을 잃고 의미적 구분이 약합니다. 반면 <strong>VLM 기반 파이프라인</strong>(Pegasus + Marengo)은 5~10배 높은 유사도 스코어를 달성하며, 비디오의 의미를 훨씬 잘 포착합니다.
+비디오 RAG를 구축할 때, <strong>비디오 직접 임베딩</strong>(Async Video Embed)은 클립 단위 시간 검색에 강점이 있지만 절대 유사도 스코어가 낮습니다. 반면 <strong>VLM 기반 파이프라인</strong>(Pegasus + Marengo)은 5배 높은 유사도 스코어를 달성하며, 텍스트 쿼리와의 의미적 매칭이 우수합니다.
+
+실전에서는 <strong>두 방식을 모두 활용하는 하이브리드 접근</strong>을 권장합니다. 텍스트 임베딩으로 관련 비디오를 찾고, 비디오 임베딩으로 정확한 타임스탬프를 제공하는 것입니다.
 
 Amazon Bedrock에서 Twelve Labs 모델을 사용하면, 복잡한 인프라 구축 없이도 프로덕션 수준의 비디오 RAG를 빠르게 구축할 수 있습니다.
 
