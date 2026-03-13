@@ -13,3 +13,7 @@ hugo-site/
 logs/
 output-control-patterns-demo/
 output-control-patterns-demo-backup/
+
+# Task files
+blog-task*.txt
+*.svg
