@@ -252,7 +252,7 @@ Frame-avg 방식의 근본적인 문제는 <strong>프레임끼리 너무 비슷
 
 Amazon Bedrock에서 Twelve Labs 모델을 사용하면, 복잡한 인프라 구축 없이도 프로덕션 수준의 비디오 RAG를 빠르게 구축할 수 있습니다.
 
-지금이 비디오 지식 베이스를 구축하기 좋은 시점입니다. 텍스트 RAG처럼, 비디오 RAG도 곧 표준이 될 것입니다.
+실험 코드는 [GitHub 레포지토리](https://github.com/jesamkim/bedrock-twelvelabs)에 공개되어 있습니다.
 
 ---
 
