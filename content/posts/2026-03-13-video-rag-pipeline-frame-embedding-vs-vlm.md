@@ -13,7 +13,7 @@ cover:
 
 텍스트 RAG(Retrieval-Augmented Generation)는 이미 성숙한 기술입니다. 문서를 청크로 나누고, 임베딩하고, 벡터 데이터베이스에 저장한 뒤, 쿼리와 유사한 청크를 검색해 LLM의 응답을 보강하는 패턴이 확립되어 있습니다.
 
-하지만 기업 데이터의 상당 부분은 텍스트가 아닌 <strong>비디오</strong>입니다. CCTV 녹화, 회의 녹화, 교육 콘텐츠, 마케팅 영상 등 비디오 형태로 축적된 정보는 방대합니다. [Statista 조사](https://www.statista.com/statistics/1489445/online-video-viewers-worldwide-quarterly/)에 따르면 2025년 기준 전 세계 인터넷 사용자의 94.6%가 매월 온라인 비디오를 시청하고 있으며, [Gartner](https://blogs.nvidia.com/blog/ai-data-platform-gpu-accelerated-storage/)는 기업 데이터의 80~90%가 비디오를 포함한 비정형 데이터라고 추산합니다.
+하지만 기업 데이터의 상당 부분은 텍스트가 아닌 <strong>비디오</strong>입니다. CCTV 녹화, 회의 녹화, 교육 콘텐츠, 마케팅 영상 등 비디오 형태로 축적된 정보는 방대합니다. [Statista 조사](https://www.statista.com/statistics/1489445/online-video-viewers-worldwide-quarterly/)에 따르면 2025년 기준 전 세계 인터넷 사용자의 94.6%가 매월 온라인 비디오를 시청하고 있습니다.
 
 이러한 배경에서 [VideoRAG 논문](https://arxiv.org/abs/2501.05874)(Jeong et al., 2025, ACL Findings)이 비디오 RAG 프레임워크를 제안했습니다. 기존 접근법은 비디오를 텍스트로 변환할 때 멀티모달 정보가 손실되거나, 쿼리 기반 검색 없이 사전에 정의된 비디오만 사용하는 한계가 있었습니다.
 
