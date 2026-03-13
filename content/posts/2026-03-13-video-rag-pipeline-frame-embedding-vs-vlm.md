@@ -117,15 +117,6 @@ cover:
 - Inference Profile: `us.twelvelabs.marengo-embed-3-0-v1:0`
 - 리전: US East (N. Virginia)
 
-### Bedrock 가격
-
-[Amazon Bedrock 가격 페이지](https://aws.amazon.com/bedrock/pricing/)에 따르면:
-
-- <strong>Pegasus v1.2:</strong> $0.00049/초 (비디오 입력) + $0.0075/1K 토큰 (출력)
-- <strong>Marengo Embed 3.0:</strong> 텍스트/이미지는 동기 InvokeModel API 사용, 비디오는 비동기 StartAsyncInvoke API 사용
-
-10초 비디오를 Pegasus로 요약하면 약 $0.00049 × 10 + 출력 토큰 비용 = 대략 $0.02 수준입니다.
-
 ## 5. 실전 실험: Bedrock에서 직접 비교해 보니
 
 실험 코드는 [GitHub 레포지토리](https://github.com/jesamkim/bedrock-twelvelabs)에서 확인할 수 있습니다.
@@ -282,7 +273,6 @@ Amazon Bedrock에서 Twelve Labs 모델을 사용하면, 복잡한 인프라 구
 - Pegasus-1 Technical Report: https://arxiv.org/abs/2404.14687 (Jung et al., 2024)
 - AWS Blog - TwelveLabs on Bedrock: https://aws.amazon.com/blogs/aws/twelvelabs-video-understanding-models-are-now-available-in-amazon-bedrock/
 - VideoRAG: https://arxiv.org/abs/2501.05874 (Jeong et al., 2025, ACL Findings)
-- Amazon Bedrock Pricing: https://aws.amazon.com/bedrock/pricing/
 - TwelveLabs on Bedrock: https://aws.amazon.com/bedrock/twelvelabs/
 - Bedrock Pegasus Documentation: https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-pegasus.html
 - Bedrock Marengo Documentation: https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-marengo.html
