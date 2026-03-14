@@ -592,6 +592,18 @@ Amazon Nova Forge는 AWS가 제공하는 <strong>Nova 모델 전용 파인튜닝
 ]}
 ```
 
+> ⚠️ **실제 Nova 모델 주의사항**: Nova 모델의 SFT 데이터는 Converse API 형식을 사용합니다. `content` 필드가 문자열이 아닌 배열 형태이며, `system` 필드는 messages 외부 최상위에 위치합니다:
+> ```json
+> {
+>   "system": [{"text": "시스템 프롬프트"}],
+>   "messages": [
+>     {"role": "user", "content": [{"text": "질문 또는 명령"}]},
+>     {"role": "assistant", "content": [{"text": "원하는 답변"}]}
+>   ]
+> }
+> ```
+> 이는 Claude, Titan 등 다른 Bedrock 모델의 JSONL 형식과 다르므로 주의가 필요합니다.
+
 <strong>적합한 경우</strong>:
 - 특정 도메인 지식 학습 (의료, 법률, 금융)
 - 특정 응답 스타일/포맷 학습
@@ -762,6 +774,8 @@ data_mixing:
 
 Nova Forge는 YAML 형식의 설정 파일로 모든 파인튜닝 파라미터를 정의합니다. 다음은 <strong>완전한 설정 예시</strong>입니다:
 
+> ⚠️ **Bedrock API 사용 시 참고**: Bedrock `CreateModelCustomizationJob` API를 통해 fine-tuning을 실행할 경우, YAML 설정이 아닌 `hyperParameters` map (epochCount, batchSize, learningRate 등)으로 파라미터를 전달합니다. 아래 YAML 설정은 Nova Forge의 내부 구조를 이해하기 위한 레퍼런스입니다. 또한 fine-tuning 지원 리전은 현재 us-east-1만 해당됩니다 (us-west-2는 fine-tuning 모델이 노출되지 않음).
+
 ```yaml
 # ====================
 # Run Configuration
@@ -816,6 +830,8 @@ training_config:
   # replica당 배치 크기 = global_batch_size / replicas
   # 예: 32 / 4 = replica당 8
   global_batch_size: 32
+  # ⚠️ 주의: Nova Micro는 batch_size 최대 1만 허용합니다.
+  # 모델별 허용 범위가 다르므로 dry-run으로 사전 검증하세요.
 
   # Gradient accumulation steps
   # 메모리가 부족하면 이 값을 늘려 유효 배치 크기 증가
