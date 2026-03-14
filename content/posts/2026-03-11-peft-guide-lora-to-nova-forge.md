@@ -9,6 +9,8 @@ cover:
   image: "/ai-tech-blog/images/cover-peft-guide-lora-to-nova-forge.png"
 ---
 
+> 📌 이 글에서 다루는 Nova Forge SFT 실험의 전체 코드와 데이터셋은 [GitHub 레포](https://github.com/jesamkim/nova-forge)에서 확인할 수 있습니다.
+
 ## 1. 왜 Fine-tuning인가: RAG vs Fine-tuning 판단 기준
 
 대규모 언어 모델을 특정 도메인이나 태스크에 맞추려 할 때, 두 가지 주요 접근법이 있습니다. <strong>Retrieval-Augmented Generation(RAG)</strong>과 <strong>Fine-tuning</strong>입니다.
@@ -1176,6 +1178,8 @@ training_config:
 5. <strong>Amazon Nova Forge 활용</strong>: LoRA+와 Data Mixing으로 프로덕션급 파인튜닝 가능
 
 파인튜닝을 시작하기 전에, 벤치마크 baseline을 측정하고, 중간 체크포인트마다 범용 성능을 모니터링하세요. Forgetting은 예방이 치료보다 쉽습니다.
+
+> 💻 이 글에서 소개한 Nova Forge SFT 실험(한국어 감성 분류, 73% → 99%)의 전체 코드와 데이터셋은 [GitHub](https://github.com/jesamkim/nova-forge)에서 확인할 수 있습니다.
 
 ---
 
