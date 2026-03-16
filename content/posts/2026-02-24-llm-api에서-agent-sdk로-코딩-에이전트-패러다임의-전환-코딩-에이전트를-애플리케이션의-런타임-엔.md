@@ -310,6 +310,12 @@ SWE-bench에서 70%를 넘나드는 벤치마크 수치나, ICSE와 arXiv에 발
 
 AI 에이전트는 개발자를 대체하는 도구가 아니라, 개발자가 더 중요한 문제에 집중할 수 있도록 돕는 동료입니다. 이 균형 감각을 유지하면서 기술을 도입하신다면, 팀의 생산성과 코드 품질 모두를 한 단계 끌어올릴 수 있을 것입니다.
 
+---
+
+> 📌 **후속 글**: 이 포스트에서 제시한 "코딩 에이전트를 런타임 엔진으로" 개념을 실제 AWS Lambda + Bedrock 환경에서 구현한 내용을 AWS 기술 블로그에 게재했습니다.
+> **[Amazon Bedrock과 Claude Agent SDK로 서버리스 멀티 에이전트 구현하기](https://aws.amazon.com/ko/blogs/tech/implement-serverless-multiagent-bedrock-claude-agent-sdk/)** — Orchestrator-Worker 패턴으로 전문화된 에이전트(코드 리뷰, 테스트, 리팩터링)를 병렬 실행하는 서버리스 아키텍처를 다룹니다.
+
+
 ## References
 
 1. <strong>AI Agentic Programming: A Survey of Techniques, Challenges, and Opportunities</strong>, 논문, 2025
