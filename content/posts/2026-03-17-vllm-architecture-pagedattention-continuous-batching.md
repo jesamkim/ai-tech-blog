@@ -14,6 +14,8 @@ tags:
   - "KV Cache"
   - "GPU Memory"
   - "Model Inference"
+cover:
+  image: "images/cover-vllm-architecture.png"
 ShowToc: true
 TocOpen: true
 ---
