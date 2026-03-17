@@ -3,7 +3,7 @@ title: "vLLM 아키텍처 해부: PagedAttention부터 Continuous Batching까지
 date: 2026-03-17T10:00:00+09:00
 draft: false
 author: "Jesam Kim"
-description: "vLLM이 LLM 서빙 성능을 2&ndash;4배 향상시킨 핵심 기술인 PagedAttention과 Continuous Batching의 원리를 OS 가상 메모리 비유와 다이어그램으로 직관적으로 설명합니다."
+description: "vLLM이 LLM 서빙 성능을 2–4배 향상시킨 핵심 기술인 PagedAttention과 Continuous Batching의 원리를 OS 가상 메모리 비유와 다이어그램으로 직관적으로 설명합니다."
 categories:
   - "AI/ML 기술 심층분석"
 tags:
@@ -62,7 +62,7 @@ PagedAttention은 이와 동일한 원리를 사용합니다:
 
 vLLM 논문의 벤치마크 결과를 보면 그 효과가 극적입니다. Orca(기존 SOTA 시스템) 대비 메모리 낭비가 거의 0에 가까워졌고, 같은 GPU에서 처리할 수 있는 배치 크기가 2배 이상 증가했습니다.
 
-vLLM 공식 블로그에 따르면 기존 시스템들은 단편화와 과다 예약으로 인해 메모리의 60&ndash;80%를 낭비하고 있었습니다. PagedAttention은 이 낭비를 4% 미만으로 줄여, 같은 GPU에서 훨씬 더 많은 요청을 동시에 처리할 수 있게 만들었습니다. 결과적으로 FasterTransformer와 Orca 대비 2&ndash;4배의 처리량 향상을 달성했습니다.
+vLLM 공식 블로그에 따르면 기존 시스템들은 단편화와 과다 예약으로 인해 메모리의 60&ndash;80%를 낭비하고 있었습니다. PagedAttention은 이 낭비를 4% 미만으로 줄여, 같은 GPU에서 훨씬 더 많은 요청을 동시에 처리할 수 있게 만들었습니다. 결과적으로 FasterTransformer와 Orca 대비 2–4배의 처리량 향상을 달성했습니다.
 
 ### Copy-on-Write로 프롬프트 공유
 
@@ -204,7 +204,7 @@ Prefill 단계(프롬프트 처리)와 Decode 단계(토큰 생성)는 특성이
 
 vLLM은 단순히 속도가 빠른 추론 엔진이 아닙니다. 운영체제의 가상 메모리 관리 원리를 LLM 서빙에 적용한 <strong>아키텍처 혁신</strong>입니다.
 
-PagedAttention으로 메모리 단편화를 제거하고, Continuous Batching으로 GPU 활용률을 극대화하며, 다양한 최적화 기법들로 실제 프로덕션 환경의 요구사항을 충족시켰습니다. 그 결과 같은 하드웨어로 2&ndash;4배 이상의 처리량을 달성할 수 있었습니다.
+PagedAttention으로 메모리 단편화를 제거하고, Continuous Batching으로 GPU 활용률을 극대화하며, 다양한 최적화 기법들로 실제 프로덕션 환경의 요구사항을 충족시켰습니다. 그 결과 같은 하드웨어로 2–4배 이상의 처리량을 달성할 수 있었습니다.
 
 특히 인상적인 점은 복잡한 최적화 기법들을 사용자에게 숨기고, 간단한 API로 제공한다는 것입니다. 사용자는 그냥 모델 이름과 프롬프트를 넘기기만 하면, vLLM이 내부에서 알아서 메모리를 관리하고 배치를 스케줄링합니다.
 
