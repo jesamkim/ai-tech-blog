@@ -1,6 +1,6 @@
 ---
 title: "Physical AI 완전 정복: VLM에서 VLA, World Model까지"
-date: 2026-03-20T10:00:00+09:00
+date: 2026-03-19T22:00:00+09:00
 draft: false
 author: "Jesam Kim"
 description: "LLM이 텍스트를 이해하는 AI라면, Physical AI는 물리 세계에서 행동하는 AI입니다. VLM, VLA, World Model의 개념과 진화 과정을 정리하고, NVIDIA GTC 2026에서 발표된 최신 동향까지 한눈에 살펴봅니다."
