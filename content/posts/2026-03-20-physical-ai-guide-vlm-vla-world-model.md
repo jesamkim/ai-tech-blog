@@ -273,13 +273,13 @@ GTC 2026에서 발표된 내용들을 보면, Physical AI가 "연구 주제"에�
 
 ## References
 
-- Google DeepMind, "Gemini Robotics: Bringing AI into the Physical World," arXiv:2503.20020, 2025.03
-- Physical Intelligence, "pi0: A Vision-Language-Action Flow Model for General Robot Control," arXiv:2410.24164, 2024.10
-- Kim et al., "OpenVLA: An Open-Source Vision-Language-Action Model," arXiv:2406.09246, 2024.06
-- Sapkota et al., "Vision-Language-Action Models: Concepts, Progress, Applications and Challenges," arXiv:2505.04769, 2025.05
-- "Vision-Language-Action Models for Robotics: A Review Towards Real-World Applications," arXiv:2510.07077, vla-survey.github.io
-- Brohan et al., "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control," robotics-transformer2.github.io, 2023
-- NVIDIA, "Isaac GR00T N1: An Open Foundation Model for Generalist Humanoid Robots," research.nvidia.com, 2025.03
-- NVIDIA GTC 2026, Cosmos 3, GR00T N1.7, Newton, nvidia.com/gtc, 2026.03
-- Yann LeCun, AMI Labs, ai.meta.com/blog/ami-labs/, 2026.03
-- Hugging Face, "Vision Language Models Explained," huggingface.co/blog/vlms, 2024.04
+- Google DeepMind, ["Gemini Robotics: Bringing AI into the Physical World"](https://arxiv.org/abs/2503.20020), arXiv:2503.20020, 2025.03
+- Physical Intelligence, ["π₀: A Vision-Language-Action Flow Model for General Robot Control"](https://arxiv.org/abs/2410.24164), arXiv:2410.24164, 2024.10
+- Kim et al., ["OpenVLA: An Open-Source Vision-Language-Action Model"](https://arxiv.org/abs/2406.09246), arXiv:2406.09246, 2024.06
+- Sapkota et al., ["Vision-Language-Action Models: Concepts, Progress, Applications and Challenges"](https://arxiv.org/abs/2505.04769), arXiv:2505.04769, 2025.05
+- ["Vision-Language-Action Models for Robotics: A Review"](https://vla-survey.github.io/), vla-survey.github.io, 2025
+- Brohan et al., ["RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control"](https://robotics-transformer2.github.io/), 2023
+- NVIDIA, ["Isaac GR00T N1: An Open Foundation Model for Generalist Humanoid Robots"](https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots), 2025.03
+- NVIDIA, [GTC 2026: Cosmos 3, GR00T N1.7, Newton](https://blogs.nvidia.com/blog/gtc-2026-news/), 2026.03
+- Yann LeCun, [AMI Labs](https://futurumgroup.com/insights/yann-lecuns-ami-raises-1bn-seed-round-is-the-world-model-era-finally-here/), $1B Seed Round, 2026.03
+- Hugging Face, ["Vision Language Models Explained"](https://huggingface.co/blog/vlms), 2024.04
