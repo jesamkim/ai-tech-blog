@@ -1,0 +1,21 @@
+<div class="audio-player" style="
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 20px 0 30px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--border);
+">
+  <span style="font-size: 1.6em;">🎧</span>
+  <div style="flex: 1;">
+    <div style="font-weight: 600; font-size: 0.9em; margin-bottom: 6px; color: var(--primary);">
+      {{ .Get "title" | default "이 글을 팟캐스트로 듣기" }}
+    </div>
+    <audio controls preload="none" style="width: 100%; height: 36px;">
+      <source src="{{ .Get "src" }}" type="audio/mpeg">
+      브라우저가 오디오 재생을 지원하지 않습니다.
+    </audio>
+  </div>
+</div>

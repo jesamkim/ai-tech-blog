@@ -9,6 +9,8 @@ cover:
   image: "/ai-tech-blog/images/cover-back-to-basics-deep-learning-fundamentals.png"
 ---
 
+
+{{< audio src="/ai-tech-blog/audio/2026-03-07-deep-learning.mp3" >}}
 ## 다시 기본으로
 
 새 학기가 시작됐습니다. "AI 분산 학습 및 추론" 수업을 듣는데, 첫 주차는 딥러닝 기초를 다시 복습하는 시간이었습니다. 솔직히 말하면, Solutions Architect로 4년 동안 일하면서 AI/ML 서비스를 수도 없이 다뤘지만, 수식 앞에서는 다시 겸손해지더군요.
