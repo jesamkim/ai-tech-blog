@@ -20,6 +20,8 @@ ShowToc: true
 TocOpen: true
 ---
 
+{{< audio src="/ai-tech-blog/audio/2026-03-20-physical-ai.mp3" >}}
+
 ## 1. 왜 지금 Physical AI인가
 
 ChatGPT가 세상에 나온 지 3년이 조금 넘었습니다. 그 사이 LLM은 코딩, 번역, 요약 등 텍스트 기반 작업에서 인간 수준의 성능을 보여주었습니다. 하지만 한 가지 분명한 한계가 있습니다. LLM은 <strong>말하는 AI</strong>이지, <strong>행동하는 AI</strong>가 아닙니다.
