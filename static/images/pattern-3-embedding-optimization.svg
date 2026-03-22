@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <filter id="shadow3">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="900" height="550" fill="url(#bg3)"/>
+  <text x="450" y="40" text-anchor="middle" fill="#00d4ff" font-size="20" font-weight="bold">Embedding Selection and Optimization</text>
+
+  <!-- Bi-Encoder Section -->
+  <rect x="30" y="70" width="400" height="200" rx="8" fill="#16213e" stroke="#00d4ff" stroke-width="1.5" filter="url(#shadow3)"/>
+  <text x="230" y="95" text-anchor="middle" fill="#00d4ff" font-size="15" font-weight="bold">Stage 1: Bi-Encoder (Retrieval)</text>
+
+  <rect x="55" y="110" width="150" height="60" rx="5" fill="#1e3a5f"/>
+  <text x="130" y="135" text-anchor="middle" fill="#e0e0e0" font-size="12">Query</text>
+  <text x="130" y="155" text-anchor="middle" fill="#ffd700" font-size="10">Embed v4</text>
+
+  <rect x="255" y="110" width="150" height="60" rx="5" fill="#1e3a5f"/>
+  <text x="330" y="135" text-anchor="middle" fill="#e0e0e0" font-size="12">Document</text>
+  <text x="330" y="155" text-anchor="middle" fill="#ffd700" font-size="10">Embed v4</text>
+
+  <text x="230" y="200" text-anchor="middle" fill="#e0e0e0" font-size="12">Cosine Similarity</text>
+  <text x="230" y="220" text-anchor="middle" fill="#66bb6a" font-size="11">Fast: O(1) per doc (pre-computed)</text>
+  <text x="230" y="240" text-anchor="middle" fill="#ffd700" font-size="11">Recall-optimized -> Top-50</text>
+  <text x="230" y="258" text-anchor="middle" fill="#aaa" font-size="10">Independent encoding</text>
+
+  <!-- Cross-Encoder Section -->
+  <rect x="470" y="70" width="400" height="200" rx="8" fill="#16213e" stroke="#ffd700" stroke-width="1.5" filter="url(#shadow3)"/>
+  <text x="670" y="95" text-anchor="middle" fill="#ffd700" font-size="15" font-weight="bold">Stage 2: Cross-Encoder (Rerank)</text>
+
+  <rect x="520" y="110" width="300" height="60" rx="5" fill="#1e3a5f"/>
+  <text x="670" y="135" text-anchor="middle" fill="#e0e0e0" font-size="12">[Query + Document] pair</text>
+  <text x="670" y="155" text-anchor="middle" fill="#ffd700" font-size="10">Rerank v3</text>
+
+  <text x="670" y="200" text-anchor="middle" fill="#e0e0e0" font-size="12">Relevance Score</text>
+  <text x="670" y="220" text-anchor="middle" fill="#ef5350" font-size="11">Slow: O(N) per query (real-time)</text>
+  <text x="670" y="240" text-anchor="middle" fill="#ffd700" font-size="11">Precision-optimized -> Top-5</text>
+  <text x="670" y="258" text-anchor="middle" fill="#aaa" font-size="10">Joint attention over pair</text>
+
+  <!-- Arrow between stages -->
+  <line x1="430" y1="170" x2="470" y2="170" stroke="#00d4ff" stroke-width="2"/>
+  <polygon points="467,166 473,170 467,174" fill="#00d4ff"/>
+  <text x="450" y="160" text-anchor="middle" fill="#ffd700" font-size="10">50</text>
+  <text x="450" y="185" text-anchor="middle" fill="#aaa" font-size="9">candidates</text>
+
+  <!-- Dimension Tradeoff -->
+  <rect x="30" y="300" width="520" height="220" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="1.5" filter="url(#shadow3)"/>
+  <text x="290" y="325" text-anchor="middle" fill="#ab47bc" font-size="15" font-weight="bold">Dimension vs Performance Tradeoff</text>
+
+  <!-- Bar chart visualization -->
+  <!-- 256d -->
+  <text x="90" y="365" text-anchor="middle" fill="#e0e0e0" font-size="11">256d</text>
+  <rect x="60" y="375" width="60" height="100" rx="3" fill="#1e3a5f" stroke="#00d4ff" stroke-width="1"/>
+  <rect x="60" y="377" width="60" height="96" rx="3" fill="#00d4ff" opacity="0.4"/>
+  <text x="90" y="490" text-anchor="middle" fill="#aaa" font-size="10">0.981</text>
+
+  <!-- 512d -->
+  <text x="200" y="365" text-anchor="middle" fill="#ffd700" font-size="11" font-weight="bold">512d</text>
+  <rect x="170" y="375" width="60" height="100" rx="3" fill="#1e3a5f" stroke="#ffd700" stroke-width="2"/>
+  <rect x="170" y="375" width="60" height="100" rx="3" fill="#ffd700" opacity="0.4"/>
+  <text x="200" y="490" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">0.987</text>
+
+  <!-- 1024d -->
+  <text x="310" y="365" text-anchor="middle" fill="#e0e0e0" font-size="11">1024d</text>
+  <rect x="280" y="375" width="60" height="100" rx="3" fill="#1e3a5f" stroke="#00d4ff" stroke-width="1"/>
+  <rect x="280" y="377" width="60" height="96" rx="3" fill="#00d4ff" opacity="0.4"/>
+  <text x="310" y="490" text-anchor="middle" fill="#aaa" font-size="10">0.981</text>
+
+  <!-- 1536d -->
+  <text x="420" y="365" text-anchor="middle" fill="#e0e0e0" font-size="11">1536d</text>
+  <rect x="390" y="375" width="60" height="100" rx="3" fill="#1e3a5f" stroke="#00d4ff" stroke-width="1"/>
+  <rect x="390" y="375" width="60" height="100" rx="3" fill="#00d4ff" opacity="0.4"/>
+  <text x="420" y="490" text-anchor="middle" fill="#aaa" font-size="10">0.987</text>
+
+  <text x="290" y="510" text-anchor="middle" fill="#ffd700" font-size="11">nDCG@10 (Retrieval) - 512d = 1536d</text>
+
+  <!-- Quantization -->
+  <rect x="580" y="300" width="290" height="245" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="1.5" filter="url(#shadow3)"/>
+  <text x="725" y="325" text-anchor="middle" fill="#66bb6a" font-size="15" font-weight="bold">Quantization Impact</text>
+
+  <rect x="600" y="345" width="250" height="40" rx="5" fill="#1e3a5f"/>
+  <text x="725" y="362" text-anchor="middle" fill="#e0e0e0" font-size="12">float32: Full precision</text>
+  <text x="725" y="378" text-anchor="middle" fill="#aaa" font-size="10">4 bytes per dim</text>
+
+  <rect x="600" y="395" width="250" height="40" rx="5" fill="#1e3a5f"/>
+  <text x="725" y="412" text-anchor="middle" fill="#e0e0e0" font-size="12">int8: 256 levels</text>
+  <text x="725" y="428" text-anchor="middle" fill="#66bb6a" font-size="10">1 byte per dim (4x saving)</text>
+
+  <rect x="600" y="445" width="250" height="40" rx="5" fill="#1e3a5f"/>
+  <text x="725" y="462" text-anchor="middle" fill="#e0e0e0" font-size="12">binary: 0 or 1</text>
+  <text x="725" y="478" text-anchor="middle" fill="#66bb6a" font-size="10">1 bit per dim (32x saving)</text>
+
+  <text x="725" y="508" text-anchor="middle" fill="#ffd700" font-size="11">512d int8 vs 1536d float32</text>
+  <text x="725" y="525" text-anchor="middle" fill="#00d4ff" font-size="12" font-weight="bold">~6x storage reduction</text>
+
+  <!-- Watermark -->
+  <text x="15" y="540" fill="#e0e0e0" font-size="10" font-weight="bold" opacity="0.55">jesamkim.github.io</text>
+</svg>

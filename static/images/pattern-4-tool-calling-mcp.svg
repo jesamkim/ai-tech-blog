@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <filter id="shadow4">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="900" height="620" fill="url(#bg4)"/>
+  <text x="450" y="40" text-anchor="middle" fill="#00d4ff" font-size="20" font-weight="bold">Tool Calling + Agent (MCP) Architecture</text>
+
+  <!-- User Request -->
+  <rect x="350" y="65" width="200" height="50" rx="25" fill="#1e3a5f" stroke="#00d4ff" stroke-width="2"/>
+  <text x="450" y="95" text-anchor="middle" fill="#e0e0e0" font-size="14">User Request</text>
+
+  <!-- Arrow down -->
+  <line x1="450" y1="115" x2="450" y2="140" stroke="#00d4ff" stroke-width="2"/>
+  <polygon points="446,137 450,145 454,137" fill="#00d4ff"/>
+
+  <!-- Agent Orchestrator -->
+  <rect x="280" y="145" width="340" height="70" rx="8" fill="#16213e" stroke="#00d4ff" stroke-width="2" filter="url(#shadow4)"/>
+  <text x="450" y="172" text-anchor="middle" fill="#00d4ff" font-size="15" font-weight="bold">Agent Orchestrator</text>
+  <text x="450" y="195" text-anchor="middle" fill="#e0e0e0" font-size="11">Claude Sonnet 4.6 - Planning + Execution</text>
+
+  <!-- Arrow down to MCP -->
+  <line x1="450" y1="215" x2="450" y2="245" stroke="#ffd700" stroke-width="2"/>
+  <polygon points="446,242 450,250 454,242" fill="#ffd700"/>
+
+  <!-- MCP Layer -->
+  <rect x="80" y="250" width="740" height="45" rx="8" fill="#2a2a1e" stroke="#ffd700" stroke-width="2"/>
+  <text x="450" y="278" text-anchor="middle" fill="#ffd700" font-size="14" font-weight="bold">MCP (Model Context Protocol) Layer</text>
+
+  <!-- Tools - 4 columns (evenly spaced) -->
+  <!-- CRM Tool -->
+  <line x1="130" y1="295" x2="130" y2="320" stroke="#ffd700" stroke-width="1.5"/>
+  <polygon points="126,317 130,325 134,317" fill="#ffd700"/>
+  <rect x="45" y="325" width="170" height="90" rx="8" fill="#16213e" stroke="#00d4ff" stroke-width="1.5" filter="url(#shadow4)"/>
+  <text x="130" y="350" text-anchor="middle" fill="#00d4ff" font-size="13" font-weight="bold">CRM Tool</text>
+  <text x="130" y="370" text-anchor="middle" fill="#e0e0e0" font-size="10">Salesforce API</text>
+  <text x="130" y="387" text-anchor="middle" fill="#66bb6a" font-size="10">read: contacts, deals</text>
+  <text x="130" y="404" text-anchor="middle" fill="#ffd700" font-size="10">OAuth2 per-user</text>
+
+  <!-- DB Tool -->
+  <line x1="345" y1="295" x2="345" y2="320" stroke="#ffd700" stroke-width="1.5"/>
+  <polygon points="341,317 345,325 349,317" fill="#ffd700"/>
+  <rect x="260" y="325" width="170" height="90" rx="8" fill="#16213e" stroke="#00d4ff" stroke-width="1.5" filter="url(#shadow4)"/>
+  <text x="345" y="350" text-anchor="middle" fill="#00d4ff" font-size="13" font-weight="bold">DB Tool</text>
+  <text x="345" y="370" text-anchor="middle" fill="#e0e0e0" font-size="10">PostgreSQL / DynamoDB</text>
+  <text x="345" y="387" text-anchor="middle" fill="#66bb6a" font-size="10">read-only SQL queries</text>
+  <text x="345" y="404" text-anchor="middle" fill="#ffd700" font-size="10">Parameterized only</text>
+
+  <!-- Email Tool -->
+  <line x1="560" y1="295" x2="560" y2="320" stroke="#ffd700" stroke-width="1.5"/>
+  <polygon points="556,317 560,325 564,317" fill="#ffd700"/>
+  <rect x="475" y="325" width="170" height="90" rx="8" fill="#16213e" stroke="#ef5350" stroke-width="1.5" filter="url(#shadow4)"/>
+  <text x="560" y="350" text-anchor="middle" fill="#ef5350" font-size="13" font-weight="bold">Email Tool</text>
+  <text x="560" y="370" text-anchor="middle" fill="#e0e0e0" font-size="10">SMTP / Graph API</text>
+  <text x="560" y="387" text-anchor="middle" fill="#ef5350" font-size="10">WRITE: human approval</text>
+  <text x="560" y="404" text-anchor="middle" fill="#ffd700" font-size="10">Staged commit</text>
+
+  <!-- RAG Tool -->
+  <line x1="775" y1="295" x2="775" y2="320" stroke="#ffd700" stroke-width="1.5"/>
+  <polygon points="771,317 775,325 779,317" fill="#ffd700"/>
+  <rect x="690" y="325" width="170" height="90" rx="8" fill="#16213e" stroke="#00d4ff" stroke-width="1.5" filter="url(#shadow4)"/>
+  <text x="775" y="350" text-anchor="middle" fill="#00d4ff" font-size="13" font-weight="bold">RAG Tool</text>
+  <text x="775" y="370" text-anchor="middle" fill="#e0e0e0" font-size="10">Knowledge Base Search</text>
+  <text x="775" y="387" text-anchor="middle" fill="#66bb6a" font-size="10">read: internal docs</text>
+  <text x="775" y="404" text-anchor="middle" fill="#ffd700" font-size="10">OpenSearch backend</text>
+
+  <!-- Safety Layer -->
+  <rect x="30" y="450" width="840" height="140" rx="8" fill="none" stroke="#444" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="50" y="475" fill="#888" font-size="12">Production Safety Layer</text>
+
+  <!-- Human-in-the-Loop -->
+  <rect x="55" y="490" width="185" height="80" rx="8" fill="#2a1a1a" stroke="#ef5350" stroke-width="1.5"/>
+  <text x="147" y="515" text-anchor="middle" fill="#ef5350" font-size="12" font-weight="bold">Human-in-the-Loop</text>
+  <text x="147" y="535" text-anchor="middle" fill="#e0e0e0" font-size="10">Destructive actions</text>
+  <text x="147" y="550" text-anchor="middle" fill="#e0e0e0" font-size="10">require user confirm</text>
+  <text x="147" y="565" text-anchor="middle" fill="#aaa" font-size="9">delete / send / update</text>
+
+  <!-- Circuit Breaker -->
+  <rect x="265" y="490" width="185" height="80" rx="8" fill="#2e2a1a" stroke="#ffd700" stroke-width="1.5"/>
+  <text x="357" y="515" text-anchor="middle" fill="#ffd700" font-size="12" font-weight="bold">Circuit Breaker</text>
+  <text x="357" y="535" text-anchor="middle" fill="#e0e0e0" font-size="10">3 consecutive failures</text>
+  <text x="357" y="550" text-anchor="middle" fill="#e0e0e0" font-size="10">-> disable tool + alert</text>
+  <text x="357" y="565" text-anchor="middle" fill="#aaa" font-size="9">Auto-recovery after cooldown</text>
+
+  <!-- Audit Log -->
+  <rect x="475" y="490" width="185" height="80" rx="8" fill="#1a2e1a" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="567" y="515" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="bold">Audit Log</text>
+  <text x="567" y="535" text-anchor="middle" fill="#e0e0e0" font-size="10">Every tool invocation</text>
+  <text x="567" y="550" text-anchor="middle" fill="#e0e0e0" font-size="10">logged with I/O</text>
+  <text x="567" y="565" text-anchor="middle" fill="#aaa" font-size="9">Compliance + debugging</text>
+
+  <!-- Identity -->
+  <rect x="685" y="490" width="185" height="80" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="1.5"/>
+  <text x="777" y="515" text-anchor="middle" fill="#ab47bc" font-size="12" font-weight="bold">Identity Propagation</text>
+  <text x="777" y="535" text-anchor="middle" fill="#e0e0e0" font-size="10">OAuth2 user tokens</text>
+  <text x="777" y="550" text-anchor="middle" fill="#e0e0e0" font-size="10">Not service accounts</text>
+  <text x="777" y="565" text-anchor="middle" fill="#aaa" font-size="9">Least privilege principle</text>
+
+  <!-- Watermark -->
+  <text x="15" y="610" fill="#e0e0e0" font-size="10" font-weight="bold" opacity="0.55">jesamkim.github.io</text>
+</svg>

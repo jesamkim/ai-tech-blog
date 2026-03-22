@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <filter id="shadow1">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="900" height="620" fill="url(#bg1)"/>
+  <text x="450" y="40" text-anchor="middle" fill="#00d4ff" font-size="20" font-weight="bold">Enterprise RAG Architecture</text>
+
+  <!-- Document Ingestion -->
+  <rect x="30" y="70" width="250" height="200" rx="8" fill="#16213e" stroke="#00d4ff" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="155" y="95" text-anchor="middle" fill="#00d4ff" font-size="14" font-weight="bold">Document Ingestion</text>
+  <rect x="55" y="110" width="200" height="30" rx="5" fill="#1e3a5f"/>
+  <text x="155" y="130" text-anchor="middle" fill="#e0e0e0" font-size="12">PDF / DOCX / HTML</text>
+  <text x="155" y="158" text-anchor="middle" fill="#ffd700" font-size="11">Semantic Chunking (512 tok)</text>
+  <rect x="55" y="170" width="200" height="30" rx="5" fill="#1e3a5f"/>
+  <text x="155" y="190" text-anchor="middle" fill="#e0e0e0" font-size="12">Embed v4 (1024d)</text>
+  <rect x="55" y="210" width="200" height="30" rx="5" fill="#1e3a5f"/>
+  <text x="155" y="230" text-anchor="middle" fill="#e0e0e0" font-size="12">Metadata Index</text>
+  <text x="155" y="260" text-anchor="middle" fill="#aaa" font-size="10">(dept, date, doc_type, ACL)</text>
+
+  <!-- Vector DB -->
+  <rect x="330" y="90" width="220" height="80" rx="8" fill="#16213e" stroke="#ffd700" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="440" y="118" text-anchor="middle" fill="#ffd700" font-size="14" font-weight="bold">OpenSearch Serverless</text>
+  <text x="440" y="140" text-anchor="middle" fill="#e0e0e0" font-size="11">Vector DB + BM25 Index</text>
+  <text x="440" y="158" text-anchor="middle" fill="#aaa" font-size="10">HNSW + Sparse Retrieval</text>
+
+  <!-- Arrow: Ingestion -> VectorDB -->
+  <line x1="280" y1="160" x2="325" y2="138" stroke="#00d4ff" stroke-width="1.5"/>
+  <polygon points="322,133 330,137 324,142" fill="#00d4ff"/>
+
+  <!-- Query Pipeline -->
+  <rect x="30" y="310" width="840" height="280" rx="8" fill="none" stroke="#444" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="50" y="335" fill="#888" font-size="12">Query Pipeline</text>
+
+  <!-- User Query -->
+  <rect x="55" y="355" width="140" height="50" rx="8" fill="#1e3a5f" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="125" y="375" text-anchor="middle" fill="#e0e0e0" font-size="12">User Query</text>
+  <text x="125" y="393" text-anchor="middle" fill="#aaa" font-size="10">+ ACL context</text>
+
+  <!-- Hybrid Search -->
+  <rect x="240" y="345" width="160" height="70" rx="8" fill="#1e3a5f" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="320" y="370" text-anchor="middle" fill="#00d4ff" font-size="12" font-weight="bold">Hybrid Search</text>
+  <text x="320" y="390" text-anchor="middle" fill="#e0e0e0" font-size="11">Dense (Embed v4)</text>
+  <text x="320" y="405" text-anchor="middle" fill="#e0e0e0" font-size="11">+ Sparse (BM25)</text>
+
+  <!-- Top-50 label -->
+  <text x="430" y="368" text-anchor="middle" fill="#ffd700" font-size="11">Top-50</text>
+
+  <!-- Reranker -->
+  <rect x="460" y="345" width="140" height="70" rx="8" fill="#1e3a5f" stroke="#ffd700" stroke-width="1.5"/>
+  <text x="530" y="370" text-anchor="middle" fill="#ffd700" font-size="12" font-weight="bold">Rerank v3</text>
+  <text x="530" y="390" text-anchor="middle" fill="#e0e0e0" font-size="11">Cross-Encoder</text>
+  <text x="530" y="405" text-anchor="middle" fill="#e0e0e0" font-size="11">Precision Filter</text>
+
+  <!-- Top-5 label -->
+  <text x="625" y="368" text-anchor="middle" fill="#ffd700" font-size="11">Top-5</text>
+
+  <!-- LLM -->
+  <rect x="650" y="345" width="180" height="70" rx="8" fill="#1e3a5f" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="740" y="370" text-anchor="middle" fill="#00d4ff" font-size="12" font-weight="bold">Claude Sonnet 4.6</text>
+  <text x="740" y="390" text-anchor="middle" fill="#e0e0e0" font-size="11">Grounded Generation</text>
+  <text x="740" y="405" text-anchor="middle" fill="#e0e0e0" font-size="11">+ Citation Extraction</text>
+
+  <!-- Arrows in Query Pipeline -->
+  <line x1="195" y1="380" x2="240" y2="380" stroke="#00d4ff" stroke-width="1.5"/>
+  <polygon points="237,376 243,380 237,384" fill="#00d4ff"/>
+  <line x1="400" y1="380" x2="460" y2="380" stroke="#ffd700" stroke-width="1.5"/>
+  <polygon points="457,376 463,380 457,384" fill="#ffd700"/>
+  <line x1="600" y1="380" x2="650" y2="380" stroke="#ffd700" stroke-width="1.5"/>
+  <polygon points="647,376 653,380 647,384" fill="#ffd700"/>
+
+  <!-- Access Control -->
+  <rect x="55" y="450" width="140" height="50" rx="8" fill="#2a1a3e" stroke="#ab47bc" stroke-width="1.5"/>
+  <text x="125" y="472" text-anchor="middle" fill="#ab47bc" font-size="12" font-weight="bold">Access Control</text>
+  <text x="125" y="490" text-anchor="middle" fill="#e0e0e0" font-size="10">Per-Dept ACL Filter</text>
+
+  <!-- Evaluation -->
+  <rect x="240" y="450" width="160" height="50" rx="8" fill="#1a2e1a" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="320" y="472" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="bold">Evaluation</text>
+  <text x="320" y="490" text-anchor="middle" fill="#e0e0e0" font-size="10">nDCG / Faithfulness</text>
+
+  <!-- Monitoring -->
+  <rect x="460" y="450" width="140" height="50" rx="8" fill="#1a2e1a" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="530" y="472" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="bold">Monitoring</text>
+  <text x="530" y="490" text-anchor="middle" fill="#e0e0e0" font-size="10">Latency / Feedback</text>
+
+  <!-- Response -->
+  <rect x="650" y="450" width="180" height="50" rx="8" fill="#1e3a5f" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="740" y="472" text-anchor="middle" fill="#e0e0e0" font-size="12" font-weight="bold">Response + Citations</text>
+  <text x="740" y="490" text-anchor="middle" fill="#aaa" font-size="10">Confidence Score</text>
+
+  <!-- Arrow LLM -> Response -->
+  <line x1="740" y1="415" x2="740" y2="450" stroke="#00d4ff" stroke-width="1.5"/>
+  <polygon points="736,447 740,453 744,447" fill="#00d4ff"/>
+
+  <!-- Arrow VectorDB -> Hybrid Search -->
+  <line x1="440" y1="170" x2="340" y2="345" stroke="#ffd700" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- AWS Badge -->
+  <rect x="620" y="200" width="230" height="75" rx="8" fill="#16213e" stroke="#ff9800" stroke-width="1"/>
+  <text x="735" y="222" text-anchor="middle" fill="#ff9800" font-size="12" font-weight="bold">AWS Services</text>
+  <text x="735" y="242" text-anchor="middle" fill="#e0e0e0" font-size="11">Lambda + Step Functions</text>
+  <text x="735" y="260" text-anchor="middle" fill="#e0e0e0" font-size="11">S3 (Document Store)</text>
+
+  <!-- Watermark -->
+  <text x="15" y="610" fill="#e0e0e0" font-size="10" font-weight="bold" opacity="0.55">jesamkim.github.io</text>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <filter id="shadow5">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="900" height="620" fill="url(#bg5)"/>
+  <text x="450" y="40" text-anchor="middle" fill="#00d4ff" font-size="20" font-weight="bold">Production LLM Evaluation Stack</text>
+
+  <!-- Layer 1: Offline -->
+  <rect x="120" y="70" width="660" height="80" rx="8" fill="#16213e" stroke="#00d4ff" stroke-width="1.5" filter="url(#shadow5)"/>
+  <text x="160" y="100" fill="#00d4ff" font-size="15" font-weight="bold">Layer 1: Offline</text>
+  <text x="160" y="120" fill="#e0e0e0" font-size="12">Test Set Evaluation</text>
+  <text x="160" y="138" fill="#aaa" font-size="11">Golden dataset (500+ QA pairs)</text>
+  <rect x="530" y="85" width="230" height="50" rx="5" fill="#1e3a5f"/>
+  <text x="645" y="108" text-anchor="middle" fill="#ffd700" font-size="12" font-weight="bold">Metrics</text>
+  <text x="645" y="126" text-anchor="middle" fill="#e0e0e0" font-size="11">nDCG, Faithfulness, BLEU</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="645" y1="150" x2="645" y2="170" stroke="#444" stroke-width="1.5"/>
+  <polygon points="641,167 645,175 649,167" fill="#444"/>
+
+  <!-- Layer 2: Pre-deploy -->
+  <rect x="120" y="175" width="660" height="80" rx="8" fill="#16213e" stroke="#ffd700" stroke-width="1.5" filter="url(#shadow5)"/>
+  <text x="160" y="205" fill="#ffd700" font-size="15" font-weight="bold">Layer 2: Pre-Deploy (LLM-as-Judge)</text>
+  <text x="160" y="225" fill="#e0e0e0" font-size="12">Claude Sonnet 4.6 evaluates responses</text>
+  <text x="160" y="243" fill="#aaa" font-size="11">Faithfulness / Relevance / Completeness (0-5)</text>
+  <rect x="530" y="190" width="230" height="50" rx="5" fill="#1e3a5f"/>
+  <text x="645" y="213" text-anchor="middle" fill="#ffd700" font-size="12" font-weight="bold">Metrics</text>
+  <text x="645" y="231" text-anchor="middle" fill="#e0e0e0" font-size="11">Pass Rate (score >= 3)</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="645" y1="255" x2="645" y2="275" stroke="#444" stroke-width="1.5"/>
+  <polygon points="641,272 645,280 649,272" fill="#444"/>
+
+  <!-- Layer 3: Online Explicit -->
+  <rect x="120" y="280" width="660" height="80" rx="8" fill="#16213e" stroke="#66bb6a" stroke-width="1.5" filter="url(#shadow5)"/>
+  <text x="160" y="310" fill="#66bb6a" font-size="15" font-weight="bold">Layer 3: Online (Explicit Feedback)</text>
+  <text x="160" y="330" fill="#e0e0e0" font-size="12">User Feedback: Thumbs Up / Down</text>
+  <text x="160" y="348" fill="#aaa" font-size="11">API Gateway + DynamoDB</text>
+  <rect x="530" y="295" width="230" height="50" rx="5" fill="#1e3a5f"/>
+  <text x="645" y="318" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="bold">Metrics</text>
+  <text x="645" y="336" text-anchor="middle" fill="#e0e0e0" font-size="11">Satisfaction Rate</text>
+
+  <!-- Arrow 3->4 -->
+  <line x1="645" y1="360" x2="645" y2="380" stroke="#444" stroke-width="1.5"/>
+  <polygon points="641,377 645,385 649,377" fill="#444"/>
+
+  <!-- Layer 4: Online Implicit -->
+  <rect x="120" y="385" width="660" height="80" rx="8" fill="#16213e" stroke="#ab47bc" stroke-width="1.5" filter="url(#shadow5)"/>
+  <text x="160" y="415" fill="#ab47bc" font-size="15" font-weight="bold">Layer 4: Online (Implicit Signals)</text>
+  <text x="160" y="435" fill="#e0e0e0" font-size="12">Copy action, Follow-up questions, Session exit</text>
+  <text x="160" y="453" fill="#aaa" font-size="11">CloudWatch Custom Metrics</text>
+  <rect x="530" y="400" width="230" height="50" rx="5" fill="#1e3a5f"/>
+  <text x="645" y="423" text-anchor="middle" fill="#ab47bc" font-size="12" font-weight="bold">Metrics</text>
+  <text x="645" y="441" text-anchor="middle" fill="#e0e0e0" font-size="11">Engagement Score</text>
+
+  <!-- Arrow 4->5 -->
+  <line x1="645" y1="465" x2="645" y2="485" stroke="#444" stroke-width="1.5"/>
+  <polygon points="641,482 645,490 649,482" fill="#444"/>
+
+  <!-- Layer 5: Periodic -->
+  <rect x="120" y="490" width="660" height="80" rx="8" fill="#16213e" stroke="#ef5350" stroke-width="1.5" filter="url(#shadow5)"/>
+  <text x="160" y="520" fill="#ef5350" font-size="15" font-weight="bold">Layer 5: Periodic (Expert Review)</text>
+  <text x="160" y="540" fill="#e0e0e0" font-size="12">Human expert samples 100 responses / week</text>
+  <text x="160" y="558" fill="#aaa" font-size="11">QuickSight Dashboard</text>
+  <rect x="530" y="505" width="230" height="50" rx="5" fill="#1e3a5f"/>
+  <text x="645" y="528" text-anchor="middle" fill="#ef5350" font-size="12" font-weight="bold">Metrics</text>
+  <text x="645" y="546" text-anchor="middle" fill="#e0e0e0" font-size="11">Accuracy, Safety Score</text>
+
+  <!-- Side label: Deploy -->
+  <rect x="30" y="70" width="70" height="185" rx="5" fill="none" stroke="#00d4ff" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="65" y="170" text-anchor="middle" fill="#00d4ff" font-size="10" transform="rotate(-90,65,170)">Pre-Deploy</text>
+
+  <!-- Side label: Runtime -->
+  <rect x="30" y="280" width="70" height="290" rx="5" fill="none" stroke="#66bb6a" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="65" y="430" text-anchor="middle" fill="#66bb6a" font-size="10" transform="rotate(-90,65,430)">Runtime / Continuous</text>
+
+  <!-- Watermark -->
+  <text x="15" y="610" fill="#e0e0e0" font-size="10" font-weight="bold" opacity="0.55">jesamkim.github.io</text>
+</svg>
