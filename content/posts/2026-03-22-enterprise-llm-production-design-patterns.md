@@ -3,7 +3,7 @@ title: "Enterprise LLM을 프로덕션에 올리기 위한 설계 패턴"
 date: 2026-03-22T10:00:00+09:00
 draft: false
 author: "Jesam Kim"
-description: "Enterprise LLM을 PoC에서 프로덕션으로 전환할 때 반드시 고려해야 하는 4가지 설계 패턴을 정리했습니다. RAG 아키텍처, Hallucination 탐지 파이프라인, Embedding 최적화, Tool Calling과 Agent 설계를 실제 구현 관점에서 살펴봅니다."
+description: "Enterprise LLM을 PoC에서 프로덕션으로 전환할 때 반드시 고려해야 하는 5가지 설계 패턴을 정리했습니다. RAG 아키텍처, Hallucination 탐지 파이프라인, Embedding 최적화, Tool Calling과 Agent 설계, 그리고 프로덕션 LLM 평가 체계를 실제 구현 관점에서 살펴봅니다."
 categories:
   - "AI/ML 기술 심층분석"
 tags:
@@ -15,6 +15,7 @@ tags:
   - "Amazon Bedrock"
   - "LLM"
   - "Production"
+  - "Evaluation"
 cover:
   image: "/ai-tech-blog/images/enterprise-llm-cover.png"
 ShowToc: true
@@ -23,7 +24,7 @@ TocOpen: true
 
 Enterprise 환경에서 LLM 기반 시스템을 프로덕션에 배포하려면, 단순히 API를 호출하는 것 이상의 설계가 필요합니다. PoC에서는 잘 동작하던 시스템이 실제 트래픽과 다양한 질의를 만나면 hallucination, 검색 품질 저하, 보안 취약점 같은 문제가 수면 위로 올라옵니다.
 
-이 글에서는 Enterprise LLM 시스템을 설계할 때 반복적으로 등장하는 4가지 핵심 패턴을 정리합니다. 각 패턴은 독립적으로 적용할 수도 있고, 하나의 시스템 안에서 조합할 수도 있습니다.
+이 글에서는 Enterprise LLM 시스템을 설계할 때 반복적으로 등장하는 5가지 핵심 패턴을 정리합니다. 각 패턴은 독립적으로 적용할 수도 있고, 하나의 시스템 안에서 조합할 수도 있습니다.
 
 ---
 
@@ -262,9 +263,68 @@ MCP에서 도구는 다음과 같이 등록됩니다.
 
 ---
 
-## 4가지 패턴의 조합
+## 5. 프로덕션 LLM 평가 체계: 배포 후가 진짜 시작입니다
 
-이 4가지 패턴은 독립적으로 적용할 수도 있지만, 실제 Enterprise LLM 시스템에서는 대부분 함께 사용됩니다.
+LLM 시스템은 배포하고 나서부터 진짜 도전이 시작됩니다. 테스트 환경에서 잘 동작하던 시스템이 실제 사용자를 만나면 예상하지 못한 질의, 맥락 부족, edge case가 끊임없이 발생합니다. 이를 체계적으로 잡아내려면 단일 평가 방법이 아닌, 여러 계층을 조합한 평가 스택이 필요합니다.
+
+### 5계층 평가 스택
+
+| 계층 | 방법 | 메트릭 |
+|------|------|--------|
+| <strong>오프라인</strong> | 테스트셋 평가 (500+ QA pairs) | nDCG, Faithfulness, BLEU |
+| <strong>배포 전</strong> | LLM-as-Judge (Claude Sonnet 4.6이 응답 평가) | pass rate |
+| <strong>온라인 (명시적)</strong> | 사용자 피드백 (thumbs up/down) | satisfaction rate |
+| <strong>온라인 (암시적)</strong> | 복사, 후속 질문, 세션 이탈 추적 | engagement score |
+| <strong>주기적</strong> | 전문가 리뷰 (주 100건 샘플링) | accuracy, safety |
+
+각 계층은 서로 다른 시점과 관점에서 시스템을 평가합니다. 오프라인 평가로 기본 품질을 보장하고, LLM-as-Judge로 배포 전 게이트를 만들고, 온라인 신호로 실사용 품질을 추적하고, 전문가 리뷰로 자동화가 놓치는 뉘앙스를 잡습니다.
+
+### LLM-as-Judge 구현
+
+프로덕션에서 가장 비용 대비 효과가 높은 방법입니다. Evaluator 모델이 생성된 응답을 세 가지 축으로 평가합니다.
+
+```
+Evaluator Prompt:
+당신은 전문 평가자입니다. 다음 응답을 평가하세요:
+
+1. Faithfulness (0-5): 출처 문서의 정보만 사용했는가?
+2. Relevance (0-5): 사용자 질문에 적절히 답했는가?
+3. Completeness (0-5): 모든 측면을 다루었는가?
+
+점수와 근거를 제시하세요.
+```
+
+LLM-as-Judge는 전문가 리뷰 대비 100배 이상 빠르고 비용도 낮습니다. 매 배포 전에 테스트셋 전체를 자동 평가하고, pass rate(3점 이상 비율)가 기준 미달이면 배포를 차단하는 게이트로 활용할 수 있습니다.
+
+다만 한계도 분명합니다. Evaluator 모델 자체의 편향이 존재하고, 미묘한 맥락이나 도메인 전문성이 필요한 판단에서는 정확도가 떨어집니다. 이 때문에 주기적 전문가 리뷰와 병행하는 것이 필수입니다.
+
+### 암시적 신호 수집
+
+사용자가 직접 피드백 버튼을 누르는 비율은 낮습니다. 대신 행동 데이터에서 품질 신호를 추출할 수 있습니다.
+
+- <strong>복사 행동</strong>: 답변 텍스트를 복사하면 유용했다는 신호
+- <strong>후속 질문</strong>: 같은 주제로 바로 재질문하면 답변이 불충분했다는 신호
+- <strong>세션 이탈</strong>: 답변 직후 이탈하면 불만족 가능성
+
+이런 신호들을 종합하면 명시적 피드백만으로는 파악할 수 없는 품질 추세를 잡을 수 있습니다.
+
+![Production LLM Evaluation Stack](/ai-tech-blog/images/pattern-5-evaluation-stack.png)
+*프로덕션 LLM 평가 스택: 오프라인부터 전문가 리뷰까지 5계층 구조*
+
+### AWS 기반 구현
+
+- <strong>LLM-as-Judge</strong>: Amazon Bedrock의 Claude Sonnet 4.6 (평가 프롬프트로 호출)
+- <strong>피드백 수집</strong>: API Gateway + DynamoDB (thumbs up/down 저장)
+- <strong>암시적 신호</strong>: CloudWatch Custom Metrics (복사/후속질문/이탈 이벤트)
+- <strong>대시보드</strong>: Amazon QuickSight (계층별 메트릭 시각화)
+- <strong>테스트셋 관리</strong>: S3 (골든 데이터셋) + Lambda (주기적 자동 평가 실행)
+- <strong>전문가 리뷰</strong>: DynamoDB에서 주간 100건 랜덤 샘플링 + 리뷰 인터페이스
+
+---
+
+## 5가지 패턴의 조합
+
+이 5가지 패턴은 독립적으로 적용할 수도 있지만, 실제 Enterprise LLM 시스템에서는 대부분 함께 사용됩니다.
 
 한 금융회사의 내부 지식 검색 시스템을 예로 들면:
 
@@ -272,8 +332,9 @@ MCP에서 도구는 다음과 같이 등록됩니다.
 2. 검색 결과를 <strong>Embedding 최적화</strong>(512d int8)로 효율적으로 관리하면서도 품질을 유지합니다.
 3. LLM이 답변을 생성하면 <strong>Hallucination Detection Pipeline</strong>이 신뢰도를 검증합니다.
 4. 추가 정보가 필요하면 <strong>Tool Calling</strong>으로 내부 DB나 CRM을 조회합니다.
+5. 전체 시스템의 품질을 <strong>프로덕션 평가 체계</strong>가 5계층으로 지속 모니터링합니다.
 
-각 패턴을 단독으로 구현하면 효과가 제한적입니다. 검색 품질이 좋아도 hallucination 검증이 없으면 잘못된 답변이 사용자에게 전달될 수 있고, 도구 호출이 가능해도 감사 로그가 없으면 규제 요건을 충족하지 못합니다.
+각 패턴을 단독으로 구현하면 효과가 제한적입니다. 검색 품질이 좋아도 hallucination 검증이 없으면 잘못된 답변이 사용자에게 전달될 수 있고, 도구 호출이 가능해도 감사 로그가 없으면 규제 요건을 충족하지 못합니다. 모든 것이 잘 동작하더라도, 평가 체계 없이는 시스템이 시간이 지나면서 품질이 떨어지는 것을 알아차리지 못합니다.
 
 프로덕션 LLM 시스템의 품질은 결국 이런 패턴들이 얼마나 촘촘하게 맞물려 있느냐에 달려 있습니다.
 
