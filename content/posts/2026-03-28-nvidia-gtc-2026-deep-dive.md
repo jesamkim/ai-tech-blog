@@ -10,6 +10,9 @@ cover:
   alt: "NVIDIA GTC 2026 Deep Dive Cover"
 ---
 
+
+{{< audio src="/ai-tech-blog/audio/nvidia-gtc-2026-deep-dive.mp3" title="🎧 이 글을 팟캐스트로 듣기" >}}
+
 ## 1. Inference Kingdom의 시대
 
 NVIDIA CEO Jensen Huang은 GTC 2026 키노트에서 "2025년부터 2027년까지 GPU 수요만으로 1조 달러 규모의 매출이 예상된다"고 밝혔습니다. 이 수치는 단순한 전망이 아니라, AI 인프라 투자의 규모를 가늠할 수 있는 기준점입니다.
