@@ -6,8 +6,8 @@ categories: ["AI/ML 기술 심층분석"]
 tags: ["NVIDIA", "GTC 2026", "Vera Rubin", "Groq", "LPU", "AFD", "Inference", "GPU", "Feynman", "HBM4"]
 author: "Jesam Kim"
 cover:
-  image: "/ai-tech-blog/images/gtc-2026-deep-dive/afd-architecture.png"
-  alt: "AFD Architecture Diagram"
+  image: "/ai-tech-blog/images/gtc-2026-deep-dive/cover.png"
+  alt: "NVIDIA GTC 2026 Deep Dive Cover"
 ---
 
 ## 1. Inference Kingdom의 시대
