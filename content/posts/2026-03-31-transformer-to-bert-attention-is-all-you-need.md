@@ -15,6 +15,8 @@ TocOpen: true
 
 2017년 Google이 발표한 "Attention Is All You Need"와 2018년의 "BERT: Pre-training of Deep Bidirectional Transformers"는 자연어 처리(NLP)의 흐름을 완전히 바꿔놓은 논문입니다. 오늘날 Claude, GPT 계열, Gemini 같은 대규모 언어 모델(LLM)은 모두 이 두 논문의 아이디어 위에 세워져 있습니다.
 
+{{< audio src="/ai-tech-blog/audio/transformer-to-bert.mp3" title="🎧 이 글을 팟캐스트로 듣기" >}}
+
 이 글에서는 수식을 최소화하고, 두 논문의 핵심 아이디어를 직관적으로 풀어봅니다.
 
 ---
