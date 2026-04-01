@@ -8,6 +8,8 @@ description: "2026년 3월 31일 npm source map 파일을 통해 유출된 Claud
 cover:
   image: "/ai-tech-blog/images/cover-claude-code-leak.png"
 ---
+{{< audio src="/ai-tech-blog/audio/claude-code-source-leak.mp3" title="🎧 이 글을 팟캐스트로 듣기" >}}
+
 
 ## 무슨 일이 있었나
 
