@@ -8,6 +8,10 @@ author: "Jesam Kim"
 ShowToc: true
 TocOpen: true
 draft: false
+cover:
+  image: "/ai-tech-blog/images/text2sql-nl2sql/cover.png"
+  alt: "자연어로 SQL을 쓴다: Text2SQL NL2SQL 최신 기법"
+  relative: false
 ---
 
 "지난달 서울 지역 매출 상위 10개 제품 보여줘."
