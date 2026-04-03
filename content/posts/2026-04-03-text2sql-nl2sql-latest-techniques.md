@@ -1,7 +1,7 @@
 ---
 title: "자연어로 SQL을 쓴다: Text2SQL / NL2SQL 최신 기법 총정리 (2026)"
 date: 2026-04-03T10:00:00+09:00
-description: "LLM 기반 Text2SQL의 핵심 기법부터 최신 SOTA 모델, 벤치마크, 실전 구현 패턴까지 - 2026년 현재 가장 효과적인 NL2SQL 접근법을 정리합니다."
+description: "LLM 기반 Text2SQL의 핵심 기법부터 최고 성능 모델, 벤치마크, 실전 구현 패턴까지 - 2026년 현재 가장 효과적인 NL2SQL 접근법을 정리합니다."
 categories: ["GenAI"]
 tags: ["Text2SQL", "NL2SQL", "LLM", "SQL", "Database", "RAG", "GenAI"]
 author: "Jesam Kim"
@@ -140,7 +140,7 @@ Table: orders (주문 테이블)
 
 ---
 
-## 3. 주요 벤치마크와 SOTA 현황
+## 3. 주요 벤치마크와 최고 성능 모델 현황
 
 Text2SQL 분야에는 세 가지 주요 벤치마크가 있습니다.
 
@@ -150,7 +150,7 @@ Text2SQL 분야에는 세 가지 주요 벤치마크가 있습니다.
 
 <strong>[Spider 2.0](https://arxiv.org/abs/2411.07763)</strong>은 엔터프라이즈 수준의 난이도를 제시합니다. 632개의 실전 워크플로우 문제로 구성되어 있으며, BigQuery, Snowflake 같은 클라우드 데이터 웨어하우스 환경에서의 SQL 생성을 포함합니다.
 
-### 현재 SOTA 성능 비교
+### 현재 최고 성능 모델 비교
 
 | 모델 | BIRD (dev EX) | Spider (dev EX) | 접근 방식 |
 |------|:---:|:---:|------|
