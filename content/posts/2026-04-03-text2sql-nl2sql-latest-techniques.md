@@ -249,7 +249,7 @@ def execute_sql(query: str) -> dict:
         return {"success": False, "error": str(e)}  # Self-Correction 루프 트리거
 
 agent = Agent(
-    model="us.anthropic.claude-sonnet-4-6-v1:0",
+    model="global.anthropic.claude-sonnet-4-6",
     tools=[get_schema, execute_sql, search_similar_queries],
     system_prompt="You are a Text2SQL expert. Use tools to gather schema context, find similar examples, generate SQL, and self-correct on errors."
 )
