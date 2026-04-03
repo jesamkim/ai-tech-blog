@@ -195,23 +195,70 @@ MCI-SQL의 핵심 교훈은 <strong>Metadata-Complete Context</strong>입니다.
 
 이 정보가 있고 없고의 차이는 컬럼 필터링 정확도에서 극명하게 나타납니다.
 
-### AWS에서 구현하기
+### AWS에서 구현하기: Strands Agents + AgentCore 패턴
 
-AWS 환경에서 Text2SQL을 구축하는 실전 패턴입니다.
+단순히 "Claude에게 SQL 물어보기"를 넘어, 앞서 소개한 기법들을 에이전트 구조로 조합하면 훨씬 강력한 Text2SQL 시스템을 만들 수 있습니다.
+
+#### 기본 구조: Strands Agents + Tool Use
+
+AWS의 오픈소스 에이전트 프레임워크인 [Strands Agents](https://github.com/strands-agents/sdk-python)를 사용하면, Text2SQL의 각 단계를 도구(tool)로 분리하고 에이전트가 상황에 따라 순서를 결정하는 구조를 만들 수 있습니다.
+
+```python
+from strands import Agent, tool
+import boto3
+
+@tool
+def get_schema(table_name: str) -> str:
+    # DB 스키마 조회 - Schema Analysis 단계
+    # RDS Data API 또는 Glue Data Catalog에서 조회
+    return fetch_table_schema(table_name)
+
+@tool
+def execute_sql(query: str) -> dict:
+    # SQL 실행 + 에러 반환 - Validation & Execution 단계
+    try:
+        result = run_athena_query(query)  # 또는 Aurora, Redshift
+        return {"success": True, "data": result}
+    except Exception as e:
+        return {"success": False, "error": str(e)}  # Self-Correction 루프 트리거
+
+@tool
+def search_similar_queries(question: str) -> list:
+    # 유사 예제 검색 - Few-shot Selection 단계
+    return vector_search(question, top_k=3)  # Bedrock Knowledge Base 활용
+
+agent = Agent(
+    model="us.anthropic.claude-sonnet-4-6-v1:0",
+    tools=[get_schema, execute_sql, search_similar_queries],
+    system_prompt="You are a Text2SQL expert. Use tools to gather schema context, find similar examples, generate SQL, and self-correct on errors."
+)
+
+response = agent("지난 분기 서울 지역 매출 상위 10개 제품을 보여줘")
+```
+
+에이전트는 스스로 판단해서 `search_similar_queries`로 유사 예제를 가져오고(Few-shot), `get_schema`로 관련 테이블을 확인하고(Schema Linking), SQL을 생성한 뒤 `execute_sql`로 실행합니다. 에러가 나면 에러 메시지를 컨텍스트로 받아 SQL을 수정합니다(Self-Correction). 앞서 설명한 기법 3가지가 에이전트 루프 안에서 자동으로 작동하는 구조입니다.
+
+#### 프로덕션 배포: AgentCore Runtime
+
+개발한 에이전트를 프로덕션에 올릴 때는 [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/)의 Runtime을 사용합니다. AgentCore Runtime은 에이전트 코드를 세션 단위 MicroVM에서 실행하는 서버리스 환경으로, LLM이 응답을 기다리는 동안은 CPU 비용이 발생하지 않습니다.
 
 ```
-사용자 질문
-    ↓
-Amazon Bedrock (Claude) — SQL 생성
-    ↓
-Amazon Athena / Aurora / Redshift — SQL 실행
-    ↓
-결과 반환 + 자연어 요약
+[사용자 질문]
+    |
+AgentCore Runtime (에이전트 실행 환경)
+    |-- Strands Agent Loop
+    |   |-- Tool: search_similar_queries  -> Bedrock Knowledge Base (Few-shot)
+    |   |-- Tool: get_schema             -> RDS Metadata / Glue Data Catalog
+    |   |-- Claude Sonnet 4.6            -> SQL 생성 + Self-Correction
+    |   +-- Tool: execute_sql            -> Athena / Aurora / Redshift
+    +-- AgentCore Memory                 -> 멀티턴 대화 컨텍스트 유지
+    |
+[결과 + 자연어 요약]
 ```
 
-Bedrock의 Claude 모델을 SQL 생성에 사용하고, Athena(S3 데이터 레이크), Aurora(트랜잭션 DB), 또는 Redshift(데이터 웨어하우스)에서 실행하는 구조입니다. Bedrock의 Converse API를 사용하면 tool use 기능으로 SQL 실행과 결과 검증을 자연스럽게 연결할 수 있습니다.
+AgentCore Gateway를 함께 쓰면 기존 사내 DB 연결이나 REST API를 MCP(Model Context Protocol) 기반 도구로 등록해서 에이전트에게 노출할 수 있습니다. 새로운 데이터 소스를 추가해도 에이전트 코드를 바꾸지 않아도 됩니다.
 
-보안 측면에서는, 스키마 메타데이터만 LLM에 전달하고 실제 데이터는 LLM을 거치지 않도록 설계하는 것이 중요합니다. LLM은 SQL을 "생성"만 하고, "실행"은 별도의 보안 경계 안에서 수행합니다.
+<strong>보안 설계 원칙</strong>: 스키마 메타데이터만 LLM 컨텍스트에 들어가고, 실제 데이터는 LLM을 거치지 않습니다. SQL 생성(LLM)과 SQL 실행(DB)의 경계를 명확히 분리하는 것이 엔터프라이즈 환경에서의 핵심입니다.
 
 ### 작은 모델을 쓸 때: Knowledge Distillation
 
