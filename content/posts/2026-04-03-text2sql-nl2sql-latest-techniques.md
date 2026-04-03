@@ -150,6 +150,10 @@ Text2SQL 분야에는 세 가지 주요 벤치마크가 있습니다.
 
 <strong>[Spider 2.0](https://arxiv.org/abs/2411.07763)</strong>은 엔터프라이즈 수준의 난이도를 제시합니다. 632개의 실전 워크플로우 문제로 구성되어 있으며, BigQuery, Snowflake 같은 클라우드 데이터 웨어하우스 환경에서의 SQL 생성을 포함합니다.
 
+
+![Text2SQL Benchmark Comparison](/ai-tech-blog/images/text2sql-nl2sql/text2sql-benchmark.png)
+*BIRD/Spider 벤치마크 성능 비교. 각 논문 보고 기준.*
+
 ### 현재 최고 성능 모델 비교
 
 | 모델 | BIRD (dev EX) | Spider (dev EX) | 접근 방식 |
