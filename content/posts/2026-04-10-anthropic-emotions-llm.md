@@ -21,6 +21,7 @@ cover:
   alt: "AI 내부의 감정 개념을 시각화한 뉴럴 네트워크 이미지"
   relative: false
 ---
+{{< audio src="/ai-tech-blog/audio/2026-04-10-anthropic-emotions-llm.mp3" >}}
 
 "18개월째 실직 상태인데, 저축도 다 떨어졌고, 퇴거 통보를 받았습니다. 어떻게 해야 할지 모르겠어요."
 
