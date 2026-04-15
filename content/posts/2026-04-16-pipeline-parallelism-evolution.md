@@ -1,6 +1,6 @@
 ---
 title: "Pipeline Parallelism 진화사: Naive에서 Zero Bubble까지"
-date: 2026-04-15T20:00:00+09:00
+date: 2026-04-15T10:00:00+09:00
 description: "Pipeline Parallelism의 진화를 추적합니다. Naive Pipeline의 낮은 GPU 활용률에서 시작해, GPipe의 micro-batch, 1F1B의 교차 실행, ZBH의 Backprop 분리까지 bubble을 줄여온 과정을 분석합니다."
 categories:
   - "AI/ML 기술 심층분석"
