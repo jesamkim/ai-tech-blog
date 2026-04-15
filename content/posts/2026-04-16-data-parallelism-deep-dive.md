@@ -1,5 +1,5 @@
 ---
-title: "Data Parallelism 완전 분석: 수학적 동치성부터 메모리 한계까지"
+title: "분산학습의 이해 Part 2 - Data Parallelism: 데이터를 나눠 메모리를 줄이다"
 date: 2026-04-15T11:00:00+09:00
 description: "Parameter Server 아키텍처의 동작 원리, 학습 4단계, Centralized Training과의 수학적 동치성, 메모리 분석, 그리고 DP의 근본적 한계를 분석합니다. ResNet-18 ImageNet 예시로 실제 메모리 절감 효과를 계산합니다."
 categories:

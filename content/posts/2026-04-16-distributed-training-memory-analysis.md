@@ -1,5 +1,5 @@
 ---
-title: "GPU 메모리의 두 얼굴: Training은 왜 Inference보다 몇 배나 더 먹는가"
+title: "분산학습의 이해 Part 1 - GPU 메모리 분석: Parameter vs Activation"
 date: 2026-04-15T10:00:00+09:00
 description: "Neural Network 학습 루프의 각 단계에서 GPU 메모리가 어떻게 소비되는지 분석합니다. SGD부터 Adam까지 optimizer별 메모리 수식, activation memory의 batch size 비례 관계, 그리고 OOM 대응 전략까지 정리합니다."
 categories:
