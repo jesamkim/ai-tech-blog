@@ -1,6 +1,6 @@
 ---
 title: "Data Parallelism 완전 분석: 수학적 동치성부터 메모리 한계까지"
-date: 2026-04-15T10:00:00+09:00
+date: 2026-04-15T11:00:00+09:00
 description: "Parameter Server 아키텍처의 동작 원리, 학습 4단계, Centralized Training과의 수학적 동치성, 메모리 분석, 그리고 DP의 근본적 한계를 분석합니다. ResNet-18 ImageNet 예시로 실제 메모리 절감 효과를 계산합니다."
 categories:
   - "AI/ML 기술 심층분석"
