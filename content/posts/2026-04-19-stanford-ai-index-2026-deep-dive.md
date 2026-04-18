@@ -1,6 +1,6 @@
 ---
 title: "Stanford AI Index 2026 심층 해부: 숫자로 읽는 2026년 AI 지형"
-date: 2026-04-19T10:00:00+09:00
+date: 2026-04-18T21:50:00+09:00
 draft: false
 cover:
   image: "/ai-tech-blog/images/2026-04-19-stanford-ai-index-2026-deep-dive/cover.png"
