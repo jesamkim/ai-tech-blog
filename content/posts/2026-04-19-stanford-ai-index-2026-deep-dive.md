@@ -20,6 +20,8 @@ Stanford HAI가 2017년부터 매년 발간하는 [AI Index Report](https://hai.
 이 글은 [Stanford HAI의 12 Takeaways 블로그](https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report)를 한국 엔터프라이즈 관점에서 재구성합니다. 원 리포트 전문은 [AI Index 2026 공식 페이지](https://hai.stanford.edu/ai-index/2026-ai-index-report)에서 내려받을 수 있습니다.
 
 ---
+{{< audio src="/ai-tech-blog/audio/stanford-ai-index-2026-deep-dive.mp3" title="🎧 이 글을 팟캐스트로 듣기" >}}
+
 
 ## 성능의 폭발: 측정 한계에 다다른 모델들
 
