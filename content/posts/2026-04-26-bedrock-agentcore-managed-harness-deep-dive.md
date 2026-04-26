@@ -138,7 +138,7 @@ harnessSample/
 
 ### AgentCore Skills와의 연동
 
-`harness.json`의 `skills` 필드는 비어 있었지만, 여기에는 <strong>AgentCore Skills</strong>를 등록할 수 있습니다. Skills는 코딩 어시스턴트용 플러그인 묶음으로, 첫 번째 타깃은 [Kiro](https://kiro.dev/)입니다. AWS 공식 What's New 공지에 따르면 Claude Code, OpenAI Codex, Cursor 플러그인은 4/22 발표 기준 "다음 주 제공 예정(coming next week)"이며 ML Blog 쪽은 "coming soon"으로 표기되어 있어, 4월 말에서 5월 초 구간에 순차적으로 열릴 것으로 보입니다. 개발자가 IDE 안에서 AgentCore 리소스를 직접 조작할 수 있는 창구가 열리는 셈입니다.
+`harness.json`의 `skills` 필드는 비어 있었지만, 여기에는 <strong>AgentCore Skills</strong>를 등록할 수 있습니다. Skills는 코딩 어시스턴트용 플러그인 묶음으로, 첫 번째 타깃은 [Kiro](https://kiro.dev/)입니다. Claude Code, OpenAI Codex, Cursor용 플러그인은 4/22 발표 시점에 What's New 공지에서는 "다음 주(coming next week)", ML Blog에서는 "coming soon"으로 표기되어 4월 말~5월 초 사이에 순차 공개될 것으로 보입니다. 개발자가 IDE 안에서 AgentCore 리소스를 직접 조작할 수 있는 창구가 열리는 셈입니다.
 
 ## 내부 아키텍처: microVM 세션 격리와 영속 파일시스템
 
