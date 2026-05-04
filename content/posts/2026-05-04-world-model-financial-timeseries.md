@@ -33,7 +33,7 @@ V-M-C에서 M(Memory) 모듈은 "세상이 다음에 어떻게 움직일지"의 
 
 두 종목은 서로 상관을 가지도록 <em>r<sub>t</sub><sup>(B)</sup> = 0.6 · r<sub>t</sub><sup>(A)</sup> + 0.8 · GJR-GARCH(seed=22)</em> 식으로 연결했습니다. seed=42로 고정해서 2,520 거래일(약 10년) 길이의 일간 로그 수익률을 뽑았습니다. 이걸 60일 rolling window로 자르면 (2461, 60, 2) 텐서가 됩니다. 첨도 3.63, ACF(|r|) lag1 = 0.141, 두 종목 사이의 상관 0.64. "평상시 대형주" 수준이라고 보면 맞습니다.
 
-## Cont 2001 Stylized Facts — 금융 시계열이 늘 보이는 네 가지 얼룩
+## Cont 2001 Stylized Facts — 금융 시계열이 늘 보이는 네 가지 특징
 
 Rama Cont가 2001년 Quantitative Finance에 정리한 stylized facts는 금융 수익률에서 반복적으로 관찰되는 통계적 특징입니다. 이번 실험에서는 이 중 네 가지를 잣대로 썼습니다.
 
@@ -45,7 +45,7 @@ Rama Cont가 2001년 Quantitative Finance에 정리한 stylized facts는 금융 
 
 <strong>SF4. Leverage effect</strong>. 음의 수익률이 다음 기 변동성을 더 올리는 경향. 주가가 떨어질 때 패닉이 더 크다는 말로 풀 수 있습니다. Corr(r, r<sup>2</sup>)의 부호가 음수로 나오는 것이 정상입니다.
 
-목표는 간단합니다. 모델이 생성한 합성 수익률이 이 네 가지 얼룩을 원본(Real)과 얼마나 비슷하게 가지고 있는가를 수치로 재는 것입니다.
+목표는 간단합니다. 모델이 생성한 합성 수익률이 이 네 가지 특징을 원본(Real)과 얼마나 비슷하게 가지고 있는가를 수치로 재는 것입니다.
 
 ## 모델 5종과 학습 예산
 
