@@ -179,13 +179,29 @@ prompt로 이걸 다 시키는 것과 비교하면 trade-off가 명확합니다.
 
 <strong>4. 탐색-활용 균형</strong>. DAPO의 Clip-Higher가 다루는 문제와 같은 맥락입니다. 학습 후반부에 entropy가 떨어지면서 정책이 좁은 행동만 반복하면 일반화가 무너집니다. RL hyperparameter tuning은 여전히 비교적 어두운 영역입니다.
 
-<strong>AWS 환경 적용 시 체크리스트</strong>:
+<strong>AWS 환경 적용 시 체크리스트</strong>: 학습·서빙·에이전트 실행으로 나눠서 보면 정리가 쉽습니다.
+
+<strong>1) 학습 단계 (RL fine-tuning)</strong>
 
 - <strong>베이스 모델 sampling distribution 확인</strong>: success amplification 이론에 따르면, 베이스 모델이 한 번도 정답을 못 맞히는 task는 RLVR로 학습이 안 됩니다. RL을 시작하기 전에 베이스 모델의 pass@k(k=10~64 정도)를 측정해 0이 아닌지 확인합니다.
-- <strong>Verifier 환경의 결정성과 격리</strong>: AWS Lambda나 Fargate 위에 verifier를 격리해 돌리는 패턴이 안전합니다. SageMaker training job에서 verifier에 외부 네트워크 접근을 주면 reward hacking 통로가 열립니다.
-- <strong>Bedrock 자체에서는 GRPO/DAPO 직접 학습은 미지원</strong>: 2026년 5월 기준으로 Bedrock의 Custom Models는 SFT 위주이고, RL 기반 fine-tuning은 SageMaker AI에서 trl, verl, OpenRLHF 같은 오픈소스 프레임워크를 직접 띄워서 돌리는 패턴이 일반적입니다.
-- <strong>모델 크기 vs 학습 비용 trade-off</strong>: GRPO/DAPO는 critic 메모리를 줄였다지만, 같은 prompt에 여러 응답을 sampling하느라 inference 부담이 큽니다. 32B 모델 학습에는 멀티 노드 분산이 필요하고, 작게 시작해 검증 후 스케일하는 접근이 안전합니다.
-- <strong>"이 task에 정말 RL이 필요한가" 질문 먼저</strong>: SFT로 풀리면 SFT가 답입니다. SFT가 plateau에 닿고, 그 이상의 reasoning 깊이가 필요할 때 RLVR을 검토합니다. RL은 인프라 비용과 운영 복잡성이 SFT보다 한 단계 더 높습니다.
+- <strong>학습 스택 선택</strong>: 2026년 5월 기준 Bedrock의 Custom Models는 SFT 위주이고, GRPO·DAPO 같은 RL 알고리즘을 직접 돌리는 경로는 제공되지 않습니다. RL 학습이 필요하면 SageMaker AI(또는 SageMaker HyperPod)에서 trl, verl, OpenRLHF 같은 오픈소스 프레임워크를 띄워서 돌리는 패턴이 일반적입니다. 32B 이상 모델은 HyperPod의 멀티 노드 클러스터가 운영 부담을 줄여줍니다.
+- <strong>Verifier 환경의 결정성과 격리</strong>: AWS Lambda나 Fargate 위에 verifier를 격리해 돌리는 패턴이 안전합니다. 훈련 job에서 verifier에 외부 네트워크 접근을 주면 reward hacking 통로가 열립니다. 코드 실행형 verifier는 특히 sandboxing이 중요합니다.
+- <strong>모델 크기 vs 학습 비용 trade-off</strong>: GRPO/DAPO는 critic 메모리를 줄였지만, 같은 prompt에 여러 응답을 sampling하느라 inference 부담이 큽니다. 작게 시작해(예: 1~7B) 보상 설계·환경을 검증한 뒤 규모를 키우는 접근이 안전합니다.
+
+<strong>2) 서빙 단계 (학습된 모델 운영)</strong>
+
+- <strong>Custom Model Import로 Bedrock에 올리기</strong>: SageMaker에서 RLVR로 학습한 모델 가중치를 Bedrock Custom Model Import에 업로드하면 Bedrock InvokeModel API로 서빙할 수 있습니다. 학습은 SageMaker, 추론은 Bedrock이라는 분리가 가능합니다. 지원 아키텍처는 공식 문서에서 확인이 필요합니다.
+- <strong>Model Distillation으로 크기 줄이기</strong>: Bedrock Model Distillation을 쓰면 RLVR로 학습한 teacher 모델의 응답을 student 모델이 흉내 내도록 SFT 기반 distillation을 돌릴 수 있습니다. 추론 비용이 걸림돌일 때 검토할 만한 경로입니다.
+- <strong>SageMaker AI endpoint로 직접 서빙</strong>: Bedrock import가 아키텍처 호환 문제 등으로 어려우면 SageMaker AI 엔드포인트에서 직접 서빙하는 경로도 있습니다. 지연 특성과 비용 모델이 달라 요구사항에 맞춰 비교가 필요합니다.
+
+<strong>3) 에이전트 실행 단계 (Agentic RL)</strong>
+
+- <strong>AgentCore와의 결합</strong>: Agentic RL로 학습된 정책은 결국 "tool call + reasoning" 시퀀스를 생성합니다. Bedrock AgentCore의 managed harness나 Agents for Amazon Bedrock 위에서 학습된 정책을 실행하면 tool catalog, 세션 관리, 관측성을 직접 만들지 않아도 됩니다. 학습은 오픈소스 스택, 실행은 AgentCore로 가는 분업이 자연스럽습니다.
+- <strong>Tool interface 안정성</strong>: 에이전트 정책은 학습 시점의 tool 스키마에 의존합니다. 프로덕션에서 tool 스펙이 자주 바뀌면 정책이 빠르게 stale해집니다. tool 인터페이스를 계약(contract)처럼 관리하고, 변경 시 재학습 또는 재미세조정을 전제로 두는 것이 안전합니다.
+
+<strong>4) 가장 먼저 던질 질문</strong>
+
+- <strong>"이 task에 정말 RL이 필요한가"</strong>: SFT로 풀리면 SFT가 답입니다. SFT가 plateau에 닿고 그 이상의 reasoning 깊이가 필요할 때 RLVR을 검토합니다. RL은 인프라 비용과 운영 복잡성이 SFT보다 한 단계 더 높습니다. Bedrock이 제공하는 Custom Models(SFT) + Distillation 조합으로 충분한 경우도 많습니다.
 
 마지막으로 한 가지 메타 관찰을 덧붙이고 싶습니다. 2024년에는 "DPO가 PPO를 대체할 것"이라는 분위기가 있었는데, 2026년 현재 흐름은 그 반대로 가는 중입니다. RL이 다시 중심에 왔습니다. 이는 단순한 알고리즘 유행이 아니라, verifiable reward라는 새로운 보상 설계 방법이 RL의 실용 비용을 크게 낮췄기 때문이라고 봅니다. 이 흐름이 지속되면, 앞으로 1~2년 안에 LLM 포스트 트레이닝의 표준 파이프라인은 SFT → DPO에서 SFT → RLVR(또는 그 후속 알고리즘)로 옮겨갈 가능성이 높아 보입니다.
 
