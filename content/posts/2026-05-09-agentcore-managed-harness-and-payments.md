@@ -229,12 +229,6 @@ per-session spending limit만으로는 부족할 가능성이 높습니다. 한 
 
 reward hacking과 비슷한 시나리오, 즉 에이전트가 비용 지표를 무시하고 paid 리소스를 과도하게 호출하는 경우도 가정해 두어야 합니다.
 
-<strong>Legal과 Finance 라인 조율</strong>
-
-USDC를 펀딩 수단으로 쓰면 회계 처리 자체가 새 영역이 됩니다. 한국 법인이 USDC로 결제하는 흐름은 외국환거래법, 가상자산이용자보호법, 회계 분류 측면에서 사전에 점검할 부분이 있습니다. AWS 계정 안에서 stablecoin이 유통될 때의 KYC/AML 책임도 정리해 두는 게 좋습니다. 실제 KYC 절차는 Coinbase와 Privy가 처리하지만, 법인이 그 위에 서비스를 운영할 때 지는 책임은 별개입니다.
-
-debit card 기반 fiat 펀딩은 회계상 이해하기 쉬운 편이지만, 카드 한도와 분실/복제 시 책임 구조를 함께 검토해야 합니다.
-
 <strong>관측성 통합</strong>
 
 결제 이벤트가 AgentCore Observability에 자동으로 들어오는 점을 활용해서, CloudWatch 메트릭과 알람, 그리고 SIEM 연동을 같이 설계하는 것이 권장됩니다. 비정상 지출 패턴 감지에는 다음 같은 신호를 트리거로 잡을 수 있습니다.
