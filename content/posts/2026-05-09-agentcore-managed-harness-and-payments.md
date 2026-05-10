@@ -141,7 +141,7 @@ AgentCore Payments는 위 세 가지를 모두 managed로 처리합니다.
 - <strong>Spending governance</strong>: per-session spending limit을 둘 수 있습니다. 한 세션 안에서 특정 한도를 넘기면 더 이상 지출하지 못하도록 강제됩니다.
 - <strong>Observability 통합</strong>: 결제 이벤트가 기존 AgentCore 로그/메트릭/트레이스에 자동으로 들어옵니다. 비정상 지출 감지나 감사 추적을 별도 시스템 없이 수행할 수 있습니다.
 
-펀딩 소스는 두 가지입니다. <strong>USDC stablecoin</strong> 또는 <strong>fiat (debit card)</strong>입니다. USDC는 Coinbase 경로에서, fiat은 Stripe Privy 경로에서 다루는 식으로 분담된 것으로 보입니다 ([Stripe newsroom](https://stripe.com/newsroom/news/aws-stripe-agentcore-privy)).
+wallet 연결 옵션은 두 가지입니다. <strong>Coinbase 지갑</strong> 또는 <strong>Stripe Privy 지갑</strong> 중에서 골라 붙입니다. 두 옵션 모두 end user가 stablecoin 또는 debit card 기반 fiat으로 지갑을 충전할 수 있다고 AWS 블로그는 밝히고 있습니다. 단, 첫 프리뷰의 실행 흐름 자체는 <strong>x402 + USDC 기반 stablecoin micropayment</strong>에 초점이 맞춰져 있고, 범용 fiat 결제는 AWS가 Stripe와 함께 micropayment 너머로 확장하는 단계에서 본격화될 것이라고 명시돼 있습니다 ([AWS ML Blog](https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/), [Stripe newsroom](https://stripe.com/newsroom/news/aws-stripe-agentcore-privy)). 즉, wallet 인프라는 Coinbase와 Privy를 선택적으로 쓰고, 지금 당장 돌아가는 micropayment 경로는 stablecoin 쪽이라고 보면 정리가 쉽습니다.
 
 ### 5.3 사용자 플로우
 
@@ -155,6 +155,8 @@ AgentCore Payments는 위 세 가지를 모두 managed로 처리합니다.
 6. 콘솔에서 어떤 결제가 언제 어떤 리소스에 대해 일어났는지 trace로 확인할 수 있습니다.
 
 첫 프리뷰가 겨냥하는 사용 사례는 명확합니다. <strong>API, MCP 서버, 웹 콘텐츠, 다른 에이전트에 대한 micropayment</strong>입니다. 보통 1달러 미만이고 센트 단위인 경우가 많다고 명시되어 있습니다. 이 가격대는 사람이 매번 결제 페이지를 거쳐야 한다면 UX 자체가 성립하지 않는 영역입니다. 에이전트가 자동으로 처리해야만 의미가 있는 시장입니다.
+
+에이전트가 결제 가능한 리소스를 스스로 찾을 수 있도록, <strong>Coinbase x402 Bazaar MCP 서버</strong>가 AgentCore Gateway를 통해 함께 제공됩니다. Bazaar에는 <strong>10,000개 이상의 x402 엔드포인트</strong>가 인덱싱되어 있어, 에이전트가 작업 중 필요한 paid 서비스를 검색하고 발견해 결제까지 자율적으로 처리하는 경로가 열립니다 ([AWS What's New](https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-agentcore-payments-preview/)). 개발자가 paid 통합을 하드코딩하지 않아도 된다는 뜻입니다.
 
 레퍼런스로 언급된 고객은 Cox Automotive, Thomson Reuters, PGA TOUR (기존 AgentCore 사용자), 그리고 검토 중인 Warner Bros. Discovery입니다 ([Coindesk 보도](https://www.coindesk.com/business/2026/05/07/amazon-rolls-out-ai-agent-stablecoin-payments-platform-with-coinbase-and-stripe)). 미디어, 자동차, 스포츠 콘텐츠 같이 콘텐츠 라이선싱과 micropayment가 잘 맞는 산업이 먼저 들어왔다는 점이 눈에 띕니다.
 
