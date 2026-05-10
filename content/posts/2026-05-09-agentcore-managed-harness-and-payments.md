@@ -18,7 +18,7 @@ cover:
 
 2026년 봄, AWS는 Amazon Bedrock AgentCore에 두 가지 큰 기능을 추가했습니다. 4월 22일 <strong>Managed Harness</strong> 프리뷰, 그리고 5월 7일 <strong>AgentCore Payments</strong> 프리뷰입니다. 발표 간격은 보름 정도지만 두 기능을 떨어뜨려 보면 의미가 잘 안 잡힙니다. 하나는 에이전트를 어떻게 배포할지, 다른 하나는 에이전트가 일하면서 어떻게 돈을 낼지에 관한 이야기인데, 결국 같은 그림의 두 면이기 때문입니다.
 
-이 글은 두 발표를 묶어서 정리합니다. Managed Harness가 풀어낸 인프라 숙제, Payments가 열어낸 agentic commerce 영역, 그리고 엔지니어 관점에서 한국 현장에 어떻게 적용하면 좋을지를 담았습니다.
+이 글은 두 발표를 묶어서 정리합니다. Managed Harness가 풀어낸 인프라 숙제, Payments가 열어낸 agentic commerce 영역, 그리고 엔지니어 관점에서 한국 고객 환경에 맞춘 고려사항을 정리했습니다.
 
 ---
 
