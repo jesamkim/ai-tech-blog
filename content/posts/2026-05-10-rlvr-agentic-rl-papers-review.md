@@ -1,6 +1,6 @@
 ---
 title: "RLVR과 Agentic RL: LLM 에이전트를 다시 점령한 강화학습"
-date: 2026-05-10T10:00:00+09:00
+date: 2026-05-10T09:00:00+09:00
 draft: false
 categories: ["논문 리뷰"]
 tags: ["RLVR", "GRPO", "DAPO", "Agentic RL", "DeepSeek-R1", "Reinforcement Learning", "LLM Reasoning"]
