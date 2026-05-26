@@ -164,6 +164,34 @@ Mantle 안에는 두 개의 OpenAI 호환 API가 있고, 둘은 완전히 동일
 
 ⚠️ 단정 표현은 조심해야 한다. 현재 시점에 GPT-5.5는 Bedrock에서 GA가 아니라 limited preview다. 정식 GA 시점은 [공식 발표문](https://www.aboutamazon.com/news/aws/bedrock-openai-models)에 명시돼 있지 않다. 또한 Mantle은 OpenAI 전용 통로가 아니다. Anthropic Claude 역시 Mantle 엔드포인트의 [Messages API로 호출 가능](https://docs.aws.amazon.com/bedrock/latest/userguide/apis.html)하다고 공식 문서에 적혀 있다. AWS 블로그의 [Claude Opus 4.7 발표글](https://aws.amazon.com/blogs/aws/introducing-anthropics-claude-opus-4-7-model-in-amazon-bedrock/)도 `AnthropicBedrockMantle` SDK 클래스를 예시 코드에 사용한다.
 
+## 보너스: Claude Opus 4.7도 Mantle로 호출할 수 있다
+
+이 글의 처음부터 끝까지 OpenAI 호환을 강조했지만, Mantle은 OpenAI 전용 통로가 아니다. AWS는 [Claude Opus 4.7 발표글](https://aws.amazon.com/blogs/aws/introducing-anthropics-claude-opus-4-7-model-in-amazon-bedrock/)에서 다음과 같이 명시했다.
+
+> "You can also access the model programmatically using the Anthropic Messages API to call the bedrock-runtime through Anthropic SDK or <strong>bedrock-mantle endpoints</strong>, or keep using the Invoke and Converse API on bedrock-runtime."
+
+즉 Anthropic Messages API를 두 엔드포인트 모두에서 호출할 수 있고, Mantle 쪽에는 전용 SDK 클래스 `AnthropicBedrockMantle`가 준비돼 있다. 같은 발표글이 제공한 코드 예시를 그대로 옮긴다.
+
+```python
+from anthropic import AnthropicBedrockMantle
+
+# Bedrock Mantle 클라이언트 초기화 (SigV4 인증 자동)
+mantle_client = AnthropicBedrockMantle(aws_region="us-east-1")
+
+message = mantle_client.messages.create(
+    model="us.anthropic.claude-opus-4-7",
+    max_tokens=32000,
+    messages=[
+        {"role": "user", "content": "Design a distributed architecture on AWS in Python..."}
+    ],
+)
+print(message.content[0].text)
+```
+
+`anthropic[bedrock]` SDK 패키지가 SigV4 인증을 자동 처리한다. 모델 식별자는 `us.anthropic.claude-opus-4-7`처럼 cross-region inference profile 형태를 따른다. AWS 발표문에 따르면 Claude Opus 4.7은 1M 토큰 컨텍스트, agentic coding(SWE-bench Verified 87.6%), 고해상도 비전 입력 같은 능력을 제공한다. Adaptive thinking 옵션도 함께 지원돼 요청 복잡도에 따라 thinking 토큰 예산이 조정된다.
+
+엔지니어 관점의 의미는 단순하다. Mantle 엔드포인트 위에서 OpenAI 호환 워크로드와 Anthropic 네이티브 워크로드를 같은 인프라에 올려둘 수 있다. 모델별로 다른 SDK·다른 키·다른 엔드포인트를 끌어안을 필요가 없다. 모델을 Claude로 바꾸고 싶을 때 SDK 클래스만 갈아끼우면 된다.
+
 ## 마치며
 
 Bedrock의 의미는 모델 선택지의 양이 아니라 그 선택지에 동일한 가드레일을 걸어둔다는 점에 있다. 단일 콘솔, 단일 IAM, 단일 빌링 위에서 OpenAI·Anthropic·Meta·Mistral·Cohere·Amazon 모델을 다룬다. Mantle은 이 그림에 OpenAI 호환 표준이라는 입구를 추가한 행보로 읽을 수 있다.
