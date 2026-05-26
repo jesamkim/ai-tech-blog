@@ -146,7 +146,7 @@ Mantle 안에는 두 개의 OpenAI 호환 API가 있고, 둘은 완전히 동일
 
 ![Mantle 엔드포인트 API 선택 의사결정 플로우](/ai-tech-blog/images/bedrock-mantle-openai-migration/diagram2-decision.png)
 
-*Mantle 엔드포인트 API 선택 가이드. SA 관점 정리.*
+*Mantle 엔드포인트 API 선택 가이드.*
 
 엔지니어 관점의 권고는 단순합니다. 새로 시작한다면 모델 전환이 자유로운 Chat Completions로 출발하고, agentic·stateful 요건이 분명해지는 시점에 Responses API를 평가합니다. ZDR이 비즈니스 요건이라면 Chat Completions를 고정값으로 둡니다.
 
