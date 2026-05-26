@@ -41,7 +41,7 @@ cover:
 - <strong>Flexible response modes</strong> — streaming/non-streaming 양쪽 지원
 - <strong>Easy migration</strong> — 기존 OpenAI SDK 코드 호환
 
-![Bedrock의 두 엔드포인트 — bedrock-runtime과 bedrock-mantle](/ai-tech-blog/images/bedrock-mantle-openai-migration/diagram1-endpoints.svg)
+![Bedrock의 두 엔드포인트 — bedrock-runtime과 bedrock-mantle](/ai-tech-blog/images/bedrock-mantle-openai-migration/diagram1-endpoints.png)
 
 *Bedrock의 두 엔드포인트 — 같은 모델을 다른 인터페이스로 노출. 출처: [AWS Bedrock 공식 문서 (apis.html)](https://docs.aws.amazon.com/bedrock/latest/userguide/apis.html)*
 
@@ -144,7 +144,7 @@ Mantle 안에는 두 개의 OpenAI 호환 API가 있고, 둘은 완전히 동일
 - stateless 워크로드 — 클라이언트가 대화 history를 풀 컨트롤
 - 단발성 호출에서 latency를 줄이고 싶을 때
 
-![Mantle 엔드포인트 API 선택 의사결정 플로우](/ai-tech-blog/images/bedrock-mantle-openai-migration/diagram2-decision.svg)
+![Mantle 엔드포인트 API 선택 의사결정 플로우](/ai-tech-blog/images/bedrock-mantle-openai-migration/diagram2-decision.png)
 
 *Mantle 엔드포인트 API 선택 가이드. SA 관점 정리.*
 
