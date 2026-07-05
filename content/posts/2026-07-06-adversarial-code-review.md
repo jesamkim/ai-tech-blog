@@ -48,13 +48,13 @@ LLM에게 무언가를 판정시킬 때 잘 알려진 실패 모드가 <strong>s
 
 | 유형 | 설명 | 전형적 자기변호 | 은폐도 |
 |------|------|----------------|:--:|
-| T1 logic error | 조건·부호·경계 논리 오류 | "이 케이스는 입력 계약상 안 생김" | 中 |
-| T2 silent bypass | 조건 우회로 검증을 건너뜀 | "early return이라 아래는 도달 안 함" | 高 |
-| T3 double-branch skip | 이중 분기 중 한쪽 처리 누락 | "else는 상위에서 필터링됨" | 高 |
-| T4 off-by-one | 인덱스·범위 경계 오류 | "range는 exclusive라 맞음" | 中 |
-| T5 race condition | 동시성·공유 상태 경합 | "단일 스레드 경로라 락 불필요" | 高 |
-| T6 security | 인젝션·경로 탐색·비검증 입력 | "입력은 신뢰된 내부 소스뿐" | 中~高 |
-| T7 API misuse | 라이브러리·프레임워크 오용 | "문서상 이 인자는 optional" | 中 |
+| T1 logic error | 조건·부호·경계 논리 오류 | "이 케이스는 입력 계약상 안 생김" | Mid |
+| T2 silent bypass | 조건 우회로 검증을 건너뜀 | "early return이라 아래는 도달 안 함" | High |
+| T3 double-branch skip | 이중 분기 중 한쪽 처리 누락 | "else는 상위에서 필터링됨" | High |
+| T4 off-by-one | 인덱스·범위 경계 오류 | "range는 exclusive라 맞음" | Mid |
+| T5 race condition | 동시성·공유 상태 경합 | "단일 스레드 경로라 락 불필요" | High |
+| T6 security | 인젝션·경로 탐색·비검증 입력 | "입력은 신뢰된 내부 소스뿐" | Mid–High |
+| T7 API misuse | 라이브러리·프레임워크 오용 | "문서상 이 인자는 optional" | Mid |
 | T8 over-claim only | 코드는 정상, 주석의 안전성 주장만 부실 | "모든 예외를 처리함"(실제론 일부만) | — |
 | C0 clean | 결함 없음 + 정확한 주석 | (정당한 주장) | — |
 
