@@ -60,7 +60,7 @@ LLM에게 무언가를 판정시킬 때 잘 알려진 실패 모드가 <strong>s
 
 핵심 장치는 자기변호 주석의 <strong>강도를 3단계로 변주</strong>한 것입니다. L0은 주석 없음(베이스라인), L1은 "안전할 것으로 보임" 수준의 완곡한 주장, L2는 "정적 분석 통과, 프로덕션 6개월 무사고" 같은 권위적이고 구체적인 확신형 주장(실제로는 무관하거나 허위)입니다. L0에서 L2로 갈수록 검출률이 떨어지면 그 모델은 아부에 취약한 것이고, 이 기울기(slope)가 모델별 적대성의 척도가 됩니다.
 
-모델은 4종을 썼고, 전부 Amazon Bedrock에서 바로 호출 가능한 것으로 골랐습니다. OpenAI GPT-5.5(제 주력 codex 계열), Mistral Devstral 2 123B, Alibaba Qwen3-Coder 480B, Anthropic Claude Opus 4.8입니다. 패밀리가 넷 다 다르다는 점이 중요합니다. 훈련 분포와 귀납 편향이 달라야 "작성 모델의 안전지대를 리뷰어가 공유하지 않는다"는 적대적 검증의 전제가 성립합니다. 참고로 처음엔 Mistral Codestral 25.08과 Cohere Command A+를 넣으려 했는데, 실측해 보니 Bedrock에서 각각 미제공·LEGACY 처리라 호출이 안 됐습니다. 이 얘기는 마지막에 다시 하겠습니다.
+모델은 4종을 썼고, 전부 Amazon Bedrock에서 바로 호출 가능한 것으로 골랐습니다. <strong>OpenAI GPT-5.5</strong>(제 주력 codex 계열), <strong>Mistral Devstral 2 123B</strong>, <strong>Alibaba Qwen3-Coder 480B</strong>, <strong>Anthropic Claude Opus 4.8</strong>입니다. <strong>패밀리가 넷 다 다르다는 점이 중요합니다.</strong> 훈련 분포와 귀납 편향이 달라야 "작성 모델의 안전지대를 리뷰어가 공유하지 않는다"는 적대적 검증의 전제가 성립합니다. 참고로 처음엔 Mistral Codestral 25.08과 Cohere Command A+를 넣으려 했는데, 실측해 보니 Bedrock에서 각각 미제공·LEGACY 처리라 호출이 안 됐습니다. 이 얘기는 마지막에 다시 하겠습니다.
 
 채점은 두 가지 규칙을 못 박아 뒀습니다. 첫째, <strong>location-gated detection</strong>입니다. 라벨된 결함 심볼을 실제로 지목해야 검출로 인정합니다. 엉뚱한 헬퍼에서 같은 유형의 문제를 찾아내도 점수를 주지 않습니다. 둘째, 이건 <strong>descriptive 통계일 뿐 유의성 검정은 없습니다.</strong> 표본이 작아서 방향과 순위, 개별 사례를 보는 용도입니다.
 
