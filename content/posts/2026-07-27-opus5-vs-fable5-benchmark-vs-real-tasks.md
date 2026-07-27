@@ -12,7 +12,7 @@ cover:
   relative: false
 ---
 
-새 모델이 나오면 가장 먼저 보게 되는 건 벤치마크 표입니다. 그런데 표에서 이긴 모델을 실제 작업에 붙여 보면 기대와 다른 결과가 나오는 경우가 있습니다. 2026년 7월에 출시된 Claude Opus 5가 그런 사례를 만들었습니다.
+새 모델이 나오면 가장 먼저 보게 되는 건 벤치마크 표입니다. 그런데 표에서 이긴 모델을 실제 작업에 붙여 보면 기대와 다른 결과가 나오는 경우가 있습니다. 2026년 7월에 출시된 Claude Opus 5가 최근 그 간극을 다시 확인하게 한 예시입니다.
 
 [Amazon Bedrock과 Claude Platform on AWS에서 이용 가능한](https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/) Opus 5는 API model id `claude-opus-5`, 컨텍스트 1M tokens, 최대 출력 128K tokens, knowledge cutoff는 2026년 5월입니다. adaptive thinking이 기본으로 켜져 있고, thinking을 끄면 effort가 high로 캡됩니다.
 
