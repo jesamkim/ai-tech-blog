@@ -16,7 +16,7 @@ cover:
 
 [Amazon Bedrock과 Claude Platform on AWS에서 이용 가능한](https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/) Opus 5는 API model id `claude-opus-5`, 컨텍스트 1M tokens, 최대 출력 128K tokens, knowledge cutoff는 2026년 5월입니다. adaptive thinking이 기본으로 켜져 있고, thinking을 끄면 effort가 high로 캡됩니다.
 
-가격은 input $5 / MTok, output $25 / MTok입니다. Opus 4.8과 동일한 단가이고, Fable 5의 $10 / $50 대비 절반입니다. 벤치마크 점수와 별개로, 이 가격 구조가 모델 선택 판단에 먼저 개입하는 조건입니다.
+가격은 input $5 / MTok, output $25 / MTok입니다. Opus 4.8과 동일한 단가이고, Fable 5의 $10 / $50 대비 절반입니다. 벤치마크 점수를 보기 전에 가격 구조부터 판단에 들어온다는 뜻입니다.
 
 ## 벤치마크에서는 Opus 5가 앞섭니다
 
@@ -27,19 +27,19 @@ Anthropic이 공개한 agentic terminal 코딩 벤치마크 Frontier-Bench v0.1�
 ![Frontier-Bench v0.1과 SWE-bench Pro에서의 Claude Opus 5, Fable 5, Opus 4.8 점수 비교 막대 차트](/ai-tech-blog/images/opus5-vs-fable5-benchmark-vs-real-tasks/bench-compare.png)
 *Frontier-Bench v0.1(왼쪽)과 SWE-bench Pro(오른쪽). 벤치마크에 따라 순위가 달라집니다. 출처: Anthropic(Frontier-Bench v0.1, 수치는 [Vellum](https://www.vellum.ai/blog/claude-opus-5-benchmarks-explained) 정리 기준), [CodingFleet](https://codingfleet.com/blog/claude-opus-5-vs-claude-fable-5/)(SWE-bench Pro)*
 
-비용 대비 성능 쪽으로 보면 CursorBench 3.2 결과가 참고할 만합니다. max effort 설정에서 Opus 5는 [Fable 5 최고점의 0.5% 이내](https://www.vellum.ai/blog/claude-opus-5-benchmarks-explained)에 들어오면서 절반 비용으로 그 성능을 냈습니다.
+비용 대비 성능 쪽으로 보면 CursorBench 3.2 결과가 참고할 만합니다. max effort 설정에서 Opus 5는 [Fable 5 최고점의 0.5% 이내](https://www.vellum.ai/blog/claude-opus-5-benchmarks-explained)에 들어왔고, 그 성능을 절반 비용으로 냈습니다.
 
 코딩 외 축에서는 격차가 더 벌어집니다. novel problem-solving을 측정하는 ARC-AGI 3에서 Opus 5는 30.2점, GPT-5.6 Sol은 7.8점, Opus 4.8은 1.5점입니다. 처음 보는 문제 구조를 다루는 능력에서 세대 차이가 드러나는 수치입니다.
 
-## 초기 사용 보고는 다른 방향을 가리킵니다
+## 실무 이야기는 다른 축을 짚습니다
 
-여기까지가 표의 이야기입니다. 초기 사용 보고는 다른 축을 짚습니다.
+여기까지가 표의 이야기입니다. 실제로 써 본 사람들의 이야기는 결이 다릅니다.
 
-출시 직후 벤치마크를 정리한 한 [분석](https://tensorboyofficial.substack.com/p/opus-5-vs-fable-5)은 <strong>태스크 길이라는 축</strong>을 짚습니다. 대부분의 벤치마크에서 Opus 5가 앞서지만, 가장 긴 long-horizon 자율 작업에는 Anthropic 자신이 여전히 Fable 5를 권장한다는 점, 그리고 FrontierCode Main 같은 일부 코딩 벤치에서는 Fable 5가 53.5% 대 53.4%로 근소하게 앞선다는 점을 함께 지적합니다. 코드가 돌아가느냐를 넘어 한 번에 얼마나 완성된 산출물이 나오느냐가 별개의 축이라는 이야기입니다.
+출시 직후 벤치마크를 정리한 한 [분석](https://tensorboyofficial.substack.com/p/opus-5-vs-fable-5)은 <strong>태스크 길이</strong>를 변수로 지목합니다. 대부분의 벤치마크에서 Opus 5가 앞서지만, 가장 긴 long-horizon 자율 작업에는 Anthropic 자신이 여전히 Fable 5를 권장한다는 점, 그리고 FrontierCode Main 같은 일부 코딩 벤치에서는 Fable 5가 53.5% 대 53.4%로 근소하게 앞선다는 점을 함께 지적합니다. 코드가 돌아가느냐를 넘어 한 번에 얼마나 완성된 산출물이 나오느냐가 별개의 축이라는 이야기입니다.
 
-프론트엔드 작업에서는 태스크 규모가 변수로 등장합니다. Fable 5 출시 시점의 [Hacker News 논의](https://news.ycombinator.com/item?id=48495500)에서 한 사용자는 toy-scale 와이어프레임에서 Fable 5가 당시 Opus보다 눈에 띄게 나았다고 적었습니다. 동시에 레이아웃과 심미성을 모델이 스스로 결정해야 하는 중대형 멀티페이지 웹앱에서는 두 모델의 결과가 사람 평가자 기준으로 구분되지 않았다고 덧붙였습니다. 이 관찰은 Opus 5 출시 이전 시점이므로 비교 대상이 Opus 4.8이라는 점은 감안해야 합니다.
+프론트엔드 작업에서는 태스크 규모가 또 하나의 변수입니다. Fable 5 출시 시점의 [Hacker News 논의](https://news.ycombinator.com/item?id=48495500)에서 한 사용자는 toy-scale 와이어프레임에서 Fable 5가 당시 Opus보다 눈에 띄게 나았다고 적었습니다. 동시에 레이아웃과 심미성을 모델이 스스로 결정해야 하는 중대형 멀티페이지 웹앱에서는 두 모델의 결과가 사람 평가자 기준으로 구분되지 않았다고 덧붙였습니다. 이 관찰은 Opus 5 출시 이전 시점이므로 비교 대상이 Opus 4.8이라는 점은 감안해야 합니다.
 
-한쪽에서 Anthropic은 Opus 5가 interactive artifacts, 3D, 애니메이션, 데이터 시각화 같은 시각적 산출에서 이전 Opus 대비 크게 향상됐다고 [설명합니다](https://www.anthropic.com/news/claude-opus-5). Lovable과 Gamma 같은 파트너 피드백을 근거로 제시합니다. 그런데 시각적 태스크를 두고 커뮤니티에서 나온 이야기는 Fable 5 쪽이었습니다. 두 진술은 직접 충돌하지는 않습니다. 공식 발표는 Opus 계열 안에서의 세대 비교이고, 커뮤니티 관찰은 Fable 5와의 횡비교이기 때문입니다. 다만 이 둘을 나란히 놓았을 때 벤치마크 표만 보고 모델을 고르기 어렵다는 점은 분명해집니다.
+공식 발표는 또 다른 그림을 보여줍니다. Anthropic은 Opus 5가 interactive artifacts, 3D, 애니메이션, 데이터 시각화 같은 시각적 산출에서 이전 Opus 대비 크게 향상됐다고 [설명합니다](https://www.anthropic.com/news/claude-opus-5). Lovable과 Gamma 같은 파트너 피드백을 근거로 제시합니다. 그런데 시각적 태스크를 두고 커뮤니티에서 나온 이야기는 Fable 5 쪽이었습니다. 두 진술은 직접 충돌하지는 않습니다. 공식 발표는 Opus 계열 안에서의 세대 비교이고, 커뮤니티 관찰은 Fable 5와의 횡비교이기 때문입니다. 다만 이 둘을 나란히 놓았을 때 벤치마크 표만 보고 모델을 고르기 어렵다는 점은 분명해집니다.
 
 이 관찰들은 개인 경험 보고입니다. 통제된 측정이 아니고, 사용한 프롬프트나 태스크 조건도 공개되지 않았습니다. 비교 시점의 상대 모델이 다른 경우도 있습니다. 일반화할 근거로는 약합니다. 그런데 서로 다른 채널에서 비슷한 방향의 관찰이 나온다면 그 자체가 확인해 볼 가설이 됩니다.
 
