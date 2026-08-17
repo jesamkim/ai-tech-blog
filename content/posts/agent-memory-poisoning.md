@@ -1,5 +1,5 @@
 ---
-title: "에이전트의 기억은 공격 표면이다: Memory Poisoning을 설계·운영 문제로 읽기"
+title: "악성 데이터 한 줄이 AI 에이전트의 기억에 영구히 남는다: Memory Poisoning 방어 설계"
 date: 2026-08-16T10:00:00+09:00
 draft: false
 categories: ["논문 리뷰"]
