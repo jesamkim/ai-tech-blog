@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="1150" viewBox="0 0 880 1150" font-family="'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <defs>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FAFAFA"/>
+    </linearGradient>
+    <linearGradient id="accentBlack" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111111"/>
+      <stop offset="1" stop-color="#333333"/>
+    </linearGradient>
+    <linearGradient id="dataBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6F9FF"/>
+      <stop offset="1" stop-color="#EEF3FF"/>
+    </linearGradient>
+    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feOffset in="SourceAlpha" dx="0" dy="2" result="soff"/>
+      <feGaussianBlur in="soff" stdDeviation="3" result="sblur"/>
+      <feColorMatrix in="sblur" type="matrix" result="sshade"
+        values="0 0 0 0 0.04  0 0 0 0 0.04  0 0 0 0 0.05  0 0 0 0.10 0"/>
+      <feMerge>
+        <feMergeNode in="sshade"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowFlow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#8C8C95"/>
+    </marker>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#635BFF"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="1150" fill="#FFFFFF"/>
+
+  <!-- title block -->
+  <text x="32" y="44" font-size="26" font-weight="700" fill="#0A0A0A" letter-spacing="-0.5">벤더별 glue code와 MHS 드라이버</text>
+  <text x="32" y="72" font-size="15" fill="#6B6B75">에이전트가 여러 벤더의 장치에 닿는 두 가지 구조</text>
+  <line x1="32" y1="92" x2="848" y2="92" stroke="#EAEAEA" stroke-width="1"/>
+
+  <!-- ================= PANEL A ================= -->
+  <rect x="32" y="112" width="816" height="458" rx="12" fill="#FFFFFF" stroke="#E5E5EA" stroke-width="1"/>
+  <text x="56" y="144" font-size="12" font-weight="600" fill="#6B6B75" letter-spacing="0.08em">BEFORE MHS</text>
+  <text x="56" y="170" font-size="16" font-weight="600" fill="#0A0A0A">장치마다 개별 통합 코드</text>
+
+  <rect x="56" y="186" width="768" height="58" rx="12" fill="url(#accentBlack)" stroke="#000000" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="440" y="221" font-size="17" font-weight="600" fill="#FFFFFF" text-anchor="middle">AI 에이전트 / 오케스트레이터</text>
+
+  <line x1="152" y1="244" x2="152" y2="282" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="344" y1="244" x2="344" y2="282" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="536" y1="244" x2="536" y2="282" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="728" y1="244" x2="728" y2="282" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+
+  <rect x="68" y="286" width="168" height="54" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1" filter="url(#softShadow)"/>
+  <rect x="68" y="286" width="4" height="54" rx="2" fill="#635BFF"/>
+  <text x="152" y="318" font-size="15" font-weight="600" fill="#0A0A0A" text-anchor="middle">glue code</text>
+  <rect x="260" y="286" width="168" height="54" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1" filter="url(#softShadow)"/>
+  <rect x="260" y="286" width="4" height="54" rx="2" fill="#635BFF"/>
+  <text x="344" y="318" font-size="15" font-weight="600" fill="#0A0A0A" text-anchor="middle">glue code</text>
+  <rect x="452" y="286" width="168" height="54" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1" filter="url(#softShadow)"/>
+  <rect x="452" y="286" width="4" height="54" rx="2" fill="#635BFF"/>
+  <text x="536" y="318" font-size="15" font-weight="600" fill="#0A0A0A" text-anchor="middle">glue code</text>
+  <rect x="644" y="286" width="168" height="54" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1" filter="url(#softShadow)"/>
+  <rect x="644" y="286" width="4" height="54" rx="2" fill="#635BFF"/>
+  <text x="728" y="318" font-size="15" font-weight="600" fill="#0A0A0A" text-anchor="middle">glue code</text>
+
+  <line x1="152" y1="340" x2="152" y2="378" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="344" y1="340" x2="344" y2="378" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="536" y1="340" x2="536" y2="378" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="728" y1="340" x2="728" y2="378" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+
+  <rect x="68" y="382" width="168" height="54" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="152" y="414" font-size="15" fill="#6B6B75" text-anchor="middle">벤더 A SDK</text>
+  <rect x="260" y="382" width="168" height="54" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="344" y="414" font-size="15" fill="#6B6B75" text-anchor="middle">벤더 B COM</text>
+  <rect x="452" y="382" width="168" height="54" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="536" y="414" font-size="15" fill="#6B6B75" text-anchor="middle">벤더 C GUI</text>
+  <rect x="644" y="382" width="168" height="54" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="728" y="414" font-size="15" fill="#6B6B75" text-anchor="middle">벤더 D 파일</text>
+
+  <line x1="152" y1="436" x2="152" y2="472" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="344" y1="436" x2="344" y2="472" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="536" y1="436" x2="536" y2="472" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="728" y1="436" x2="728" y2="472" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+
+  <rect x="68" y="476" width="168" height="52" rx="10" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1"/>
+  <text x="152" y="507" font-size="15" font-weight="600" fill="#3B4FCC" text-anchor="middle">로봇팔</text>
+  <rect x="260" y="476" width="168" height="52" rx="10" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1"/>
+  <text x="344" y="507" font-size="15" font-weight="600" fill="#3B4FCC" text-anchor="middle">액체 핸들러</text>
+  <rect x="452" y="476" width="168" height="52" rx="10" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1"/>
+  <text x="536" y="507" font-size="15" font-weight="600" fill="#3B4FCC" text-anchor="middle">플레이트 리더</text>
+  <rect x="644" y="476" width="168" height="52" rx="10" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1"/>
+  <text x="728" y="507" font-size="15" font-weight="600" fill="#3B4FCC" text-anchor="middle">카메라</text>
+
+  <text x="56" y="554" font-size="13" fill="#6B6B75">통합 코드가 장치 수만큼 늘어나고, 안전 한계는 각 코드에 흩어집니다</text>
+
+  <!-- ================= PANEL B ================= -->
+  <rect x="32" y="602" width="816" height="500" rx="12" fill="#FFFFFF" stroke="#E5E5EA" stroke-width="1"/>
+  <text x="56" y="634" font-size="12" font-weight="600" fill="#635BFF" letter-spacing="0.08em">WITH MHS</text>
+  <text x="56" y="660" font-size="16" font-weight="600" fill="#0A0A0A">표준 드라이버 한 겹</text>
+
+  <rect x="56" y="676" width="768" height="58" rx="12" fill="url(#accentBlack)" stroke="#000000" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="440" y="711" font-size="17" font-weight="600" fill="#FFFFFF" text-anchor="middle">AI 에이전트 / 오케스트레이터</text>
+
+  <line x1="440" y1="734" x2="440" y2="772" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <text x="456" y="758" font-size="12" fill="#6B6B75">MCP, CLI, 코드 파일</text>
+
+  <rect x="56" y="776" width="768" height="76" rx="12" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1" filter="url(#softShadow)"/>
+  <text x="440" y="806" font-size="17" font-weight="600" fill="#0A0A0A" text-anchor="middle">MHS 표준 드라이버</text>
+  <text x="440" y="831" font-size="13" fill="#3B4FCC" text-anchor="middle">read / write primitive, 자연어 태그 기반 참조 파일, 장치 discovery</text>
+
+  <line x1="440" y1="852" x2="440" y2="890" stroke="#635BFF" stroke-width="1.5" marker-end="url(#arrowAccent)"/>
+
+  <rect x="56" y="894" width="768" height="76" rx="12" fill="#FFFFFF" stroke="#635BFF" stroke-width="1.5" filter="url(#softShadow)"/>
+  <text x="440" y="924" font-size="16" font-weight="600" fill="#0A0A0A" text-anchor="middle">하드웨어 인터페이스에서 강제되는 경계</text>
+  <text x="440" y="949" font-size="13" fill="#6B6B75" text-anchor="middle">장치 선언 한계, 인터록, emergency stop (모델과 독립, 파트너 서술)</text>
+
+  <line x1="152" y1="970" x2="152" y2="1004" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="344" y1="970" x2="344" y2="1004" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="536" y1="970" x2="536" y2="1004" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+  <line x1="728" y1="970" x2="728" y2="1004" stroke="#8C8C95" stroke-width="1.5" marker-end="url(#arrowFlow)"/>
+
+  <rect x="68" y="1008" width="168" height="52" rx="10" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1"/>
+  <text x="152" y="1039" font-size="15" font-weight="600" fill="#3B4FCC" text-anchor="middle">로봇팔</text>
+  <rect x="260" y="1008" width="168" height="52" rx="10" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1"/>
+  <text x="344" y="1039" font-size="15" font-weight="600" fill="#3B4FCC" text-anchor="middle">액체 핸들러</text>
+  <rect x="452" y="1008" width="168" height="52" rx="10" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1"/>
+  <text x="536" y="1039" font-size="15" font-weight="600" fill="#3B4FCC" text-anchor="middle">플레이트 리더</text>
+  <rect x="644" y="1008" width="168" height="52" rx="10" fill="url(#dataBg)" stroke="#D6DFF5" stroke-width="1"/>
+  <text x="728" y="1039" font-size="15" font-weight="600" fill="#3B4FCC" text-anchor="middle">카메라</text>
+
+  <text x="56" y="1086" font-size="13" fill="#6B6B75">장치가 늘어도 드라이버 한 겹만 추가되고, 강제 지점이 모델 바깥에 모입니다</text>
+
+  <text x="32" y="1132" font-size="11" fill="#B0B0B8">jesamkim.github.io</text>
+</svg>
