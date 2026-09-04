@@ -29,6 +29,10 @@ Anthropic은 미출시 연구용 Claude 모델에게 Claude Code 환경에서 "�
 
 <strong>검증은 어떻게 이뤄졌는가.</strong> 서브에이전트들이 서로의 증명을 교차 검토하고, 반례를 찾고, 결과를 독립적으로 재도출했습니다. 이 결과가 이미 알려진 것이 아닌지 확인하기 위해 arXiv 논문 54편을 내려받아 대조했습니다. Anthropic 소속 수학자 Levent Alpöge와 Ralph Furman이 작업을 검토했고, 외부 전문가 Brian Conrey와 Dan Goldston도 논문을 검토했습니다. 여기에 더해 Eric Easley와 함께 Lean 형식화를 만들어 검증 도구인 "comparator"로 통과시켰습니다. 원 글은 8월 10일에 올라왔고, 더 명확한 증명과 역사적 맥락을 보강한 개정판이 8월 13일에 나왔습니다.
 
+![리만 제타 함수 영점 비율의 기존 하한과 Claude 연구 결과 비교](/ai-tech-blog/images/claude-research-process-verification-bottleneck/riemann-result.png)
+
+*리만 제타 함수 영점 비율에 관한 기존 하한과 이번 결과. 출처: [Anthropic, Learning more about Claude's mathematical capabilities](https://www.anthropic.com/research/riemann-zeta).*
+
 <strong>실무에서 읽을 대목.</strong> 이 사례가 흥미로운 이유는 비수학자 한 명이 격려만 하는데도 결과가 나왔다는 점이 아니라, 그 결과를 신뢰할 수 있게 만든 검증 인프라가 이미 존재했다는 점입니다. 형식 증명 도구, Anthropic 소속 수학자, 외부 학계 전문가, 54편의 선행 연구 대조까지 네 겹의 검증 장치가 있었기에 67.2%라는 수치를 믿을 수 있습니다. 이 인프라가 없는 도메인에서 같은 방식으로 서브에이전트 60개를 풀어놓으면, 생성된 결과의 신뢰도를 판단할 방법이 없습니다. 장시간 자율 에이전트 런을 설계할 때 핵심 질문은 "얼마나 많은 아이디어를 생성할 수 있는가"가 아니라 "그 아이디어를 독립적으로 검증할 장치를 생성 속도만큼 갖췄는가"입니다.
 
 ## How Claude is accelerating protein design and analytical chemistry
@@ -62,6 +66,10 @@ Anthropic은 미출시 연구용 Claude 모델에게 Claude Code 환경에서 "�
 <strong>이번 결과만으로 판단하기 어려운 부분.</strong> 이 실험들은 특정 과제(취약점 탐색, 게임 제작, 백엔드 마이그레이션, 죄수의 딜레마)에서 관찰된 패턴이고, 다른 도메인이나 더 큰 규모의 스웜에서 같은 패턴이 나타난다는 보장은 없습니다. 스웜의 취약점 탐색 우위도 순수 능력 차이가 아니라 탐색 범위 확장에서 나온다는 점을 Anthropic 스스로 밝히고 있습니다.
 
 <strong>실무에서 읽을 대목.</strong> 조정된 스웜이 커버리지를 크게 넓힌다는 것은 실질적 이점이지만 공짜가 아닙니다. 토큰 비용이 약 4배로 뛰고, 조정이 항상 더 나은 결과를 내는 것도 아닙니다. 판타지 게임 실험처럼 산출물의 질이 조정 구조와 무관하게 낮게 유지되는 과제도 있습니다. 취약점 탐색처럼 넓은 탐색 범위 자체가 가치인 과제에는 스웜이 맞고, 창의적 산출물의 응집도가 중요한 과제에는 맞지 않을 수 있습니다. 또한 동조 실패와 갈등 격화는 에이전트들이 신뢰를 자체 형성하도록 방치했을 때 나타났습니다. 심사 에이전트나 명시적 중재 구조를 설계에 넣지 않으면, 스웜은 넓은 커버리지와 함께 시스템적 실패의 위험도 함께 가져옵니다.
+
+![멀티에이전트 스웜과 독립 병렬 탐색의 취약점 발견량 비교](/ai-tech-blog/images/claude-research-process-verification-bottleneck/multiagent-coordination.png)
+
+*조정하는 에이전트 스웜과 독립 병렬 방식의 취약점 발견량 비교. 출처: [Anthropic, Patterns and problems in multiagent systems](https://www.anthropic.com/research/multiagent-systems).*
 
 ## 세 편에서 공통으로 보이는 흐름
 
