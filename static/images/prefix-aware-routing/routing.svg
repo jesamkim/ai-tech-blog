@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" role="img" aria-labelledby="svgTitle svgDesc">
+  <title id="svgTitle">Prefix-aware routing</title>
+  <desc id="svgDesc">Requests sharing token prefix P are preferentially routed to Server A, which holds a warm P KV cache. Requests with a different prefix Q are preferentially routed to Server B, which holds a warm Q cache. When Server A lacks capacity, P requests overflow along a dashed fallback route to Server C, which has no warm P cache and computes the prefix. Generic explanatory example; no guarantee of cache hits and no specific product algorithm implied.</desc>
+
+  <defs>
+    <!-- Card surface: near-white, the default fill for every generic node -->
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAFAFA"/>
+    </linearGradient>
+
+    <!-- Hero surface: reserve for the single main orchestrator node -->
+    <linearGradient id="accentBlack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#333333"/>
+    </linearGradient>
+
+    <!-- Data layer surface: pastel blue band for storage and indexes -->
+    <linearGradient id="dataBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6F9FF"/>
+      <stop offset="100%" stop-color="#EEF3FF"/>
+    </linearGradient>
+
+    <!-- Diagonal purple, for an accent bar or a highlighted chip -->
+    <linearGradient id="accentPurple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#635BFF"/>
+      <stop offset="100%" stop-color="#8B7FFF"/>
+    </linearGradient>
+
+    <!--
+      ONE ARROWHEAD PER CONNECTOR COLOUR. Pair each with the matching stroke:
+
+        #arrowFlow    with stroke #8C8C95   flow
+        #arrowData    with stroke #B8C5E8   data reference, dashed
+        #arrowReturn  with stroke #D6DFF5   return
+        #arrowSuccess with stroke #10B981   success, output
+
+      This is verbose, and the tempting alternative is one marker with
+      fill="context-stroke" so the head inherits the path's stroke. Do not use
+      it. Measured 2026-08-24 across four engines:
+
+        librsvg 2.62.3   context-stroke honoured
+        Chromium 1237    context-stroke honoured
+        WebKit           renders the head BLACK
+        cairosvg 2.9.0   renders the head BLACK
+
+      caniuse puts context-fill and context-stroke at about 73% global, which is
+      Chrome plus Edge plus Firefox with Safari absent, agreeing with the WebKit
+      measurement. A black arrowhead on a green connector reads as a bug to every
+      Safari reader, and it is invisible on a dark background, so the verbose
+      form is the correct default for anything published.
+
+      Adding a colour means copying one marker block and changing two strings.
+      check_svg.py reports a stroke whose marker fill does not match it as
+      marker_color_mismatch, which is the defect this skill shipped for four
+      months: a single gray marker reused on a green success connector.
+    -->
+    <marker id="arrowFlow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#8C8C95"/>
+    </marker>
+    <marker id="arrowData" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#B8C5E8"/>
+    </marker>
+    <marker id="arrowReturn" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#D6DFF5"/>
+    </marker>
+    <marker id="arrowSuccess" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#10B981"/>
+    </marker>
+
+    <!--
+      Soft shadow for cards. Wrap ONLY the <rect> in the filtered group and draw
+      the card's text as a sibling; a <text> inside this group has its glyphs
+      blurred by the Gaussian stage. check_svg.py reports that as text_in_filter.
+    -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.08"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+<marker id="arrowP" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#0891B2"/>
+    </marker><marker id="arrowQ" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#635BFF"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas -->
+  <rect x="0" y="0" width="1200" height="850" fill="#FFFFFF"/>
+
+  <!-- Title block -->
+  <text x="60" y="78" font-family="Helvetica, Arial, sans-serif"
+        font-size="46" font-weight="700" fill="#0A0A0A" letter-spacing="-1">Prefix-aware routing</text>
+  <text x="60" y="122" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#6B6B75">Reuse when possible. Balance load when needed.</text>
+  <line x1="60" y1="150" x2="840" y2="150" stroke="#EAEAEA" stroke-width="1"/>
+
+  <!-- Column headings -->
+  <text x="50" y="228" font-family="Helvetica, Arial, sans-serif"
+        font-size="20" font-weight="600" fill="#6B6B75" letter-spacing="0.08em">REQUESTS</text>
+  <text x="900" y="158" font-family="Helvetica, Arial, sans-serif"
+        font-size="20" font-weight="600" fill="#6B6B75" letter-spacing="0.08em">SERVERS</text>
+
+  <!-- Request card: prefix P -->
+  <g filter="url(#softShadow)">
+    <rect x="50" y="250" width="250" height="130" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1"/>
+  </g>
+  <rect x="50" y="254" width="5" height="122" rx="2.5" fill="#0891B2"/>
+  <text x="78" y="302" font-family="Helvetica, Arial, sans-serif"
+        font-size="32" font-weight="600" fill="#0A0A0A">Prefix P</text>
+  <text x="78" y="344" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#6B6B75">shared prefix</text>
+
+  <!-- Request card: prefix Q -->
+  <g filter="url(#softShadow)">
+    <rect x="50" y="470" width="250" height="130" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1"/>
+  </g>
+  <rect x="50" y="474" width="5" height="122" rx="2.5" fill="#635BFF"/>
+  <text x="78" y="522" font-family="Helvetica, Arial, sans-serif"
+        font-size="32" font-weight="600" fill="#0A0A0A">Prefix Q</text>
+  <text x="78" y="564" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#6B6B75">other prefix</text>
+
+  <!-- Router hero card -->
+  <g filter="url(#softShadow)">
+    <rect x="430" y="340" width="280" height="200" rx="12" fill="url(#accentBlack)" stroke="#000000" stroke-width="1"/>
+  </g>
+  <text x="454" y="385" font-family="Helvetica, Arial, sans-serif"
+        font-size="20" font-weight="600" fill="#00D9FF" letter-spacing="0.08em">ROUTER</text>
+  <text x="454" y="432" font-family="Helvetica, Arial, sans-serif"
+        font-size="36" font-weight="600" fill="#FFFFFF">Router</text>
+  <text x="454" y="476" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#A0A0AA">Match prefix</text>
+  <text x="454" y="515" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#A0A0AA">Check load</text>
+
+  <!-- Server A -->
+  <g filter="url(#softShadow)">
+    <rect x="900" y="180" width="250" height="140" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1"/>
+  </g>
+  <rect x="900" y="184" width="5" height="132" rx="2.5" fill="#0891B2"/>
+  <text x="928" y="234" font-family="Helvetica, Arial, sans-serif"
+        font-size="32" font-weight="600" fill="#0A0A0A">Server A</text>
+  <text x="928" y="276" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#6B6B75">Warm P cache</text>
+
+  <!-- Server B -->
+  <g filter="url(#softShadow)">
+    <rect x="900" y="370" width="250" height="140" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1"/>
+  </g>
+  <rect x="900" y="374" width="5" height="132" rx="2.5" fill="#635BFF"/>
+  <text x="928" y="424" font-family="Helvetica, Arial, sans-serif"
+        font-size="32" font-weight="600" fill="#0A0A0A">Server B</text>
+  <text x="928" y="466" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#6B6B75">Warm Q cache</text>
+
+  <!-- Server C -->
+  <g filter="url(#softShadow)">
+    <rect x="900" y="560" width="250" height="150" rx="10" fill="url(#cardBg)" stroke="#E5E5EA" stroke-width="1"/>
+  </g>
+  <rect x="900" y="564" width="5" height="142" rx="2.5" fill="#B0B0B8"/>
+  <text x="928" y="614" font-family="Helvetica, Arial, sans-serif"
+        font-size="32" font-weight="600" fill="#0A0A0A">Server C</text>
+  <text x="928" y="656" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#6B6B75">No warm P</text>
+  <text x="928" y="694" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" fill="#6B6B75">Compute P</text>
+
+  <!-- Request P to router -->
+  <path d="M300,315 H365 V390 H430" fill="none" stroke="#8C8C95" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+  <!-- Request Q to router -->
+  <path d="M300,535 H365 V490 H430" fill="none" stroke="#8C8C95" stroke-width="2.5" marker-end="url(#arrowFlow)"/>
+
+  <!-- Router to Server A: P preferred -->
+  <path d="M640,340 V250 H900" fill="none" stroke="#0891B2" stroke-width="3" marker-end="url(#arrowP)"/>
+  <text x="770" y="235" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="600" fill="#0891B2">P preferred</text>
+
+  <!-- Router to Server B: Q preferred -->
+  <path d="M710,440 H900" fill="none" stroke="#635BFF" stroke-width="3" marker-end="url(#arrowQ)"/>
+  <text x="805" y="425" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="600" fill="#635BFF">Q preferred</text>
+
+  <!-- Router to Server C: P overflow, dashed fallback -->
+  <path d="M640,540 V635 H900" fill="none" stroke="#0891B2" stroke-width="3"
+        stroke-dasharray="8 7" marker-end="url(#arrowP)"/>
+  <text x="770" y="616" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="600" fill="#0891B2">P overflow</text>
+
+  <!-- Watermark -->
+  <text x="1140" y="820" text-anchor="end" font-family="Helvetica, Arial, sans-serif"
+        font-size="20" font-weight="400" fill="#B0B0B8">jesamkim.github.io</text>
+</svg>
