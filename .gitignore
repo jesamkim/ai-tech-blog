@@ -17,6 +17,7 @@ output-control-patterns-demo-backup/
 # Task files
 blog-task*.txt
 *.svg
+!static/safari-pinned-tab.svg
 gtc2026_ref.pptx
 system-design-prep.md
 cover-vlm-finetuning.bak.png

@@ -43,12 +43,18 @@ enableEmoji = false
   math = true
 
   [params.assets]
-    favicon = "/favicon.ico"
+    favicon = "favicon.ico?v=20260922"
+    favicon16x16 = "favicon-16x16.png?v=20260922"
+    favicon32x32 = "favicon-32x32.png?v=20260922"
+    apple_touch_icon = "apple-touch-icon.png?v=20260922"
+    safari_pinned_tab = "safari-pinned-tab.svg?v=20260922"
+    theme_color = "#6339da"
+    msapplication_TileColor = "#6339da"
     disableHLJS = true
 
   [params.label]
     text = "AI Tech Blog"
-    icon = "/apple-touch-icon.png"
+    icon = "favicon.png"
     iconHeight = 35
 
   [params.profileMode]
