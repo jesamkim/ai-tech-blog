@@ -1,5 +1,5 @@
 ---
-title: "Jev 딥다이브: 판단 전용 AI의 원리와 활용"
+title: "Jev: 판단 전용 AI의 원리와 활용"
 slug: "jev-system-one-deep-dive"
 date: 2026-09-22T09:38:04+09:00
 draft: false
@@ -88,7 +88,7 @@ Jev를 정해진 항목이 있는 접수표를 채우는 담당자에 비유할 
 
 </details>
 
-*직접 제작한 개념 설명입니다. 출처: [TypeSafe의 소프트웨어 설계 가이드](https://docs.typesafe.ai/concepts/how-to-build-with-system-one).*
+*고객 문의에 대한 판단을 코드의 처리 규칙과 연결한 예시입니다. 출처: [TypeSafe의 소프트웨어 설계 가이드](https://docs.typesafe.ai/concepts/how-to-build-with-system-one).*
 
 이 흐름에서 `state`는 모델이 읽을 자료입니다. 고객의 말, 주문 상태, 필요한 정책을 담습니다. `questions`에는 자료를 어떻게 판단할지 적습니다. 프로그램은 반환된 값을 읽고 다음 작업을 정합니다. 현재 Jev가 받는 입력은 텍스트입니다. 이미지나 녹음은 별도 처리로 텍스트 또는 구조화된 필드로 바꿔야 합니다. [State](https://docs.typesafe.ai/concepts/state)
 
@@ -116,7 +116,7 @@ Choice와 Score가 반환하는 `confidence`는 확률분포 모양에서 계산
 
 [![Choice의 확률분포가 한 보기에 모인 경우와 여러 보기에 퍼진 경우를 비교합니다.](/ai-tech-blog/images/jev-system-one-deep-dive/probability-confidence.png)](/ai-tech-blog/images/jev-system-one-deep-dive/probability-confidence.png)
 
-*직접 제작한 설명용 그림입니다. 실제 측정 결과가 아닙니다. 그림을 누르면 크게 볼 수 있습니다. 출처: [Score](https://docs.typesafe.ai/primitives/score), [Confidence](https://docs.typesafe.ai/confidence).*
+*같은 선택지에 대한 두 가지 확률분포를 비교한 예시입니다. 실제 측정값은 아닙니다. 그림을 누르면 크게 볼 수 있습니다. 출처: [Score](https://docs.typesafe.ai/primitives/score), [Confidence](https://docs.typesafe.ai/confidence).*
 
 여기서 <strong>확률 보정(calibration)</strong>을 구분해야 합니다. 예측 확률이 0.8인 사례들을 많이 모았을 때 해당 결과가 약 80% 발생한다면, 그 구간에서 확률이 실제 빈도와 잘 맞습니다. 개별 예측의 정답을 보장하는 성질은 아닙니다. 신경망의 정확도와 확률 보정은 별도로 평가해야 한다는 점은 [Guo 등의 ICML 2017 연구](https://proceedings.mlr.press/v70/guo17a.html)에서도 다뤘습니다.
 
@@ -128,7 +128,7 @@ TypeSafe는 확률 보정을 학습 목표로 내세웁니다. 그렇더라도 �
 
 [![언어 모델의 순차적인 토큰 생성과 Jev의 공유 state에 대한 여러 질문 평가를 비교합니다.](/ai-tech-blog/images/jev-system-one-deep-dive/flow-comparison.png)](/ai-tech-blog/images/jev-system-one-deep-dive/flow-comparison.png)
 
-*직접 제작한 개념도입니다. 출처: [System One](https://docs.typesafe.ai/concepts/system-one), [Speculative fan-out](https://docs.typesafe.ai/patterns/fan-out).*
+*토큰을 순서대로 생성하는 방식과 여러 질문을 함께 평가하는 방식을 비교했습니다. 출처: [System One](https://docs.typesafe.ai/concepts/system-one), [Speculative fan-out](https://docs.typesafe.ai/patterns/fan-out).*
 
 같은 문의에서 요청 유형, 취소 의사, 업무 영향도를 판단한다면 세 질문을 한 요청에 넣을 수 있습니다. state를 반복해서 보내는 비용도 줄어듭니다. 답이 필요한 분기가 아직 정해지지 않았더라도, 동일한 자료만 있으면 판단할 수 있는 질문은 미리 묶어 보낼 수 있습니다. 이를 문서는 speculative fan-out이라고 설명합니다. [Speculative fan-out](https://docs.typesafe.ai/patterns/fan-out)
 
@@ -200,7 +200,7 @@ JSON Schema를 따르는 출력과도 구분해서 볼 필요가 있습니다. �
 
 [![Jev와 비교 모델의 비용, 지연, 참조 답안 일치율을 함께 비교한 업체 자체 평가입니다.](/ai-tech-blog/images/jev-system-one-deep-dive/benchmark.png)](/ai-tech-blog/images/jev-system-one-deep-dive/benchmark.png)
 
-*공식 평가 페이지의 수치를 바탕으로 직접 다시 그렸습니다. 4개 워크플로를 같은 비중으로 평균한 값 중 다섯 모델을 발췌했습니다. 비용과 시간은 케이스당 값입니다. 원문의 비용과 시간 축은 로그이며, 여기서는 0을 기준으로 한 선형 축으로 그렸습니다. 모델명과 반올림된 값은 원문 표기를 따릅니다. 출처: [Workflow evals](https://evals.typesafe.ai/), 2026년 9월 22일 확인.*
+*공식 평가의 다섯 모델을 비교한 차트입니다. 각 수치는 4개 워크플로를 같은 비중으로 평균한 값입니다. 비용과 시간은 케이스당 값입니다. 원문의 비용과 시간 축은 로그이며, 여기서는 0을 기준으로 한 선형 축으로 그렸습니다. 모델명과 반올림된 값은 원문 표기를 따릅니다. 출처: [Workflow evals](https://evals.typesafe.ai/), 2026년 9월 22일 확인.*
 
 이 평가의 참조 답안은 GPT-6 Astra와 Claude Fable 5.1을 높은 추론 설정으로 실행한 결과를 평균해 만들었습니다. 다른 모델은 제공자의 기본 추론 설정을 사용합니다. 그래프의 ‘accuracy’는 이 참조 답안을 기준으로 한 값이므로, 사람이 검증한 실제 업무 정답률과 구분해야 합니다. 보안 사고, 에이전트 실행 기록, 청구서, 고객 서비스의 네 워크플로가 같은 비중으로 반영됩니다. [평가 방법](https://evals.typesafe.ai/)
 
