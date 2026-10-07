@@ -77,12 +77,12 @@ Score의 계산법에는 차이가 있습니다. Jev 문서는 가장 가능성�
 
 ## v19와 v21의 공개 평가 결과
 
-발표 글의 모델은 v19이며, 10월 7일 확인한 공식 저장소에는 v21도 안내돼 있습니다. 아래는 각 모델 카드에 기록된 <strong>공개 배포 파일의 JevBench 평가</strong>입니다.
+발표 글의 모델은 v19이며, 10월 7일 확인한 공식 저장소에는 v21도 안내돼 있습니다. 아래는 각 모델 카드에 기록된 <strong>공개 배포 파일의 JevBench 평가</strong>입니다. 두 모델 모두 Context Window를 4,096토큰으로 설정한 결과입니다.
 
-| 체크포인트 | 공개 과제 정답 수 | 정확도 | Brier score | Context Window (토큰) |
-|---|---:|---:|---:|---:|
-| v19 | 167 / 231 | 72.3% | 0.348 | 4,096 |
-| v21 | 176 / 231 | 76.2% | 0.323 | 4,096 |
+| 체크포인트 | 공개 과제 정답 수 | 정확도 | Brier score |
+|---|---:|---:|---:|
+| v19 | 167 / 231 | 72.3% | 0.348 |
+| v21 | 176 / 231 | 76.2% | 0.323 |
 
 <small>참조: [v19 모델 카드의 Results](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v19), [v21 모델 카드의 Results와 선택 방법](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v21)</small>
 
