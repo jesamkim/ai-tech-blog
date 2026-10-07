@@ -1,10 +1,10 @@
 ---
-title: "Strands Decider 2B와 Jev 비교: 공개 구조와 EC2 GPU 실험"
+title: "Strands Decider 2B와 Jev 비교: 공개 구조와 GPU 실험"
 slug: "strands-decider-vs-jev"
 date: 2026-10-07T15:52:32+09:00
 draft: false
 author: "Jesam Kim"
-description: "AWS Strands Decider 2B의 공개 구조와 운영 조건을 Jev와 비교합니다. EC2 GPU에서 v19와 v21을 실행해 영어와 한국어 분류, 질문 반전, 입력 길이에 따른 지연을 확인합니다."
+description: "AWS Strands Decider 2B의 공개 구조와 운영 조건을 Jev와 비교합니다. GPU에서 v19와 v21을 실행해 영어와 한국어 분류, 질문 반전, 입력 길이에 따른 지연을 확인합니다."
 categories: ["AWS AI/ML"]
 tags: ["Strands Agents", "Strands Decider", "Jev", "System One", "AI Agent", "Calibration"]
 cover:
@@ -55,7 +55,7 @@ Decider는 사전 학습한 `Qwen3.5-2B-Base`를 바탕으로 만듭니다. 일�
 
 Decider는 판단 단계의 입력을 자체 환경 안에서 처리하도록 구성할 수 있습니다. 그렇다고 전체 에이전트의 데이터가 자동으로 내부에 머무르는 것은 아닙니다. 답변을 만드는 LLM이나 외부 도구를 별도로 호출한다면 그 단계의 데이터 흐름도 확인해야 합니다. 반대로 관리형 API를 사용하면 모델을 설치하고 GPU 용량을 맞추는 작업을 서비스 제공자에게 맡길 수 있습니다.
 
-공개 모델을 무료로 내려받는다는 사실만으로 요청당 비용이 Jev보다 낮다고 결론낼 수는 없습니다. 같은 장비에서도 사용률과 요청 크기에 따라 비용이 달라집니다. 이 글의 EC2 실험은 이미 실행 중인 GPU를 사용하므로 새 인스턴스를 생성하지 않았지만, 장비 이용 비용까지 없어지는 것은 아닙니다.
+공개 모델을 무료로 내려받는다는 사실만으로 요청당 비용이 Jev보다 낮다고 결론낼 수는 없습니다. 같은 장비에서도 사용률과 요청 크기에 따라 비용이 달라집니다. 이 글의 실험은 이미 실행 중인 GPU를 사용하므로 새 인스턴스를 생성하지 않았지만, 장비 이용 비용까지 없어지는 것은 아닙니다.
 
 Jev도 SDK와 워크플로 평가 코드를 공개합니다. TypeSafe의 `WorkflowEvals`를 통해 API 기반 평가를 재현하는 것과, Decider의 가중치와 학습 코드를 이용해 모델 자체를 재현하는 것은 공개 범위가 다릅니다.
 
@@ -94,13 +94,13 @@ Brier score는 예측한 확률과 실제 정답의 차이를 평가하며, 이 
 
 <small>참조: [Decider의 JevBench 평가 범위](https://github.com/strands-labs/strands-decider/blob/3e94e9d84c620ed5a95f1a3310c3decb971e261c/evaluation/jevbench.md), [TypeSafe 공식 평가](https://evals.typesafe.ai/)</small>
 
-발표 글의 RTX 3090 중앙값 약 115ms도 측정 조건이 있는 수치입니다. 같은 글의 지연 그래프는 v18 결과라고 적혀 있습니다. 이를 아래 EC2 GPU 실험이나 Jev의 API 지연과 합쳐 모델 간 속도 순위를 만들지는 않았습니다.
+발표 글의 RTX 3090 중앙값 약 115ms도 측정 조건이 있는 수치입니다. 같은 글의 지연 그래프는 v18 결과라고 적혀 있습니다. 이를 아래 GPU 실험이나 Jev의 API 지연과 합쳐 모델 간 속도 순위를 만들지는 않았습니다.
 
 <small>참조: [발표 글의 지연 설명과 Figure 3](https://strandsagents.com/blog/introducing-strands-decider/)</small>
 
-## EC2 GPU에서 직접 확인한 결과
+## GPU에서 직접 확인한 결과
 
-기존 EC2의 GPU 한 대(메모리 24GB)에서 v19와 v21을 실행했습니다. BF16, 4,096토큰 윈도, 요청당 질문 하나를 사용했습니다. 소스 커밋과 Hugging Face의 모델 revision을 고정했고, Python 3.13.12, PyTorch 2.10.0, Transformers 5.17.0 환경에서 FLA와 causal-conv1d의 최적화 구현이 선택됐는지 확인했습니다. Jev API는 이번에 실행하지 않았습니다.
+메모리 24GB인 GPU 한 대에서 v19와 v21을 실행했습니다. BF16, 4,096토큰 윈도, 요청당 질문 하나를 사용했습니다. 소스 커밋과 Hugging Face의 모델 revision을 고정했고, Python 3.13.12, PyTorch 2.10.0, Transformers 5.17.0 환경에서 FLA와 causal-conv1d의 최적화 구현이 선택됐는지 확인했습니다. Jev API는 이번에 실행하지 않았습니다.
 
 <strong>입력과 정답, 판정 기준은 첫 추론 전에 고정했습니다.</strong> 분류 실험에는 결제, 기술 지원, 영업 문의를 각각 4개씩 만들고 영어와 한국어로 같은 뜻을 적었습니다. 총 24개 입력이며 질문과 선택지 설명은 영어로 유지했습니다. 따라서 이 실험은 한국어 state를 읽는지 확인하는 범위입니다.
 
@@ -135,7 +135,7 @@ v21에서 정답과 달랐던 입력은 “환불을 요청하는 것이 아닙�
 
 <small>참조: [실험의 raw.jsonl 및 summary.json](/ai-tech-blog/downloads/strands-decider-vs-jev/experiment.zip)</small>
 
-[![EC2 GPU에서 두 모델의 워밍업 후 중앙값은 132토큰에서 약 62-67ms, 510토큰에서 약 70ms, 2,049토큰에서 약 265ms였습니다.](/ai-tech-blog/images/strands-decider-vs-jev/ec2-gpu-latency.png)](/ai-tech-blog/images/strands-decider-vs-jev/ec2-gpu-latency.png)
+[![GPU에서 두 모델의 워밍업 후 중앙값은 132토큰에서 약 62-67ms, 510토큰에서 약 70ms, 2,049토큰에서 약 265ms였습니다.](/ai-tech-blog/images/strands-decider-vs-jev/gpu-latency.png)](/ai-tech-blog/images/strands-decider-vs-jev/gpu-latency.png)
 
 *직접 측정한 중앙값입니다. 각 길이에서 같은 합성 입력을 20회 반복한 결과이며, 긴 문서의 이해 능력이나 운영 서비스의 지연을 평가한 그래프는 아닙니다.*
 
